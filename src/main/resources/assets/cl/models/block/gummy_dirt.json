@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "cl:block/gummydirt",
+    "up": "cl:block/gummydirt",
+    "north": "cl:block/gummydirt",
+    "east": "cl:block/gummydirt",
+    "south": "cl:block/gummydirt",
+    "west": "cl:block/gummydirt",
+    "particle": "cl:block/gummydirt"
+  },
+  "render_type": "solid"
+}

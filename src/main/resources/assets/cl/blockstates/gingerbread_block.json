@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "cl:block/gingerbread_block"
+    }
+  }
+}

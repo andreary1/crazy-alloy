@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "cl:sweet_biome",
+  "spawners": {
+    "type": "cl:cotton_candy_tornado",
+    "weight": 20,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

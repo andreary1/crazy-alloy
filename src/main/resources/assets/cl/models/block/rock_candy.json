@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "cl:block/rock_candy",
+    "up": "cl:block/rock_candy",
+    "north": "cl:block/rock_candy",
+    "east": "cl:block/rock_candy",
+    "south": "cl:block/rock_candy",
+    "west": "cl:block/rock_candy",
+    "particle": "cl:block/candy"
+  },
+  "render_type": "solid"
+}

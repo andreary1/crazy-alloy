@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cl:sweet_biome",
+  "features": "cl:melted_chocolate_spawn",
+  "step": "surface_structures"
+}

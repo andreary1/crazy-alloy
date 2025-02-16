@@ -1,0 +1,393 @@
+{
+  "mod_elements": [
+    {
+      "name": "GummyGrass",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gummy_grass",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/gummy_grass.json",
+          "src/main/resources/data/cl/loot_tables/blocks/gummy_grass.json",
+          "src/main/resources/assets/cl/blockstates/gummy_grass.json",
+          "src/main/java/net/mcreator/countries/block/GummyGrassBlock.java",
+          "src/main/resources/assets/cl/models/block/gummy_grass.json"
+        ]
+      }
+    },
+    {
+      "name": "GummyDirt",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gummy_dirt",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/gummy_dirt.json",
+          "src/main/java/net/mcreator/countries/block/GummyDirtBlock.java",
+          "src/main/resources/assets/cl/blockstates/gummy_dirt.json",
+          "src/main/resources/data/cl/loot_tables/blocks/gummy_dirt.json",
+          "src/main/resources/assets/cl/models/block/gummy_dirt.json"
+        ]
+      }
+    },
+    {
+      "name": "RockCandy",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rock_candy",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/rock_candy.json",
+          "src/main/resources/assets/cl/blockstates/rock_candy.json",
+          "src/main/resources/data/cl/loot_tables/blocks/rock_candy.json",
+          "src/main/resources/assets/cl/models/block/rock_candy.json",
+          "src/main/java/net/mcreator/countries/block/RockCandyBlock.java"
+        ]
+      }
+    },
+    {
+      "name": "Candylog",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candylog",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/block/CandylogBlock.java",
+          "src/main/resources/assets/cl/models/block/candylog.json",
+          "src/main/resources/assets/cl/models/item/candylog.json",
+          "src/main/resources/data/cl/loot_tables/blocks/candylog.json",
+          "src/main/resources/assets/cl/blockstates/candylog.json"
+        ]
+      }
+    },
+    {
+      "name": "MeltedChocolate",
+      "type": "fluid",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "melted_chocolate",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/block/MeltedChocolateBlock.java",
+          "src/main/resources/assets/cl/models/item/melted_chocolate_bucket.json",
+          "src/main/java/net/mcreator/countries/fluid/MeltedChocolateFluid.java",
+          "src/main/resources/assets/cl/models/block/melted_chocolate.json",
+          "src/main/java/net/mcreator/countries/fluid/types/MeltedChocolateFluidType.java",
+          "src/main/resources/assets/cl/blockstates/melted_chocolate.json",
+          "src/main/java/net/mcreator/countries/item/MeltedChocolateItem.java"
+        ]
+      }
+    },
+    {
+      "name": "CandyLeaves",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_leaves",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/candy_leaves.json",
+          "src/main/resources/data/cl/loot_tables/blocks/candy_leaves.json",
+          "src/main/resources/assets/cl/models/block/candy_leaves.json",
+          "src/main/java/net/mcreator/countries/block/CandyLeavesBlock.java",
+          "src/main/resources/assets/cl/blockstates/candy_leaves.json"
+        ]
+      }
+    },
+    {
+      "name": "SweetBiome",
+      "type": "biome",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sweet_biome",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/worldgen/biome/sweet_biome.json",
+          "src/main/resources/data/cl/worldgen/configured_feature/sweet_biome_tree.json",
+          "src/main/resources/data/cl/worldgen/placed_feature/sweet_biome_tree.json"
+        ]
+      }
+    },
+    {
+      "name": "CandyTubeDog",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_tube_dog",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/client/renderer/CandyTubeDogRenderer.java",
+          "src/main/java/net/mcreator/countries/entity/model/CandyTubeDogModel.java",
+          "src/main/resources/data/cl/forge/biome_modifier/candy_tube_dog_biome_modifier.json",
+          "src/main/resources/assets/cl/models/item/candy_tube_dog_spawn_egg.json",
+          "src/main/java/net/mcreator/countries/entity/CandyTubeDogEntity.java"
+        ]
+      }
+    },
+    {
+      "name": "JellyShark",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jelly_shark",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/client/renderer/JellySharkRenderer.java",
+          "src/main/java/net/mcreator/countries/entity/JellySharkEntity.java",
+          "src/main/java/net/mcreator/countries/entity/model/JellySharkModel.java",
+          "src/main/resources/assets/cl/models/item/jelly_shark_spawn_egg.json",
+          "src/main/resources/data/cl/forge/biome_modifier/jelly_shark_biome_modifier.json"
+        ]
+      }
+    },
+    {
+      "name": "LollipopGuy",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lollipop_guy",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/client/renderer/LollipopGuyRenderer.java",
+          "src/main/java/net/mcreator/countries/entity/LollipopGuyEntity.java",
+          "src/main/resources/assets/cl/models/item/lollipop_guy_spawn_egg.json",
+          "src/main/resources/data/cl/forge/biome_modifier/lollipop_guy_biome_modifier.json"
+        ]
+      }
+    },
+    {
+      "name": "Lollipop",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lollipop",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/LollipopItem.java",
+          "src/main/resources/assets/cl/models/item/lollipop.json"
+        ]
+      }
+    },
+    {
+      "name": "MeltedChocolateSpawn",
+      "type": "feature",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "melted_chocolate_spawn",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/worldgen/configured_feature/melted_chocolate_spawn.json",
+          "src/main/resources/data/cl/worldgen/placed_feature/melted_chocolate_spawn.json",
+          "src/main/resources/data/cl/forge/biome_modifier/melted_chocolate_spawn_biome_modifier.json"
+        ]
+      }
+    },
+    {
+      "name": "GingerbreadBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gingerbread_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/loot_tables/blocks/gingerbread_block.json",
+          "src/main/resources/assets/cl/blockstates/gingerbread_block.json",
+          "src/main/java/net/mcreator/countries/block/GingerbreadBlockBlock.java",
+          "src/main/resources/assets/cl/models/item/gingerbread_block.json",
+          "src/main/resources/assets/cl/models/block/gingerbread_block.json"
+        ]
+      }
+    },
+    {
+      "name": "Gingerb",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gingerb",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/block/GingerbBlock.java",
+          "src/main/resources/assets/cl/models/block/gingerb.json",
+          "src/main/resources/assets/cl/models/item/gingerb.json",
+          "src/main/resources/assets/cl/blockstates/gingerb.json",
+          "src/main/resources/data/cl/loot_tables/blocks/gingerb.json"
+        ]
+      }
+    },
+    {
+      "name": "BrownSugarRhino",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "brown_sugar_rhino",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/client/renderer/BrownSugarRhinoRenderer.java",
+          "src/main/resources/data/cl/forge/biome_modifier/brown_sugar_rhino_biome_modifier.json",
+          "src/main/resources/assets/cl/models/item/brown_sugar_rhino_spawn_egg.json",
+          "src/main/java/net/mcreator/countries/entity/BrownSugarRhinoEntity.java"
+        ]
+      }
+    },
+    {
+      "name": "CandyPlanks",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_planks",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/block/candy_planks.json",
+          "src/main/resources/data/cl/loot_tables/blocks/candy_planks.json",
+          "src/main/resources/assets/cl/models/item/candy_planks.json",
+          "src/main/resources/assets/cl/blockstates/candy_planks.json",
+          "src/main/java/net/mcreator/countries/block/CandyPlanksBlock.java"
+        ]
+      }
+    },
+    {
+      "name": "GingerbreadSoldier",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gingerbread_soldier",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/client/renderer/GingerbreadSoldierRenderer.java",
+          "src/main/java/net/mcreator/countries/entity/GingerbreadSoldierEntity.java",
+          "src/main/java/net/mcreator/countries/entity/GingerbreadSoldierEntityProjectile.java",
+          "src/main/resources/assets/cl/models/item/gingerbread_soldier_spawn_egg.json"
+        ]
+      }
+    },
+    {
+      "name": "CottonCandyTornado",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cotton_candy_tornado",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/client/renderer/CottonCandyTornadoRenderer.java",
+          "src/main/java/net/mcreator/countries/entity/CottonCandyTornadoEntity.java",
+          "src/main/resources/assets/cl/models/item/cotton_candy_tornado_spawn_egg.json",
+          "src/main/resources/data/cl/forge/biome_modifier/cotton_candy_tornado_biome_modifier.json",
+          "src/main/java/net/mcreator/countries/entity/model/CottonCandyTornadoModel.java"
+        ]
+      }
+    },
+    {
+      "name": "Candylogtoplanks",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candylogtoplanks",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/recipes/candylogtoplanks.json"
+        ]
+      }
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "tag_elements": {
+    "BLOCKS:minecraft:leaves": [
+      "~CUSTOM:CandyLeaves"
+    ],
+    "BLOCKS:minecraft:dirt": [
+      "CUSTOM:GummyGrass",
+      "CUSTOM:GummyDirt"
+    ],
+    "BIOMES:minecraft:has_structure/stronghold": [
+      "~CUSTOM:SweetBiome"
+    ],
+    "BLOCKS:minecraft:replaceable": [
+      "~CUSTOM:MeltedChocolate"
+    ],
+    "BLOCKS:minecraft:mineable/pickaxe": [
+      "~CUSTOM:RockCandy"
+    ],
+    "BLOCKS:minecraft:mineable/axe": [
+      "~CUSTOM:CandyPlanks",
+      "~CUSTOM:Candylog"
+    ],
+    "BLOCKS:minecraft:mineable/shovel": [
+      "~CUSTOM:GummyDirt",
+      "~CUSTOM:GummyGrass"
+    ],
+    "BIOMES:minecraft:has_structure/mineshaft": [
+      "~CUSTOM:SweetBiome"
+    ],
+    "BLOCKS:minecraft:animals_spawnable_on": [
+      "CUSTOM:GummyGrass"
+    ],
+    "BLOCKS:minecraft:logs": [
+      "CUSTOM:Candylog"
+    ]
+  },
+  "tab_element_order": {
+    "BUILDING_BLOCKS": [
+      "Candylog",
+      "Gingerb",
+      "GingerbreadBlock",
+      "CandyPlanks"
+    ]
+  },
+  "language_map": {
+    "en_us": {
+      "item.cl.brown_sugar_rhino_spawn_egg": "Brown Sugar Rhino Spawn Egg",
+      "item.cl.cotton_candy_tornado_spawn_egg": "Cotton Candy Tornado Spawn Egg",
+      "block.cl.gingerb": "Gingerbread Block",
+      "block.cl.rock_candy": "Rock Candy",
+      "biome.cl.sweet_biome": "Sweet Forest",
+      "entity.cl.candy_tube_dog": "Candy Tube Dog",
+      "entity.cl.gingerbread_soldier": "Gingerbread Soldier",
+      "entity.cl.jelly_shark": "Jelly Shark",
+      "item.cl.lollipop_guy_spawn_egg": "Lollipop Guy Spawn Egg",
+      "block.cl.gummy_grass": "Gummy Grass",
+      "block.cl.gingerbread_block": "Frosted Gingerbread Block",
+      "item.cl.gingerbread_soldier_spawn_egg": "Gingerbread Soldier Spawn Egg",
+      "item.cl.melted_chocolate_bucket": "Melted Chocolate Bucket",
+      "item.cl.candy_tube_dog_spawn_egg": "Candy Tube Dog Spawn Egg",
+      "entity.cl.lollipop_guy": "Lollipop Guy",
+      "block.cl.melted_chocolate": "Melted Chocolate",
+      "block.cl.candylog": "Candy Log",
+      "block.cl.candy_planks": "Candy Planks",
+      "entity.cl.cotton_candy_tornado": "Cotton Candy Tornado",
+      "item.cl.lollipop": "Lollipop",
+      "entity.cl.brown_sugar_rhino": "Brown Sugar Rhino",
+      "block.cl.gummy_dirt": "Gummy Dirt",
+      "block.cl.candy_leaves": "Candy Leaves",
+      "item.cl.jelly_shark_spawn_egg": "Jelly Shark Spawn Egg",
+      "fluid.cl.melted_chocolate": "Melted Chocolate"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": []
+  },
+  "workspaceSettings": {
+    "modid": "cl",
+    "modName": "crazy alloy",
+    "version": "1.0.0",
+    "author": "andre, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Not specified",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [
+      "geckolib"
+    ],
+    "currentGenerator": "forge-1.20.1",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "modElementsPackage": "net.mcreator.countries"
+  },
+  "mcreatorVersion": 202400452410
+}

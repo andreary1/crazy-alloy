@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "cl:block/gingerbread_block",
+    "up": "cl:block/gingerbread_block",
+    "north": "cl:block/gingerbread_block",
+    "east": "cl:block/gingerbread_block",
+    "south": "cl:block/gingerbread_block",
+    "west": "cl:block/gingerbread_block",
+    "particle": "cl:block/gingerbread_block"
+  },
+  "render_type": "solid"
+}

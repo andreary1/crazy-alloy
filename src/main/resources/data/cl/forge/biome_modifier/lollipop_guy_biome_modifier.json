@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "cl:sweet_biome",
+  "spawners": {
+    "type": "cl:lollipop_guy",
+    "weight": 10,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

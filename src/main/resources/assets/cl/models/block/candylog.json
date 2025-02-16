@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "cl:block/candylogbottom",
+    "up": "cl:block/candylogbottom",
+    "north": "cl:block/candylogside1",
+    "east": "cl:block/candylogside2",
+    "south": "cl:block/candylogside3",
+    "west": "cl:block/candylog",
+    "particle": "cl:block/candylogbottom"
+  },
+  "render_type": "solid"
+}
