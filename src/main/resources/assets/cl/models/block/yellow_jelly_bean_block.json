@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "cl:block/yellowjellybean",
+    "up": "cl:block/yellowjellybean",
+    "north": "cl:block/yellowjellybean",
+    "east": "cl:block/yellowjellybean",
+    "south": "cl:block/yellowjellybean",
+    "west": "cl:block/yellowjellybean",
+    "particle": "cl:block/yellowjellybean"
+  },
+  "render_type": "solid"
+}

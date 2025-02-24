@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cl:candy_cave",
+  "features": "cl:tourmaline_ore_block",
+  "step": "underground_ores"
+}

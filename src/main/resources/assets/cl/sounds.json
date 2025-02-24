@@ -1,0 +1,10 @@
+{
+  "ak47shot": {
+    "sounds": [
+      {
+        "name": "cl:ak-47-89833",
+        "stream": false
+      }
+    ]
+  }
+}

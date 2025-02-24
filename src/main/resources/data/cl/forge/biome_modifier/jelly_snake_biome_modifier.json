@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "cl:jelly_bean_fields",
+  "spawners": {
+    "type": "cl:jelly_snake",
+    "weight": 10,
+    "minCount": 1,
+    "maxCount": 2
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_fv": 73,
+  "_type": "projectile",
+  "definition": {
+    "projectileItem": {
+      "value": "CUSTOM:DeadJellySnake"
+    },
+    "showParticles": true,
+    "actionSound": {
+      "value": "entity.arrow.shoot"
+    },
+    "igniteFire": false,
+    "power": 1.0,
+    "damage": 5.0,
+    "knockback": 5,
+    "entityModel": "Modeljellysnakedead",
+    "customModelTexture": "deadjellysnake.png",
+    "modelWidth": 0.5,
+    "modelHeight": 0.5
+  }
+}

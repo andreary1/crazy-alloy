@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cl:chocolate_bar"
+    },
+    {
+      "item": "cl:chocolate_bar"
+    },
+    {
+      "item": "cl:chocolate_bar"
+    },
+    {
+      "item": "cl:chocolate_bar"
+    }
+  ],
+  "result": {
+    "item": "cl:chocolate_block",
+    "count": 4
+  }
+}

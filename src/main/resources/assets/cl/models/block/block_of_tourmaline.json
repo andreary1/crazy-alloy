@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "cl:block/tourmalineblock",
+    "particle": "cl:block/tourmalineblock"
+  },
+  "render_type": "solid"
+}

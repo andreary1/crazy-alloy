@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
+    "cl:candy_slab",
+    "cl:candy_fence_gate",
+    "cl:candy_fence",
+    "cl:candy_pressure_plate",
+    "cl:candy_stairs",
+    "cl:candy_button",
     "cl:candy_planks",
     "cl:candylog"
   ]

@@ -14,15 +14,33 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.level.block.Block;
 
+import net.mcreator.countries.block.YellowJellyBeanBlockBlock;
+import net.mcreator.countries.block.TourmalineOreBlockBlock;
 import net.mcreator.countries.block.RockCandyBlock;
+import net.mcreator.countries.block.RedJellyBeanBlockBlock;
+import net.mcreator.countries.block.PurpleJellyBeanBlockBlock;
+import net.mcreator.countries.block.OrangeJellyBeanBlockBlock;
 import net.mcreator.countries.block.MeltedChocolateBlock;
 import net.mcreator.countries.block.GummyGrassBlock;
 import net.mcreator.countries.block.GummyDirtBlock;
+import net.mcreator.countries.block.GreenJellyBeanBlockBlock;
 import net.mcreator.countries.block.GingerbreadBlockBlock;
 import net.mcreator.countries.block.GingerbBlock;
+import net.mcreator.countries.block.GingerBreadStairsBlock;
+import net.mcreator.countries.block.GingerBreadSlabBlock;
+import net.mcreator.countries.block.ChocolateFactoryBlock;
+import net.mcreator.countries.block.ChocolateBlockBlock;
 import net.mcreator.countries.block.CandylogBlock;
+import net.mcreator.countries.block.CandyStairsBlock;
+import net.mcreator.countries.block.CandySlabBlock;
+import net.mcreator.countries.block.CandyPressurePlateBlock;
 import net.mcreator.countries.block.CandyPlanksBlock;
 import net.mcreator.countries.block.CandyLeavesBlock;
+import net.mcreator.countries.block.CandyFenceGateBlock;
+import net.mcreator.countries.block.CandyFenceBlock;
+import net.mcreator.countries.block.CandyButtonBlock;
+import net.mcreator.countries.block.BubbalooBlock;
+import net.mcreator.countries.block.BlockOfTourmalineBlock;
 import net.mcreator.countries.ClMod;
 
 public class ClModBlocks {
@@ -36,6 +54,24 @@ public class ClModBlocks {
 	public static final RegistryObject<Block> GINGERBREAD_BLOCK = REGISTRY.register("gingerbread_block", () -> new GingerbreadBlockBlock());
 	public static final RegistryObject<Block> GINGERB = REGISTRY.register("gingerb", () -> new GingerbBlock());
 	public static final RegistryObject<Block> CANDY_PLANKS = REGISTRY.register("candy_planks", () -> new CandyPlanksBlock());
+	public static final RegistryObject<Block> CHOCOLATE_BLOCK = REGISTRY.register("chocolate_block", () -> new ChocolateBlockBlock());
+	public static final RegistryObject<Block> CHOCOLATE_FACTORY = REGISTRY.register("chocolate_factory", () -> new ChocolateFactoryBlock());
+	public static final RegistryObject<Block> CANDY_BUTTON = REGISTRY.register("candy_button", () -> new CandyButtonBlock());
+	public static final RegistryObject<Block> CANDY_STAIRS = REGISTRY.register("candy_stairs", () -> new CandyStairsBlock());
+	public static final RegistryObject<Block> CANDY_PRESSURE_PLATE = REGISTRY.register("candy_pressure_plate", () -> new CandyPressurePlateBlock());
+	public static final RegistryObject<Block> CANDY_FENCE = REGISTRY.register("candy_fence", () -> new CandyFenceBlock());
+	public static final RegistryObject<Block> CANDY_FENCE_GATE = REGISTRY.register("candy_fence_gate", () -> new CandyFenceGateBlock());
+	public static final RegistryObject<Block> CANDY_SLAB = REGISTRY.register("candy_slab", () -> new CandySlabBlock());
+	public static final RegistryObject<Block> GINGER_BREAD_STAIRS = REGISTRY.register("ginger_bread_stairs", () -> new GingerBreadStairsBlock());
+	public static final RegistryObject<Block> GINGER_BREAD_SLAB = REGISTRY.register("ginger_bread_slab", () -> new GingerBreadSlabBlock());
+	public static final RegistryObject<Block> RED_JELLY_BEAN_BLOCK = REGISTRY.register("red_jelly_bean_block", () -> new RedJellyBeanBlockBlock());
+	public static final RegistryObject<Block> GREEN_JELLY_BEAN_BLOCK = REGISTRY.register("green_jelly_bean_block", () -> new GreenJellyBeanBlockBlock());
+	public static final RegistryObject<Block> YELLOW_JELLY_BEAN_BLOCK = REGISTRY.register("yellow_jelly_bean_block", () -> new YellowJellyBeanBlockBlock());
+	public static final RegistryObject<Block> PURPLE_JELLY_BEAN_BLOCK = REGISTRY.register("purple_jelly_bean_block", () -> new PurpleJellyBeanBlockBlock());
+	public static final RegistryObject<Block> ORANGE_JELLY_BEAN_BLOCK = REGISTRY.register("orange_jelly_bean_block", () -> new OrangeJellyBeanBlockBlock());
+	public static final RegistryObject<Block> TOURMALINE_ORE_BLOCK = REGISTRY.register("tourmaline_ore_block", () -> new TourmalineOreBlockBlock());
+	public static final RegistryObject<Block> BLOCK_OF_TOURMALINE = REGISTRY.register("block_of_tourmaline", () -> new BlockOfTourmalineBlock());
+	public static final RegistryObject<Block> BUBBALOO = REGISTRY.register("bubbaloo", () -> new BubbalooBlock());
 
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "cl:gummy_grass"
+    "cl:gummy_grass",
+    "cl:green_jelly_bean_block"
   ]
 }

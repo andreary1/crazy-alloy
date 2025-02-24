@@ -17,12 +17,17 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 
+import net.mcreator.countries.world.features.StructureFeature;
+import net.mcreator.countries.init.ClModVillagerProfessions;
 import net.mcreator.countries.init.ClModTabs;
+import net.mcreator.countries.init.ClModSounds;
+import net.mcreator.countries.init.ClModMenus;
 import net.mcreator.countries.init.ClModItems;
 import net.mcreator.countries.init.ClModFluids;
 import net.mcreator.countries.init.ClModFluidTypes;
 import net.mcreator.countries.init.ClModEntities;
 import net.mcreator.countries.init.ClModBlocks;
+import net.mcreator.countries.init.ClModBlockEntities;
 
 import java.util.function.Supplier;
 import java.util.function.Function;
@@ -43,14 +48,18 @@ public class ClMod {
 		// End of user code block mod constructor
 		MinecraftForge.EVENT_BUS.register(this);
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
+		ClModSounds.REGISTRY.register(bus);
 		ClModBlocks.REGISTRY.register(bus);
-
+		ClModBlockEntities.REGISTRY.register(bus);
 		ClModItems.REGISTRY.register(bus);
 		ClModEntities.REGISTRY.register(bus);
 
 		ClModTabs.REGISTRY.register(bus);
 
+		StructureFeature.REGISTRY.register(bus);
+
+		ClModVillagerProfessions.PROFESSIONS.register(bus);
+		ClModMenus.REGISTRY.register(bus);
 		ClModFluids.REGISTRY.register(bus);
 		ClModFluidTypes.REGISTRY.register(bus);
 

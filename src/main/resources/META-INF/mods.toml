@@ -27,6 +27,12 @@ authors="andre, MCreator"
     versionRange="[0,)"
     ordering="NONE"
     side="BOTH"
+[[dependencies.cl]]
+    modId="playeranimator"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"
 
 
 # Start of user code block dependencies configuration

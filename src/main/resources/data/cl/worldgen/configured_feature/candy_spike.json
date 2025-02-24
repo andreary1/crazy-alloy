@@ -1,0 +1,7 @@
+{
+  "type": "cl:structure_feature",
+  "config": {
+    "structure": "cl:candy_spike",
+    "ignored_blocks": "minecraft:air"
+  }
+}

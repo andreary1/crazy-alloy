@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cl:jelly_bean_fields",
+  "features": "cl:jelly_orange_structures",
+  "step": "surface_structures"
+}

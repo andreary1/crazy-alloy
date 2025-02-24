@@ -1,0 +1,10 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "particle": "cl:block/gingerbread_block",
+    "bottom": "cl:block/gingerbread_block",
+    "top": "cl:block/gingerbread_block",
+    "side": "cl:block/gingerbread_block"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,10 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "particle": "cl:block/candy_planks",
+    "bottom": "cl:block/candy_planks",
+    "top": "cl:block/candy_planks",
+    "side": "cl:block/candy_planks"
+  },
+  "render_type": "solid"
+}

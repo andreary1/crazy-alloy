@@ -1,0 +1,8 @@
+{
+  "parent": "block/fence_inventory",
+  "textures": {
+    "texture": "cl:block/candy_planks",
+    "particle": "cl:block/candy_planks"
+  },
+  "render_type": "solid"
+}

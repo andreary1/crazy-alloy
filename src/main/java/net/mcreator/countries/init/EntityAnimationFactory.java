@@ -4,7 +4,11 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
+import net.mcreator.countries.entity.SegwayEntity;
+import net.mcreator.countries.entity.RouladeMonsterEntity;
+import net.mcreator.countries.entity.JellySnakeEntity;
 import net.mcreator.countries.entity.JellySharkEntity;
+import net.mcreator.countries.entity.GuardDinosaurEntity;
 import net.mcreator.countries.entity.CottonCandyTornadoEntity;
 import net.mcreator.countries.entity.CandyTubeDogEntity;
 
@@ -28,6 +32,34 @@ public class EntityAnimationFactory {
 				}
 			}
 			if (event.getEntity() instanceof CottonCandyTornadoEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof JellySnakeEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof RouladeMonsterEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof SegwayEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof GuardDinosaurEntity syncable) {
 				String animation = syncable.getSyncedAnimation();
 				if (!animation.equals("undefined")) {
 					syncable.setAnimation("undefined");

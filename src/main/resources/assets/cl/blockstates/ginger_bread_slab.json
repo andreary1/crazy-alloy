@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "cl:block/ginger_bread_slab"
+    },
+    "type=top": {
+      "model": "cl:block/ginger_bread_slab_top"
+    },
+    "type=double": {
+      "model": "cl:block/ginger_bread_slab_full"
+    }
+  }
+}

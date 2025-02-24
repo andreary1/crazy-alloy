@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "cl:block/chocolatefactorysides",
+    "up": "cl:block/chocolatefactorytop",
+    "north": "cl:block/chocolatefactoryfront",
+    "east": "cl:block/chocolatefactorysides",
+    "south": "cl:block/chocolatefactorysides",
+    "west": "cl:block/chocolatefactorysides",
+    "particle": "cl:block/chocolatefactorysides"
+  },
+  "render_type": "solid"
+}

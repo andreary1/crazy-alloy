@@ -1,0 +1,86 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.segway.idle": {
+			"loop": true
+		},
+		"animation.segway.walk": {
+			"loop": true,
+			"animation_length": 0.4167,
+			"bones": {
+				"rightwheel": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.4167": {
+							"vector": [180, 0, 0]
+						}
+					}
+				},
+				"leftwheel": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.4167": {
+							"vector": [180, 0, 0]
+						}
+					}
+				}
+			}
+		},
+		"animation.segway.death": {
+			"animation_length": 0.7083,
+			"bones": {
+				"rightwheel": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [0, 0, -90]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [-2, -3, 0]
+						}
+					}
+				},
+				"leftwheel": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [0, 0, 90]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.125": {
+							"vector": [2, -3, 0]
+						}
+					}
+				},
+				"segwaybody": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.375": {
+							"vector": [72.5, 0, 0]
+						}
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

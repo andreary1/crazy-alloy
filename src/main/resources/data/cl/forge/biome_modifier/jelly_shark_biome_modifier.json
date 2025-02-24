@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "cl:sweet_biome",
+  "biomes": "cl:jelly_bean_fields",
   "spawners": {
     "type": "cl:jelly_shark",
     "weight": 5,

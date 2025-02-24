@@ -1,0 +1,8 @@
+{
+  "parent": "block/template_fence_gate_wall",
+  "textures": {
+    "particle": "cl:block/candy_planks",
+    "texture": "cl:block/candy_planks"
+  },
+  "render_type": "solid"
+}

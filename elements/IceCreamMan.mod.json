@@ -1,0 +1,16 @@
+{
+  "_fv": 73,
+  "_type": "villagerprofession",
+  "definition": {
+    "displayName": "Ice Cream Man",
+    "pointOfInterest": {
+      "value": "CUSTOM:ChocolateFactory"
+    },
+    "actionSound": {
+      "value": "block.snow.place"
+    },
+    "hat": "Full",
+    "professionTextureFile": "icecreamvillager.png",
+    "zombifiedProfessionTextureFile": "icecreamzombie.png"
+  }
+}

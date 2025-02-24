@@ -1,0 +1,59 @@
+{
+  "_fv": 73,
+  "_type": "fluid",
+  "definition": {
+    "name": "Bubbaloo",
+    "bucketName": "Bubbaloo Bucket",
+    "textureStill": "bubbaloo",
+    "textureFlowing": "bubbaloo",
+    "textureRenderOverlay": "",
+    "hasFog": true,
+    "fogColor": {
+      "value": -903203,
+      "falpha": 0.0
+    },
+    "fogStartDistance": {
+      "fixedValue": 0.0
+    },
+    "fogEndDistance": {
+      "fixedValue": 48.0
+    },
+    "tintType": "No tint",
+    "canMultiply": false,
+    "flowRate": 20,
+    "levelDecrease": 1,
+    "slopeFindDistance": 4,
+    "spawnParticles": false,
+    "dripParticle": {
+      "value": "EXPLOSION_NORMAL"
+    },
+    "flowStrength": 1.0,
+    "luminosity": 1,
+    "density": 1000,
+    "viscosity": 1037,
+    "temperature": 300,
+    "type": "LAVA",
+    "generateBucket": true,
+    "textureBucket": "",
+    "creativeTabs": [
+      {
+        "value": "TOOLS"
+      }
+    ],
+    "emptySound": {
+      "value": ""
+    },
+    "rarity": "COMMON",
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "resistance": 100.0,
+    "luminance": 8,
+    "lightOpacity": 1,
+    "emissiveRendering": false,
+    "tickRate": 0,
+    "flammability": 0,
+    "fireSpreadSpeed": 0,
+    "colorOnMap": "DEFAULT"
+  }
+}

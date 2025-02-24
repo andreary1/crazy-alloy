@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "cl:candy_cave",
+    "cl:jelly_bean_fields"
+  ],
+  "spawners": {
+    "type": "cl:bubbaloo_creeper",
+    "weight": 20,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

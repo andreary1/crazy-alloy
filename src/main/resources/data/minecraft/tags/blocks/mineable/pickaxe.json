@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
+    "cl:block_of_tourmaline",
+    "cl:tourmaline_ore_block",
+    "cl:chocolate_factory",
     "cl:rock_candy"
   ]
 }

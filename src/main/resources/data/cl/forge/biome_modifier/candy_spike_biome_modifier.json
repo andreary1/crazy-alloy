@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cl:candy_cave",
+  "features": "cl:candy_spike",
+  "step": "underground_structures"
+}

@@ -1,0 +1,123 @@
+{
+  "_fv": 73,
+  "_type": "villagertrade",
+  "definition": {
+    "tradeEntries": [
+      {
+        "villagerProfession": {
+          "value": "CUSTOM:IceCreamMan"
+        },
+        "entries": [
+          {
+            "price1": {
+              "value": "CUSTOM:Money"
+            },
+            "countPrice1": 3,
+            "price2": {
+              "value": "CUSTOM:Coin"
+            },
+            "countPrice2": 5,
+            "offer": {
+              "value": "CUSTOM:ChocolateIceCream"
+            },
+            "countOffer": 1,
+            "level": 1,
+            "maxTrades": 20,
+            "xp": 5,
+            "priceMultiplier": 0.05
+          },
+          {
+            "price1": {
+              "value": "CUSTOM:Money"
+            },
+            "countPrice1": 3,
+            "price2": {
+              "value": "CUSTOM:Coin"
+            },
+            "countPrice2": 5,
+            "offer": {
+              "value": "CUSTOM:VanillaIceCream"
+            },
+            "countOffer": 1,
+            "level": 2,
+            "maxTrades": 20,
+            "xp": 6,
+            "priceMultiplier": 0.049999999999999996
+          },
+          {
+            "price1": {
+              "value": "CUSTOM:Money"
+            },
+            "countPrice1": 3,
+            "price2": {
+              "value": "CUSTOM:Coin"
+            },
+            "countPrice2": 5,
+            "offer": {
+              "value": "CUSTOM:StrawberryIceCream"
+            },
+            "countOffer": 1,
+            "level": 3,
+            "maxTrades": 20,
+            "xp": 7,
+            "priceMultiplier": 0.049999999999999996
+          },
+          {
+            "price1": {
+              "value": "CUSTOM:Money"
+            },
+            "countPrice1": 4,
+            "price2": {
+              "value": "CUSTOM:Coin"
+            },
+            "countPrice2": 6,
+            "offer": {
+              "value": "CUSTOM:MintIceCream"
+            },
+            "countOffer": 1,
+            "level": 4,
+            "maxTrades": 20,
+            "xp": 8,
+            "priceMultiplier": 0.049999999999999996
+          },
+          {
+            "price1": {
+              "value": "CUSTOM:Money"
+            },
+            "countPrice1": 4,
+            "price2": {
+              "value": "CUSTOM:Coin"
+            },
+            "countPrice2": 6,
+            "offer": {
+              "value": "CUSTOM:NeapolitanIceCream"
+            },
+            "countOffer": 1,
+            "level": 4,
+            "maxTrades": 20,
+            "xp": 9,
+            "priceMultiplier": 0.049999999999999996
+          },
+          {
+            "price1": {
+              "value": "CUSTOM:UltimateIceCream"
+            },
+            "countPrice1": 1,
+            "price2": {
+              "value": ""
+            },
+            "countPrice2": 1,
+            "offer": {
+              "value": "CUSTOM:BlockOfTourmaline"
+            },
+            "countOffer": 1,
+            "level": 1,
+            "maxTrades": 1,
+            "xp": 5,
+            "priceMultiplier": 0.05
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "a a",
+    "a a"
+  ],
+  "key": {
+    "a": {
+      "item": "cl:tourmaline_gem"
+    }
+  },
+  "result": {
+    "item": "cl:tourmaline_boots",
+    "count": 1
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "cl:blocks/orange_jelly_bean_block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "cl:orange_jelly_bean_block"
+        }
+      ]
+    }
+  ]
+}

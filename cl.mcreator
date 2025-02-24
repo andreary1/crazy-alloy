@@ -259,7 +259,6 @@
         "files": [
           "src/main/java/net/mcreator/countries/client/renderer/GingerbreadSoldierRenderer.java",
           "src/main/java/net/mcreator/countries/entity/GingerbreadSoldierEntity.java",
-          "src/main/java/net/mcreator/countries/entity/GingerbreadSoldierEntityProjectile.java",
           "src/main/resources/assets/cl/models/item/gingerbread_soldier_spawn_egg.json"
         ]
       }
@@ -291,80 +290,1351 @@
           "src/main/resources/data/cl/recipes/candylogtoplanks.json"
         ]
       }
+    },
+    {
+      "name": "CottonCandyTornadoRightClickedOnEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cotton_candy_tornado_right_clicked_on_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/procedures/CottonCandyTornadoRightClickedOnEntityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cottoncandyyy",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cottoncandyyy",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/advancements/cottoncandyyy.json"
+        ]
+      }
+    },
+    {
+      "name": "GingerbreadWarrior",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gingerbread_warrior",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/client/renderer/GingerbreadWarriorRenderer.java",
+          "src/main/java/net/mcreator/countries/entity/GingerbreadWarriorEntity.java",
+          "src/main/resources/assets/cl/models/item/gingerbread_warrior_spawn_egg.json"
+        ]
+      }
+    },
+    {
+      "name": "ChocolateBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chocolate_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/block/ChocolateBlockBlock.java",
+          "src/main/resources/assets/cl/models/block/chocolate_block.json",
+          "src/main/resources/assets/cl/blockstates/chocolate_block.json",
+          "src/main/resources/data/cl/loot_tables/blocks/chocolate_block.json",
+          "src/main/resources/assets/cl/models/item/chocolate_block.json"
+        ]
+      }
+    },
+    {
+      "name": "FactoryButtonClick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "factory_button_click",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/procedures/FactoryButtonClickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ChocolateFactoryGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chocolate_factory_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/world/inventory/ChocolateFactoryGUIMenu.java",
+          "src/main/java/net/mcreator/countries/client/gui/ChocolateFactoryGUIScreen.java",
+          "src/main/java/net/mcreator/countries/network/ChocolateFactoryGUIButtonMessage.java"
+        ]
+      }
+    },
+    {
+      "name": "ChocolateFactory",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chocolate_factory",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/blockstates/chocolate_factory.json",
+          "src/main/java/net/mcreator/countries/block/entity/ChocolateFactoryBlockEntity.java",
+          "src/main/resources/data/cl/loot_tables/blocks/chocolate_factory.json",
+          "src/main/resources/assets/cl/models/item/chocolate_factory.json",
+          "src/main/resources/assets/cl/models/block/chocolate_factory.json",
+          "src/main/java/net/mcreator/countries/block/ChocolateFactoryBlock.java"
+        ]
+      }
+    },
+    {
+      "name": "CandyButton",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_button",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/block/CandyButtonBlock.java",
+          "src/main/resources/data/cl/loot_tables/blocks/candy_button.json",
+          "src/main/resources/assets/cl/models/item/candy_button.json",
+          "src/main/resources/assets/cl/blockstates/candy_button.json",
+          "src/main/resources/assets/cl/models/block/candy_button.json",
+          "src/main/resources/assets/cl/models/block/candy_button_pressed.json",
+          "src/main/resources/assets/cl/models/block/candy_button_inventory.json"
+        ]
+      }
+    },
+    {
+      "name": "CandyStairs",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_stairs",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/block/CandyStairsBlock.java",
+          "src/main/resources/assets/cl/models/block/candy_stairs_outer.json",
+          "src/main/resources/data/cl/loot_tables/blocks/candy_stairs.json",
+          "src/main/resources/assets/cl/models/item/candy_stairs.json",
+          "src/main/resources/assets/cl/models/block/candy_stairs.json",
+          "src/main/resources/assets/cl/models/block/candy_stairs_inner.json",
+          "src/main/resources/assets/cl/blockstates/candy_stairs.json"
+        ]
+      }
+    },
+    {
+      "name": "CandyPressurePlate",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_pressure_plate",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/block/CandyPressurePlateBlock.java",
+          "src/main/resources/assets/cl/blockstates/candy_pressure_plate.json",
+          "src/main/resources/data/cl/loot_tables/blocks/candy_pressure_plate.json",
+          "src/main/resources/assets/cl/models/block/candy_pressure_plate_down.json",
+          "src/main/resources/assets/cl/models/item/candy_pressure_plate.json",
+          "src/main/resources/assets/cl/models/block/candy_pressure_plate.json"
+        ]
+      }
+    },
+    {
+      "name": "CandyFence",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_fence",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/block/candy_fence_inventory.json",
+          "src/main/resources/assets/cl/blockstates/candy_fence.json",
+          "src/main/resources/assets/cl/models/block/candy_fence.json",
+          "src/main/resources/assets/cl/models/block/candy_fence_post.json",
+          "src/main/java/net/mcreator/countries/block/CandyFenceBlock.java",
+          "src/main/resources/data/cl/loot_tables/blocks/candy_fence.json",
+          "src/main/resources/assets/cl/models/item/candy_fence.json"
+        ]
+      }
+    },
+    {
+      "name": "CandyFenceGate",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_fence_gate",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/block/candy_fence_gate_wall_open.json",
+          "src/main/resources/assets/cl/models/item/candy_fence_gate.json",
+          "src/main/resources/assets/cl/blockstates/candy_fence_gate.json",
+          "src/main/resources/assets/cl/models/block/candy_fence_gate_wall.json",
+          "src/main/resources/assets/cl/models/block/candy_fence_gate.json",
+          "src/main/java/net/mcreator/countries/block/CandyFenceGateBlock.java",
+          "src/main/resources/assets/cl/models/block/candy_fence_gate_open.json",
+          "src/main/resources/data/cl/loot_tables/blocks/candy_fence_gate.json"
+        ]
+      }
+    },
+    {
+      "name": "CandySlab",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_slab",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/candy_slab.json",
+          "src/main/resources/assets/cl/blockstates/candy_slab.json",
+          "src/main/java/net/mcreator/countries/block/CandySlabBlock.java",
+          "src/main/resources/assets/cl/models/block/candy_slab_full.json",
+          "src/main/resources/data/cl/loot_tables/blocks/candy_slab.json",
+          "src/main/resources/assets/cl/models/block/candy_slab.json",
+          "src/main/resources/assets/cl/models/block/candy_slab_top.json"
+        ]
+      }
+    },
+    {
+      "name": "ChocolateBar",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chocolate_bar",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/chocolate_bar.json",
+          "src/main/java/net/mcreator/countries/item/ChocolateBarItem.java"
+        ]
+      }
+    },
+    {
+      "name": "ChocolateBlockRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chocolate_block_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/recipes/chocolate_block_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "GingerBreadStairs",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ginger_bread_stairs",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/ginger_bread_stairs.json",
+          "src/main/resources/assets/cl/blockstates/ginger_bread_stairs.json",
+          "src/main/java/net/mcreator/countries/block/GingerBreadStairsBlock.java",
+          "src/main/resources/data/cl/loot_tables/blocks/ginger_bread_stairs.json",
+          "src/main/resources/assets/cl/models/block/ginger_bread_stairs.json",
+          "src/main/resources/assets/cl/models/block/ginger_bread_stairs_inner.json",
+          "src/main/resources/assets/cl/models/block/ginger_bread_stairs_outer.json"
+        ]
+      }
+    },
+    {
+      "name": "GingerBreadSlab",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ginger_bread_slab",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/block/ginger_bread_slab_full.json",
+          "src/main/java/net/mcreator/countries/block/GingerBreadSlabBlock.java",
+          "src/main/resources/assets/cl/models/block/ginger_bread_slab_top.json",
+          "src/main/resources/assets/cl/models/block/ginger_bread_slab.json",
+          "src/main/resources/data/cl/loot_tables/blocks/ginger_bread_slab.json",
+          "src/main/resources/assets/cl/models/item/ginger_bread_slab.json",
+          "src/main/resources/assets/cl/blockstates/ginger_bread_slab.json"
+        ]
+      }
+    },
+    {
+      "name": "Gingerbreadtowerchest",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gingerbreadtowerchest",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/loot_tables/chests/gingerbreadtowerchest.json"
+        ]
+      }
+    },
+    {
+      "name": "Gingerbreadtower",
+      "type": "structure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gingerbreadtower",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/worldgen/structure/gingerbreadtower.json",
+          "src/main/resources/data/cl/worldgen/template_pool/gingerbreadtower.json",
+          "src/main/resources/data/cl/worldgen/structure_set/gingerbreadtower.json"
+        ]
+      }
+    },
+    {
+      "name": "Gingerbread",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gingerbread",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/gingerbread.json",
+          "src/main/java/net/mcreator/countries/item/GingerbreadItem.java"
+        ]
+      }
+    },
+    {
+      "name": "RedJellyBeanBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "red_jelly_bean_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/loot_tables/blocks/red_jelly_bean_block.json",
+          "src/main/resources/assets/cl/blockstates/red_jelly_bean_block.json",
+          "src/main/java/net/mcreator/countries/block/RedJellyBeanBlockBlock.java",
+          "src/main/resources/assets/cl/models/block/red_jelly_bean_block.json",
+          "src/main/resources/assets/cl/models/item/red_jelly_bean_block.json"
+        ]
+      }
+    },
+    {
+      "name": "GreenJellyBeanBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "green_jelly_bean_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/blockstates/green_jelly_bean_block.json",
+          "src/main/resources/assets/cl/models/item/green_jelly_bean_block.json",
+          "src/main/java/net/mcreator/countries/block/GreenJellyBeanBlockBlock.java",
+          "src/main/resources/data/cl/loot_tables/blocks/green_jelly_bean_block.json",
+          "src/main/resources/assets/cl/models/block/green_jelly_bean_block.json"
+        ]
+      }
+    },
+    {
+      "name": "YellowJellyBeanBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "yellow_jelly_bean_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/block/YellowJellyBeanBlockBlock.java",
+          "src/main/resources/data/cl/loot_tables/blocks/yellow_jelly_bean_block.json",
+          "src/main/resources/assets/cl/blockstates/yellow_jelly_bean_block.json",
+          "src/main/resources/assets/cl/models/block/yellow_jelly_bean_block.json",
+          "src/main/resources/assets/cl/models/item/yellow_jelly_bean_block.json"
+        ]
+      }
+    },
+    {
+      "name": "PurpleJellyBeanBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purple_jelly_bean_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/loot_tables/blocks/purple_jelly_bean_block.json",
+          "src/main/resources/assets/cl/blockstates/purple_jelly_bean_block.json",
+          "src/main/resources/assets/cl/models/block/purple_jelly_bean_block.json",
+          "src/main/resources/assets/cl/models/item/purple_jelly_bean_block.json",
+          "src/main/java/net/mcreator/countries/block/PurpleJellyBeanBlockBlock.java"
+        ]
+      }
+    },
+    {
+      "name": "OrangeJellyBeanBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "orange_jelly_bean_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/block/orange_jelly_bean_block.json",
+          "src/main/resources/data/cl/loot_tables/blocks/orange_jelly_bean_block.json",
+          "src/main/java/net/mcreator/countries/block/OrangeJellyBeanBlockBlock.java",
+          "src/main/resources/assets/cl/models/item/orange_jelly_bean_block.json",
+          "src/main/resources/assets/cl/blockstates/orange_jelly_bean_block.json"
+        ]
+      }
+    },
+    {
+      "name": "CottonCandy",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cotton_candy",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/CottonCandyItem.java",
+          "src/main/resources/assets/cl/models/item/cotton_candy.json"
+        ]
+      }
+    },
+    {
+      "name": "CottonCandyProjWhileProjectileFlyingTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cotton_candy_proj_while_projectile_flying_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/procedures/CottonCandyProjWhileProjectileFlyingTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CottonCandyProj",
+      "type": "projectile",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cotton_candy_proj",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/entity/CottonCandyProjEntity.java"
+        ]
+      }
+    },
+    {
+      "name": "JellyBeanFields",
+      "type": "biome",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jelly_bean_fields",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/worldgen/biome/jelly_bean_fields.json",
+          "src/main/resources/data/cl/worldgen/placed_feature/jelly_bean_fields_tree.json",
+          "src/main/resources/data/cl/worldgen/configured_feature/jelly_bean_fields_tree.json"
+        ]
+      }
+    },
+    {
+      "name": "JellySnake",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jelly_snake",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/entity/JellySnakeEntity.java",
+          "src/main/java/net/mcreator/countries/entity/model/JellySnakeModel.java",
+          "src/main/resources/data/cl/forge/biome_modifier/jelly_snake_biome_modifier.json",
+          "src/main/java/net/mcreator/countries/client/renderer/JellySnakeRenderer.java",
+          "src/main/resources/assets/cl/models/item/jelly_snake_spawn_egg.json"
+        ]
+      }
+    },
+    {
+      "name": "HeavyBoots",
+      "type": "armor",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "heavy_boots",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/heavy_boots_boots.json",
+          "src/main/java/net/mcreator/countries/item/HeavyBootsItem.java"
+        ]
+      }
+    },
+    {
+      "name": "HeavyBootsBootsTickEvent",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "heavy_boots_boots_tick_event",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/procedures/HeavyBootsBootsTickEventProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IceCreamMan",
+      "type": "villagerprofession",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_cream_man",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/textures/entity/villager/profession/ice_cream_man.png.mcmeta"
+        ]
+      }
+    },
+    {
+      "name": "ChocolateIceCream",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chocolate_ice_cream",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/chocolate_ice_cream.json",
+          "src/main/java/net/mcreator/countries/item/ChocolateIceCreamItem.java"
+        ]
+      }
+    },
+    {
+      "name": "IceCreamManTrade",
+      "type": "villagertrade",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_cream_man_trade",
+      "metadata": {
+        "files": []
+      }
+    },
+    {
+      "name": "JellyStructures",
+      "type": "feature",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jelly_structures",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/worldgen/placed_feature/jelly_structures.json",
+          "src/main/resources/data/cl/forge/biome_modifier/jelly_structures_biome_modifier.json",
+          "src/main/resources/data/cl/worldgen/configured_feature/jelly_structures.json"
+        ]
+      }
+    },
+    {
+      "name": "JellyOrangeStructures",
+      "type": "feature",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jelly_orange_structures",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/worldgen/placed_feature/jelly_orange_structures.json",
+          "src/main/resources/data/cl/worldgen/configured_feature/jelly_orange_structures.json",
+          "src/main/resources/data/cl/forge/biome_modifier/jelly_orange_structures_biome_modifier.json"
+        ]
+      }
+    },
+    {
+      "name": "VanillaIceCream",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "vanilla_ice_cream",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/VanillaIceCreamItem.java",
+          "src/main/resources/assets/cl/models/item/vanilla_ice_cream.json"
+        ]
+      }
+    },
+    {
+      "name": "StrawberryIceCream",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "strawberry_ice_cream",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/StrawberryIceCreamItem.java",
+          "src/main/resources/assets/cl/models/item/strawberry_ice_cream.json"
+        ]
+      }
+    },
+    {
+      "name": "DeadJellySnake",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dead_jelly_snake",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/dead_jelly_snake.json",
+          "src/main/java/net/mcreator/countries/item/DeadJellySnakeItem.java"
+        ]
+      }
+    },
+    {
+      "name": "DeadSnakeProj",
+      "type": "projectile",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dead_snake_proj",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/entity/DeadSnakeProjEntity.java",
+          "src/main/java/net/mcreator/countries/client/renderer/DeadSnakeProjRenderer.java"
+        ]
+      }
+    },
+    {
+      "name": "JellyBazooka",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jelly_bazooka",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/jelly_bazooka.json",
+          "src/main/java/net/mcreator/countries/item/JellyBazookaItem.java"
+        ]
+      }
+    },
+    {
+      "name": "CandyCave",
+      "type": "biome",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_cave",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/worldgen/biome/candy_cave.json"
+        ]
+      }
+    },
+    {
+      "name": "TourmalineOreBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tourmaline_ore_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/worldgen/configured_feature/tourmaline_ore_block.json",
+          "src/main/resources/assets/cl/models/block/tourmaline_ore_block.json",
+          "src/main/resources/data/cl/forge/biome_modifier/tourmaline_ore_block_biome_modifier.json",
+          "src/main/resources/data/cl/loot_tables/blocks/tourmaline_ore_block.json",
+          "src/main/java/net/mcreator/countries/block/TourmalineOreBlockBlock.java",
+          "src/main/resources/data/cl/worldgen/placed_feature/tourmaline_ore_block.json",
+          "src/main/resources/assets/cl/blockstates/tourmaline_ore_block.json",
+          "src/main/resources/assets/cl/models/item/tourmaline_ore_block.json"
+        ]
+      }
+    },
+    {
+      "name": "TourmalineGem",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tourmaline_gem",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/TourmalineGemItem.java",
+          "src/main/resources/assets/cl/models/item/tourmaline_gem.json"
+        ]
+      }
+    },
+    {
+      "name": "BlockOfTourmaline",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "block_of_tourmaline",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/blockstates/block_of_tourmaline.json",
+          "src/main/resources/data/cl/loot_tables/blocks/block_of_tourmaline.json",
+          "src/main/resources/assets/cl/models/block/block_of_tourmaline.json",
+          "src/main/java/net/mcreator/countries/block/BlockOfTourmalineBlock.java",
+          "src/main/resources/assets/cl/models/item/block_of_tourmaline.json"
+        ]
+      }
+    },
+    {
+      "name": "CandySpike",
+      "type": "feature",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_spike",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/forge/biome_modifier/candy_spike_biome_modifier.json",
+          "src/main/resources/data/cl/worldgen/placed_feature/candy_spike.json",
+          "src/main/resources/data/cl/worldgen/configured_feature/candy_spike.json"
+        ],
+        "has_nbt_structure": true
+      }
+    },
+    {
+      "name": "TourmalineSword",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tourmaline_sword",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/TourmalineSwordItem.java",
+          "src/main/resources/assets/cl/models/item/tourmaline_sword.json"
+        ]
+      }
+    },
+    {
+      "name": "TourmalinePickaxe",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tourmaline_pickaxe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/TourmalinePickaxeItem.java",
+          "src/main/resources/assets/cl/models/item/tourmaline_pickaxe.json"
+        ]
+      }
+    },
+    {
+      "name": "RouladeMonster",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "roulade_monster",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/entity/RouladeMonsterEntity.java",
+          "src/main/java/net/mcreator/countries/entity/model/RouladeMonsterModel.java",
+          "src/main/resources/data/cl/forge/biome_modifier/roulade_monster_biome_modifier.json",
+          "src/main/java/net/mcreator/countries/client/renderer/RouladeMonsterRenderer.java",
+          "src/main/resources/assets/cl/models/item/roulade_monster_spawn_egg.json"
+        ]
+      }
+    },
+    {
+      "name": "BubbalooCreeper",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bubbaloo_creeper",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/forge/biome_modifier/bubbaloo_creeper_biome_modifier.json",
+          "src/main/java/net/mcreator/countries/client/renderer/BubbalooCreeperRenderer.java",
+          "src/main/java/net/mcreator/countries/entity/BubbalooCreeperEntity.java",
+          "src/main/resources/assets/cl/models/item/bubbaloo_creeper_spawn_egg.json"
+        ]
+      }
+    },
+    {
+      "name": "BubbalooCreeperEntityDies",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bubbaloo_creeper_entity_dies",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/procedures/BubbalooCreeperEntityDiesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Bubbaloo",
+      "type": "fluid",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bubbaloo",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/BubbalooItem.java",
+          "src/main/java/net/mcreator/countries/block/BubbalooBlock.java",
+          "src/main/resources/assets/cl/models/block/bubbaloo.json",
+          "src/main/resources/assets/cl/blockstates/bubbaloo.json",
+          "src/main/java/net/mcreator/countries/fluid/BubbalooFluid.java",
+          "src/main/java/net/mcreator/countries/fluid/types/BubbalooFluidType.java",
+          "src/main/resources/assets/cl/models/item/bubbaloo_bucket.json"
+        ]
+      }
+    },
+    {
+      "name": "NeapolitanIceCream",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "neapolitan_ice_cream",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/neapolitan_ice_cream.json",
+          "src/main/java/net/mcreator/countries/item/NeapolitanIceCreamItem.java"
+        ]
+      }
+    },
+    {
+      "name": "MintIceCream",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mint_ice_cream",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/mint_ice_cream.json",
+          "src/main/java/net/mcreator/countries/item/MintIceCreamItem.java"
+        ]
+      }
+    },
+    {
+      "name": "TourmalineAxe",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tourmaline_axe",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/tourmaline_axe.json",
+          "src/main/java/net/mcreator/countries/item/TourmalineAxeItem.java"
+        ]
+      }
+    },
+    {
+      "name": "Money",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "money",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/MoneyItem.java",
+          "src/main/resources/assets/cl/models/item/money.json"
+        ]
+      }
+    },
+    {
+      "name": "Coin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coin",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/CoinItem.java",
+          "src/main/resources/assets/cl/models/item/coin.json"
+        ]
+      }
+    },
+    {
+      "name": "Segway",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "segway",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/client/renderer/SegwayRenderer.java",
+          "src/main/resources/assets/cl/models/item/segway_spawn_egg.json",
+          "src/main/java/net/mcreator/countries/entity/SegwayEntity.java",
+          "src/main/java/net/mcreator/countries/entity/model/SegwayModel.java"
+        ]
+      }
+    },
+    {
+      "name": "Bankloottable",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bankloottable",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/loot_tables/chests/bank.json"
+        ]
+      }
+    },
+    {
+      "name": "AK47Rightclicked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ak_47_rightclicked",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/procedures/AK47RightclickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AK47",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ak_47",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/AK47Item.java",
+          "src/main/resources/assets/cl/models/item/ak_47.json"
+        ]
+      }
+    },
+    {
+      "name": "Bullet",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bullet",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/BulletItem.java",
+          "src/main/resources/assets/cl/models/item/bullet.json"
+        ]
+      }
+    },
+    {
+      "name": "BulletProj",
+      "type": "projectile",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bullet_proj",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/entity/BulletProjEntity.java"
+        ]
+      }
+    },
+    {
+      "name": "Tourmaline",
+      "type": "armor",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tourmaline",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/tourmaline_chestplate.json",
+          "src/main/java/net/mcreator/countries/item/TourmalineItem.java",
+          "src/main/resources/assets/cl/models/item/tourmaline_leggings.json",
+          "src/main/resources/assets/cl/models/item/tourmaline_helmet.json",
+          "src/main/resources/assets/cl/models/item/tourmaline_boots.json"
+        ]
+      }
+    },
+    {
+      "name": "TourmalineBoots",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tourmaline_boots",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/recipes/tourmaline_boots.json"
+        ]
+      }
+    },
+    {
+      "name": "TourmalineLeggings",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tourmaline_leggings",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/recipes/tourmaline_leggings.json"
+        ]
+      }
+    },
+    {
+      "name": "TourmalineChestplate",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tourmaline_chestplate",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/recipes/tourmaline_chestplate.json"
+        ]
+      }
+    },
+    {
+      "name": "TourmalineHelmet",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tourmaline_helmet",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/recipes/tourmaline_helmet.json"
+        ]
+      }
+    },
+    {
+      "name": "UltimateIceCream",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ultimate_ice_cream",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/UltimateIceCreamItem.java",
+          "src/main/resources/assets/cl/models/item/ultimate_ice_cream.json"
+        ]
+      }
+    },
+    {
+      "name": "GuardDinosaur",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "guard_dinosaur",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/client/renderer/GuardDinosaurRenderer.java",
+          "src/main/java/net/mcreator/countries/entity/model/GuardDinosaurModel.java",
+          "src/main/java/net/mcreator/countries/entity/GuardDinosaurEntity.java",
+          "src/main/resources/assets/cl/models/item/guard_dinosaur_spawn_egg.json"
+        ]
+      }
+    },
+    {
+      "name": "Bank",
+      "type": "structure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bank",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/worldgen/template_pool/bank.json",
+          "src/main/resources/data/cl/worldgen/structure_set/bank.json",
+          "src/main/resources/data/cl/worldgen/structure/bank.json"
+        ]
+      }
+    },
+    {
+      "name": "HeavyBootsCraft",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "heavy_boots_craft",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/recipes/heavy_boots_craft.json"
+        ]
+      }
+    },
+    {
+      "name": "TourmalineHoe",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tourmaline_hoe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/TourmalineHoeItem.java",
+          "src/main/resources/assets/cl/models/item/tourmaline_hoe.json"
+        ]
+      }
+    },
+    {
+      "name": "TourmalineShovel",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tourmaline_shovel",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/TourmalineShovelItem.java",
+          "src/main/resources/assets/cl/models/item/tourmaline_shovel.json"
+        ]
+      }
     }
   ],
   "variable_elements": [],
-  "sound_elements": [],
+  "sound_elements": [
+    {
+      "name": "ak47shot",
+      "files": [
+        "ak-47-89833"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    }
+  ],
   "tag_elements": {
+    "BIOMES:minecraft:has_structure/stronghold": [
+      "~CUSTOM:CandyCave",
+      "~CUSTOM:JellyBeanFields",
+      "~CUSTOM:SweetBiome"
+    ],
+    "BLOCKS:minecraft:replaceable": [
+      "~CUSTOM:Bubbaloo",
+      "~CUSTOM:MeltedChocolate"
+    ],
+    "BLOCKS:minecraft:needs_diamond_tool": [
+      "~CUSTOM:BlockOfTourmaline",
+      "~CUSTOM:TourmalineOreBlock"
+    ],
+    "ITEMS:minecraft:pickaxes": [
+      "~CUSTOM:TourmalinePickaxe"
+    ],
+    "BIOMES:minecraft:has_structure/mineshaft": [
+      "~CUSTOM:CandyCave",
+      "~CUSTOM:JellyBeanFields",
+      "~CUSTOM:SweetBiome"
+    ],
+    "ITEMS:minecraft:hoes": [
+      "~CUSTOM:TourmalineHoe"
+    ],
+    "BLOCKS:minecraft:logs": [
+      "CUSTOM:Candylog"
+    ],
     "BLOCKS:minecraft:leaves": [
       "~CUSTOM:CandyLeaves"
     ],
     "BLOCKS:minecraft:dirt": [
       "CUSTOM:GummyGrass",
-      "CUSTOM:GummyDirt"
-    ],
-    "BIOMES:minecraft:has_structure/stronghold": [
-      "~CUSTOM:SweetBiome"
-    ],
-    "BLOCKS:minecraft:replaceable": [
-      "~CUSTOM:MeltedChocolate"
+      "CUSTOM:GummyDirt",
+      "CUSTOM:GreenJellyBeanBlock",
+      "CUSTOM:YellowJellyBeanBlock"
     ],
     "BLOCKS:minecraft:mineable/pickaxe": [
+      "~CUSTOM:BlockOfTourmaline",
+      "~CUSTOM:TourmalineOreBlock",
+      "~CUSTOM:ChocolateFactory",
       "~CUSTOM:RockCandy"
     ],
     "BLOCKS:minecraft:mineable/axe": [
+      "~CUSTOM:CandySlab",
+      "~CUSTOM:CandyFenceGate",
+      "~CUSTOM:CandyFence",
+      "~CUSTOM:CandyPressurePlate",
+      "~CUSTOM:CandyStairs",
+      "~CUSTOM:CandyButton",
       "~CUSTOM:CandyPlanks",
       "~CUSTOM:Candylog"
+    ],
+    "BLOCKS:minecraft:slabs": [
+      "~CUSTOM:GingerBreadSlab",
+      "~CUSTOM:CandySlab"
+    ],
+    "BLOCKS:minecraft:needs_stone_tool": [
+      "~CUSTOM:ChocolateFactory"
+    ],
+    "BLOCKS:minecraft:fences": [
+      "~CUSTOM:CandyFence"
     ],
     "BLOCKS:minecraft:mineable/shovel": [
       "~CUSTOM:GummyDirt",
       "~CUSTOM:GummyGrass"
     ],
-    "BIOMES:minecraft:has_structure/mineshaft": [
-      "~CUSTOM:SweetBiome"
+    "ITEMS:minecraft:axes": [
+      "~CUSTOM:TourmalineAxe"
+    ],
+    "BLOCKS:minecraft:stairs": [
+      "~CUSTOM:GingerBreadStairs",
+      "~CUSTOM:CandyStairs"
     ],
     "BLOCKS:minecraft:animals_spawnable_on": [
-      "CUSTOM:GummyGrass"
+      "CUSTOM:GummyGrass",
+      "CUSTOM:GreenJellyBeanBlock"
     ],
-    "BLOCKS:minecraft:logs": [
-      "CUSTOM:Candylog"
+    "ITEMS:minecraft:swords": [
+      "~CUSTOM:TourmalineSword"
+    ],
+    "ITEMS:minecraft:shovels": [
+      "~CUSTOM:TourmalineShovel"
     ]
   },
   "tab_element_order": {
     "BUILDING_BLOCKS": [
+      "ChocolateBlock",
       "Candylog",
-      "Gingerb",
+      "CandyPlanks",
+      "CandyStairs",
+      "CandySlab",
+      "CandyFence",
+      "CandyFenceGate",
+      "CandyPressurePlate",
+      "CandyButton",
       "GingerbreadBlock",
-      "CandyPlanks"
+      "Gingerb",
+      "GingerBreadStairs",
+      "GingerBreadSlab",
+      "BlockOfTourmaline"
     ]
   },
   "language_map": {
     "en_us": {
+      "item.cl.coin": "Coin",
+      "block.cl.chocolate_factory": "Chocolate Factory",
+      "item.cl.bubbaloo_creeper_spawn_egg": "Bubbaloo Creeper Spawn Egg",
       "item.cl.brown_sugar_rhino_spawn_egg": "Brown Sugar Rhino Spawn Egg",
-      "item.cl.cotton_candy_tornado_spawn_egg": "Cotton Candy Tornado Spawn Egg",
+      "item.cl.money": "Money",
       "block.cl.gingerb": "Gingerbread Block",
-      "block.cl.rock_candy": "Rock Candy",
+      "block.cl.rock_candy": "Candy Rock",
+      "item.cl.tourmaline_pickaxe": "Tourmaline Pickaxe",
+      "item.cl.tourmaline_boots": "Tourmaline Boots",
       "biome.cl.sweet_biome": "Sweet Forest",
+      "item.cl.neapolitan_ice_cream": "Neapolitan Ice Cream",
       "entity.cl.candy_tube_dog": "Candy Tube Dog",
       "entity.cl.gingerbread_soldier": "Gingerbread Soldier",
       "entity.cl.jelly_shark": "Jelly Shark",
-      "item.cl.lollipop_guy_spawn_egg": "Lollipop Guy Spawn Egg",
       "block.cl.gummy_grass": "Gummy Grass",
-      "block.cl.gingerbread_block": "Frosted Gingerbread Block",
+      "block.cl.chocolate_block": "Chocolate Block",
+      "item.cl.tourmaline_shovel": "Tourmaline Shovel",
       "item.cl.gingerbread_soldier_spawn_egg": "Gingerbread Soldier Spawn Egg",
-      "item.cl.melted_chocolate_bucket": "Melted Chocolate Bucket",
+      "subtitles.ak47shot": "",
+      "item.cl.jelly_snake_spawn_egg": "Jelly Snake Spawn Egg",
+      "entity.cl.roulade_monster": "Roulade Monster",
       "item.cl.candy_tube_dog_spawn_egg": "Candy Tube Dog Spawn Egg",
+      "item.cl.tourmaline_chestplate": "Tourmaline Chestplate",
+      "item.cl.vanilla_ice_cream": "Vanilla Ice Cream",
+      "block.cl.purple_jelly_bean_block": "Purple Jelly Bean Block",
+      "block.cl.ginger_bread_slab": "Gingerbread Slab",
+      "block.cl.yellow_jelly_bean_block": "Yellow Jelly Bean Block",
+      "biome.cl.candy_cave": "Candy Cave",
+      "block.cl.candy_pressure_plate": "Candy Pressure Plate",
+      "block.cl.gummy_dirt": "Chocolate Dirt",
+      "gui.cl.chocolate_factory_gui.button_make_chocolate": "Make Chocolate",
+      "item.cl.roulade_monster_spawn_egg": "Roulade Monster Spawn Egg",
+      "item.cl.ak_47": "AK47",
+      "item.cl.jelly_bazooka": "Jelly Bazooka",
+      "block.cl.block_of_tourmaline": "Block Of Tourmaline",
+      "item.cl.tourmaline_gem": "Tourmaline",
+      "item.cl.heavy_boots_boots": "Heavy Boots ",
+      "block.cl.candy_fence_gate": "Candy Fence Gate",
+      "item.cl.mint_ice_cream": "Mint Ice Cream",
+      "block.cl.red_jelly_bean_block": "Red Jelly Bean Block",
+      "block.cl.tourmaline_ore_block": "Tourmaline Ore ",
+      "advancements.cottoncandyyy.title": "COTTON CANDYYYYY!!!",
+      "block.cl.ginger_bread_stairs": "Gingerbread Stairs",
+      "block.cl.bubbaloo": "Bubbaloo",
+      "item.cl.bubbaloo_bucket": "Bubbaloo Bucket",
+      "item.cl.gingerbread": "Gingerbread",
+      "item.cl.chocolate_ice_cream": "Chocolate Ice Cream",
+      "item.cl.tourmaline_hoe": "Tourmaline Hoe",
+      "entity.cl.jelly_snake": "Jelly Snake",
+      "item.cl.bullet": "Bullet",
+      "entity.cl.gingerbread_warrior": "Gingerbread Warrior",
+      "item.cl.cotton_candy_tornado_spawn_egg": "Cotton Candy Tornado Spawn Egg",
+      "item.cl.guard_dinosaur_spawn_egg": "Guard Dinosaur Spawn Egg",
+      "item.cl.strawberry_ice_cream": "Strawberry Ice Cream",
+      "block.cl.candy_fence": "Candy Fence",
+      "block.cl.candy_slab": "Candy Slab",
+      "biome.cl.jelly_bean_fields": "Jelly Bean Fields",
+      "item.cl.lollipop_guy_spawn_egg": "Lollipop Guy Spawn Egg",
+      "block.cl.gingerbread_block": "Frosted Gingerbread Block",
+      "block.cl.orange_jelly_bean_block": "Orange Jelly Bean Block",
+      "item.cl.melted_chocolate_bucket": "Melted Chocolate Bucket",
+      "fluid.cl.bubbaloo": "Bubbaloo",
+      "block.cl.candy_button": "Candy Button",
       "entity.cl.lollipop_guy": "Lollipop Guy",
-      "block.cl.melted_chocolate": "Melted Chocolate",
-      "block.cl.candylog": "Candy Log",
-      "block.cl.candy_planks": "Candy Planks",
       "entity.cl.cotton_candy_tornado": "Cotton Candy Tornado",
+      "block.cl.candy_planks": "Candy Planks",
+      "block.cl.candylog": "Candy Log",
+      "block.cl.melted_chocolate": "Melted Chocolate",
       "item.cl.lollipop": "Lollipop",
       "entity.cl.brown_sugar_rhino": "Brown Sugar Rhino",
-      "block.cl.gummy_dirt": "Gummy Dirt",
+      "entity.cl.guard_dinosaur": "Guard Dinosaur",
+      "advancements.cottoncandyyy.descr": "get cotton candy from the tornado",
       "block.cl.candy_leaves": "Candy Leaves",
       "item.cl.jelly_shark_spawn_egg": "Jelly Shark Spawn Egg",
-      "fluid.cl.melted_chocolate": "Melted Chocolate"
+      "item.cl.tourmaline_axe": "Tourmaline Axe",
+      "item.cl.cotton_candy": "Cotton Candy",
+      "item.cl.tourmaline_helmet": "Tourmaline Helmet",
+      "entity.minecraft.villager.cl.ice_cream_man": "Ice Cream Man",
+      "entity.cl.bubbaloo_creeper": "Bubbaloo Creeper",
+      "block.cl.candy_stairs": "Candy Stairs",
+      "item.cl.tourmaline_leggings": "Tourmaline Leggings",
+      "block.cl.green_jelly_bean_block": "Green Jelly Bean Block",
+      "item.cl.dead_jelly_snake": "Dead Jelly Snake",
+      "entity.cl.segway": "Segway",
+      "item.cl.ultimate_ice_cream": "Ultimate Ice Cream",
+      "item.cl.chocolate_bar": "Chocolate Bar",
+      "item.cl.tourmaline_sword": "Tourmaline Sword",
+      "fluid.cl.melted_chocolate": "Melted Chocolate",
+      "item.cl.segway_spawn_egg": "Segway Spawn Egg",
+      "item.cl.gingerbread_warrior_spawn_egg": "Gingerbread Warrior Spawn Egg"
     }
   },
   "foldersRoot": {
@@ -383,7 +1653,8 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [
-      "geckolib"
+      "geckolib",
+      "playeranimator"
     ],
     "currentGenerator": "forge-1.20.1",
     "credits": "Created using mod maker MCreator - https://mcreator.net/about",

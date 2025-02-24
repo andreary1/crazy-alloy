@@ -20,9 +20,11 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
@@ -144,7 +146,8 @@ public class JellySharkEntity extends Monster implements GeoEntity {
 		});
 		this.goalSelector.addGoal(3, new RandomSwimmingGoal(this, 1, 40));
 		this.targetSelector.addGoal(4, new HurtByTargetGoal(this));
-		this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal(this, Player.class, false, false));
+		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
 	}
 
 	@Override

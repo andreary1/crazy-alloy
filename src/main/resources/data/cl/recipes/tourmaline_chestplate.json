@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "a a",
+    "aaa",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "cl:tourmaline_gem"
+    }
+  },
+  "result": {
+    "item": "cl:tourmaline_chestplate",
+    "count": 1
+  }
+}
