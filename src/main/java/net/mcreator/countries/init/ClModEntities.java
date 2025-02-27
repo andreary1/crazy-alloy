@@ -47,6 +47,7 @@ import net.mcreator.countries.entity.BulletProjEntity;
 import net.mcreator.countries.entity.BubblegumEntity;
 import net.mcreator.countries.entity.BubbalooCreeperEntity;
 import net.mcreator.countries.entity.BrownSugarRhinoEntity;
+import net.mcreator.countries.entity.BrownSugarProjEntity;
 import net.mcreator.countries.entity.AngryIceCreamConeEntity;
 import net.mcreator.countries.ClMod;
 
@@ -56,7 +57,7 @@ public class ClModEntities {
 	public static final RegistryObject<EntityType<CandyTubeDogEntity>> CANDY_TUBE_DOG = register("candy_tube_dog",
 			EntityType.Builder.<CandyTubeDogEntity>of(CandyTubeDogEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CandyTubeDogEntity::new)
 
-					.sized(0.6f, 1.8f));
+					.sized(0.6f, 0.8f));
 	public static final RegistryObject<EntityType<JellySharkEntity>> JELLY_SHARK = register("jelly_shark",
 			EntityType.Builder.<JellySharkEntity>of(JellySharkEntity::new, MobCategory.WATER_CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(JellySharkEntity::new)
 
@@ -174,6 +175,8 @@ public class ClModEntities {
 					.sized(0.6f, 1.8f));
 	public static final RegistryObject<EntityType<GingerbreadProjEntity>> GINGERBREAD_PROJ = register("gingerbread_proj", EntityType.Builder.<GingerbreadProjEntity>of(GingerbreadProjEntity::new, MobCategory.MISC)
 			.setCustomClientFactory(GingerbreadProjEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<BrownSugarProjEntity>> BROWN_SUGAR_PROJ = register("brown_sugar_proj",
+			EntityType.Builder.<BrownSugarProjEntity>of(BrownSugarProjEntity::new, MobCategory.MISC).setCustomClientFactory(BrownSugarProjEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities

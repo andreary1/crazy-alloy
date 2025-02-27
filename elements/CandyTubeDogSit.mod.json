@@ -1,0 +1,7 @@
+{
+  "_fv": 73,
+  "_type": "procedure",
+  "definition": {
+    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"event_trigger\" deletable=\"false\" x=\"40\" y=\"40\"><field name=\"trigger\">entity_ticks</field><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_entity_compare\"><field name=\"entity\">CUSTOM:CandyTubeDog</field><value name=\"compareTo\"><block type=\"entity_from_deps\"></block></value></block></value><statement name=\"DO0\"><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_binary_ops\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"entity_nbt_logic_get\"><value name=\"entity\"><block type=\"entity_from_deps\"></block></value><value name=\"tagName\"><block type=\"text\"><field name=\"TEXT\">Sitting</field></block></value></block></value><value name=\"B\"><block type=\"logic_boolean\"><field name=\"BOOL\">TRUE</field></block></value></block></value><statement name=\"DO0\"><block type=\"play_newgeckoanim\"><field name=\"name\">CUSTOM:CandyTubeDog</field><value name=\"entity\"><block type=\"entity_from_deps\"></block></value><value name=\"animation\"><block type=\"text\"><field name=\"TEXT\">animation.sugartubedog.sit</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"stop_procedure\"><field name=\"name\">CUSTOM:CandyTubeDog</field><value name=\"entity\"><block type=\"entity_from_deps\"></block></value></block></statement></block></statement></block></next></block></xml>"
+  }
+}

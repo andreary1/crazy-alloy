@@ -36,6 +36,7 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityDimensions;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.InteractionResult;
@@ -51,6 +52,7 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.nbt.CompoundTag;
 
+import net.mcreator.countries.procedures.InsertSitProcedure;
 import net.mcreator.countries.init.ClModItems;
 import net.mcreator.countries.init.ClModEntities;
 
@@ -101,7 +103,27 @@ public class CandyTubeDogEntity extends TamableAnimal implements GeoEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.goalSelector.addGoal(1, new FollowOwnerGoal(this, 1, (float) 10, (float) 2, false));
+		this.goalSelector.addGoal(1, new FollowOwnerGoal(this, 1, (float) 10, (float) 2, false) {
+			@Override
+			public boolean canUse() {
+				double x = CandyTubeDogEntity.this.getX();
+				double y = CandyTubeDogEntity.this.getY();
+				double z = CandyTubeDogEntity.this.getZ();
+				Entity entity = CandyTubeDogEntity.this;
+				Level world = CandyTubeDogEntity.this.level();
+				return super.canUse() && InsertSitProcedure.execute(entity);
+			}
+
+			@Override
+			public boolean canContinueToUse() {
+				double x = CandyTubeDogEntity.this.getX();
+				double y = CandyTubeDogEntity.this.getY();
+				double z = CandyTubeDogEntity.this.getZ();
+				Entity entity = CandyTubeDogEntity.this;
+				Level world = CandyTubeDogEntity.this.level();
+				return super.canContinueToUse() && InsertSitProcedure.execute(entity);
+			}
+		});
 		this.goalSelector.addGoal(2, new RandomStrollGoal(this, 1));
 		this.goalSelector.addGoal(3, new OwnerHurtByTargetGoal(this));
 		this.targetSelector.addGoal(4, new OwnerHurtTargetGoal(this));

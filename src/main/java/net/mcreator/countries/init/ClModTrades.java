@@ -20,7 +20,7 @@ public class ClModTrades {
 			event.getTrades().get(2).add(new BasicItemListing(new ItemStack(ClModItems.MONEY.get(), 3), new ItemStack(ClModItems.COIN.get(), 5), new ItemStack(ClModItems.VANILLA_ICE_CREAM.get()), 30, 6, 0.05f));
 			event.getTrades().get(3).add(new BasicItemListing(new ItemStack(ClModItems.MONEY.get(), 3), new ItemStack(ClModItems.COIN.get(), 5), new ItemStack(ClModItems.STRAWBERRY_ICE_CREAM.get()), 30, 7, 0.05f));
 			event.getTrades().get(4).add(new BasicItemListing(new ItemStack(ClModItems.MONEY.get(), 3), new ItemStack(ClModItems.COIN.get(), 5), new ItemStack(ClModItems.MINT_ICE_CREAM.get()), 30, 8, 0.05f));
-			event.getTrades().get(5).add(new BasicItemListing(new ItemStack(ClModItems.ULTIMATE_ICE_CREAM.get(), 10),
+			event.getTrades().get(5).add(new BasicItemListing(new ItemStack(ClModItems.ULTIMATE_ICE_CREAM.get(), 5),
 
 					new ItemStack(ClModItems.ICE_CREAM_DIMENSION.get()), 1, 5, 0.05f));
 		}

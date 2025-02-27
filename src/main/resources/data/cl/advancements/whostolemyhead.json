@@ -1,0 +1,26 @@
+{
+  "display": {
+    "background": "minecraft:textures/block/stone.png",
+    "icon": {
+      "item": "cl:empty_ice_cream_cone"
+    },
+    "title": {
+      "translate": "advancements.whostolemyhead.title"
+    },
+    "description": {
+      "translate": "advancements.whostolemyhead.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "whostolemyhead_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 2
+  }
+}

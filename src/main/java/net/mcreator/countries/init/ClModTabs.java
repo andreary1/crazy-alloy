@@ -31,6 +31,7 @@ public class ClModTabs {
 			tabData.accept(ClModBlocks.CHOCOLATE_ICE_CREAM_BLOCK.get().asItem());
 			tabData.accept(ClModBlocks.STRAWBERRY_ICE_CREAM_BLOCK.get().asItem());
 			tabData.accept(ClModBlocks.MINT_ICE_CREAM_BLOCK.get().asItem());
+			tabData.accept(ClModBlocks.RED_LICORICE_PLANT.get().asItem());
 		} else if (tabData.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
 			tabData.accept(ClModItems.MELTED_CHOCOLATE_BUCKET.get());
 			tabData.accept(ClModItems.COTTON_CANDY.get());
@@ -39,7 +40,7 @@ public class ClModTabs {
 			tabData.accept(ClModItems.TOURMALINE_AXE.get());
 			tabData.accept(ClModItems.TOURMALINE_HOE.get());
 			tabData.accept(ClModItems.TOURMALINE_SHOVEL.get());
-			tabData.accept(ClModItems.ICE_CREAM_DIMENSION.get());
+			tabData.accept(ClModItems.ICE_CREAM_AMULET.get());
 		} else if (tabData.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
 			tabData.accept(ClModItems.CANDY_TUBE_DOG_SPAWN_EGG.get());
 			tabData.accept(ClModItems.JELLY_SHARK_SPAWN_EGG.get());
@@ -94,6 +95,7 @@ public class ClModTabs {
 			tabData.accept(ClModItems.MONEY.get());
 			tabData.accept(ClModItems.COIN.get());
 			tabData.accept(ClModItems.EMPTY_ICE_CREAM_CONE.get());
+			tabData.accept(ClModItems.BROWN_SUGAR_BRICK.get());
 		} else if (tabData.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
 			tabData.accept(ClModBlocks.CHOCOLATE_BLOCK.get().asItem());
 			tabData.accept(ClModBlocks.CANDYLOG.get().asItem());

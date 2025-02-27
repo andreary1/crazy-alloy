@@ -77,5 +77,6 @@ public class ClModEntityRenderers {
 		event.registerEntityRenderer(ClModEntities.ICE_CREAM_BEAST.get(), IceCreamBeastRenderer::new);
 		event.registerEntityRenderer(ClModEntities.GINGERBREAD_HELPER.get(), GingerbreadHelperRenderer::new);
 		event.registerEntityRenderer(ClModEntities.GINGERBREAD_PROJ.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(ClModEntities.BROWN_SUGAR_PROJ.get(), ThrownItemRenderer::new);
 	}
 }

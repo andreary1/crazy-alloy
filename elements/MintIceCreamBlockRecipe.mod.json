@@ -1,0 +1,48 @@
+{
+  "_fv": 73,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:MintIceCream"
+      },
+      {
+        "value": "CUSTOM:MintIceCream"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:MintIceCream"
+      },
+      {
+        "value": "CUSTOM:MintIceCream"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:MintIceCreamBlock"
+    },
+    "name": "mint_ice_cream_block_recipe",
+    "namespace": "mod"
+  }
+}

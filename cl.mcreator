@@ -1505,17 +1505,9 @@
       "registry_name": "ice_cream_dimension",
       "metadata": {
         "files": [
-          "src/main/resources/assets/cl/blockstates/ice_cream_dimension_portal.json",
-          "src/main/java/net/mcreator/countries/item/IceCreamDimensionItem.java",
-          "src/main/java/net/mcreator/countries/world/teleporter/IceCreamDimensionPortalShape.java",
-          "src/main/java/net/mcreator/countries/block/IceCreamDimensionPortalBlock.java",
           "src/main/java/net/mcreator/countries/world/dimension/IceCreamDimensionDimension.java",
           "src/main/resources/data/cl/dimension_type/ice_cream_dimension.json",
-          "src/main/resources/data/cl/dimension/ice_cream_dimension.json",
-          "src/main/java/net/mcreator/countries/world/teleporter/IceCreamDimensionTeleporter.java",
-          "src/main/resources/assets/cl/models/block/ice_cream_dimension_portal_ew.json",
-          "src/main/resources/assets/cl/models/item/ice_cream_dimension.json",
-          "src/main/resources/assets/cl/models/block/ice_cream_dimension_portal_ns.json"
+          "src/main/resources/data/cl/dimension/ice_cream_dimension.json"
         ]
       }
     },
@@ -2611,6 +2603,287 @@
           "src/main/java/net/mcreator/countries/entity/GingerbreadProjEntity.java"
         ]
       }
+    },
+    {
+      "name": "Whostolemyhead",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "whostolemyhead",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/advancements/whostolemyhead.json"
+        ]
+      }
+    },
+    {
+      "name": "Sit",
+      "type": "attribute",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sit",
+      "metadata": {
+        "files": []
+      }
+    },
+    {
+      "name": "SitProcedure",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sit_procedure",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/procedures/SitProcedureProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InsertSit",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "insert_sit",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/countries/procedures/InsertSitProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EntityTickSit",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "entity_tick_sit",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/procedures/EntityTickSitProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CandyTubeDogSit",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_tube_dog_sit",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/procedures/CandyTubeDogSitProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RedLicoricePlant",
+      "type": "plant",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "red_licorice_plant",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/block/RedLicoricePlantBlock.java",
+          "src/main/resources/data/cl/forge/biome_modifier/red_licorice_plant_biome_modifier.json",
+          "src/main/resources/data/cl/loot_tables/blocks/red_licorice_plant.json",
+          "src/main/resources/assets/cl/models/block/red_licorice_plant.json",
+          "src/main/resources/assets/cl/blockstates/red_licorice_plant.json",
+          "src/main/resources/data/cl/worldgen/configured_feature/red_licorice_plant.json",
+          "src/main/resources/data/cl/worldgen/placed_feature/red_licorice_plant.json",
+          "src/main/resources/assets/cl/models/item/red_licorice_plant.json"
+        ]
+      }
+    },
+    {
+      "name": "BrownSugarBrick",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "brown_sugar_brick",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cl/models/item/brown_sugar_brick.json",
+          "src/main/java/net/mcreator/countries/item/BrownSugarBrickItem.java"
+        ]
+      }
+    },
+    {
+      "name": "BrownSugarProj",
+      "type": "projectile",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "brown_sugar_proj",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/entity/BrownSugarProjEntity.java"
+        ]
+      }
+    },
+    {
+      "name": "MintIceCreamBlockRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mint_ice_cream_block_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/recipes/mint_ice_cream_block_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "ChocIceCreamBlockRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choc_ice_cream_block_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/recipes/choc_ice_cream_block_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "VanillaIceCreamBlockRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "vanilla_ice_cream_block_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/recipes/vanilla_ice_cream_block_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "StrawberryIceCreamBlockRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "strawberry_ice_cream_block_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cl/recipes/strawberry_ice_cream_block_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "TeleportToIceCreamDimension",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "teleport_to_ice_cream_dimension",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/procedures/TeleportToIceCreamDimensionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IceCreamPortalBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_cream_portal_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/block/IceCreamPortalBlockBlock.java",
+          "src/main/resources/assets/cl/blockstates/ice_cream_portal_block.json",
+          "src/main/resources/data/cl/loot_tables/blocks/ice_cream_portal_block.json",
+          "src/main/resources/assets/cl/models/item/ice_cream_portal_block.json",
+          "src/main/resources/assets/cl/models/block/ice_cream_portal_block.json"
+        ]
+      }
+    },
+    {
+      "name": "IceCreamAmulet",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_cream_amulet",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/item/IceCreamAmuletItem.java",
+          "src/main/resources/assets/cl/models/item/ice_cream_amulet.json"
+        ]
+      }
+    },
+    {
+      "name": "LightThePortalForIceCream",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_the_portal_for_ice_cream",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/procedures/LightThePortalForIceCreamProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PortalToIceCream",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "portal_to_ice_cream",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/countries/procedures/PortalToIceCreamProcedure.java"
+        ],
+        "dependencies": []
+      }
     }
   ],
   "variable_elements": [],
@@ -2756,6 +3029,7 @@
   "language_map": {
     "en_us": {
       "item.cl.coin": "Coin",
+      "advancements.whostolemyhead.descr": "Get an ice cream from a living ice cream",
       "block.cl.chocolate_factory": "Chocolate Factory",
       "block.cl.strawberry_ice_cream_block": "Strawberry Ice Cream Block",
       "item.cl.brown_sugar_rhino_spawn_egg": "Brown Sugar Rhino Spawn Egg",
@@ -2767,6 +3041,7 @@
       "subtitles.ak47shot": "",
       "item.cl.jelly_snake_spawn_egg": "Jelly Snake Spawn Egg",
       "item.cl.angry_ice_cream_cone_spawn_egg": "Angry Ice Cream Cone Spawn Egg",
+      "item.cl.brown_sugar_brick": "Brown Sugar Brick",
       "entity.cl.vanilla_ice_cream_guy": "Living Ice Cream",
       "item.cl.vanilla_ice_cream": "Vanilla Ice Cream",
       "block.cl.purple_jelly_bean_block": "Purple Jelly Bean Block",
@@ -2808,7 +3083,6 @@
       "item.cl.tourmaline_helmet": "Tourmaline Helmet",
       "item.cl.tourmaline_leggings": "Tourmaline Leggings",
       "item.cl.dead_jelly_snake": "Dead Jelly Snake",
-      "item.cl.ice_cream_dimension": "Ice Cream Amulet",
       "item.cl.ultimate_ice_cream": "Ultimate Ice Cream",
       "block.cl.ice_cream_machine": "Ice Cream Machine",
       "item.cl.bubbaloo_creeper_spawn_egg": "Bubbaloo Creeper Spawn Egg",
@@ -2827,6 +3101,7 @@
       "item.cl.tourmaline_shovel": "Tourmaline Shovel",
       "entity.cl.ice_cream_zombie": "Ice Cream Zombie",
       "item.cl.gingerbread_soldier_spawn_egg": "Gingerbread Soldier Spawn Egg",
+      "item.cl.ice_cream_amulet": "Ice Cream Amulet",
       "item.cl.ice_cream_gargoyle_spawn_egg": "Ice Cream Gargoyle Spawn Egg",
       "entity.cl.roulade_monster": "Roulade Monster",
       "item.cl.candy_tube_dog_spawn_egg": "Candy Tube Dog Spawn Egg",
@@ -2838,6 +3113,7 @@
       "block.cl.candy_pressure_plate": "Candy Pressure Plate",
       "block.cl.gummy_dirt": "Chocolate Dirt",
       "item.cl.roulade_monster_spawn_egg": "Roulade Monster Spawn Egg",
+      "block.cl.red_licorice_plant": "Red Licorice Plant",
       "block.cl.mint_ice_cream_block": "Mint Ice Cream Block",
       "block.cl.block_of_tourmaline": "Block Of Tourmaline",
       "item.cl.tourmaline_gem": "Tourmaline",
@@ -2848,6 +3124,7 @@
       "block.cl.bubbaloo": "Bubbaloo",
       "item.cl.gingerbread": "Gingerbread",
       "item.cl.tourmaline_hoe": "Tourmaline Hoe",
+      "advancements.whostolemyhead.title": "Have you lost your mind?",
       "item.cl.bubblegum_spawn_egg": "Bubblegum Spawn Egg",
       "item.cl.bullet": "Bullet",
       "item.cl.cotton_candy_tornado_spawn_egg": "Cotton Candy Tornado Spawn Egg",
@@ -2859,6 +3136,7 @@
       "block.cl.gingerbread_block": "Frosted Gingerbread Block",
       "biome.cl.ice_cream_plains": "Ice Cream Plains",
       "block.cl.orange_jelly_bean_block": "Orange Jelly Bean Block",
+      "attribute.cl.sit": "Sit",
       "fluid.cl.bubbaloo": "Bubbaloo",
       "block.cl.candy_button": "Candy Button",
       "entity.cl.cotton_candy_tornado": "Cotton Candy Tornado",
@@ -2869,6 +3147,7 @@
       "entity.cl.gingerbread_helper": "Gingerbread Helper",
       "entity.minecraft.villager.cl.ice_cream_man": "Ice Cream Man",
       "entity.cl.bubbaloo_creeper": "Bubbaloo Creeper",
+      "block.cl.ice_cream_portal_block": "Ice Cream Portal Block",
       "block.cl.candy_stairs": "Candy Stairs",
       "item.cl.ice_cream_zombie_spawn_egg": "Ice Cream Zombie Spawn Egg",
       "block.cl.green_jelly_bean_block": "Green Jelly Bean Block",

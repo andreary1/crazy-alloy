@@ -28,6 +28,7 @@ import net.mcreator.countries.init.ClModFluidTypes;
 import net.mcreator.countries.init.ClModEntities;
 import net.mcreator.countries.init.ClModBlocks;
 import net.mcreator.countries.init.ClModBlockEntities;
+import net.mcreator.countries.init.ClModAttributes;
 
 import java.util.function.Supplier;
 import java.util.function.Function;
@@ -62,7 +63,7 @@ public class ClMod {
 		ClModMenus.REGISTRY.register(bus);
 		ClModFluids.REGISTRY.register(bus);
 		ClModFluidTypes.REGISTRY.register(bus);
-
+		ClModAttributes.REGISTRY.register(bus);
 		// Start of user code block mod init
 		// End of user code block mod init
 	}

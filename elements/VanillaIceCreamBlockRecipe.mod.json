@@ -1,0 +1,48 @@
+{
+  "_fv": 73,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:VanillaIceCream"
+      },
+      {
+        "value": "CUSTOM:VanillaIceCream"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:VanillaIceCream"
+      },
+      {
+        "value": "CUSTOM:VanillaIceCream"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:VanillaIceCreamBlock"
+    },
+    "name": "vanilla_ice_cream_block_recipe",
+    "namespace": "mod"
+  }
+}

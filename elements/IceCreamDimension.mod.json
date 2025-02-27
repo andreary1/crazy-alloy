@@ -67,6 +67,6 @@
     ],
     "texture": "icecreamamulet",
     "portalTexture": "vanillaicecreamblock",
-    "enablePortal": true
+    "enablePortal": false
   }
 }

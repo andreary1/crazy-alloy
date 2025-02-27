@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aa",
+    "aa"
+  ],
+  "key": {
+    "a": {
+      "item": "cl:mint_ice_cream"
+    }
+  },
+  "result": {
+    "item": "cl:mint_ice_cream_block",
+    "count": 1
+  }
+}
