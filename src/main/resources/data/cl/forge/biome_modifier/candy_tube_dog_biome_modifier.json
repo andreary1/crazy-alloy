@@ -3,7 +3,7 @@
   "biomes": "cl:sweet_biome",
   "spawners": {
     "type": "cl:candy_tube_dog",
-    "weight": 5,
+    "weight": 10,
     "minCount": 1,
     "maxCount": 2
   }

@@ -16,21 +16,38 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 
+import net.mcreator.countries.entity.VanillaIceCreamZombieEntity;
+import net.mcreator.countries.entity.VanillaIceCreamGuyEntity;
+import net.mcreator.countries.entity.StrawberryIceCreamGuyEntity;
+import net.mcreator.countries.entity.StrawIceCreamZombieEntity;
 import net.mcreator.countries.entity.SegwayEntity;
 import net.mcreator.countries.entity.RouladeMonsterEntity;
+import net.mcreator.countries.entity.MintIceCreamZombieEntity;
+import net.mcreator.countries.entity.MintIceCreamGuyEntity;
 import net.mcreator.countries.entity.LollipopGuyEntity;
+import net.mcreator.countries.entity.LivingIceCreamEntity;
 import net.mcreator.countries.entity.JellySnakeEntity;
 import net.mcreator.countries.entity.JellySharkEntity;
+import net.mcreator.countries.entity.IceCreamZombieEntity;
+import net.mcreator.countries.entity.IceCreamGargoyleEntity;
+import net.mcreator.countries.entity.IceCreamBeastEntity;
 import net.mcreator.countries.entity.GuardDinosaurEntity;
 import net.mcreator.countries.entity.GingerbreadWarriorEntity;
 import net.mcreator.countries.entity.GingerbreadSoldierEntity;
+import net.mcreator.countries.entity.GingerbreadProjEntity;
+import net.mcreator.countries.entity.GingerbreadKingEntity;
+import net.mcreator.countries.entity.GingerbreadHelperEntity;
 import net.mcreator.countries.entity.DeadSnakeProjEntity;
 import net.mcreator.countries.entity.CottonCandyTornadoEntity;
 import net.mcreator.countries.entity.CottonCandyProjEntity;
+import net.mcreator.countries.entity.ChocolateIceCreamGuyEntity;
+import net.mcreator.countries.entity.ChocIceCreamZombieEntity;
 import net.mcreator.countries.entity.CandyTubeDogEntity;
 import net.mcreator.countries.entity.BulletProjEntity;
+import net.mcreator.countries.entity.BubblegumEntity;
 import net.mcreator.countries.entity.BubbalooCreeperEntity;
 import net.mcreator.countries.entity.BrownSugarRhinoEntity;
+import net.mcreator.countries.entity.AngryIceCreamConeEntity;
 import net.mcreator.countries.ClMod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -55,7 +72,7 @@ public class ClModEntities {
 	public static final RegistryObject<EntityType<GingerbreadSoldierEntity>> GINGERBREAD_SOLDIER = register("gingerbread_soldier",
 			EntityType.Builder.<GingerbreadSoldierEntity>of(GingerbreadSoldierEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(GingerbreadSoldierEntity::new)
 
-					.sized(0.6f, 1.8f));
+					.sized(0.6f, 0.9f));
 	public static final RegistryObject<EntityType<CottonCandyTornadoEntity>> COTTON_CANDY_TORNADO = register("cotton_candy_tornado",
 			EntityType.Builder.<CottonCandyTornadoEntity>of(CottonCandyTornadoEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CottonCandyTornadoEntity::new)
 
@@ -63,7 +80,7 @@ public class ClModEntities {
 	public static final RegistryObject<EntityType<GingerbreadWarriorEntity>> GINGERBREAD_WARRIOR = register("gingerbread_warrior",
 			EntityType.Builder.<GingerbreadWarriorEntity>of(GingerbreadWarriorEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(GingerbreadWarriorEntity::new)
 
-					.sized(0.6f, 1.8f));
+					.sized(0.6f, 0.9f));
 	public static final RegistryObject<EntityType<CottonCandyProjEntity>> COTTON_CANDY_PROJ = register("cotton_candy_proj", EntityType.Builder.<CottonCandyProjEntity>of(CottonCandyProjEntity::new, MobCategory.MISC)
 			.setCustomClientFactory(CottonCandyProjEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
 	public static final RegistryObject<EntityType<JellySnakeEntity>> JELLY_SNAKE = register("jelly_snake",
@@ -88,6 +105,75 @@ public class ClModEntities {
 			EntityType.Builder.<GuardDinosaurEntity>of(GuardDinosaurEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(GuardDinosaurEntity::new)
 
 					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<GingerbreadKingEntity>> GINGERBREAD_KING = register("gingerbread_king",
+			EntityType.Builder.<GingerbreadKingEntity>of(GingerbreadKingEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(GingerbreadKingEntity::new)
+
+					.sized(1f, 2f));
+	public static final RegistryObject<EntityType<IceCreamGargoyleEntity>> ICE_CREAM_GARGOYLE = register("ice_cream_gargoyle",
+			EntityType.Builder.<IceCreamGargoyleEntity>of(IceCreamGargoyleEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(IceCreamGargoyleEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<LivingIceCreamEntity>> LIVING_ICE_CREAM = register("living_ice_cream",
+			EntityType.Builder.<LivingIceCreamEntity>of(LivingIceCreamEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(LivingIceCreamEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<ChocolateIceCreamGuyEntity>> CHOCOLATE_ICE_CREAM_GUY = register("chocolate_ice_cream_guy",
+			EntityType.Builder.<ChocolateIceCreamGuyEntity>of(ChocolateIceCreamGuyEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+					.setCustomClientFactory(ChocolateIceCreamGuyEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<StrawberryIceCreamGuyEntity>> STRAWBERRY_ICE_CREAM_GUY = register("strawberry_ice_cream_guy",
+			EntityType.Builder.<StrawberryIceCreamGuyEntity>of(StrawberryIceCreamGuyEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+					.setCustomClientFactory(StrawberryIceCreamGuyEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<VanillaIceCreamGuyEntity>> VANILLA_ICE_CREAM_GUY = register("vanilla_ice_cream_guy",
+			EntityType.Builder.<VanillaIceCreamGuyEntity>of(VanillaIceCreamGuyEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(VanillaIceCreamGuyEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<MintIceCreamGuyEntity>> MINT_ICE_CREAM_GUY = register("mint_ice_cream_guy",
+			EntityType.Builder.<MintIceCreamGuyEntity>of(MintIceCreamGuyEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(MintIceCreamGuyEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<AngryIceCreamConeEntity>> ANGRY_ICE_CREAM_CONE = register("angry_ice_cream_cone",
+			EntityType.Builder.<AngryIceCreamConeEntity>of(AngryIceCreamConeEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(AngryIceCreamConeEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<BubblegumEntity>> BUBBLEGUM = register("bubblegum",
+			EntityType.Builder.<BubblegumEntity>of(BubblegumEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(BubblegumEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<IceCreamZombieEntity>> ICE_CREAM_ZOMBIE = register("ice_cream_zombie",
+			EntityType.Builder.<IceCreamZombieEntity>of(IceCreamZombieEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(IceCreamZombieEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<ChocIceCreamZombieEntity>> CHOC_ICE_CREAM_ZOMBIE = register("choc_ice_cream_zombie",
+			EntityType.Builder.<ChocIceCreamZombieEntity>of(ChocIceCreamZombieEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(ChocIceCreamZombieEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<VanillaIceCreamZombieEntity>> VANILLA_ICE_CREAM_ZOMBIE = register("vanilla_ice_cream_zombie",
+			EntityType.Builder.<VanillaIceCreamZombieEntity>of(VanillaIceCreamZombieEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+					.setCustomClientFactory(VanillaIceCreamZombieEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<StrawIceCreamZombieEntity>> STRAW_ICE_CREAM_ZOMBIE = register("straw_ice_cream_zombie",
+			EntityType.Builder.<StrawIceCreamZombieEntity>of(StrawIceCreamZombieEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(StrawIceCreamZombieEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<MintIceCreamZombieEntity>> MINT_ICE_CREAM_ZOMBIE = register("mint_ice_cream_zombie",
+			EntityType.Builder.<MintIceCreamZombieEntity>of(MintIceCreamZombieEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(MintIceCreamZombieEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<IceCreamBeastEntity>> ICE_CREAM_BEAST = register("ice_cream_beast",
+			EntityType.Builder.<IceCreamBeastEntity>of(IceCreamBeastEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(IceCreamBeastEntity::new)
+
+					.sized(0.8f, 3f));
+	public static final RegistryObject<EntityType<GingerbreadHelperEntity>> GINGERBREAD_HELPER = register("gingerbread_helper",
+			EntityType.Builder.<GingerbreadHelperEntity>of(GingerbreadHelperEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(GingerbreadHelperEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<GingerbreadProjEntity>> GINGERBREAD_PROJ = register("gingerbread_proj", EntityType.Builder.<GingerbreadProjEntity>of(GingerbreadProjEntity::new, MobCategory.MISC)
+			.setCustomClientFactory(GingerbreadProjEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -110,6 +196,22 @@ public class ClModEntities {
 			BubbalooCreeperEntity.init();
 			SegwayEntity.init();
 			GuardDinosaurEntity.init();
+			GingerbreadKingEntity.init();
+			IceCreamGargoyleEntity.init();
+			LivingIceCreamEntity.init();
+			ChocolateIceCreamGuyEntity.init();
+			StrawberryIceCreamGuyEntity.init();
+			VanillaIceCreamGuyEntity.init();
+			MintIceCreamGuyEntity.init();
+			AngryIceCreamConeEntity.init();
+			BubblegumEntity.init();
+			IceCreamZombieEntity.init();
+			ChocIceCreamZombieEntity.init();
+			VanillaIceCreamZombieEntity.init();
+			StrawIceCreamZombieEntity.init();
+			MintIceCreamZombieEntity.init();
+			IceCreamBeastEntity.init();
+			GingerbreadHelperEntity.init();
 		});
 	}
 
@@ -127,5 +229,21 @@ public class ClModEntities {
 		event.put(BUBBALOO_CREEPER.get(), BubbalooCreeperEntity.createAttributes().build());
 		event.put(SEGWAY.get(), SegwayEntity.createAttributes().build());
 		event.put(GUARD_DINOSAUR.get(), GuardDinosaurEntity.createAttributes().build());
+		event.put(GINGERBREAD_KING.get(), GingerbreadKingEntity.createAttributes().build());
+		event.put(ICE_CREAM_GARGOYLE.get(), IceCreamGargoyleEntity.createAttributes().build());
+		event.put(LIVING_ICE_CREAM.get(), LivingIceCreamEntity.createAttributes().build());
+		event.put(CHOCOLATE_ICE_CREAM_GUY.get(), ChocolateIceCreamGuyEntity.createAttributes().build());
+		event.put(STRAWBERRY_ICE_CREAM_GUY.get(), StrawberryIceCreamGuyEntity.createAttributes().build());
+		event.put(VANILLA_ICE_CREAM_GUY.get(), VanillaIceCreamGuyEntity.createAttributes().build());
+		event.put(MINT_ICE_CREAM_GUY.get(), MintIceCreamGuyEntity.createAttributes().build());
+		event.put(ANGRY_ICE_CREAM_CONE.get(), AngryIceCreamConeEntity.createAttributes().build());
+		event.put(BUBBLEGUM.get(), BubblegumEntity.createAttributes().build());
+		event.put(ICE_CREAM_ZOMBIE.get(), IceCreamZombieEntity.createAttributes().build());
+		event.put(CHOC_ICE_CREAM_ZOMBIE.get(), ChocIceCreamZombieEntity.createAttributes().build());
+		event.put(VANILLA_ICE_CREAM_ZOMBIE.get(), VanillaIceCreamZombieEntity.createAttributes().build());
+		event.put(STRAW_ICE_CREAM_ZOMBIE.get(), StrawIceCreamZombieEntity.createAttributes().build());
+		event.put(MINT_ICE_CREAM_ZOMBIE.get(), MintIceCreamZombieEntity.createAttributes().build());
+		event.put(ICE_CREAM_BEAST.get(), IceCreamBeastEntity.createAttributes().build());
+		event.put(GINGERBREAD_HELPER.get(), GingerbreadHelperEntity.createAttributes().build());
 	}
 }

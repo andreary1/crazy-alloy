@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "cl:block/chocolate_factory"
+    },
+    "facing=east": {
+      "model": "cl:block/chocolate_factory",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "cl:block/chocolate_factory",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "cl:block/chocolate_factory",
+      "y": 270
     }
   }
 }

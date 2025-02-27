@@ -1,0 +1,72 @@
+{
+  "_fv": 73,
+  "_type": "dimension",
+  "definition": {
+    "biomesInDimension": [
+      {
+        "value": "CUSTOM:IceCreamPlains"
+      }
+    ],
+    "worldGenType": "Normal world gen",
+    "mainFillerBlock": {
+      "value": "CUSTOM:VanillaIceCreamBlock"
+    },
+    "fluidBlock": {
+      "value": "CUSTOM:ChocolateIceCreamBlock"
+    },
+    "seaLevel": 0,
+    "generateOreVeins": true,
+    "generateAquifers": true,
+    "horizontalNoiseSize": 1,
+    "verticalNoiseSize": 2,
+    "defaultEffects": "overworld",
+    "useCustomEffects": true,
+    "hasClouds": true,
+    "cloudHeight": 192.0,
+    "skyType": "NONE",
+    "sunHeightAffectsFog": false,
+    "canRespawnHere": true,
+    "hasFog": false,
+    "ambientLight": 0.0,
+    "doesWaterVaporize": false,
+    "hasFixedTime": false,
+    "fixedTimeValue": 0,
+    "coordinateScale": 1.0,
+    "infiniburnTag": "minecraft:infiniburn_overworld",
+    "bedWorks": true,
+    "hasSkyLight": true,
+    "imitateOverworldBehaviour": true,
+    "piglinSafe": false,
+    "hasRaids": true,
+    "minMonsterSpawnLightLimit": 0,
+    "maxMonsterSpawnLightLimit": 7,
+    "monsterSpawnBlockLightLimit": 0,
+    "onPlayerEntersDimension": {
+      "name": "IceCreamDimensionPlayerEntersDimension"
+    },
+    "portalFrame": {
+      "value": "CUSTOM:ChocolateIceCreamBlock"
+    },
+    "portalParticles": {
+      "value": "SNOWFLAKE"
+    },
+    "portalLuminance": 0,
+    "portalSound": {
+      "value": "block.portal.ambient"
+    },
+    "enableIgniter": true,
+    "igniterName": "Ice Cream Amulet",
+    "igniterRarity": "UNCOMMON",
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "creativeTabs": [
+      {
+        "value": "TOOLS"
+      }
+    ],
+    "texture": "icecreamamulet",
+    "portalTexture": "vanillaicecreamblock",
+    "enablePortal": true
+  }
+}

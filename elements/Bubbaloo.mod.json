@@ -50,10 +50,13 @@
     "resistance": 100.0,
     "luminance": 8,
     "lightOpacity": 1,
-    "emissiveRendering": false,
+    "emissiveRendering": true,
     "tickRate": 0,
     "flammability": 0,
     "fireSpreadSpeed": 0,
-    "colorOnMap": "DEFAULT"
+    "colorOnMap": "DEFAULT",
+    "onEntityCollides": {
+      "name": "BubbalooMobplayerCollidesBlock"
+    }
   }
 }

@@ -1,0 +1,26 @@
+{
+  "display": {
+    "background": "minecraft:textures/block/stone.png",
+    "icon": {
+      "item": "cl:vanilla_ice_cream"
+    },
+    "title": {
+      "translate": "advancements.ice_cream_mania.title"
+    },
+    "description": {
+      "translate": "advancements.ice_cream_mania.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "ice_cream_mania_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 5
+  }
+}

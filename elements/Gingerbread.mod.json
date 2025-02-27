@@ -11,7 +11,7 @@
     "rarity": "COMMON",
     "creativeTabs": [
       {
-        "value": "FOOD"
+        "value": "COMBAT"
       }
     ],
     "stackSize": 64,
@@ -43,7 +43,7 @@
       "value": "Arrow"
     },
     "projectileDisableAmmoCheck": false,
-    "isFood": true,
+    "isFood": false,
     "nutritionalValue": 4,
     "saturation": 0.3,
     "eatResultItem": {

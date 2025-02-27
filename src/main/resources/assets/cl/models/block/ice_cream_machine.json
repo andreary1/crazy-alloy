@@ -1,0 +1,11 @@
+{
+  "parent": "cl:custom/icecreammachine",
+  "textures": {
+    "all": "cl:block/machine",
+    "particle": "cl:block/machine",
+    "0": "cl:block/levers",
+    "1": "cl:block/machine",
+    "missing": "cl:block/"
+  },
+  "render_type": "solid"
+}

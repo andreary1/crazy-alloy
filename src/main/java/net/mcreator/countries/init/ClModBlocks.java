@@ -15,12 +15,17 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.world.level.block.Block;
 
 import net.mcreator.countries.block.YellowJellyBeanBlockBlock;
+import net.mcreator.countries.block.VanillaIceCreamBlockBlock;
 import net.mcreator.countries.block.TourmalineOreBlockBlock;
+import net.mcreator.countries.block.StrawberryIceCreamBlockBlock;
 import net.mcreator.countries.block.RockCandyBlock;
 import net.mcreator.countries.block.RedJellyBeanBlockBlock;
 import net.mcreator.countries.block.PurpleJellyBeanBlockBlock;
 import net.mcreator.countries.block.OrangeJellyBeanBlockBlock;
+import net.mcreator.countries.block.MintIceCreamBlockBlock;
 import net.mcreator.countries.block.MeltedChocolateBlock;
+import net.mcreator.countries.block.IceCreamMachineBlock;
+import net.mcreator.countries.block.IceCreamDimensionPortalBlock;
 import net.mcreator.countries.block.GummyGrassBlock;
 import net.mcreator.countries.block.GummyDirtBlock;
 import net.mcreator.countries.block.GreenJellyBeanBlockBlock;
@@ -28,6 +33,7 @@ import net.mcreator.countries.block.GingerbreadBlockBlock;
 import net.mcreator.countries.block.GingerbBlock;
 import net.mcreator.countries.block.GingerBreadStairsBlock;
 import net.mcreator.countries.block.GingerBreadSlabBlock;
+import net.mcreator.countries.block.ChocolateIceCreamBlockBlock;
 import net.mcreator.countries.block.ChocolateFactoryBlock;
 import net.mcreator.countries.block.ChocolateBlockBlock;
 import net.mcreator.countries.block.CandylogBlock;
@@ -72,6 +78,12 @@ public class ClModBlocks {
 	public static final RegistryObject<Block> TOURMALINE_ORE_BLOCK = REGISTRY.register("tourmaline_ore_block", () -> new TourmalineOreBlockBlock());
 	public static final RegistryObject<Block> BLOCK_OF_TOURMALINE = REGISTRY.register("block_of_tourmaline", () -> new BlockOfTourmalineBlock());
 	public static final RegistryObject<Block> BUBBALOO = REGISTRY.register("bubbaloo", () -> new BubbalooBlock());
+	public static final RegistryObject<Block> VANILLA_ICE_CREAM_BLOCK = REGISTRY.register("vanilla_ice_cream_block", () -> new VanillaIceCreamBlockBlock());
+	public static final RegistryObject<Block> CHOCOLATE_ICE_CREAM_BLOCK = REGISTRY.register("chocolate_ice_cream_block", () -> new ChocolateIceCreamBlockBlock());
+	public static final RegistryObject<Block> STRAWBERRY_ICE_CREAM_BLOCK = REGISTRY.register("strawberry_ice_cream_block", () -> new StrawberryIceCreamBlockBlock());
+	public static final RegistryObject<Block> ICE_CREAM_DIMENSION_PORTAL = REGISTRY.register("ice_cream_dimension_portal", () -> new IceCreamDimensionPortalBlock());
+	public static final RegistryObject<Block> MINT_ICE_CREAM_BLOCK = REGISTRY.register("mint_ice_cream_block", () -> new MintIceCreamBlockBlock());
+	public static final RegistryObject<Block> ICE_CREAM_MACHINE = REGISTRY.register("ice_cream_machine", () -> new IceCreamMachineBlock());
 
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

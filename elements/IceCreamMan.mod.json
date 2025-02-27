@@ -4,7 +4,7 @@
   "definition": {
     "displayName": "Ice Cream Man",
     "pointOfInterest": {
-      "value": "CUSTOM:ChocolateFactory"
+      "value": "CUSTOM:IceCreamMachine"
     },
     "actionSound": {
       "value": "block.snow.place"

@@ -18,7 +18,7 @@ import net.mcreator.countries.entity.DeadSnakeProjEntity;
 
 public class JellyBazookaItem extends Item {
 	public JellyBazookaItem() {
-		super(new Item.Properties().stacksTo(44).rarity(Rarity.COMMON));
+		super(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON));
 	}
 
 	@Override

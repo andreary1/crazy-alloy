@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
+    "cl:mint_ice_cream_block",
+    "cl:strawberry_ice_cream_block",
+    "cl:chocolate_ice_cream_block",
+    "cl:vanilla_ice_cream_block",
     "cl:gummy_dirt",
     "cl:gummy_grass"
   ]

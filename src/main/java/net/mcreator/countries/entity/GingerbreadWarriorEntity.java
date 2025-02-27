@@ -36,7 +36,7 @@ public class GingerbreadWarriorEntity extends Monster {
 	public GingerbreadWarriorEntity(EntityType<GingerbreadWarriorEntity> type, Level world) {
 		super(type, world);
 		setMaxUpStep(0.6f);
-		xpReward = 0;
+		xpReward = 2;
 		setNoAi(false);
 		setPersistenceRequired();
 	}
@@ -55,17 +55,11 @@ public class GingerbreadWarriorEntity extends Monster {
 				return this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth();
 			}
 		});
-		this.goalSelector.addGoal(2, new RandomStrollGoal(this, 1));
-		this.targetSelector.addGoal(3, new HurtByTargetGoal(this));
-		this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1, false) {
-			@Override
-			protected double getAttackReachSqr(LivingEntity entity) {
-				return 4;
-			}
-		});
-		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal(this, Player.class, true, false));
-		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
-		this.goalSelector.addGoal(7, new FloatGoal(this));
+		this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
+		this.goalSelector.addGoal(3, new RandomStrollGoal(this, 0.8));
+		this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(5, new FloatGoal(this));
+		this.targetSelector.addGoal(6, new NearestAttackableTargetGoal(this, Player.class, false, false));
 	}
 
 	@Override
@@ -96,7 +90,7 @@ public class GingerbreadWarriorEntity extends Monster {
 		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.3);
 		builder = builder.add(Attributes.MAX_HEALTH, 10);
 		builder = builder.add(Attributes.ARMOR, 0);
-		builder = builder.add(Attributes.ATTACK_DAMAGE, 3);
+		builder = builder.add(Attributes.ATTACK_DAMAGE, 6);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 16);
 		return builder;
 	}

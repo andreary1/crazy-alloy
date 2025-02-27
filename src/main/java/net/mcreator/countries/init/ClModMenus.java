@@ -11,10 +11,12 @@ import net.minecraftforge.common.extensions.IForgeMenuType;
 
 import net.minecraft.world.inventory.MenuType;
 
+import net.mcreator.countries.world.inventory.IceCreamMachineGUIMenu;
 import net.mcreator.countries.world.inventory.ChocolateFactoryGUIMenu;
 import net.mcreator.countries.ClMod;
 
 public class ClModMenus {
 	public static final DeferredRegister<MenuType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.MENU_TYPES, ClMod.MODID);
 	public static final RegistryObject<MenuType<ChocolateFactoryGUIMenu>> CHOCOLATE_FACTORY_GUI = REGISTRY.register("chocolate_factory_gui", () -> IForgeMenuType.create(ChocolateFactoryGUIMenu::new));
+	public static final RegistryObject<MenuType<IceCreamMachineGUIMenu>> ICE_CREAM_MACHINE_GUI = REGISTRY.register("ice_cream_machine_gui", () -> IForgeMenuType.create(IceCreamMachineGUIMenu::new));
 }

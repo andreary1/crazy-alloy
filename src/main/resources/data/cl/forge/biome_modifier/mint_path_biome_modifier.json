@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cl:ice_cream_plains",
+  "features": "cl:mint_path",
+  "step": "surface_structures"
+}

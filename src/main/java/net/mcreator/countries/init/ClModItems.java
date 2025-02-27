@@ -23,14 +23,16 @@ import net.mcreator.countries.item.TourmalineHoeItem;
 import net.mcreator.countries.item.TourmalineGemItem;
 import net.mcreator.countries.item.TourmalineAxeItem;
 import net.mcreator.countries.item.StrawberryIceCreamItem;
-import net.mcreator.countries.item.NeapolitanIceCreamItem;
 import net.mcreator.countries.item.MoneyItem;
 import net.mcreator.countries.item.MintIceCreamItem;
 import net.mcreator.countries.item.MeltedChocolateItem;
 import net.mcreator.countries.item.LollipopItem;
 import net.mcreator.countries.item.JellyBazookaItem;
+import net.mcreator.countries.item.IceCreamDimensionItem;
 import net.mcreator.countries.item.HeavyBootsItem;
 import net.mcreator.countries.item.GingerbreadItem;
+import net.mcreator.countries.item.GingerbreadCannonItem;
+import net.mcreator.countries.item.EmptyIceCreamConeItem;
 import net.mcreator.countries.item.DeadJellySnakeItem;
 import net.mcreator.countries.item.CottonCandyItem;
 import net.mcreator.countries.item.CoinItem;
@@ -93,7 +95,6 @@ public class ClModItems {
 	public static final RegistryObject<Item> ROULADE_MONSTER_SPAWN_EGG = REGISTRY.register("roulade_monster_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.ROULADE_MONSTER, -6724096, -103, new Item.Properties()));
 	public static final RegistryObject<Item> BUBBALOO_CREEPER_SPAWN_EGG = REGISTRY.register("bubbaloo_creeper_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.BUBBALOO_CREEPER, -1609510, -2460242, new Item.Properties()));
 	public static final RegistryObject<Item> BUBBALOO_BUCKET = REGISTRY.register("bubbaloo_bucket", () -> new BubbalooItem());
-	public static final RegistryObject<Item> NEAPOLITAN_ICE_CREAM = REGISTRY.register("neapolitan_ice_cream", () -> new NeapolitanIceCreamItem());
 	public static final RegistryObject<Item> MINT_ICE_CREAM = REGISTRY.register("mint_ice_cream", () -> new MintIceCreamItem());
 	public static final RegistryObject<Item> TOURMALINE_AXE = REGISTRY.register("tourmaline_axe", () -> new TourmalineAxeItem());
 	public static final RegistryObject<Item> MONEY = REGISTRY.register("money", () -> new MoneyItem());
@@ -109,6 +110,21 @@ public class ClModItems {
 	public static final RegistryObject<Item> GUARD_DINOSAUR_SPAWN_EGG = REGISTRY.register("guard_dinosaur_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.GUARD_DINOSAUR, -15526637, -13864397, new Item.Properties()));
 	public static final RegistryObject<Item> TOURMALINE_HOE = REGISTRY.register("tourmaline_hoe", () -> new TourmalineHoeItem());
 	public static final RegistryObject<Item> TOURMALINE_SHOVEL = REGISTRY.register("tourmaline_shovel", () -> new TourmalineShovelItem());
+	public static final RegistryObject<Item> VANILLA_ICE_CREAM_BLOCK = block(ClModBlocks.VANILLA_ICE_CREAM_BLOCK);
+	public static final RegistryObject<Item> CHOCOLATE_ICE_CREAM_BLOCK = block(ClModBlocks.CHOCOLATE_ICE_CREAM_BLOCK);
+	public static final RegistryObject<Item> STRAWBERRY_ICE_CREAM_BLOCK = block(ClModBlocks.STRAWBERRY_ICE_CREAM_BLOCK);
+	public static final RegistryObject<Item> ICE_CREAM_DIMENSION = REGISTRY.register("ice_cream_dimension", () -> new IceCreamDimensionItem());
+	public static final RegistryObject<Item> GINGERBREAD_KING_SPAWN_EGG = REGISTRY.register("gingerbread_king_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.GINGERBREAD_KING, -6724096, -256, new Item.Properties()));
+	public static final RegistryObject<Item> ICE_CREAM_GARGOYLE_SPAWN_EGG = REGISTRY.register("ice_cream_gargoyle_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.ICE_CREAM_GARGOYLE, -10079488, -65332, new Item.Properties()));
+	public static final RegistryObject<Item> LIVING_ICE_CREAM_SPAWN_EGG = REGISTRY.register("living_ice_cream_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.LIVING_ICE_CREAM, -668329, -406945, new Item.Properties()));
+	public static final RegistryObject<Item> EMPTY_ICE_CREAM_CONE = REGISTRY.register("empty_ice_cream_cone", () -> new EmptyIceCreamConeItem());
+	public static final RegistryObject<Item> ANGRY_ICE_CREAM_CONE_SPAWN_EGG = REGISTRY.register("angry_ice_cream_cone_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.ANGRY_ICE_CREAM_CONE, -13261, -52429, new Item.Properties()));
+	public static final RegistryObject<Item> MINT_ICE_CREAM_BLOCK = block(ClModBlocks.MINT_ICE_CREAM_BLOCK);
+	public static final RegistryObject<Item> BUBBLEGUM_SPAWN_EGG = REGISTRY.register("bubblegum_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.BUBBLEGUM, -65332, -7060844, new Item.Properties()));
+	public static final RegistryObject<Item> ICE_CREAM_ZOMBIE_SPAWN_EGG = REGISTRY.register("ice_cream_zombie_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.ICE_CREAM_ZOMBIE, -14982089, -2706587, new Item.Properties()));
+	public static final RegistryObject<Item> ICE_CREAM_BEAST_SPAWN_EGG = REGISTRY.register("ice_cream_beast_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.ICE_CREAM_BEAST, -15511785, -10407, new Item.Properties()));
+	public static final RegistryObject<Item> ICE_CREAM_MACHINE = block(ClModBlocks.ICE_CREAM_MACHINE);
+	public static final RegistryObject<Item> GINGERBREAD_CANNON = REGISTRY.register("gingerbread_cannon", () -> new GingerbreadCannonItem());
 
 	// Start of user code block custom items
 	// End of user code block custom items

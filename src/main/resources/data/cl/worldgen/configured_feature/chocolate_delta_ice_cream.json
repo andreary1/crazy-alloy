@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:delta_feature",
+  "config": {
+    "contents": {
+      "Name": "cl:melted_chocolate"
+    },
+    "rim": {
+      "Name": "cl:vanilla_ice_cream_block"
+    },
+    "size": 5,
+    "rim_size": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ab",
+    "cd"
+  ],
+  "key": {
+    "a": {
+      "item": "cl:mint_ice_cream"
+    },
+    "b": {
+      "item": "cl:chocolate_ice_cream"
+    },
+    "c": {
+      "item": "cl:vanilla_ice_cream"
+    },
+    "d": {
+      "item": "cl:strawberry_ice_cream"
+    }
+  },
+  "result": {
+    "item": "cl:ultimate_ice_cream",
+    "count": 1
+  }
+}

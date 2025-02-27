@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "cl:candy_planks"
+    }
+  ],
+  "result": {
+    "item": "cl:candy_button",
+    "count": 1
+  }
+}

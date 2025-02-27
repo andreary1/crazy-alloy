@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "cl:block/minticecreamblock",
+    "particle": "cl:block/minticecreamblock"
+  },
+  "render_type": "solid"
+}

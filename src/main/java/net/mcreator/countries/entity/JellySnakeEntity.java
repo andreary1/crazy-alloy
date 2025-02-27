@@ -17,7 +17,9 @@ import net.minecraftforge.network.NetworkHooks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
@@ -45,6 +47,7 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.nbt.CompoundTag;
 
+import net.mcreator.countries.procedures.JellySnakePlayerCollidesWithThisEntityProcedure;
 import net.mcreator.countries.init.ClModItems;
 import net.mcreator.countries.init.ClModEntities;
 
@@ -99,10 +102,11 @@ public class JellySnakeEntity extends PathfinderMob implements GeoEntity {
 				return this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth();
 			}
 		});
-		this.goalSelector.addGoal(2, new RandomStrollGoal(this, 1));
-		this.targetSelector.addGoal(3, new HurtByTargetGoal(this));
+		this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
+		this.goalSelector.addGoal(3, new RandomStrollGoal(this, 0.8));
 		this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
 		this.goalSelector.addGoal(5, new FloatGoal(this));
+		this.targetSelector.addGoal(6, new NearestAttackableTargetGoal(this, Player.class, false, false));
 	}
 
 	@Override
@@ -154,6 +158,12 @@ public class JellySnakeEntity extends PathfinderMob implements GeoEntity {
 	@Override
 	public EntityDimensions getDimensions(Pose p_33597_) {
 		return super.getDimensions(p_33597_).scale((float) 1.5);
+	}
+
+	@Override
+	public void playerTouch(Player sourceentity) {
+		super.playerTouch(sourceentity);
+		JellySnakePlayerCollidesWithThisEntityProcedure.execute(this);
 	}
 
 	@Override

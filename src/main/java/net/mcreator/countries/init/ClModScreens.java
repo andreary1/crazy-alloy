@@ -11,6 +11,7 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.client.gui.screens.MenuScreens;
 
+import net.mcreator.countries.client.gui.IceCreamMachineGUIScreen;
 import net.mcreator.countries.client.gui.ChocolateFactoryGUIScreen;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -19,6 +20,7 @@ public class ClModScreens {
 	public static void clientLoad(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
 			MenuScreens.register(ClModMenus.CHOCOLATE_FACTORY_GUI.get(), ChocolateFactoryGUIScreen::new);
+			MenuScreens.register(ClModMenus.ICE_CREAM_MACHINE_GUI.get(), IceCreamMachineGUIScreen::new);
 		});
 	}
 }

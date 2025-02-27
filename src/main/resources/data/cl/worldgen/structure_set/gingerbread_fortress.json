@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "cl:gingerbread_fortress",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 63,
+    "separation": 19,
+    "salt": 49604324
+  }
+}

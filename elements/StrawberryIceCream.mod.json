@@ -36,6 +36,9 @@
     },
     "inventorySize": 9,
     "inventoryStackSize": 64,
+    "onFinishUsingItem": {
+      "name": "StrawberryIceCreamPlayerFinishesUsingItem"
+    },
     "enableRanged": false,
     "shootConstantly": false,
     "rangedItemChargesPower": false,
@@ -47,7 +50,7 @@
     "nutritionalValue": 6,
     "saturation": 0.3,
     "eatResultItem": {
-      "value": ""
+      "value": "CUSTOM:EmptyIceCreamCone"
     },
     "isMeat": false,
     "isAlwaysEdible": false,

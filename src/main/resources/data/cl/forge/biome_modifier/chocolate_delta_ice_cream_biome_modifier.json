@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cl:ice_cream_plains",
+  "features": "cl:chocolate_delta_ice_cream",
+  "step": "surface_structures"
+}

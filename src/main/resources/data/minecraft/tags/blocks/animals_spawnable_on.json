@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "cl:gummy_grass",
-    "cl:green_jelly_bean_block"
+    "cl:green_jelly_bean_block",
+    "cl:vanilla_ice_cream_block"
   ]
 }

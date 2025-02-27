@@ -23,7 +23,7 @@ public abstract class TourmalineItem extends ArmorItem {
 
 			@Override
 			public int getDefenseForType(ArmorItem.Type type) {
-				return new int[]{3, 6, 7, 3}[type.getSlot().getIndex()];
+				return new int[]{5, 8, 9, 5}[type.getSlot().getIndex()];
 			}
 
 			@Override

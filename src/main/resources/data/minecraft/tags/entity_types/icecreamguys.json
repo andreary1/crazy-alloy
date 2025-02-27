@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "cl:mint_ice_cream_guy",
+    "cl:strawberry_ice_cream_guy",
+    "cl:vanilla_ice_cream_guy",
+    "cl:chocolate_ice_cream_guy"
+  ]
+}

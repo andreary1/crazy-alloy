@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "levers",
+        "1": "machine",
+        "missing": ""
+      },
+      "name": "default"
+    }
+  }
+}

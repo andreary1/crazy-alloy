@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "cl:block/ice_cream_machine"
+    },
+    "facing=east": {
+      "model": "cl:block/ice_cream_machine",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "cl:block/ice_cream_machine",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "cl:block/ice_cream_machine",
+      "y": 270
+    }
+  }
+}
