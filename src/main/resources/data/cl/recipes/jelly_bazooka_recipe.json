@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "abc",
+    "def"
+  ],
+  "key": {
+    "a": {
+      "item": "cl:green_jelly_bean_block"
+    },
+    "b": {
+      "item": "cl:red_jelly_bean_block"
+    },
+    "c": {
+      "item": "cl:orange_jelly_bean_block"
+    },
+    "d": {
+      "item": "cl:purple_jelly_bean_block"
+    },
+    "e": {
+      "item": "cl:yellow_jelly_bean_block"
+    },
+    "f": {
+      "item": "cl:dead_jelly_snake"
+    }
+  },
+  "result": {
+    "item": "cl:jelly_bazooka",
+    "count": 1
+  }
+}

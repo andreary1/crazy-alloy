@@ -49,7 +49,7 @@ public class BubblegumEntity extends Monster {
 	public BubblegumEntity(EntityType<BubblegumEntity> type, Level world) {
 		super(type, world);
 		setMaxUpStep(0.6f);
-		xpReward = 0;
+		xpReward = 2;
 		setNoAi(false);
 		this.moveControl = new FlyingMoveControl(this, 10, true);
 	}

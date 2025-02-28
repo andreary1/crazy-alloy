@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "cl:block/ice_cream_dimension_portal_ew"
+    },
+    "axis=x": {
+      "model": "cl:block/ice_cream_dimension_portal_ns"
+    }
+  }
+}

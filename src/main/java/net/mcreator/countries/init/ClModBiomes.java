@@ -50,20 +50,16 @@ public class ClModBiomes {
 				// Inject biomes to biome source
 				if (chunkGenerator.getBiomeSource() instanceof MultiNoiseBiomeSource noiseSource) {
 					List<Pair<Climate.ParameterPoint, Holder<Biome>>> parameters = new ArrayList<>(noiseSource.parameters().values());
-					addParameterPoint(parameters, new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.5f, 0.5f), Climate.Parameter.span(-0.5f, 0.5f), Climate.Parameter.span(0.3f, 1f), Climate.Parameter.span(-0.5f, 0.5f),
-							Climate.Parameter.point(0.0f), Climate.Parameter.span(-1f, 1f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("cl", "sweet_biome")))));
-					addParameterPoint(parameters, new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.5f, 0.5f), Climate.Parameter.span(-0.5f, 0.5f), Climate.Parameter.span(0.3f, 1f), Climate.Parameter.span(-0.5f, 0.5f),
-							Climate.Parameter.point(1.0f), Climate.Parameter.span(-1f, 1f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("cl", "sweet_biome")))));
-					addParameterPoint(parameters, new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.45f, 0.48f), Climate.Parameter.span(-0.55f, 0.55f), Climate.Parameter.span(0.25f, 0.9f), Climate.Parameter.span(-0.48f, 0.55f),
-							Climate.Parameter.point(0.0f), Climate.Parameter.span(-0.95f, 0.88f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("cl", "jelly_bean_fields")))));
-					addParameterPoint(parameters, new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.45f, 0.48f), Climate.Parameter.span(-0.55f, 0.55f), Climate.Parameter.span(0.25f, 0.9f), Climate.Parameter.span(-0.48f, 0.55f),
-							Climate.Parameter.point(1.0f), Climate.Parameter.span(-0.95f, 0.88f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("cl", "jelly_bean_fields")))));
-					addParameterPoint(parameters, new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.5f, 0.5f), Climate.Parameter.span(-0.5f, 0.5f), Climate.Parameter.span(0.3f, 1f), Climate.Parameter.span(-0.5f, 0.5f),
-							Climate.Parameter.point(0.0f), Climate.Parameter.span(-1f, 1f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("cl", "candy_cave")))));
-					addParameterPoint(parameters, new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.5f, 0.5f), Climate.Parameter.span(-0.5f, 0.5f), Climate.Parameter.span(0.3f, 1f), Climate.Parameter.span(-0.5f, 0.5f),
-							Climate.Parameter.point(1.0f), Climate.Parameter.span(-1f, 1f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("cl", "candy_cave")))));
-					addParameterPoint(parameters, new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.5f, 0.5f), Climate.Parameter.span(-0.5f, 0.5f), Climate.Parameter.span(0.3f, 1f), Climate.Parameter.span(-0.5f, 0.5f),
-							Climate.Parameter.span(0.2f, 0.9f), Climate.Parameter.span(-1f, 1f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("cl", "candy_cave")))));
+					addParameterPoint(parameters, new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.4f, 0.2f), Climate.Parameter.span(-0.6f, 0.3f), Climate.Parameter.span(-0.2f, 0.57f), Climate.Parameter.span(-0.55f, 0.6f),
+							Climate.Parameter.point(0.0f), Climate.Parameter.span(-0.706f, 0.6f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("cl", "sweet_biome")))));
+					addParameterPoint(parameters, new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.4f, 0.2f), Climate.Parameter.span(-0.6f, 0.3f), Climate.Parameter.span(-0.2f, 0.57f), Climate.Parameter.span(-0.55f, 0.6f),
+							Climate.Parameter.point(1.0f), Climate.Parameter.span(-0.706f, 0.6f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("cl", "sweet_biome")))));
+					addParameterPoint(parameters, new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.45f, 0.45f), Climate.Parameter.span(-0.6f, 0.45f), Climate.Parameter.span(0.25f, 0.75f), Climate.Parameter.span(-0.48f, 0.25f),
+							Climate.Parameter.point(0.0f), Climate.Parameter.span(-0.95f, 0.8f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("cl", "jelly_bean_fields")))));
+					addParameterPoint(parameters, new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.45f, 0.45f), Climate.Parameter.span(-0.6f, 0.45f), Climate.Parameter.span(0.25f, 0.75f), Climate.Parameter.span(-0.48f, 0.25f),
+							Climate.Parameter.point(1.0f), Climate.Parameter.span(-0.95f, 0.8f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("cl", "jelly_bean_fields")))));
+					addParameterPoint(parameters, new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.4f, 0.4f), Climate.Parameter.span(-0.65f, 0.35f), Climate.Parameter.span(0.3f, 0.9f), Climate.Parameter.span(-0.5f, 0.5f),
+							Climate.Parameter.span(0.2f, 0.9f), Climate.Parameter.span(0.6f, 1f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("cl", "candy_cave")))));
 					chunkGenerator.biomeSource = MultiNoiseBiomeSource.createFromList(new Climate.ParameterList<>(parameters));
 					chunkGenerator.featuresPerStep = Suppliers
 							.memoize(() -> FeatureSorter.buildFeaturesPerStep(List.copyOf(chunkGenerator.biomeSource.possibleBiomes()), biome -> chunkGenerator.generationSettingsGetter.apply(biome).features(), true));
@@ -80,8 +76,6 @@ public class ClModBiomes {
 								ClModBlocks.GUMMY_DIRT.get().defaultBlockState(), ClModBlocks.GUMMY_DIRT.get().defaultBlockState()));
 						addSurfaceRule(surfaceRules, 1, preliminarySurfaceRule(ResourceKey.create(Registries.BIOME, new ResourceLocation("cl", "jelly_bean_fields")), ClModBlocks.GREEN_JELLY_BEAN_BLOCK.get().defaultBlockState(),
 								ClModBlocks.YELLOW_JELLY_BEAN_BLOCK.get().defaultBlockState(), ClModBlocks.RED_JELLY_BEAN_BLOCK.get().defaultBlockState()));
-						addSurfaceRule(surfaceRules, 1, preliminarySurfaceRule(ResourceKey.create(Registries.BIOME, new ResourceLocation("cl", "candy_cave")), ClModBlocks.ROCK_CANDY.get().defaultBlockState(),
-								ClModBlocks.ROCK_CANDY.get().defaultBlockState(), ClModBlocks.ROCK_CANDY.get().defaultBlockState()));
 						NoiseGeneratorSettings moddedNoiseGeneratorSettings = new NoiseGeneratorSettings(noiseGeneratorSettings.noiseSettings(), noiseGeneratorSettings.defaultBlock(), noiseGeneratorSettings.defaultFluid(),
 								noiseGeneratorSettings.noiseRouter(), SurfaceRules.sequence(surfaceRules.toArray(SurfaceRules.RuleSource[]::new)), noiseGeneratorSettings.spawnTarget(), noiseGeneratorSettings.seaLevel(),
 								noiseGeneratorSettings.disableMobGeneration(), noiseGeneratorSettings.aquifersEnabled(), noiseGeneratorSettings.oreVeinsEnabled(), noiseGeneratorSettings.useLegacyRandomSource());

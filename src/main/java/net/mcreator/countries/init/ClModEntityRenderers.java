@@ -23,10 +23,14 @@ import net.mcreator.countries.client.renderer.LollipopGuyRenderer;
 import net.mcreator.countries.client.renderer.LivingIceCreamRenderer;
 import net.mcreator.countries.client.renderer.JellySnakeRenderer;
 import net.mcreator.countries.client.renderer.JellySharkRenderer;
+import net.mcreator.countries.client.renderer.JellyBunnyRenderer;
+import net.mcreator.countries.client.renderer.ImpostorCakeRenderer;
 import net.mcreator.countries.client.renderer.IceCreamZombieRenderer;
 import net.mcreator.countries.client.renderer.IceCreamGargoyleRenderer;
+import net.mcreator.countries.client.renderer.IceCreamDragonRenderer;
 import net.mcreator.countries.client.renderer.IceCreamBeastRenderer;
 import net.mcreator.countries.client.renderer.GuardDinosaurRenderer;
+import net.mcreator.countries.client.renderer.GrapeSpiderRenderer;
 import net.mcreator.countries.client.renderer.GingerbreadWarriorRenderer;
 import net.mcreator.countries.client.renderer.GingerbreadSoldierRenderer;
 import net.mcreator.countries.client.renderer.GingerbreadKingRenderer;
@@ -60,7 +64,7 @@ public class ClModEntityRenderers {
 		event.registerEntityRenderer(ClModEntities.SEGWAY.get(), SegwayRenderer::new);
 		event.registerEntityRenderer(ClModEntities.BULLET_PROJ.get(), ThrownItemRenderer::new);
 		event.registerEntityRenderer(ClModEntities.GUARD_DINOSAUR.get(), GuardDinosaurRenderer::new);
-		event.registerEntityRenderer(ClModEntities.GINGERBREAD_KING.get(), GingerbreadKingRenderer::new);
+		event.registerEntityRenderer(ClModEntities.GINGERBREADKING.get(), GingerbreadKingRenderer::new);
 		event.registerEntityRenderer(ClModEntities.ICE_CREAM_GARGOYLE.get(), IceCreamGargoyleRenderer::new);
 		event.registerEntityRenderer(ClModEntities.LIVING_ICE_CREAM.get(), LivingIceCreamRenderer::new);
 		event.registerEntityRenderer(ClModEntities.CHOCOLATE_ICE_CREAM_GUY.get(), ChocolateIceCreamGuyRenderer::new);
@@ -78,5 +82,9 @@ public class ClModEntityRenderers {
 		event.registerEntityRenderer(ClModEntities.GINGERBREAD_HELPER.get(), GingerbreadHelperRenderer::new);
 		event.registerEntityRenderer(ClModEntities.GINGERBREAD_PROJ.get(), ThrownItemRenderer::new);
 		event.registerEntityRenderer(ClModEntities.BROWN_SUGAR_PROJ.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(ClModEntities.GRAPE_SPIDER.get(), GrapeSpiderRenderer::new);
+		event.registerEntityRenderer(ClModEntities.JELLY_BUNNY.get(), JellyBunnyRenderer::new);
+		event.registerEntityRenderer(ClModEntities.IMPOSTOR_CAKE.get(), ImpostorCakeRenderer::new);
+		event.registerEntityRenderer(ClModEntities.ICE_CREAM_DRAGON.get(), IceCreamDragonRenderer::new);
 	}
 }

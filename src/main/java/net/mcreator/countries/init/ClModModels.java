@@ -18,6 +18,7 @@ import net.mcreator.countries.client.model.Modelgingerbreadwarrior;
 import net.mcreator.countries.client.model.Modelgingerbreadsoldier;
 import net.mcreator.countries.client.model.Modelgingerbreadking;
 import net.mcreator.countries.client.model.Modelgingerbreadhelper;
+import net.mcreator.countries.client.model.Modeleyespider;
 import net.mcreator.countries.client.model.Modelbubblegum;
 import net.mcreator.countries.client.model.Modelbrownsugarhino;
 import net.mcreator.countries.client.model.Modelangryicecream;
@@ -32,6 +33,7 @@ public class ClModModels {
 		event.registerLayerDefinition(Modelgingerbreadhelper.LAYER_LOCATION, Modelgingerbreadhelper::createBodyLayer);
 		event.registerLayerDefinition(Modelgingerbreadwarrior.LAYER_LOCATION, Modelgingerbreadwarrior::createBodyLayer);
 		event.registerLayerDefinition(Modelicecreamzombie.LAYER_LOCATION, Modelicecreamzombie::createBodyLayer);
+		event.registerLayerDefinition(Modeleyespider.LAYER_LOCATION, Modeleyespider::createBodyLayer);
 		event.registerLayerDefinition(Modeljellysnakedead.LAYER_LOCATION, Modeljellysnakedead::createBodyLayer);
 		event.registerLayerDefinition(Modelbrownsugarhino.LAYER_LOCATION, Modelbrownsugarhino::createBodyLayer);
 		event.registerLayerDefinition(Modellivingicecream.LAYER_LOCATION, Modellivingicecream::createBodyLayer);

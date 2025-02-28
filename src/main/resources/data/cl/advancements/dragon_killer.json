@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "cl:ice_cream_dragon_egg"
+    },
+    "title": {
+      "translate": "advancements.dragon_killer.title"
+    },
+    "description": {
+      "translate": "advancements.dragon_killer.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "dragon_killer_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "parent": "cl:ice_cream_mania"
+}

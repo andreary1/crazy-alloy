@@ -17,7 +17,10 @@
   },
   "criteria": {
     "ice_cream_mania_0": {
-      "trigger": "minecraft:impossible"
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "cl:ice_cream_dimension"
+      }
     }
   },
   "rewards": {

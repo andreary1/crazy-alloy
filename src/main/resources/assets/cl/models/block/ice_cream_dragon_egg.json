@@ -1,0 +1,9 @@
+{
+  "parent": "cl:custom/icecreamdragonegg",
+  "textures": {
+    "all": "cl:block/egg",
+    "particle": "cl:block/egg",
+    "2": "cl:block/egg"
+  },
+  "render_type": "solid"
+}

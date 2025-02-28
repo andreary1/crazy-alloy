@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "cl:dead_jelly_snake"
+    },
+    "title": {
+      "translate": "advancements.boing.title"
+    },
+    "description": {
+      "translate": "advancements.boing.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "boing_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "cl:what_a_bouncy_place"
+}

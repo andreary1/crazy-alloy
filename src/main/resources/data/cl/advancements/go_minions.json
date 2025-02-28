@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "cl:gingerbread"
+    },
+    "title": {
+      "translate": "advancements.go_minions.title"
+    },
+    "description": {
+      "translate": "advancements.go_minions.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "go_minions_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "cl:the_fall_of_the_king"
+}

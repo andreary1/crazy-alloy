@@ -24,9 +24,12 @@ import net.mcreator.countries.block.RedJellyBeanBlockBlock;
 import net.mcreator.countries.block.PurpleJellyBeanBlockBlock;
 import net.mcreator.countries.block.OrangeJellyBeanBlockBlock;
 import net.mcreator.countries.block.MintIceCreamBlockBlock;
+import net.mcreator.countries.block.MineralConverterBlock;
 import net.mcreator.countries.block.MeltedChocolateBlock;
-import net.mcreator.countries.block.IceCreamPortalBlockBlock;
+import net.mcreator.countries.block.InfestedPurpleJellyBeanBlockBlock;
 import net.mcreator.countries.block.IceCreamMachineBlock;
+import net.mcreator.countries.block.IceCreamDragonEggBlock;
+import net.mcreator.countries.block.IceCreamDimensionPortalBlock;
 import net.mcreator.countries.block.GummyGrassBlock;
 import net.mcreator.countries.block.GummyDirtBlock;
 import net.mcreator.countries.block.GreenJellyBeanBlockBlock;
@@ -82,10 +85,13 @@ public class ClModBlocks {
 	public static final RegistryObject<Block> VANILLA_ICE_CREAM_BLOCK = REGISTRY.register("vanilla_ice_cream_block", () -> new VanillaIceCreamBlockBlock());
 	public static final RegistryObject<Block> CHOCOLATE_ICE_CREAM_BLOCK = REGISTRY.register("chocolate_ice_cream_block", () -> new ChocolateIceCreamBlockBlock());
 	public static final RegistryObject<Block> STRAWBERRY_ICE_CREAM_BLOCK = REGISTRY.register("strawberry_ice_cream_block", () -> new StrawberryIceCreamBlockBlock());
+	public static final RegistryObject<Block> ICE_CREAM_DIMENSION_PORTAL = REGISTRY.register("ice_cream_dimension_portal", () -> new IceCreamDimensionPortalBlock());
 	public static final RegistryObject<Block> MINT_ICE_CREAM_BLOCK = REGISTRY.register("mint_ice_cream_block", () -> new MintIceCreamBlockBlock());
 	public static final RegistryObject<Block> ICE_CREAM_MACHINE = REGISTRY.register("ice_cream_machine", () -> new IceCreamMachineBlock());
 	public static final RegistryObject<Block> RED_LICORICE_PLANT = REGISTRY.register("red_licorice_plant", () -> new RedLicoricePlantBlock());
-	public static final RegistryObject<Block> ICE_CREAM_PORTAL_BLOCK = REGISTRY.register("ice_cream_portal_block", () -> new IceCreamPortalBlockBlock());
+	public static final RegistryObject<Block> MINERAL_CONVERTER = REGISTRY.register("mineral_converter", () -> new MineralConverterBlock());
+	public static final RegistryObject<Block> INFESTED_PURPLE_JELLY_BEAN_BLOCK = REGISTRY.register("infested_purple_jelly_bean_block", () -> new InfestedPurpleJellyBeanBlockBlock());
+	public static final RegistryObject<Block> ICE_CREAM_DRAGON_EGG = REGISTRY.register("ice_cream_dragon_egg", () -> new IceCreamDragonEggBlock());
 
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

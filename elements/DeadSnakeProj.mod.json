@@ -16,6 +16,9 @@
     "entityModel": "Modeljellysnakedead",
     "customModelTexture": "deadjellysnake.png",
     "modelWidth": 0.5,
-    "modelHeight": 0.5
+    "modelHeight": 0.5,
+    "onHitsEntity": {
+      "name": "DeadSnakeProjProjectileHitsLivingEntity"
+    }
   }
 }

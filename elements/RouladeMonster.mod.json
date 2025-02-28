@@ -2,7 +2,7 @@
   "_fv": 73,
   "_type": "animatedentity",
   "definition": {
-    "mobName": "Roulade Monster",
+    "mobName": "Roll Cake Monster",
     "mobLabel": "",
     "mobModelTexture": "roulademonster.png",
     "mobModelGlowTexture": "",
@@ -63,7 +63,7 @@
     "trackingRange": 64,
     "followRange": 16,
     "health": 40,
-    "xpAmount": 0,
+    "xpAmount": 5,
     "waterMob": false,
     "flyingMob": false,
     "guiBoundTo": "<NONE>",
@@ -89,7 +89,7 @@
     "immuneToWither": false,
     "immuneToDragonBreath": false,
     "mobDrop": {
-      "value": ""
+      "value": "CUSTOM:RollCake"
     },
     "livingSound": {
       "value": ""

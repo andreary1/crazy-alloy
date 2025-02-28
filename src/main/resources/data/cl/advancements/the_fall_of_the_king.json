@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "cl:gingerbread"
+    },
+    "title": {
+      "translate": "advancements.the_fall_of_the_king.title"
+    },
+    "description": {
+      "translate": "advancements.the_fall_of_the_king.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "the_fall_of_the_king_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 6
+  },
+  "parent": "cl:enter_sweet_biome_adv"
+}

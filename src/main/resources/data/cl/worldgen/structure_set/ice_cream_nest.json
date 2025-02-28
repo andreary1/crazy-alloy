@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "cl:ice_cream_nest",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 81,
+    "separation": 27,
+    "salt": 881509232
+  }
+}

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "cl:mineral_converter",
     "cl:ice_cream_machine",
     "cl:block_of_tourmaline",
     "cl:tourmaline_ore_block",

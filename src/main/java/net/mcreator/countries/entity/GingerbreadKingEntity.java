@@ -6,6 +6,7 @@ import net.minecraftforge.network.PlayMessages;
 import net.minecraftforge.network.NetworkHooks;
 
 import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
@@ -30,13 +31,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.Packet;
 
+import net.mcreator.countries.procedures.GingerbreadKingEntityDiesProcedure;
 import net.mcreator.countries.init.ClModEntities;
 
 public class GingerbreadKingEntity extends Monster {
 	private final ServerBossEvent bossInfo = new ServerBossEvent(this.getDisplayName(), ServerBossEvent.BossBarColor.RED, ServerBossEvent.BossBarOverlay.PROGRESS);
 
 	public GingerbreadKingEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(ClModEntities.GINGERBREAD_KING.get(), world);
+		this(ClModEntities.GINGERBREADKING.get(), world);
 	}
 
 	public GingerbreadKingEntity(EntityType<GingerbreadKingEntity> type, Level world) {
@@ -90,6 +92,19 @@ public class GingerbreadKingEntity extends Monster {
 	}
 
 	@Override
+	public boolean hurt(DamageSource damagesource, float amount) {
+		if (damagesource.getDirectEntity() instanceof AbstractArrow)
+			return false;
+		return super.hurt(damagesource, amount);
+	}
+
+	@Override
+	public void die(DamageSource source) {
+		super.die(source);
+		GingerbreadKingEntityDiesProcedure.execute(source.getEntity());
+	}
+
+	@Override
 	public boolean canChangeDimensions() {
 		return false;
 	}
@@ -127,8 +142,8 @@ public class GingerbreadKingEntity extends Monster {
 		builder = builder.add(Attributes.ARMOR, 3);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 10);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 16);
-		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 0.5);
-		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 0.5);
+		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 0.6);
+		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 0.7);
 		return builder;
 	}
 }

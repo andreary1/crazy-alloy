@@ -1,0 +1,36 @@
+{
+  "display": {
+    "background": "minecraft:textures/block/stone.png",
+    "icon": {
+      "item": "cl:green_jelly_bean_block"
+    },
+    "title": {
+      "translate": "advancements.what_a_bouncy_place.title"
+    },
+    "description": {
+      "translate": "advancements.what_a_bouncy_place.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "what_a_bouncy_place_0": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "cl:jelly_bean_fields"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

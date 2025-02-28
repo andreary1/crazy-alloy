@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "cl:candy_cave",
+  "spawners": {
+    "type": "cl:impostor_cake",
+    "weight": 15,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

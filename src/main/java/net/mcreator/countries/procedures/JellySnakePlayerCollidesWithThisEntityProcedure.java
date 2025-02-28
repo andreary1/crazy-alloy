@@ -6,10 +6,10 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 
 public class JellySnakePlayerCollidesWithThisEntityProcedure {
-	public static void execute(Entity entity) {
-		if (entity == null)
+	public static void execute(Entity sourceentity) {
+		if (sourceentity == null)
 			return;
-		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+		if (sourceentity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 			_entity.addEffect(new MobEffectInstance(MobEffects.POISON, 120, 2));
 	}
 }

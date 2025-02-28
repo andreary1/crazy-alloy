@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "cl:brown_sugar_brick"
+    },
+    "title": {
+      "translate": "advancements.ouch.title"
+    },
+    "description": {
+      "translate": "advancements.ouch.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "ouch_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "cl:enter_sweet_biome_adv"
+}

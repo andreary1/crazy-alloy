@@ -77,7 +77,7 @@
     },
     "useLootTableForDrops": false,
     "customDrop": {
-      "value": ""
+      "value": "CUSTOM:RedLicoriceCandy"
     },
     "dropAmount": 1,
     "forceTicking": false,
@@ -100,14 +100,14 @@
       }
     ],
     "isBonemealable": false,
-    "frequencyOnChunks": 5,
+    "frequencyOnChunks": 4,
     "generateFeature": true,
     "restrictionBiomes": [
       {
         "value": "CUSTOM:SweetBiome"
       }
     ],
-    "generationType": "Flower",
+    "generationType": "Grass",
     "patchSize": 64,
     "generateAtAnyHeight": true
   }

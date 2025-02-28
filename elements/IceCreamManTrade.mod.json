@@ -22,7 +22,7 @@
             },
             "countOffer": 1,
             "level": 1,
-            "maxTrades": 30,
+            "maxTrades": 64,
             "xp": 5,
             "priceMultiplier": 0.05
           },
@@ -40,7 +40,7 @@
             },
             "countOffer": 1,
             "level": 2,
-            "maxTrades": 30,
+            "maxTrades": 64,
             "xp": 6,
             "priceMultiplier": 0.049999999999999996
           },
@@ -76,7 +76,7 @@
             },
             "countOffer": 1,
             "level": 4,
-            "maxTrades": 30,
+            "maxTrades": 64,
             "xp": 8,
             "priceMultiplier": 0.049999999999999996
           },

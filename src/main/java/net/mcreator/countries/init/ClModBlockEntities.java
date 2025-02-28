@@ -11,12 +11,14 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.Block;
 
+import net.mcreator.countries.block.entity.MineralConverterBlockEntity;
 import net.mcreator.countries.block.entity.ChocolateFactoryBlockEntity;
 import net.mcreator.countries.ClMod;
 
 public class ClModBlockEntities {
 	public static final DeferredRegister<BlockEntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, ClMod.MODID);
 	public static final RegistryObject<BlockEntityType<?>> CHOCOLATE_FACTORY = register("chocolate_factory", ClModBlocks.CHOCOLATE_FACTORY, ChocolateFactoryBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> MINERAL_CONVERTER = register("mineral_converter", ClModBlocks.MINERAL_CONVERTER, MineralConverterBlockEntity::new);
 
 	// Start of user code block custom block entities
 	// End of user code block custom block entities

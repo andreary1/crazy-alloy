@@ -61,23 +61,23 @@
     "spawnBiomeNether": false,
     "genTemperature": {
       "min": -0.45,
-      "max": 0.48
+      "max": 0.45
     },
     "genHumidity": {
-      "min": -0.55,
-      "max": 0.55
+      "min": -0.6,
+      "max": 0.45
     },
     "genContinentalness": {
       "min": 0.25,
-      "max": 0.9
+      "max": 0.75
     },
     "genErosion": {
       "min": -0.48,
-      "max": 0.55
+      "max": 0.25
     },
     "genWeirdness": {
       "min": -0.95,
-      "max": 0.88
+      "max": 0.8
     },
     "treesPerChunk": 1,
     "vanillaTreeType": "Default",

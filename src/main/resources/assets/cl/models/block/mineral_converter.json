@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "cl:block/mineralconverterbottom",
+    "up": "cl:block/mineralconvertertop",
+    "north": "cl:block/mineralconverter",
+    "east": "cl:block/mineralconvertersides",
+    "south": "cl:block/mineralconvertersides",
+    "west": "cl:block/mineralconvertersides",
+    "particle": "cl:block/mineralconverterbottom"
+  },
+  "render_type": "solid"
+}

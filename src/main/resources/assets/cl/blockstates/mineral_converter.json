@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "cl:block/mineral_converter"
+    },
+    "facing=east": {
+      "model": "cl:block/mineral_converter",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "cl:block/mineral_converter",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "cl:block/mineral_converter",
+      "y": 270
+    }
+  }
+}

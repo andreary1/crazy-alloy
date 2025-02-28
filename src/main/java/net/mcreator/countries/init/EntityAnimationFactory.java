@@ -8,7 +8,10 @@ import net.mcreator.countries.entity.SegwayEntity;
 import net.mcreator.countries.entity.RouladeMonsterEntity;
 import net.mcreator.countries.entity.JellySnakeEntity;
 import net.mcreator.countries.entity.JellySharkEntity;
+import net.mcreator.countries.entity.JellyBunnyEntity;
+import net.mcreator.countries.entity.ImpostorCakeEntity;
 import net.mcreator.countries.entity.IceCreamGargoyleEntity;
+import net.mcreator.countries.entity.IceCreamDragonEntity;
 import net.mcreator.countries.entity.IceCreamBeastEntity;
 import net.mcreator.countries.entity.GuardDinosaurEntity;
 import net.mcreator.countries.entity.CottonCandyTornadoEntity;
@@ -76,6 +79,27 @@ public class EntityAnimationFactory {
 				}
 			}
 			if (event.getEntity() instanceof IceCreamBeastEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof JellyBunnyEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof ImpostorCakeEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof IceCreamDragonEntity syncable) {
 				String animation = syncable.getSyncedAnimation();
 				if (!animation.equals("undefined")) {
 					syncable.setAnimation("undefined");

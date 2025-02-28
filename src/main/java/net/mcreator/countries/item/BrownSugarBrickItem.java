@@ -28,7 +28,7 @@ public class BrownSugarBrickItem extends Item {
 
 	@Override
 	public int getUseDuration(ItemStack itemstack) {
-		return 1;
+		return 72000;
 	}
 
 	@Override

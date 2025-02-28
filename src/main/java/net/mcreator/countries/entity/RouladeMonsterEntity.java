@@ -16,6 +16,7 @@ import net.minecraftforge.network.NetworkHooks;
 
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
@@ -43,6 +44,7 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.nbt.CompoundTag;
 
+import net.mcreator.countries.init.ClModItems;
 import net.mcreator.countries.init.ClModEntities;
 
 public class RouladeMonsterEntity extends Monster implements GeoEntity {
@@ -61,7 +63,7 @@ public class RouladeMonsterEntity extends Monster implements GeoEntity {
 
 	public RouladeMonsterEntity(EntityType<RouladeMonsterEntity> type, Level world) {
 		super(type, world);
-		xpReward = 0;
+		xpReward = 5;
 		setNoAi(false);
 		setMaxUpStep(0.6f);
 	}
@@ -105,6 +107,11 @@ public class RouladeMonsterEntity extends Monster implements GeoEntity {
 	@Override
 	public MobType getMobType() {
 		return MobType.UNDEFINED;
+	}
+
+	protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHitIn) {
+		super.dropCustomDeathLoot(source, looting, recentlyHitIn);
+		this.spawnAtLocation(new ItemStack(ClModItems.ROLL_CAKE.get()));
 	}
 
 	@Override

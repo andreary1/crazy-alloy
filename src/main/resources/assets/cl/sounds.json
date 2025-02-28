@@ -6,5 +6,29 @@
         "stream": false
       }
     ]
+  },
+  "icecreamdragonambient": {
+    "sounds": [
+      {
+        "name": "cl:dragon-growl-37570",
+        "stream": false
+      }
+    ]
+  },
+  "icecreamdragonhurt": {
+    "sounds": [
+      {
+        "name": "cl:dragon-hurt-47161",
+        "stream": false
+      }
+    ]
+  },
+  "icecreamdragondeath": {
+    "sounds": [
+      {
+        "name": "cl:dragondeath",
+        "stream": false
+      }
+    ]
   }
 }

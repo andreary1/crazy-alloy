@@ -121,6 +121,9 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onStartToDestroy": {
+      "name": "RedJellyBeanBlockPlayerStartsToDestroy"
+    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [],

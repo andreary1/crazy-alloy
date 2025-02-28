@@ -41,9 +41,6 @@
     "minMonsterSpawnLightLimit": 0,
     "maxMonsterSpawnLightLimit": 7,
     "monsterSpawnBlockLightLimit": 0,
-    "onPlayerEntersDimension": {
-      "name": "IceCreamDimensionPlayerEntersDimension"
-    },
     "portalFrame": {
       "value": "CUSTOM:ChocolateIceCreamBlock"
     },
@@ -66,7 +63,7 @@
       }
     ],
     "texture": "icecreamamulet",
-    "portalTexture": "vanillaicecreamblock",
-    "enablePortal": false
+    "portalTexture": "portalicecream",
+    "enablePortal": true
   }
 }

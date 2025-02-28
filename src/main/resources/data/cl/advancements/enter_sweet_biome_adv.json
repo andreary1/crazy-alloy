@@ -1,0 +1,36 @@
+{
+  "display": {
+    "background": "minecraft:textures/block/stone.png",
+    "icon": {
+      "item": "cl:gummy_grass"
+    },
+    "title": {
+      "translate": "advancements.enter_sweet_biome_adv.title"
+    },
+    "description": {
+      "translate": "advancements.enter_sweet_biome_adv.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "enter_sweet_biome_adv_0": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "cl:sweet_biome"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

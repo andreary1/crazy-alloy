@@ -68,7 +68,7 @@ public class RightClickWithConeIceCreamProcedure {
 			}
 			if (!entity.level().isClientSide())
 				entity.discard();
-			if (entity instanceof ServerPlayer _player) {
+			if (sourceentity instanceof ServerPlayer _player) {
 				Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("cl:whostolemyhead"));
 				AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
 				if (!_ap.isDone()) {
@@ -98,7 +98,7 @@ public class RightClickWithConeIceCreamProcedure {
 			}
 			if (!entity.level().isClientSide())
 				entity.discard();
-			if (entity instanceof ServerPlayer _player) {
+			if (sourceentity instanceof ServerPlayer _player) {
 				Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("cl:whostolemyhead"));
 				AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
 				if (!_ap.isDone()) {
@@ -128,7 +128,7 @@ public class RightClickWithConeIceCreamProcedure {
 			}
 			if (!entity.level().isClientSide())
 				entity.discard();
-			if (entity instanceof ServerPlayer _player) {
+			if (sourceentity instanceof ServerPlayer _player) {
 				Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("cl:whostolemyhead"));
 				AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
 				if (!_ap.isDone()) {
@@ -158,7 +158,7 @@ public class RightClickWithConeIceCreamProcedure {
 			}
 			if (!entity.level().isClientSide())
 				entity.discard();
-			if (entity instanceof ServerPlayer _player) {
+			if (sourceentity instanceof ServerPlayer _player) {
 				Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("cl:whostolemyhead"));
 				AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
 				if (!_ap.isDone()) {

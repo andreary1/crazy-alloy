@@ -5,7 +5,7 @@
     "achievementName": "COTTON CANDYYYYY!!!",
     "achievementDescription": "get cotton candy from the tornado",
     "achievementIcon": {
-      "value": "CUSTOM:CottonCandyItem"
+      "value": "CUSTOM:CottonCandy"
     },
     "background": "Default",
     "disableDisplay": false,
@@ -17,7 +17,7 @@
     "rewardXP": 4,
     "achievementType": "challenge",
     "parent": {
-      "value": "No parent: root"
+      "value": "CUSTOM:EnterSweetBiomeAdv"
     },
     "triggerxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"advancement_trigger\" deletable=\"false\" x=\"40\" y=\"80\"><next><block type=\"custom_trigger\"></block></next></block></xml>"
   }

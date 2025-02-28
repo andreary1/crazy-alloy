@@ -15,9 +15,9 @@
     "rewardLoot": [],
     "rewardRecipes": [],
     "rewardXP": 2,
-    "achievementType": "goal",
+    "achievementType": "task",
     "parent": {
-      "value": "No parent: root"
+      "value": "CUSTOM:IceCreamMania"
     },
     "triggerxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"advancement_trigger\" deletable=\"false\" x=\"40\" y=\"80\"><next><block type=\"custom_trigger\"></block></next></block></xml>"
   }

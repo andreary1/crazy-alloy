@@ -69,7 +69,7 @@ public class GingerbreadProjEntity extends AbstractArrow implements ItemSupplier
 	@Override
 	public void onHitEntity(EntityHitResult entityHitResult) {
 		super.onHitEntity(entityHitResult);
-		GingerbreadProjProjectileHitsLivingEntityProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ());
+		GingerbreadProjProjectileHitsLivingEntityProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), this.getOwner());
 	}
 
 	@Override

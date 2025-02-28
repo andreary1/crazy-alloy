@@ -28,10 +28,14 @@ import net.mcreator.countries.entity.LollipopGuyEntity;
 import net.mcreator.countries.entity.LivingIceCreamEntity;
 import net.mcreator.countries.entity.JellySnakeEntity;
 import net.mcreator.countries.entity.JellySharkEntity;
+import net.mcreator.countries.entity.JellyBunnyEntity;
+import net.mcreator.countries.entity.ImpostorCakeEntity;
 import net.mcreator.countries.entity.IceCreamZombieEntity;
 import net.mcreator.countries.entity.IceCreamGargoyleEntity;
+import net.mcreator.countries.entity.IceCreamDragonEntity;
 import net.mcreator.countries.entity.IceCreamBeastEntity;
 import net.mcreator.countries.entity.GuardDinosaurEntity;
+import net.mcreator.countries.entity.GrapeSpiderEntity;
 import net.mcreator.countries.entity.GingerbreadWarriorEntity;
 import net.mcreator.countries.entity.GingerbreadSoldierEntity;
 import net.mcreator.countries.entity.GingerbreadProjEntity;
@@ -106,14 +110,14 @@ public class ClModEntities {
 			EntityType.Builder.<GuardDinosaurEntity>of(GuardDinosaurEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(GuardDinosaurEntity::new)
 
 					.sized(0.6f, 1.8f));
-	public static final RegistryObject<EntityType<GingerbreadKingEntity>> GINGERBREAD_KING = register("gingerbread_king",
+	public static final RegistryObject<EntityType<GingerbreadKingEntity>> GINGERBREADKING = register("gingerbreadking",
 			EntityType.Builder.<GingerbreadKingEntity>of(GingerbreadKingEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(GingerbreadKingEntity::new)
 
 					.sized(1f, 2f));
 	public static final RegistryObject<EntityType<IceCreamGargoyleEntity>> ICE_CREAM_GARGOYLE = register("ice_cream_gargoyle",
 			EntityType.Builder.<IceCreamGargoyleEntity>of(IceCreamGargoyleEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(IceCreamGargoyleEntity::new)
 
-					.sized(0.6f, 1.8f));
+					.sized(0.3f, 1.8f));
 	public static final RegistryObject<EntityType<LivingIceCreamEntity>> LIVING_ICE_CREAM = register("living_ice_cream",
 			EntityType.Builder.<LivingIceCreamEntity>of(LivingIceCreamEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(LivingIceCreamEntity::new)
 
@@ -177,6 +181,20 @@ public class ClModEntities {
 			.setCustomClientFactory(GingerbreadProjEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
 	public static final RegistryObject<EntityType<BrownSugarProjEntity>> BROWN_SUGAR_PROJ = register("brown_sugar_proj",
 			EntityType.Builder.<BrownSugarProjEntity>of(BrownSugarProjEntity::new, MobCategory.MISC).setCustomClientFactory(BrownSugarProjEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<GrapeSpiderEntity>> GRAPE_SPIDER = register("grape_spider",
+			EntityType.Builder.<GrapeSpiderEntity>of(GrapeSpiderEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(GrapeSpiderEntity::new)
+
+					.sized(0.6f, 0.9f));
+	public static final RegistryObject<EntityType<JellyBunnyEntity>> JELLY_BUNNY = register("jelly_bunny",
+			EntityType.Builder.<JellyBunnyEntity>of(JellyBunnyEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(JellyBunnyEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<ImpostorCakeEntity>> IMPOSTOR_CAKE = register("impostor_cake",
+			EntityType.Builder.<ImpostorCakeEntity>of(ImpostorCakeEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(ImpostorCakeEntity::new)
+
+					.sized(0.6f, 1f));
+	public static final RegistryObject<EntityType<IceCreamDragonEntity>> ICE_CREAM_DRAGON = register("ice_cream_dragon", EntityType.Builder.<IceCreamDragonEntity>of(IceCreamDragonEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true)
+			.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(IceCreamDragonEntity::new).fireImmune().sized(1.5f, 3.6f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -215,6 +233,10 @@ public class ClModEntities {
 			MintIceCreamZombieEntity.init();
 			IceCreamBeastEntity.init();
 			GingerbreadHelperEntity.init();
+			GrapeSpiderEntity.init();
+			JellyBunnyEntity.init();
+			ImpostorCakeEntity.init();
+			IceCreamDragonEntity.init();
 		});
 	}
 
@@ -232,7 +254,7 @@ public class ClModEntities {
 		event.put(BUBBALOO_CREEPER.get(), BubbalooCreeperEntity.createAttributes().build());
 		event.put(SEGWAY.get(), SegwayEntity.createAttributes().build());
 		event.put(GUARD_DINOSAUR.get(), GuardDinosaurEntity.createAttributes().build());
-		event.put(GINGERBREAD_KING.get(), GingerbreadKingEntity.createAttributes().build());
+		event.put(GINGERBREADKING.get(), GingerbreadKingEntity.createAttributes().build());
 		event.put(ICE_CREAM_GARGOYLE.get(), IceCreamGargoyleEntity.createAttributes().build());
 		event.put(LIVING_ICE_CREAM.get(), LivingIceCreamEntity.createAttributes().build());
 		event.put(CHOCOLATE_ICE_CREAM_GUY.get(), ChocolateIceCreamGuyEntity.createAttributes().build());
@@ -248,5 +270,9 @@ public class ClModEntities {
 		event.put(MINT_ICE_CREAM_ZOMBIE.get(), MintIceCreamZombieEntity.createAttributes().build());
 		event.put(ICE_CREAM_BEAST.get(), IceCreamBeastEntity.createAttributes().build());
 		event.put(GINGERBREAD_HELPER.get(), GingerbreadHelperEntity.createAttributes().build());
+		event.put(GRAPE_SPIDER.get(), GrapeSpiderEntity.createAttributes().build());
+		event.put(JELLY_BUNNY.get(), JellyBunnyEntity.createAttributes().build());
+		event.put(IMPOSTOR_CAKE.get(), ImpostorCakeEntity.createAttributes().build());
+		event.put(ICE_CREAM_DRAGON.get(), IceCreamDragonEntity.createAttributes().build());
 	}
 }

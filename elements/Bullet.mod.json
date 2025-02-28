@@ -9,7 +9,11 @@
     "states": [],
     "name": "Bullet",
     "rarity": "COMMON",
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "COMBAT"
+      }
+    ],
     "stackSize": 64,
     "enchantability": 0,
     "useDuration": 72000,
