@@ -1,5 +1,7 @@
 # The Crazy Alloy Mod
 
+## Below is the description of a project I'm doing in mcreator, a powerful mod creation software for Minecraft
+
 ![mod logo](https://cdn.modrinth.com/data/cached_images/8e25f0b9ea80418fd447df0ea832edbd2ef1f7fe.png)
 
 Hello! Welcome to this new ambitious project that will add a lot of things to the game, such as mobs, items, biomes, dimensions, structures and more crazy and weird features. 
