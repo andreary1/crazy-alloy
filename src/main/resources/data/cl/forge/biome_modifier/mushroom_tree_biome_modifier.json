@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cl:mystic_grove",
+  "features": "cl:mushroom_tree",
+  "step": "surface_structures"
+}

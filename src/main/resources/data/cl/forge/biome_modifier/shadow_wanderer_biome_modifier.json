@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "cl:mystic_grove",
+  "spawners": {
+    "type": "cl:shadow_wanderer",
+    "weight": 8,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

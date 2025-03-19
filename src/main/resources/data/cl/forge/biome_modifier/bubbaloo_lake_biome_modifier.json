@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cl:candy_cave",
+  "features": "cl:bubbaloo_lake",
+  "step": "underground_structures"
+}

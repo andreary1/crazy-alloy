@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "cl:block/mysticdirt",
+    "up": "cl:block/mysticgrasstop",
+    "north": "cl:block/mysticgrassside",
+    "east": "cl:block/mysticgrassside",
+    "south": "cl:block/mysticgrassside",
+    "west": "cl:block/mysticgrassside",
+    "particle": "cl:block/mysticdirt"
+  },
+  "render_type": "solid"
+}

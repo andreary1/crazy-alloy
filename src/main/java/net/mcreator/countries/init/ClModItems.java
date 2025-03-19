@@ -7,12 +7,23 @@ package net.mcreator.countries.init;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.common.ForgeSpawnEggItem;
+import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.item.ItemProperties;
 
+import net.mcreator.countries.item.WizardStaffItem;
+import net.mcreator.countries.item.WaterBookItem;
+import net.mcreator.countries.item.WaterBallItem;
 import net.mcreator.countries.item.VanillaIceCreamItem;
 import net.mcreator.countries.item.UltimateIceCreamItem;
 import net.mcreator.countries.item.TourmalineSwordItem;
@@ -23,19 +34,35 @@ import net.mcreator.countries.item.TourmalineHoeItem;
 import net.mcreator.countries.item.TourmalineGemItem;
 import net.mcreator.countries.item.TourmalineAxeItem;
 import net.mcreator.countries.item.StrawberryIceCreamItem;
+import net.mcreator.countries.item.ShadowShardItem;
 import net.mcreator.countries.item.RollCakeItem;
 import net.mcreator.countries.item.RedLicoriceCandyItem;
+import net.mcreator.countries.item.PoisonBookItem;
+import net.mcreator.countries.item.PoisonBallItem;
+import net.mcreator.countries.item.OnionSeedsItem;
+import net.mcreator.countries.item.OnionItem;
+import net.mcreator.countries.item.MushroomSwordItem;
+import net.mcreator.countries.item.MushroomShieldItem;
 import net.mcreator.countries.item.MoneyItem;
 import net.mcreator.countries.item.MintIceCreamItem;
+import net.mcreator.countries.item.MinerHelmetItem;
 import net.mcreator.countries.item.MeltedChocolateItem;
 import net.mcreator.countries.item.LollipopItem;
+import net.mcreator.countries.item.LightningBookItem;
+import net.mcreator.countries.item.LightningBallItem;
 import net.mcreator.countries.item.JellyBazookaItem;
+import net.mcreator.countries.item.JadeItem;
 import net.mcreator.countries.item.IceCreamDimensionItem;
 import net.mcreator.countries.item.HeavyBootsItem;
 import net.mcreator.countries.item.GingerbreadLongswordItem;
 import net.mcreator.countries.item.GingerbreadItem;
 import net.mcreator.countries.item.GingerbreadCannonItem;
+import net.mcreator.countries.item.FireBookItem;
+import net.mcreator.countries.item.EntHeartItem;
 import net.mcreator.countries.item.EmptyIceCreamConeItem;
+import net.mcreator.countries.item.ElixirOfLifeItem;
+import net.mcreator.countries.item.EarthBookItem;
+import net.mcreator.countries.item.EarthBallItem;
 import net.mcreator.countries.item.DeadJellySnakeItem;
 import net.mcreator.countries.item.CottonCandyItem;
 import net.mcreator.countries.item.CookedLicoriceCandyItem;
@@ -46,9 +73,12 @@ import net.mcreator.countries.item.BulletItem;
 import net.mcreator.countries.item.BubbalooItem;
 import net.mcreator.countries.item.BrownSugarSwordItem;
 import net.mcreator.countries.item.BrownSugarBrickItem;
+import net.mcreator.countries.item.AirBookItem;
+import net.mcreator.countries.item.AirBallItem;
 import net.mcreator.countries.item.AK47Item;
 import net.mcreator.countries.ClMod;
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClModItems {
 	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, ClMod.MODID);
 	public static final RegistryObject<Item> GUMMY_GRASS = block(ClModBlocks.GUMMY_GRASS);
@@ -145,10 +175,78 @@ public class ClModItems {
 	public static final RegistryObject<Item> ICE_CREAM_DRAGON_SPAWN_EGG = REGISTRY.register("ice_cream_dragon_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.ICE_CREAM_DRAGON, -16186359, -1371971, new Item.Properties()));
 	public static final RegistryObject<Item> ICE_CREAM_DRAGON_EGG = block(ClModBlocks.ICE_CREAM_DRAGON_EGG);
 	public static final RegistryObject<Item> ROLL_CAKE = REGISTRY.register("roll_cake", () -> new RollCakeItem());
+	public static final RegistryObject<Item> MYSTIC_GRASS = block(ClModBlocks.MYSTIC_GRASS);
+	public static final RegistryObject<Item> MYSTIC_DIRT = block(ClModBlocks.MYSTIC_DIRT);
+	public static final RegistryObject<Item> MYSTIC_LEAVES = block(ClModBlocks.MYSTIC_LEAVES);
+	public static final RegistryObject<Item> MYSTIC_LOG = block(ClModBlocks.MYSTIC_LOG);
+	public static final RegistryObject<Item> MYSTIC_PLANKS = block(ClModBlocks.MYSTIC_PLANKS);
+	public static final RegistryObject<Item> MYSTIC_STAIRS = block(ClModBlocks.MYSTIC_STAIRS);
+	public static final RegistryObject<Item> MYSTIC_SLAB = block(ClModBlocks.MYSTIC_SLAB);
+	public static final RegistryObject<Item> MYSTIC_FENCE = block(ClModBlocks.MYSTIC_FENCE);
+	public static final RegistryObject<Item> MYSTIC_FENCE_GATE = block(ClModBlocks.MYSTIC_FENCE_GATE);
+	public static final RegistryObject<Item> MYSTIC_PRESSURE_PLATE = block(ClModBlocks.MYSTIC_PRESSURE_PLATE);
+	public static final RegistryObject<Item> MYSTIC_BUTTON = block(ClModBlocks.MYSTIC_BUTTON);
+	public static final RegistryObject<Item> FAIRY_SPAWN_EGG = REGISTRY.register("fairy_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.FAIRY, -10027264, -154, new Item.Properties()));
+	public static final RegistryObject<Item> STEM_BLOCK = block(ClModBlocks.STEM_BLOCK);
+	public static final RegistryObject<Item> OGRE_SPAWN_EGG = REGISTRY.register("ogre_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.OGRE, -10888894, -13979852, new Item.Properties()));
+	public static final RegistryObject<Item> TROLL_SPAWN_EGG = REGISTRY.register("troll_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.TROLL, -1323113, -13979852, new Item.Properties()));
+	public static final RegistryObject<Item> SHADOW_SHARD = REGISTRY.register("shadow_shard", () -> new ShadowShardItem());
+	public static final RegistryObject<Item> SHADOW_EYE_SPAWN_EGG = REGISTRY.register("shadow_eye_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.SHADOW_EYE, -12709313, -5946592, new Item.Properties()));
+	public static final RegistryObject<Item> EVIL_FAIRY_SPAWN_EGG = REGISTRY.register("evil_fairy_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.EVIL_FAIRY, -11526809, -9555073, new Item.Properties()));
+	public static final RegistryObject<Item> ENT_SPAWN_EGG = REGISTRY.register("ent_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.ENT, -16764109, -16751002, new Item.Properties()));
+	public static final RegistryObject<Item> ENT_HEART = REGISTRY.register("ent_heart", () -> new EntHeartItem());
+	public static final RegistryObject<Item> ELIXIR_OF_LIFE = REGISTRY.register("elixir_of_life", () -> new ElixirOfLifeItem());
+	public static final RegistryObject<Item> JADE = REGISTRY.register("jade", () -> new JadeItem());
+	public static final RegistryObject<Item> ONION_STAGE_1 = block(ClModBlocks.ONION_STAGE_1);
+	public static final RegistryObject<Item> ONION_STAGE_2 = block(ClModBlocks.ONION_STAGE_2);
+	public static final RegistryObject<Item> ONION_STAGE_3 = block(ClModBlocks.ONION_STAGE_3);
+	public static final RegistryObject<Item> ONION_STAGE_4 = block(ClModBlocks.ONION_STAGE_4);
+	public static final RegistryObject<Item> ONION_SEEDS = REGISTRY.register("onion_seeds", () -> new OnionSeedsItem());
+	public static final RegistryObject<Item> ONION = REGISTRY.register("onion", () -> new OnionItem());
+	public static final RegistryObject<Item> DWARF_SPAWN_EGG = REGISTRY.register("dwarf_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.DWARF, -39373, -103, new Item.Properties()));
+	public static final RegistryObject<Item> MINER_HELMET_HELMET = REGISTRY.register("miner_helmet_helmet", () -> new MinerHelmetItem.Helmet());
+	public static final RegistryObject<Item> GARDEN_GNOME = block(ClModBlocks.GARDEN_GNOME);
+	public static final RegistryObject<Item> BLUE_MUSHROOM = block(ClModBlocks.BLUE_MUSHROOM);
+	public static final RegistryObject<Item> JAR = block(ClModBlocks.JAR);
+	public static final RegistryObject<Item> FAIRY_JAR = block(ClModBlocks.FAIRY_JAR);
+	public static final RegistryObject<Item> SHADOW_WANDERER_SPAWN_EGG = REGISTRY.register("shadow_wanderer_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.SHADOW_WANDERER, -10092442, -13434829, new Item.Properties()));
+	public static final RegistryObject<Item> WIZARD_STAFF = REGISTRY.register("wizard_staff", () -> new WizardStaffItem());
+	public static final RegistryObject<Item> WIZARD_SPAWN_EGG = REGISTRY.register("wizard_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.WIZARD, -16763905, -1, new Item.Properties()));
+	public static final RegistryObject<Item> JADE_ORE = block(ClModBlocks.JADE_ORE);
+	public static final RegistryObject<Item> FIRE_BOOK = REGISTRY.register("fire_book", () -> new FireBookItem());
+	public static final RegistryObject<Item> WATER_BOOK = REGISTRY.register("water_book", () -> new WaterBookItem());
+	public static final RegistryObject<Item> AIR_BOOK = REGISTRY.register("air_book", () -> new AirBookItem());
+	public static final RegistryObject<Item> EARTH_BOOK = REGISTRY.register("earth_book", () -> new EarthBookItem());
+	public static final RegistryObject<Item> POISON_BOOK = REGISTRY.register("poison_book", () -> new PoisonBookItem());
+	public static final RegistryObject<Item> LIGHTNING_BOOK = REGISTRY.register("lightning_book", () -> new LightningBookItem());
+	public static final RegistryObject<Item> WATER_BALL = REGISTRY.register("water_ball", () -> new WaterBallItem());
+	public static final RegistryObject<Item> AIR_BALL = REGISTRY.register("air_ball", () -> new AirBallItem());
+	public static final RegistryObject<Item> EARTH_BALL = REGISTRY.register("earth_ball", () -> new EarthBallItem());
+	public static final RegistryObject<Item> POISON_BALL = REGISTRY.register("poison_ball", () -> new PoisonBallItem());
+	public static final RegistryObject<Item> LIGHTNING_BALL = REGISTRY.register("lightning_ball", () -> new LightningBallItem());
+	public static final RegistryObject<Item> MUSHROOM_MAN_SPAWN_EGG = REGISTRY.register("mushroom_man_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.MUSHROOM_MAN, -65536, -1, new Item.Properties()));
+	public static final RegistryObject<Item> MUSHROOM_CYCLOPS_SPAWN_EGG = REGISTRY.register("mushroom_cyclops_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.MUSHROOM_CYCLOPS, -13434676, -1, new Item.Properties()));
+	public static final RegistryObject<Item> MUSHROOMCOPTER_SPAWN_EGG = REGISTRY.register("mushroomcopter_spawn_egg", () -> new ForgeSpawnEggItem(ClModEntities.MUSHROOMCOPTER, -10092442, -1, new Item.Properties()));
+	public static final RegistryObject<Item> MUSHROOM_SWORD = REGISTRY.register("mushroom_sword", () -> new MushroomSwordItem());
+	public static final RegistryObject<Item> MUSHROOM_SHIELD = REGISTRY.register("mushroom_shield", () -> new MushroomShieldItem());
+	public static final RegistryObject<Item> CANDY_DOOR = doubleBlock(ClModBlocks.CANDY_DOOR);
+	public static final RegistryObject<Item> MYSTIC_DOOR = doubleBlock(ClModBlocks.MYSTIC_DOOR);
+	public static final RegistryObject<Item> PURPLE_MUSHROOM = block(ClModBlocks.PURPLE_MUSHROOM);
 
 	// Start of user code block custom items
 	// End of user code block custom items
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+	}
+
+	private static RegistryObject<Item> doubleBlock(RegistryObject<Block> block) {
+		return REGISTRY.register(block.getId().getPath(), () -> new DoubleHighBlockItem(block.get(), new Item.Properties()));
+	}
+
+	@SubscribeEvent
+	public static void clientLoad(FMLClientSetupEvent event) {
+		event.enqueueWork(() -> {
+			ItemProperties.register(MUSHROOM_SHIELD.get(), new ResourceLocation("blocking"), ItemProperties.getProperty(Items.SHIELD, new ResourceLocation("blocking")));
+		});
 	}
 }

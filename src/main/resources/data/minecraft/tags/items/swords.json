@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "cl:mushroom_sword",
     "cl:brown_sugar_sword",
     "cl:gingerbread_longsword",
     "cl:tourmaline_sword"

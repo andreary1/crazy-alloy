@@ -1,0 +1,10 @@
+{
+  "parent": "block/slab_top",
+  "textures": {
+    "particle": "cl:block/mysticplanks",
+    "bottom": "cl:block/mysticplanks",
+    "top": "cl:block/mysticplanks",
+    "side": "cl:block/mysticplanks"
+  },
+  "render_type": "solid"
+}

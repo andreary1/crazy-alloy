@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "cl:onion_stage_1",
+    "cl:onion_stage_2",
+    "cl:onion_stage_3",
+    "cl:onion_stage_4"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "cl:item/mysticdoor"
+  },
+  "render_type": "translucent"
+}

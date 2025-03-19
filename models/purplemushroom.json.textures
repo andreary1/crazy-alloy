@@ -1,0 +1,11 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "purplemushroom",
+        "1": "purplemushroom"
+      },
+      "name": "default"
+    }
+  }
+}

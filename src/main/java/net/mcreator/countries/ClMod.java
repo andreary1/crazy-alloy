@@ -21,6 +21,7 @@ import net.mcreator.countries.world.features.StructureFeature;
 import net.mcreator.countries.init.ClModVillagerProfessions;
 import net.mcreator.countries.init.ClModTabs;
 import net.mcreator.countries.init.ClModSounds;
+import net.mcreator.countries.init.ClModParticleTypes;
 import net.mcreator.countries.init.ClModMenus;
 import net.mcreator.countries.init.ClModItems;
 import net.mcreator.countries.init.ClModFluids;
@@ -59,6 +60,7 @@ public class ClMod {
 
 		StructureFeature.REGISTRY.register(bus);
 
+		ClModParticleTypes.REGISTRY.register(bus);
 		ClModVillagerProfessions.PROFESSIONS.register(bus);
 		ClModMenus.REGISTRY.register(bus);
 		ClModFluids.REGISTRY.register(bus);

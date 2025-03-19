@@ -142,7 +142,11 @@
     "mobSpawningType": "creature",
     "minNumberOfMobsPerGroup": 1,
     "maxNumberOfMobsPerGroup": 3,
-    "restrictionBiomes": [],
+    "restrictionBiomes": [
+      {
+        "value": "CUSTOM:IceCreamPlains"
+      }
+    ],
     "spawnInDungeons": false,
     "raidSpawnsCount": [
       4,

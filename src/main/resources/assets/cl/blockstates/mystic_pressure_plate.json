@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "cl:block/mystic_pressure_plate"
+    },
+    "powered=true": {
+      "model": "cl:block/mystic_pressure_plate_down"
+    }
+  }
+}

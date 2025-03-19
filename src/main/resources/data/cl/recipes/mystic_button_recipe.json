@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "cl:mystic_planks"
+    }
+  ],
+  "result": {
+    "item": "cl:mystic_button",
+    "count": 1
+  }
+}

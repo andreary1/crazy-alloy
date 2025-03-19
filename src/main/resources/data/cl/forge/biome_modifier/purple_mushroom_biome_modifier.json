@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cl:mystic_grove",
+  "features": "cl:purple_mushroom",
+  "step": "vegetal_decoration"
+}

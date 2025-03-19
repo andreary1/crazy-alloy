@@ -1,11 +1,14 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "building",
-  "ingredients": [
-    {
+  "pattern": [
+    "a"
+  ],
+  "key": {
+    "a": {
       "item": "cl:candylog"
     }
-  ],
+  },
   "result": {
     "item": "cl:candy_planks",
     "count": 4

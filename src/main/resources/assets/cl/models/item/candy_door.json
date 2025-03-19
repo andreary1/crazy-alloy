@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "cl:item/candy_door"
+  },
+  "render_type": "translucent"
+}

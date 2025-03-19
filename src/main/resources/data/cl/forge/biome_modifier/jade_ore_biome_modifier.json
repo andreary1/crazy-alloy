@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cl:mushroom_depths",
+  "features": "cl:jade_ore",
+  "step": "underground_ores"
+}

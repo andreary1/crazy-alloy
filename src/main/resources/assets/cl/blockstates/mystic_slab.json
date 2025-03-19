@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "cl:block/mystic_slab"
+    },
+    "type=top": {
+      "model": "cl:block/mystic_slab_top"
+    },
+    "type=double": {
+      "model": "cl:block/mystic_slab_full"
+    }
+  }
+}

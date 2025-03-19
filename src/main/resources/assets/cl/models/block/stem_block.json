@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "cl:block/stemblocktop",
+    "up": "cl:block/stemblocktop",
+    "north": "cl:block/stemblock",
+    "east": "cl:block/stemblock",
+    "south": "cl:block/stemblock",
+    "west": "cl:block/stemblock",
+    "particle": "cl:block/stemblocktop"
+  },
+  "render_type": "solid"
+}

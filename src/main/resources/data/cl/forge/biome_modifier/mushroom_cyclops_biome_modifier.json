@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "cl:mushroom_depths",
+  "spawners": {
+    "type": "cl:mushroom_cyclops",
+    "weight": 5,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

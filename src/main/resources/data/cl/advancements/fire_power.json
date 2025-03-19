@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "cl:fire_book"
+    },
+    "title": {
+      "translate": "advancements.fire_power.title"
+    },
+    "description": {
+      "translate": "advancements.fire_power.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "fire_power_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "cl:the_new_wizard"
+}

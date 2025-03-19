@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cl:mushroom_depths",
+  "features": "cl:mushroom_blob",
+  "step": "underground_structures"
+}

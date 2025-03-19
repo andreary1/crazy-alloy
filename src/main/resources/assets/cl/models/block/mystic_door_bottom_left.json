@@ -1,0 +1,9 @@
+{
+  "parent": "block/door_bottom_left",
+  "textures": {
+    "particle": "cl:block/mysticdoorbottom",
+    "bottom": "cl:block/mysticdoorbottom",
+    "top": "cl:block/mysticdoortop"
+  },
+  "render_type": "solid"
+}

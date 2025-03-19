@@ -1,0 +1,9 @@
+{
+  "parent": "cl:custom/gnome",
+  "textures": {
+    "all": "cl:block/gardengnome",
+    "particle": "cl:block/gardengnome",
+    "0": "cl:block/gardengnome"
+  },
+  "render_type": "solid"
+}

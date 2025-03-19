@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "cl:vanilla_ice_cream_zombie",
+    "cl:choc_ice_cream_zombie",
+    "cl:straw_ice_cream_zombie",
+    "cl:mint_ice_cream_zombie"
+  ]
+}

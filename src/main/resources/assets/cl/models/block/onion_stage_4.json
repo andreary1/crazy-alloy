@@ -1,0 +1,8 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "cl:block/onionstage4",
+    "particle": "cl:block/onionstage4"
+  },
+  "render_type": "cutout"
+}

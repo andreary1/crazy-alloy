@@ -1,0 +1,10 @@
+{
+  "parent": "cl:custom/purplemushroom",
+  "textures": {
+    "all": "cl:block/purplemushroomblock",
+    "particle": "cl:block/purplemushroomblock",
+    "0": "cl:block/purplemushroom",
+    "1": "cl:block/purplemushroom"
+  },
+  "render_type": "cutout"
+}

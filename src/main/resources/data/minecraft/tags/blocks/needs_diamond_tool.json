@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "cl:jade_ore",
     "cl:block_of_tourmaline",
     "cl:tourmaline_ore_block"
   ]

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "cl:block/fairy_jar"
+    },
+    "facing=east": {
+      "model": "cl:block/fairy_jar",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "cl:block/fairy_jar",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "cl:block/fairy_jar",
+      "y": 270
+    }
+  }
+}

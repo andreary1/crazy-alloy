@@ -16,16 +16,28 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 
+import net.mcreator.countries.entity.WizardEntity;
+import net.mcreator.countries.entity.WaterBallProjEntity;
 import net.mcreator.countries.entity.VanillaIceCreamZombieEntity;
 import net.mcreator.countries.entity.VanillaIceCreamGuyEntity;
+import net.mcreator.countries.entity.TrollEntity;
 import net.mcreator.countries.entity.StrawberryIceCreamGuyEntity;
 import net.mcreator.countries.entity.StrawIceCreamZombieEntity;
+import net.mcreator.countries.entity.ShadowWandererEntity;
+import net.mcreator.countries.entity.ShadowEyeEntity;
 import net.mcreator.countries.entity.SegwayEntity;
 import net.mcreator.countries.entity.RouladeMonsterEntity;
+import net.mcreator.countries.entity.PoisonBallProjEntity;
+import net.mcreator.countries.entity.OgreEntity;
+import net.mcreator.countries.entity.MushroomcopterEntityProjectile;
+import net.mcreator.countries.entity.MushroomcopterEntity;
+import net.mcreator.countries.entity.MushroomManEntity;
+import net.mcreator.countries.entity.MushroomCyclopsEntity;
 import net.mcreator.countries.entity.MintIceCreamZombieEntity;
 import net.mcreator.countries.entity.MintIceCreamGuyEntity;
 import net.mcreator.countries.entity.LollipopGuyEntity;
 import net.mcreator.countries.entity.LivingIceCreamEntity;
+import net.mcreator.countries.entity.LightningBallProjEntity;
 import net.mcreator.countries.entity.JellySnakeEntity;
 import net.mcreator.countries.entity.JellySharkEntity;
 import net.mcreator.countries.entity.JellyBunnyEntity;
@@ -41,6 +53,11 @@ import net.mcreator.countries.entity.GingerbreadSoldierEntity;
 import net.mcreator.countries.entity.GingerbreadProjEntity;
 import net.mcreator.countries.entity.GingerbreadKingEntity;
 import net.mcreator.countries.entity.GingerbreadHelperEntity;
+import net.mcreator.countries.entity.FairyEntity;
+import net.mcreator.countries.entity.EvilFairyEntity;
+import net.mcreator.countries.entity.EntEntity;
+import net.mcreator.countries.entity.EarthBallProjEntity;
+import net.mcreator.countries.entity.DwarfEntity;
 import net.mcreator.countries.entity.DeadSnakeProjEntity;
 import net.mcreator.countries.entity.CottonCandyTornadoEntity;
 import net.mcreator.countries.entity.CottonCandyProjEntity;
@@ -53,6 +70,7 @@ import net.mcreator.countries.entity.BubbalooCreeperEntity;
 import net.mcreator.countries.entity.BrownSugarRhinoEntity;
 import net.mcreator.countries.entity.BrownSugarProjEntity;
 import net.mcreator.countries.entity.AngryIceCreamConeEntity;
+import net.mcreator.countries.entity.AirBallProjEntity;
 import net.mcreator.countries.ClMod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -73,7 +91,7 @@ public class ClModEntities {
 	public static final RegistryObject<EntityType<BrownSugarRhinoEntity>> BROWN_SUGAR_RHINO = register("brown_sugar_rhino",
 			EntityType.Builder.<BrownSugarRhinoEntity>of(BrownSugarRhinoEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(BrownSugarRhinoEntity::new)
 
-					.sized(0.6f, 1.8f));
+					.sized(1.2f, 2f));
 	public static final RegistryObject<EntityType<GingerbreadSoldierEntity>> GINGERBREAD_SOLDIER = register("gingerbread_soldier",
 			EntityType.Builder.<GingerbreadSoldierEntity>of(GingerbreadSoldierEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(GingerbreadSoldierEntity::new)
 
@@ -176,7 +194,7 @@ public class ClModEntities {
 	public static final RegistryObject<EntityType<GingerbreadHelperEntity>> GINGERBREAD_HELPER = register("gingerbread_helper",
 			EntityType.Builder.<GingerbreadHelperEntity>of(GingerbreadHelperEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(GingerbreadHelperEntity::new)
 
-					.sized(0.6f, 1.8f));
+					.sized(0.6f, 0.9f));
 	public static final RegistryObject<EntityType<GingerbreadProjEntity>> GINGERBREAD_PROJ = register("gingerbread_proj", EntityType.Builder.<GingerbreadProjEntity>of(GingerbreadProjEntity::new, MobCategory.MISC)
 			.setCustomClientFactory(GingerbreadProjEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
 	public static final RegistryObject<EntityType<BrownSugarProjEntity>> BROWN_SUGAR_PROJ = register("brown_sugar_proj",
@@ -195,6 +213,67 @@ public class ClModEntities {
 					.sized(0.6f, 1f));
 	public static final RegistryObject<EntityType<IceCreamDragonEntity>> ICE_CREAM_DRAGON = register("ice_cream_dragon", EntityType.Builder.<IceCreamDragonEntity>of(IceCreamDragonEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true)
 			.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(IceCreamDragonEntity::new).fireImmune().sized(1.5f, 3.6f));
+	public static final RegistryObject<EntityType<FairyEntity>> FAIRY = register("fairy",
+			EntityType.Builder.<FairyEntity>of(FairyEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(FairyEntity::new)
+
+					.sized(0.6f, 0.6f));
+	public static final RegistryObject<EntityType<OgreEntity>> OGRE = register("ogre",
+			EntityType.Builder.<OgreEntity>of(OgreEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(OgreEntity::new)
+
+					.sized(0.8f, 2.7f));
+	public static final RegistryObject<EntityType<TrollEntity>> TROLL = register("troll",
+			EntityType.Builder.<TrollEntity>of(TrollEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(TrollEntity::new)
+
+					.sized(0.8f, 2.7f));
+	public static final RegistryObject<EntityType<ShadowEyeEntity>> SHADOW_EYE = register("shadow_eye",
+			EntityType.Builder.<ShadowEyeEntity>of(ShadowEyeEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(ShadowEyeEntity::new)
+
+					.sized(0.6f, 0.9f));
+	public static final RegistryObject<EntityType<EvilFairyEntity>> EVIL_FAIRY = register("evil_fairy",
+			EntityType.Builder.<EvilFairyEntity>of(EvilFairyEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(EvilFairyEntity::new)
+
+					.sized(0.6f, 0.6f));
+	public static final RegistryObject<EntityType<EntEntity>> ENT = register("ent",
+			EntityType.Builder.<EntEntity>of(EntEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(EntEntity::new)
+
+					.sized(2.8f, 9f));
+	public static final RegistryObject<EntityType<DwarfEntity>> DWARF = register("dwarf",
+			EntityType.Builder.<DwarfEntity>of(DwarfEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(DwarfEntity::new)
+
+					.sized(0.6f, 0.9f));
+	public static final RegistryObject<EntityType<ShadowWandererEntity>> SHADOW_WANDERER = register("shadow_wanderer",
+			EntityType.Builder.<ShadowWandererEntity>of(ShadowWandererEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(ShadowWandererEntity::new)
+
+					.sized(0.8f, 2.5f));
+	public static final RegistryObject<EntityType<WizardEntity>> WIZARD = register("wizard",
+			EntityType.Builder.<WizardEntity>of(WizardEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(WizardEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<WaterBallProjEntity>> WATER_BALL_PROJ = register("water_ball_proj",
+			EntityType.Builder.<WaterBallProjEntity>of(WaterBallProjEntity::new, MobCategory.MISC).setCustomClientFactory(WaterBallProjEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<AirBallProjEntity>> AIR_BALL_PROJ = register("air_ball_proj",
+			EntityType.Builder.<AirBallProjEntity>of(AirBallProjEntity::new, MobCategory.MISC).setCustomClientFactory(AirBallProjEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<EarthBallProjEntity>> EARTH_BALL_PROJ = register("earth_ball_proj",
+			EntityType.Builder.<EarthBallProjEntity>of(EarthBallProjEntity::new, MobCategory.MISC).setCustomClientFactory(EarthBallProjEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<PoisonBallProjEntity>> POISON_BALL_PROJ = register("poison_ball_proj",
+			EntityType.Builder.<PoisonBallProjEntity>of(PoisonBallProjEntity::new, MobCategory.MISC).setCustomClientFactory(PoisonBallProjEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<LightningBallProjEntity>> LIGHTNING_BALL_PROJ = register("lightning_ball_proj", EntityType.Builder.<LightningBallProjEntity>of(LightningBallProjEntity::new, MobCategory.MISC)
+			.setCustomClientFactory(LightningBallProjEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<MushroomManEntity>> MUSHROOM_MAN = register("mushroom_man",
+			EntityType.Builder.<MushroomManEntity>of(MushroomManEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(MushroomManEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<MushroomCyclopsEntity>> MUSHROOM_CYCLOPS = register("mushroom_cyclops",
+			EntityType.Builder.<MushroomCyclopsEntity>of(MushroomCyclopsEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(MushroomCyclopsEntity::new)
+
+					.sized(0.6f, 2.8f));
+	public static final RegistryObject<EntityType<MushroomcopterEntity>> MUSHROOMCOPTER = register("mushroomcopter",
+			EntityType.Builder.<MushroomcopterEntity>of(MushroomcopterEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(MushroomcopterEntity::new)
+
+					.sized(0.6f, 0.9f));
+	public static final RegistryObject<EntityType<MushroomcopterEntityProjectile>> MUSHROOMCOPTER_PROJECTILE = register("projectile_mushroomcopter",
+			EntityType.Builder.<MushroomcopterEntityProjectile>of(MushroomcopterEntityProjectile::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1)
+					.setCustomClientFactory(MushroomcopterEntityProjectile::new).sized(0.5f, 0.5f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -237,6 +316,18 @@ public class ClModEntities {
 			JellyBunnyEntity.init();
 			ImpostorCakeEntity.init();
 			IceCreamDragonEntity.init();
+			FairyEntity.init();
+			OgreEntity.init();
+			TrollEntity.init();
+			ShadowEyeEntity.init();
+			EvilFairyEntity.init();
+			EntEntity.init();
+			DwarfEntity.init();
+			ShadowWandererEntity.init();
+			WizardEntity.init();
+			MushroomManEntity.init();
+			MushroomCyclopsEntity.init();
+			MushroomcopterEntity.init();
 		});
 	}
 
@@ -274,5 +365,17 @@ public class ClModEntities {
 		event.put(JELLY_BUNNY.get(), JellyBunnyEntity.createAttributes().build());
 		event.put(IMPOSTOR_CAKE.get(), ImpostorCakeEntity.createAttributes().build());
 		event.put(ICE_CREAM_DRAGON.get(), IceCreamDragonEntity.createAttributes().build());
+		event.put(FAIRY.get(), FairyEntity.createAttributes().build());
+		event.put(OGRE.get(), OgreEntity.createAttributes().build());
+		event.put(TROLL.get(), TrollEntity.createAttributes().build());
+		event.put(SHADOW_EYE.get(), ShadowEyeEntity.createAttributes().build());
+		event.put(EVIL_FAIRY.get(), EvilFairyEntity.createAttributes().build());
+		event.put(ENT.get(), EntEntity.createAttributes().build());
+		event.put(DWARF.get(), DwarfEntity.createAttributes().build());
+		event.put(SHADOW_WANDERER.get(), ShadowWandererEntity.createAttributes().build());
+		event.put(WIZARD.get(), WizardEntity.createAttributes().build());
+		event.put(MUSHROOM_MAN.get(), MushroomManEntity.createAttributes().build());
+		event.put(MUSHROOM_CYCLOPS.get(), MushroomCyclopsEntity.createAttributes().build());
+		event.put(MUSHROOMCOPTER.get(), MushroomcopterEntity.createAttributes().build());
 	}
 }

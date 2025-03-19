@@ -1,0 +1,10 @@
+{
+  "parent": "cl:custom/jar",
+  "textures": {
+    "all": "cl:block/jarblock",
+    "particle": "cl:block/jarblock",
+    "0": "cl:block/jarblock",
+    "missing": "cl:block/jarblock"
+  },
+  "render_type": "cutout_mipped"
+}

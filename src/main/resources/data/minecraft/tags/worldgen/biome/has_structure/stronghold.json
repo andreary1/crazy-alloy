@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "cl:mushroom_depths",
     "cl:candy_cave",
     "cl:jelly_bean_fields",
     "cl:sweet_biome"

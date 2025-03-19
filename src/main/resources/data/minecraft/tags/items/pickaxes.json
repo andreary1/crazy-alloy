@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "cl:wizard_staff",
     "cl:tourmaline_pickaxe"
   ]
 }

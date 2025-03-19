@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "cl:block/mysticplanks",
+    "particle": "cl:block/mysticplanks"
+  },
+  "render_type": "solid"
+}

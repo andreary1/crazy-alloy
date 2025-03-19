@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "a"
+  ],
+  "key": {
+    "a": {
+      "item": "cl:mystic_log"
+    }
+  },
+  "result": {
+    "item": "cl:mystic_planks",
+    "count": 4
+  }
+}

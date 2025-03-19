@@ -1,8 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": {
-    "type": "forge:any"
-  },
+  "biomes": "cl:ice_cream_plains",
   "spawners": {
     "type": "cl:living_ice_cream",
     "weight": 20,

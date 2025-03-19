@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cl:mystic_grove",
+  "features": "cl:flowers",
+  "step": "surface_structures"
+}

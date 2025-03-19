@@ -1,0 +1,27 @@
+{
+  "_fv": 73,
+  "_type": "projectile",
+  "definition": {
+    "projectileItem": {
+      "value": "CUSTOM:PoisonBall"
+    },
+    "showParticles": false,
+    "actionSound": {
+      "value": "entity.splash_potion.break"
+    },
+    "igniteFire": false,
+    "power": 1.0,
+    "damage": 1.5,
+    "knockback": 0,
+    "entityModel": "Default",
+    "customModelTexture": "",
+    "modelWidth": 0.5,
+    "modelHeight": 0.5,
+    "onHitsPlayer": {
+      "name": "PoisonBallProjProjectileHitsLivingEntity"
+    },
+    "onHitsEntity": {
+      "name": "PoisonBallProjProjectileHitsLivingEntity"
+    }
+  }
+}

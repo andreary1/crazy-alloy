@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "cl:poison_book"
+    },
+    "title": {
+      "translate": "advancements.poison_power.title"
+    },
+    "description": {
+      "translate": "advancements.poison_power.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "poison_power_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "cl:the_new_wizard"
+}

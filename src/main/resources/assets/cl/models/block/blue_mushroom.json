@@ -1,0 +1,9 @@
+{
+  "parent": "cl:custom/bluemushroom",
+  "textures": {
+    "all": "cl:block/bluemushrom",
+    "particle": "cl:block/bluemushrom",
+    "0": "cl:block/bluemushroom"
+  },
+  "render_type": "cutout"
+}

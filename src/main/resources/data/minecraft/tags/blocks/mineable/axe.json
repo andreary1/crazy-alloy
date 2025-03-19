@@ -1,6 +1,17 @@
 {
   "replace": false,
   "values": [
+    "cl:mystic_door",
+    "cl:candy_door",
+    "cl:stem_block",
+    "cl:mystic_button",
+    "cl:mystic_pressure_plate",
+    "cl:mystic_fence_gate",
+    "cl:mystic_fence",
+    "cl:mystic_slab",
+    "cl:mystic_stairs",
+    "cl:mystic_planks",
+    "cl:mystic_log",
     "cl:candy_slab",
     "cl:candy_fence_gate",
     "cl:candy_fence",

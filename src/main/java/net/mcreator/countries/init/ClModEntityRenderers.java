@@ -11,12 +11,20 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 
+import net.mcreator.countries.client.renderer.WizardRenderer;
 import net.mcreator.countries.client.renderer.VanillaIceCreamZombieRenderer;
 import net.mcreator.countries.client.renderer.VanillaIceCreamGuyRenderer;
+import net.mcreator.countries.client.renderer.TrollRenderer;
 import net.mcreator.countries.client.renderer.StrawberryIceCreamGuyRenderer;
 import net.mcreator.countries.client.renderer.StrawIceCreamZombieRenderer;
+import net.mcreator.countries.client.renderer.ShadowWandererRenderer;
+import net.mcreator.countries.client.renderer.ShadowEyeRenderer;
 import net.mcreator.countries.client.renderer.SegwayRenderer;
 import net.mcreator.countries.client.renderer.RouladeMonsterRenderer;
+import net.mcreator.countries.client.renderer.OgreRenderer;
+import net.mcreator.countries.client.renderer.MushroomcopterRenderer;
+import net.mcreator.countries.client.renderer.MushroomManRenderer;
+import net.mcreator.countries.client.renderer.MushroomCyclopsRenderer;
 import net.mcreator.countries.client.renderer.MintIceCreamZombieRenderer;
 import net.mcreator.countries.client.renderer.MintIceCreamGuyRenderer;
 import net.mcreator.countries.client.renderer.LollipopGuyRenderer;
@@ -35,6 +43,10 @@ import net.mcreator.countries.client.renderer.GingerbreadWarriorRenderer;
 import net.mcreator.countries.client.renderer.GingerbreadSoldierRenderer;
 import net.mcreator.countries.client.renderer.GingerbreadKingRenderer;
 import net.mcreator.countries.client.renderer.GingerbreadHelperRenderer;
+import net.mcreator.countries.client.renderer.FairyRenderer;
+import net.mcreator.countries.client.renderer.EvilFairyRenderer;
+import net.mcreator.countries.client.renderer.EntRenderer;
+import net.mcreator.countries.client.renderer.DwarfRenderer;
 import net.mcreator.countries.client.renderer.DeadSnakeProjRenderer;
 import net.mcreator.countries.client.renderer.CottonCandyTornadoRenderer;
 import net.mcreator.countries.client.renderer.ChocolateIceCreamGuyRenderer;
@@ -86,5 +98,23 @@ public class ClModEntityRenderers {
 		event.registerEntityRenderer(ClModEntities.JELLY_BUNNY.get(), JellyBunnyRenderer::new);
 		event.registerEntityRenderer(ClModEntities.IMPOSTOR_CAKE.get(), ImpostorCakeRenderer::new);
 		event.registerEntityRenderer(ClModEntities.ICE_CREAM_DRAGON.get(), IceCreamDragonRenderer::new);
+		event.registerEntityRenderer(ClModEntities.FAIRY.get(), FairyRenderer::new);
+		event.registerEntityRenderer(ClModEntities.OGRE.get(), OgreRenderer::new);
+		event.registerEntityRenderer(ClModEntities.TROLL.get(), TrollRenderer::new);
+		event.registerEntityRenderer(ClModEntities.SHADOW_EYE.get(), ShadowEyeRenderer::new);
+		event.registerEntityRenderer(ClModEntities.EVIL_FAIRY.get(), EvilFairyRenderer::new);
+		event.registerEntityRenderer(ClModEntities.ENT.get(), EntRenderer::new);
+		event.registerEntityRenderer(ClModEntities.DWARF.get(), DwarfRenderer::new);
+		event.registerEntityRenderer(ClModEntities.SHADOW_WANDERER.get(), ShadowWandererRenderer::new);
+		event.registerEntityRenderer(ClModEntities.WIZARD.get(), WizardRenderer::new);
+		event.registerEntityRenderer(ClModEntities.WATER_BALL_PROJ.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(ClModEntities.AIR_BALL_PROJ.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(ClModEntities.EARTH_BALL_PROJ.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(ClModEntities.POISON_BALL_PROJ.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(ClModEntities.LIGHTNING_BALL_PROJ.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(ClModEntities.MUSHROOM_MAN.get(), MushroomManRenderer::new);
+		event.registerEntityRenderer(ClModEntities.MUSHROOM_CYCLOPS.get(), MushroomCyclopsRenderer::new);
+		event.registerEntityRenderer(ClModEntities.MUSHROOMCOPTER.get(), MushroomcopterRenderer::new);
+		event.registerEntityRenderer(ClModEntities.MUSHROOMCOPTER_PROJECTILE.get(), ThrownItemRenderer::new);
 	}
 }

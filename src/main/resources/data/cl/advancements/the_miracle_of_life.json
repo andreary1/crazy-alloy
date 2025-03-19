@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "cl:elixir_of_life"
+    },
+    "title": {
+      "translate": "advancements.the_miracle_of_life.title"
+    },
+    "description": {
+      "translate": "advancements.the_miracle_of_life.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "the_miracle_of_life_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "cl:landoffantasticthings"
+}

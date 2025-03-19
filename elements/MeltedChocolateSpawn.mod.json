@@ -3,7 +3,7 @@
   "_type": "feature",
   "definition": {
     "skipPlacement": false,
-    "generationStep": "SURFACE_STRUCTURES",
+    "generationStep": "LAKES",
     "restrictionBiomes": [
       {
         "value": "CUSTOM:SweetBiome"

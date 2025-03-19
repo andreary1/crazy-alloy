@@ -1,0 +1,36 @@
+{
+  "display": {
+    "background": "minecraft:textures/block/stone.png",
+    "icon": {
+      "item": "cl:mystic_grass"
+    },
+    "title": {
+      "translate": "advancements.landoffantasticthings.title"
+    },
+    "description": {
+      "translate": "advancements.landoffantasticthings.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "landoffantasticthings_0": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "cl:mystic_grove"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
