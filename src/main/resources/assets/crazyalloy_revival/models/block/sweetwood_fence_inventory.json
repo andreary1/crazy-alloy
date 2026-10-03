@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_inventory",
+  "textures": {
+    "texture": "crazyalloy_revival:block/sweetwood_planks"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": "crazyalloy_revival:red_licorice",
+  "result": {
+    "id": "crazyalloy_revival:cooked_licorice"
+  }
+}

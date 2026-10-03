@@ -1,8 +1,0 @@
-{
-  "parent": "block/fence_inventory",
-  "textures": {
-    "texture": "cl:block/mysticplanks",
-    "particle": "cl:block/mysticplanks"
-  },
-  "render_type": "solid"
-}

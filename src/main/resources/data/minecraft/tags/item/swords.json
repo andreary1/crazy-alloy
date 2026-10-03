@@ -1,8 +1,7 @@
 {
   "replace": false,
   "values": [
-    "cl:brown_sugar_sword",
-    "cl:gingerbread_longsword",
-    "cl:tourmaline_sword"
+    "crazyalloy_revival:tourmaline_sword",
+    "crazyalloy_revival:brown_sugar_sword"
   ]
 }

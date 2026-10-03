@@ -1,11 +1,15 @@
 {
   "replace": false,
   "values": [
-    "cl:mineral_converter",
-    "cl:ice_cream_machine",
-    "cl:block_of_tourmaline",
-    "cl:tourmaline_ore_block",
-    "cl:chocolate_factory",
-    "cl:rock_candy"
+    "crazyalloy_revival:chocolate_block",
+    "crazyalloy_revival:chocolate_bricks",
+    "crazyalloy_revival:chocolate_brick_stairs",
+    "crazyalloy_revival:chocolate_brick_slab",
+    "crazyalloy_revival:chocolate_brick_wall",
+    "crazyalloy_revival:chiseled_chocolate_bricks",
+    "crazyalloy_revival:tourmaline_ore",
+    "crazyalloy_revival:deepslate_tourmaline_ore",
+    "crazyalloy_revival:tourmaline_block",
+    "crazyalloy_revival:chocolate_factory"
   ]
 }

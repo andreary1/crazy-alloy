@@ -1,13 +1,13 @@
 {
   "replace": false,
   "values": [
-    "cl:mystic_dirt",
-    "cl:mystic_grass",
-    "cl:mint_ice_cream_block",
-    "cl:strawberry_ice_cream_block",
-    "cl:chocolate_ice_cream_block",
-    "cl:vanilla_ice_cream_block",
-    "cl:gummy_dirt",
-    "cl:gummy_grass"
+    "crazyalloy_revival:chocolate_soil",
+    "crazyalloy_revival:chocolate_grass_block",
+    "crazyalloy_revival:green_jelly_bean_block",
+    "crazyalloy_revival:yellow_jelly_bean_block",
+    "crazyalloy_revival:red_jelly_bean_block",
+    "crazyalloy_revival:orange_jelly_bean_block",
+    "crazyalloy_revival:purple_jelly_bean_block",
+    "crazyalloy_revival:infested_purple_jelly_bean_block"
   ]
 }

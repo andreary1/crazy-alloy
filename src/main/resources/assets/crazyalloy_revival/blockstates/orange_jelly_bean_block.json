@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "primed=false": {
+      "model": "crazyalloy_revival:block/orange_jelly_bean_block"
+    },
+    "primed=true": {
+      "model": "crazyalloy_revival:block/orange_jelly_bean_block"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "crazyalloy_revival:gingerbread_block"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:gingerbread",
+    "count": 4
+  }
+}

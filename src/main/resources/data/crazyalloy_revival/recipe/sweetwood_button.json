@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "crazyalloy_revival:sweetwood_planks"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:sweetwood_button",
+    "count": 1
+  }
+}

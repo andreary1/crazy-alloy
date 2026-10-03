@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "crazyalloy_revival:green_jelly_bean_block",
+    "crazyalloy_revival:yellow_jelly_bean_block",
+    "crazyalloy_revival:red_jelly_bean_block",
+    "crazyalloy_revival:orange_jelly_bean_block",
+    "crazyalloy_revival:purple_jelly_bean_block",
+    "crazyalloy_revival:infested_purple_jelly_bean_block"
+  ]
+}

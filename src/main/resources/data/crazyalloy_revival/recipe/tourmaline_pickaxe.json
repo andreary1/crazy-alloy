@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "crazyalloy_revival:tourmaline",
+    "/": "minecraft:stick"
+  },
+  "pattern": [
+    "###",
+    " / ",
+    " / "
+  ],
+  "result": {
+    "id": "crazyalloy_revival:tourmaline_pickaxe",
+    "count": 1
+  }
+}

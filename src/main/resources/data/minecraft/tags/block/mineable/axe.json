@@ -1,22 +1,18 @@
 {
   "replace": false,
   "values": [
-    "cl:stem_block",
-    "cl:mystic_button",
-    "cl:mystic_pressure_plate",
-    "cl:mystic_fence_gate",
-    "cl:mystic_fence",
-    "cl:mystic_slab",
-    "cl:mystic_stairs",
-    "cl:mystic_planks",
-    "cl:mystic_log",
-    "cl:candy_slab",
-    "cl:candy_fence_gate",
-    "cl:candy_fence",
-    "cl:candy_pressure_plate",
-    "cl:candy_stairs",
-    "cl:candy_button",
-    "cl:candy_planks",
-    "cl:candylog"
+    "crazyalloy_revival:sweetwood_log",
+    "crazyalloy_revival:sweetwood_planks",
+    "crazyalloy_revival:sweetwood_stairs",
+    "crazyalloy_revival:sweetwood_slab",
+    "crazyalloy_revival:sweetwood_fence",
+    "crazyalloy_revival:sweetwood_fence_gate",
+    "crazyalloy_revival:sweetwood_door",
+    "crazyalloy_revival:sweetwood_button",
+    "crazyalloy_revival:sweetwood_pressure_plate",
+    "crazyalloy_revival:gingerbread_block",
+    "crazyalloy_revival:frosted_gingerbread_block",
+    "crazyalloy_revival:gingerbread_stairs",
+    "crazyalloy_revival:gingerbread_slab"
   ]
 }

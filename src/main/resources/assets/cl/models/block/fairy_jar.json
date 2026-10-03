@@ -1,9 +1,0 @@
-{
-  "parent": "cl:custom/jarfairy",
-  "textures": {
-    "all": "cl:block/jarfairy",
-    "particle": "cl:block/jarfairy",
-    "1": "cl:block/jarfairy"
-  },
-  "render_type": "cutout_mipped"
-}

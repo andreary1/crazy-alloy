@@ -1,0 +1,12 @@
+{
+  "type": "crazyalloy_revival:chocolate_factory",
+  "ingredients": [
+    "minecraft:cocoa_beans"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:cocoa_powder",
+    "count": 2
+  },
+  "processing_time": 100,
+  "experience": 0.1
+}

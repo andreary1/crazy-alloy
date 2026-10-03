@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "crazyalloy_revival:green_jelly_bean_block",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.crazyalloy_revival.enter_jelly_bean_fields.title"
+    },
+    "description": {
+      "translate": "advancements.crazyalloy_revival.enter_jelly_bean_fields.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "jelly": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "crazyalloy_revival:jelly_bean_fields"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "crazyalloy_revival:root"
+}

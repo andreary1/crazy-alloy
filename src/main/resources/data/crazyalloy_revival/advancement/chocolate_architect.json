@@ -1,0 +1,71 @@
+{
+  "display": {
+    "icon": {
+      "id": "crazyalloy_revival:chiseled_chocolate_bricks",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.crazyalloy_revival.chocolate_architect.title"
+    },
+    "description": {
+      "translate": "advancements.crazyalloy_revival.chocolate_architect.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "crazyalloy_revival:chocolate_bricks"
+          }
+        ]
+      }
+    },
+    "stairs": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "crazyalloy_revival:chocolate_brick_stairs"
+          }
+        ]
+      }
+    },
+    "slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "crazyalloy_revival:chocolate_brick_slab"
+          }
+        ]
+      }
+    },
+    "wall": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "crazyalloy_revival:chocolate_brick_wall"
+          }
+        ]
+      }
+    },
+    "chiseled": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "crazyalloy_revival:chiseled_chocolate_bricks"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "crazyalloy_revival:factory_floor"
+}

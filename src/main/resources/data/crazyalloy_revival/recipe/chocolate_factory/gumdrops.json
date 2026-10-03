@@ -1,0 +1,13 @@
+{
+  "type": "crazyalloy_revival:chocolate_factory",
+  "ingredients": [
+    "minecraft:sugar",
+    "minecraft:red_dye"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:gumdrop",
+    "count": 4
+  },
+  "processing_time": 120,
+  "experience": 0.1
+}

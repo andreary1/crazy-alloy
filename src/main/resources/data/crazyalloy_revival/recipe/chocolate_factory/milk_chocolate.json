@@ -1,0 +1,13 @@
+{
+  "type": "crazyalloy_revival:chocolate_factory",
+  "ingredients": [
+    "crazyalloy_revival:cocoa_powder",
+    "minecraft:milk_bucket"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:milk_chocolate",
+    "count": 3
+  },
+  "processing_time": 240,
+  "experience": 0.35
+}

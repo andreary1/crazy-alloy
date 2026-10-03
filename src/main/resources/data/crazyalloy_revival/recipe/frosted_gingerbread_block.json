@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "crazyalloy_revival:gingerbread_block",
+    "minecraft:sugar"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:frosted_gingerbread_block",
+    "count": 1
+  }
+}

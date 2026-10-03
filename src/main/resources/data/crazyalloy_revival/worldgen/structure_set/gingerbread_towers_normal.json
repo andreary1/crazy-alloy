@@ -1,0 +1,21 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "crazyalloy_revival:structure_frequency",
+      "frequency": "normal",
+      "structure": "gingerbread_tower"
+    }
+  ],
+  "structures": [
+    {
+      "structure": "crazyalloy_revival:gingerbread_tower",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 18,
+    "separation": 8,
+    "salt": 541127893
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "display": {
+    "icon": {
+      "id": "crazyalloy_revival:tourmaline_chestplate",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.crazyalloy_revival.tourmaline_armor.title"
+    },
+    "description": {
+      "translate": "advancements.crazyalloy_revival.tourmaline_armor.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "crazyalloy_revival:tourmaline_helmet"
+          }
+        ]
+      }
+    },
+    "chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "crazyalloy_revival:tourmaline_chestplate"
+          }
+        ]
+      }
+    },
+    "leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "crazyalloy_revival:tourmaline_leggings"
+          }
+        ]
+      }
+    },
+    "boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "crazyalloy_revival:tourmaline_boots"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "crazyalloy_revival:tourmaline_tools",
+  "rewards": {
+    "experience": 50
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "crazyalloy_revival:block/chocolate_grass_block_top",
+    "bottom": "crazyalloy_revival:block/chocolate_soil",
+    "side": "crazyalloy_revival:block/chocolate_grass_block_side"
+  }
+}

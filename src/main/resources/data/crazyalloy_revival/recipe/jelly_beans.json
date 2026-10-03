@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "#crazyalloy_revival:jelly_bean_blocks"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:jelly_beans",
+    "count": 4
+  }
+}

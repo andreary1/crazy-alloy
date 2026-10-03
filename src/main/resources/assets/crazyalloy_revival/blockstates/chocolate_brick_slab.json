@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "crazyalloy_revival:block/chocolate_brick_slab"
+    },
+    "type=double": {
+      "model": "crazyalloy_revival:block/chocolate_bricks"
+    },
+    "type=top": {
+      "model": "crazyalloy_revival:block/chocolate_brick_slab_top"
+    }
+  }
+}

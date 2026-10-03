@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": "crazyalloy_revival:tourmaline"
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:tourmaline_block",
+    "count": 1
+  }
+}

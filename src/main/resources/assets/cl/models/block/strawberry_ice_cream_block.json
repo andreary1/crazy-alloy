@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "cl:block/strawberryicecreamblock",
-    "particle": "cl:block/strawberryicecreamblock"
-  },
-  "render_type": "solid"
-}

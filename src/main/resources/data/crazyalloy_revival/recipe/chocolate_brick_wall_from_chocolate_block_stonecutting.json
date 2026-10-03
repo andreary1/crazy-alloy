@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "crazyalloy_revival:chocolate_block",
+  "result": {
+    "id": "crazyalloy_revival:chocolate_brick_wall",
+    "count": 1
+  }
+}

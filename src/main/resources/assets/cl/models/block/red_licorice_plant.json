@@ -1,8 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "cl:block/redlicorice",
-    "particle": "cl:block/redlicorice"
-  },
-  "render_type": "cutout"
-}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:block_pile",
+  "config": {
+    "state_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "crazyalloy_revival:purple_jelly_bean_block"
+          },
+          "weight": 3
+        },
+        {
+          "data": {
+            "Name": "crazyalloy_revival:infested_purple_jelly_bean_block"
+          },
+          "weight": 1
+        }
+      ]
+    }
+  }
+}
