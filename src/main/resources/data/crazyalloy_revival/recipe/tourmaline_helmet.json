@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "crazyalloy_revival:tourmaline"
+  },
+  "pattern": [
+    "###",
+    "# #"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:tourmaline_helmet",
+    "count": 1
+  }
+}

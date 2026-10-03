@@ -1,9 +1,7 @@
 {
   "replace": false,
   "values": [
-    "cl:gummy_grass",
-    "cl:green_jelly_bean_block",
-    "cl:vanilla_ice_cream_block",
-    "cl:mystic_grass"
+    "crazyalloy_revival:chocolate_grass_block",
+    "crazyalloy_revival:green_jelly_bean_block"
   ]
 }

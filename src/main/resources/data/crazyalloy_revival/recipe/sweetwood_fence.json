@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "W": "crazyalloy_revival:sweetwood_planks",
+    "#": "minecraft:stick"
+  },
+  "pattern": [
+    "W#W",
+    "W#W"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:sweetwood_fence",
+    "count": 3
+  },
+  "group": "wooden_fence"
+}

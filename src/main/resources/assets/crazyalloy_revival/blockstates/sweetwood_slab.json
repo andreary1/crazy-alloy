@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "crazyalloy_revival:block/sweetwood_slab"
+    },
+    "type=double": {
+      "model": "crazyalloy_revival:block/sweetwood_planks"
+    },
+    "type=top": {
+      "model": "crazyalloy_revival:block/sweetwood_slab_top"
+    }
+  }
+}

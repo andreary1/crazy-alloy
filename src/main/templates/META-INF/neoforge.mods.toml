@@ -1,0 +1,37 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="${mod_license}"
+issueTrackerURL=""
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="${mod_authors}"
+credits="Based on Crazy Alloy by andreary1 (MIT License, https://modrinth.com/mod/crazy-alloy). This revival is a rebuild; new lore and mechanics are revival proposals."
+description='''
+A rebuild and expansion of Crazy Alloy: candy worlds, odd creatures, absurd weapons and surprising exploration.
+Stage 1 (alpha): Sweet Forest, chocolate building blocks, sweets, tourmaline gear, three creatures, the Cookie Hut and the Chocolate Factory.
+'''
+logoFile=""
+
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="[${neo_version},)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="terrablender"
+    type="required"
+    versionRange="[${terrablender_version},)"
+    ordering="AFTER"
+    side="BOTH"

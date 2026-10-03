@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "id": "crazyalloy_revival:candy_tube",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.crazyalloy_revival.tame_candy_tube_dog.title"
+    },
+    "description": {
+      "translate": "advancements.crazyalloy_revival.tame_candy_tube_dog.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "tame": {
+      "trigger": "minecraft:tame_animal",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "crazyalloy_revival:candy_tube_dog"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "crazyalloy_revival:enter_sweet_forest"
+}

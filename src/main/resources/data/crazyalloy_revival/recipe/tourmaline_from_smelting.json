@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.8,
+  "ingredient": "#crazyalloy_revival:tourmaline_ores",
+  "result": {
+    "id": "crazyalloy_revival:tourmaline"
+  }
+}

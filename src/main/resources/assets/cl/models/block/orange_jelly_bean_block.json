@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "cl:block/orangejellybean",
-    "particle": "cl:block/orangejellybean"
-  },
-  "render_type": "solid"
-}

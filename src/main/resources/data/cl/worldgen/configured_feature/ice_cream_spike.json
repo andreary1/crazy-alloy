@@ -1,7 +1,0 @@
-{
-  "type": "cl:structure_feature",
-  "config": {
-    "structure": "cl:icecreamspike",
-    "ignored_blocks": "minecraft:air"
-  }
-}

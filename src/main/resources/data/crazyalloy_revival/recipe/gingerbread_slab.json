@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": "crazyalloy_revival:gingerbread_block"
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:gingerbread_slab",
+    "count": 6
+  }
+}

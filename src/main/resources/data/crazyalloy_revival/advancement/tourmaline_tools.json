@@ -1,0 +1,69 @@
+{
+  "display": {
+    "icon": {
+      "id": "crazyalloy_revival:tourmaline_pickaxe",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.crazyalloy_revival.tourmaline_tools.title"
+    },
+    "description": {
+      "translate": "advancements.crazyalloy_revival.tourmaline_tools.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "crazyalloy_revival:tourmaline_sword"
+          }
+        ]
+      }
+    },
+    "pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "crazyalloy_revival:tourmaline_pickaxe"
+          }
+        ]
+      }
+    },
+    "axe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "crazyalloy_revival:tourmaline_axe"
+          }
+        ]
+      }
+    },
+    "shovel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "crazyalloy_revival:tourmaline_shovel"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "crazyalloy_revival:pink_gem",
+  "requirements": [
+    [
+      "sword",
+      "pickaxe",
+      "axe",
+      "shovel"
+    ]
+  ]
+}

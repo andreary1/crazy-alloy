@@ -1,20 +1,43 @@
-# Gradle build system ignores
-.gradle/
+### Gradle ###
+.gradle
 build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/**/build/
 
-# Other IDE related folders
+### IntelliJ IDEA ###
 .idea/
-.settings/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/**/out/
 
-# MCreator workspace
-.mcreator/
+.run/
 
-# Minecraft client/server files
-run/
-
-# MacOS system files
-.DS_STORE
-
-# Other Files (In Eclipse)
+### Eclipse ###
+.apt_generated
 .classpath
+.eclipse/
+.factorypath
 .project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/**/bin/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### Minecraft Modding ###
+run/
+!**/src/**/run/
+**/src/generated/**/.cache/
+repo/
+!**/src/**/repo/
+
+### Python ###
+__pycache__/

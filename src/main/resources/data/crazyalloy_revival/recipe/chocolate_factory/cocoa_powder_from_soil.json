@@ -1,0 +1,12 @@
+{
+  "type": "crazyalloy_revival:chocolate_factory",
+  "ingredients": [
+    "crazyalloy_revival:chocolate_soil"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:cocoa_powder",
+    "count": 1
+  },
+  "processing_time": 160,
+  "experience": 0.05
+}

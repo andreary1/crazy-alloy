@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "crazyalloy_revival:chocolate_bricks",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.crazyalloy_revival.visit_cookie_hut.title"
+    },
+    "description": {
+      "translate": "advancements.crazyalloy_revival.visit_cookie_hut.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "hut": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "crazyalloy_revival:cookie_hut"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "crazyalloy_revival:enter_sweet_forest"
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "crazyalloy_revival:tourmaline_block"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:tourmaline",
+    "count": 9
+  }
+}

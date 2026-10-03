@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "crazyalloy_revival:block/gingerbread_slab"
+    },
+    "type=double": {
+      "model": "crazyalloy_revival:block/gingerbread_block"
+    },
+    "type=top": {
+      "model": "crazyalloy_revival:block/gingerbread_slab_top"
+    }
+  }
+}

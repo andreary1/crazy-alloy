@@ -1,0 +1,353 @@
+package com.crazyalloy.revival.gametest;
+
+import com.crazyalloy.revival.CrazyAlloyRevival;
+import com.crazyalloy.revival.block.entity.ChocolateFactoryBlockEntity;
+import com.crazyalloy.revival.entity.CandyTubeDog;
+import com.crazyalloy.revival.entity.GingerbreadKing;
+import com.crazyalloy.revival.entity.GingerbreadSoldier;
+import com.crazyalloy.revival.entity.GingerbreadWarrior;
+import com.crazyalloy.revival.entity.GrapeSpider;
+import com.crazyalloy.revival.entity.LollipopGuy;
+import com.crazyalloy.revival.registry.ModBlocks;
+import com.crazyalloy.revival.registry.ModEntities;
+import com.crazyalloy.revival.registry.ModItems;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.Consumer;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.gametest.framework.FunctionGameTestInstance;
+import net.minecraft.gametest.framework.GameTestHelper;
+import net.minecraft.gametest.framework.TestData;
+import net.minecraft.gametest.framework.TestEnvironmentDefinition;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.animal.pig.Pig;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.GameType;
+import com.crazyalloy.revival.block.OrangeJellyBeanBlock;
+import com.crazyalloy.revival.entity.Bubblegum;
+import com.crazyalloy.revival.entity.CottonCandyTornado;
+import java.util.List;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.RegisterGameTestsEvent;
+import net.neoforged.neoforge.registries.RegisterEvent;
+
+/**
+ * Headless game tests for stage 1. They live in their own source set, so they are loaded by the dev
+ * runs (runGameTestServer, runServer, runClient) but are not packaged into the release JAR.
+ */
+@EventBusSubscriber(modid = CrazyAlloyRevival.MOD_ID)
+public final class RevivalGameTests {
+    private static final Identifier PLATFORM = CrazyAlloyRevival.id("gametest/platform");
+    private static final Map<String, Consumer<GameTestHelper>> TESTS = new LinkedHashMap<>();
+
+    static {
+        TESTS.put("mobs_tick_without_crashing", RevivalGameTests::mobsTickWithoutCrashing);
+        TESTS.put("candy_tube_dog_tames_with_lollipops", RevivalGameTests::candyTubeDogTames);
+        TESTS.put("lollipop_guy_trades_sugar_for_lollipop", RevivalGameTests::lollipopGuyTrades);
+        TESTS.put("grape_spider_poisons_on_hit", RevivalGameTests::grapeSpiderPoisons);
+        TESTS.put("chocolate_factory_makes_chocolate_bar", RevivalGameTests::chocolateFactoryWorks);
+        TESTS.put("sweetwood_sapling_grows_on_chocolate_soil", RevivalGameTests::saplingGrows);
+        TESTS.put("stage2_mobs_tick_without_crashing", RevivalGameTests::stage2MobsTick);
+        TESTS.put("yellow_jelly_gives_mining_fatigue", RevivalGameTests::yellowJellyFatigue);
+        TESTS.put("orange_jelly_explodes_after_fuse", RevivalGameTests::orangeJellyExplodes);
+        TESTS.put("infested_jelly_releases_grape_spiders", RevivalGameTests::infestedJellySpawnsSpiders);
+        TESTS.put("cotton_candy_tornado_caught_with_stick", RevivalGameTests::tornadoCatch);
+        TESTS.put("bubblegum_pops_on_death", RevivalGameTests::bubblegumPops);
+        TESTS.put("bubbaloo_creeper_leaves_bubbaloo", RevivalGameTests::bubbalooCreeperPuddle);
+        TESTS.put("factory_turns_melted_chocolate_into_bars", RevivalGameTests::factoryMeltedChocolate);
+        TESTS.put("licorice_grows_only_on_sweet_ground", RevivalGameTests::licoricePlacement);
+        TESTS.put("jelly_bazooka_fires_dead_snakes", RevivalGameTests::bazookaFires);
+        TESTS.put("gingerbread_warrior_fights_bare_handed", RevivalGameTests::warriorBareHanded);
+        TESTS.put("stage3_mobs_tick_without_crashing", RevivalGameTests::stage3MobsTick);
+        TESTS.put("gingerbread_soldier_fires_gumdrop", RevivalGameTests::soldierFires);
+        TESTS.put("gingerbread_king_slam_hits_bystanders", RevivalGameTests::kingSlam);
+        TESTS.put("gingerbread_king_calls_guards", RevivalGameTests::kingSummons);
+    }
+
+    private RevivalGameTests() {}
+
+    private static ResourceKey<Consumer<GameTestHelper>> functionKey(String name) {
+        return ResourceKey.create(Registries.TEST_FUNCTION, CrazyAlloyRevival.id(name));
+    }
+
+    @SubscribeEvent
+    public static void registerFunctions(RegisterEvent event) {
+        event.register(Registries.TEST_FUNCTION, helper -> TESTS.forEach((name, fn) -> helper.register(CrazyAlloyRevival.id(name), fn)));
+    }
+
+    // sky_access = true: without it the test area gets a barrier ceiling and the sapling has no room to grow.
+    @SubscribeEvent
+    public static void registerTests(RegisterGameTestsEvent event) {
+        Holder<TestEnvironmentDefinition<?>> env = event.registerEnvironment(CrazyAlloyRevival.id("default"));
+        TESTS.keySet().forEach(name -> event.registerTest(CrazyAlloyRevival.id(name),
+                new FunctionGameTestInstance(functionKey(name), new TestData<>(env, PLATFORM, 400, 0, true, Rotation.NONE, false, 1, 1, true, 0))));
+    }
+
+    /** Regression for the missing tempt_range attribute: every mob must survive a few seconds of AI ticks. */
+    private static void mobsTickWithoutCrashing(GameTestHelper helper) {
+        CandyTubeDog dog = helper.spawn(ModEntities.CANDY_TUBE_DOG.get(), 2, 1, 2);
+        LollipopGuy guy = helper.spawn(ModEntities.LOLLIPOP_GUY.get(), 6, 1, 2);
+        GrapeSpider spider = helper.spawn(ModEntities.GRAPE_SPIDER.get(), 4, 1, 6);
+        helper.runAfterDelay(100, () -> {
+            helper.assertTrue(dog.isAlive() && guy.isAlive() && spider.isAlive(), "a stage 1 mob died or was removed while ticking");
+            helper.succeed();
+        });
+    }
+
+    private static void candyTubeDogTames(GameTestHelper helper) {
+        CandyTubeDog dog = helper.spawn(ModEntities.CANDY_TUBE_DOG.get(), 4, 1, 4);
+        ServerPlayer player = helper.makeMockServerPlayerInLevel();
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ModItems.LOLLIPOP.get(), 64));
+        // Each lollipop has a 1 in 3 chance; 60 tries fail with probability (2/3)^60, about 3e-11.
+        for (int i = 0; i < 60 && !dog.isTame(); i++) {
+            dog.mobInteract(player, InteractionHand.MAIN_HAND);
+        }
+        helper.assertTrue(dog.isTame(), "dog was not tamed after 60 lollipops");
+        helper.assertTrue(dog.isOwnedBy(player), "dog is not owned by the player who tamed it");
+        helper.assertTrue(dog.getMaxHealth() == 30.0F, "tamed dog max health should be 30, was " + dog.getMaxHealth());
+        helper.succeed();
+    }
+
+    private static void lollipopGuyTrades(GameTestHelper helper) {
+        LollipopGuy guy = helper.spawn(ModEntities.LOLLIPOP_GUY.get(), 4, 1, 4);
+        ServerPlayer player = helper.makeMockServerPlayerInLevel();
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.SUGAR, 4));
+        guy.interact(player, InteractionHand.MAIN_HAND, Vec3.ZERO);
+        helper.succeedWhen(() -> helper.assertItemEntityPresent(ModItems.LOLLIPOP.get()));
+    }
+
+    private static void grapeSpiderPoisons(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        GrapeSpider spider = helper.spawn(ModEntities.GRAPE_SPIDER.get(), 4, 1, 4);
+        Pig pig = helper.spawn(EntityType.PIG, 5, 1, 4);
+        helper.assertTrue(spider.doHurtTarget(helper.getLevel(), pig), "grape spider attack did not land");
+        helper.assertTrue(pig.hasEffect(MobEffects.POISON), "grape spider hit did not apply poison on Normal");
+        helper.succeed();
+    }
+
+    private static void chocolateFactoryWorks(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(4, 1, 4);
+        helper.setBlock(pos, ModBlocks.CHOCOLATE_FACTORY.get());
+        ChocolateFactoryBlockEntity factory = helper.getBlockEntity(pos, ChocolateFactoryBlockEntity.class);
+        factory.setItem(ChocolateFactoryBlockEntity.SLOT_INPUT_A, new ItemStack(ModItems.COCOA_POWDER.get()));
+        factory.setItem(ChocolateFactoryBlockEntity.SLOT_INPUT_B, new ItemStack(Items.SUGAR));
+        factory.setItem(ChocolateFactoryBlockEntity.SLOT_FUEL, new ItemStack(Items.COAL));
+        // Default recipe time is 200 ticks; the test allows 400.
+        helper.succeedWhen(() -> {
+            ItemStack out = factory.getItem(ChocolateFactoryBlockEntity.SLOT_OUTPUT);
+            helper.assertTrue(out.is(ModItems.CHOCOLATE_BAR.get()), "no chocolate bar in the output slot yet");
+            helper.assertTrue(factory.getItem(ChocolateFactoryBlockEntity.SLOT_INPUT_A).isEmpty(), "cocoa powder was not consumed");
+            helper.assertTrue(factory.getItem(ChocolateFactoryBlockEntity.SLOT_INPUT_B).isEmpty(), "sugar was not consumed");
+        });
+    }
+
+    private static void saplingGrows(GameTestHelper helper) {
+        BlockPos soil = new BlockPos(4, 0, 4);
+        BlockPos sapling = soil.above();
+        helper.setBlock(soil, ModBlocks.CHOCOLATE_SOIL.get());
+        helper.setBlock(sapling, ModBlocks.SWEETWOOD_SAPLING.get());
+        BlockPos abs = helper.absolutePos(sapling);
+        for (int i = 0; i < 20 && helper.getLevel().getBlockState(abs).getBlock() instanceof SaplingBlock; i++) {
+            BlockState state = helper.getLevel().getBlockState(abs);
+            ((SaplingBlock) state.getBlock()).advanceTree(helper.getLevel(), abs, state, helper.getLevel().getRandom());
+        }
+        helper.assertBlockPresent(ModBlocks.SWEETWOOD_LOG.get(), sapling);
+        helper.succeed();
+    }
+
+    // ------------------------------------------------------------------ stage 2
+
+    private static void stage2MobsTick(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        List<? extends Mob> mobs = List.of(
+                helper.spawn(ModEntities.BROWN_SUGAR_RHINO.get(), 1, 1, 1), helper.spawn(ModEntities.COTTON_CANDY_TORNADO.get(), 4, 1, 1),
+                helper.spawn(ModEntities.BUBBLEGUM.get(), 7, 2, 1), helper.spawn(ModEntities.GINGERBREAD_WARRIOR.get(), 1, 1, 4),
+                helper.spawn(ModEntities.GINGERBREAD_SOLDIER.get(), 4, 1, 4), helper.spawn(ModEntities.JELLY_BUNNY.get(), 7, 1, 4),
+                helper.spawn(ModEntities.JELLY_SNAKE.get(), 1, 1, 7), helper.spawn(ModEntities.JELLY_SHARK.get(), 4, 1, 7),
+                helper.spawn(ModEntities.ROLL_CAKE_MONSTER.get(), 7, 1, 7), helper.spawn(ModEntities.BUBBALOO_CREEPER.get(), 2, 1, 2));
+        helper.runAfterDelay(100, () -> {
+            for (Mob mob : mobs) {
+                helper.assertTrue(mob.isAlive(), mob.getType().toShortString() + " died or was removed while ticking");
+            }
+            helper.succeed();
+        });
+    }
+
+    private static void yellowJellyFatigue(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(4, 0, 4);
+        helper.setBlock(pos, ModBlocks.YELLOW_JELLY_BEAN_BLOCK.get());
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        BlockPos abs = helper.absolutePos(pos);
+        ModBlocks.YELLOW_JELLY_BEAN_BLOCK.get().stepOn(helper.getLevel(), abs, helper.getLevel().getBlockState(abs), player);
+        helper.assertTrue(player.hasEffect(MobEffects.MINING_FATIGUE), "walking on yellow jelly did not give Mining Fatigue");
+        helper.succeed();
+    }
+
+    private static void orangeJellyExplodes(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(4, 0, 4);
+        helper.setBlock(pos, ModBlocks.ORANGE_JELLY_BEAN_BLOCK.get());
+        BlockPos abs = helper.absolutePos(pos);
+        Player sneaking = helper.makeMockPlayer(GameType.SURVIVAL);
+        sneaking.setShiftKeyDown(true);
+        ModBlocks.ORANGE_JELLY_BEAN_BLOCK.get().stepOn(helper.getLevel(), abs, helper.getLevel().getBlockState(abs), sneaking);
+        helper.assertFalse(helper.getLevel().getBlockState(abs).getValue(OrangeJellyBeanBlock.PRIMED), "a sneaking player primed orange jelly");
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        ModBlocks.ORANGE_JELLY_BEAN_BLOCK.get().stepOn(helper.getLevel(), abs, helper.getLevel().getBlockState(abs), player);
+        helper.assertTrue(helper.getLevel().getBlockState(abs).getValue(OrangeJellyBeanBlock.PRIMED), "stepping on orange jelly did not prime it");
+        helper.succeedWhen(() -> helper.assertBlockNotPresent(ModBlocks.ORANGE_JELLY_BEAN_BLOCK.get(), pos));
+    }
+
+    private static void infestedJellySpawnsSpiders(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(4, 1, 4);
+        helper.setBlock(pos, ModBlocks.INFESTED_PURPLE_JELLY_BEAN_BLOCK.get());
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        helper.getLevel().destroyBlock(helper.absolutePos(pos), true, null);
+        helper.succeedWhen(() -> helper.assertEntityPresent(ModEntities.GRAPE_SPIDER.get()));
+    }
+
+    private static void tornadoCatch(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        CottonCandyTornado tornado = helper.spawn(ModEntities.COTTON_CANDY_TORNADO.get(), 4, 1, 4);
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.STICK, 2));
+        tornado.interact(player, InteractionHand.MAIN_HAND, Vec3.ZERO);
+        helper.assertTrue(tornado.isAlive(), "a healthy tornado was caught");
+        tornado.setHealth(CottonCandyTornado.CATCHABLE_HEALTH - 1);
+        tornado.interact(player, InteractionHand.MAIN_HAND, Vec3.ZERO);
+        helper.assertTrue(tornado.isRemoved(), "weak tornado was not caught");
+        helper.assertTrue(player.getInventory().countItem(ModItems.COTTON_CANDY.get()) == 3, "catching did not give 3 cotton candy");
+        helper.succeed();
+    }
+
+    private static void bubblegumPops(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        Bubblegum gum = helper.spawn(ModEntities.BUBBLEGUM.get(), 4, 1, 4);
+        Pig pig = helper.spawn(EntityType.PIG, 5, 1, 4);
+        gum.kill(helper.getLevel());
+        helper.succeedWhen(() -> helper.assertTrue(pig.getHealth() < pig.getMaxHealth() || !pig.isAlive(), "the pop did not hurt the pig next to it"));
+    }
+
+    private static void bubbalooCreeperPuddle(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        Mob creeper = helper.spawn(ModEntities.BUBBALOO_CREEPER.get(), 4, 1, 4);
+        helper.runAfterDelay(5, () -> {
+            BlockPos at = creeper.blockPosition();
+            creeper.kill(helper.getLevel());
+            helper.succeedWhen(() -> helper.assertTrue(helper.getLevel().getBlockState(at).is(ModBlocks.BUBBALOO.get()),
+                    "no Bubbaloo where the creeper died, found " + helper.getLevel().getBlockState(at)));
+        });
+    }
+
+    private static void factoryMeltedChocolate(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(4, 1, 4);
+        helper.setBlock(pos, ModBlocks.CHOCOLATE_FACTORY.get());
+        ChocolateFactoryBlockEntity factory = helper.getBlockEntity(pos, ChocolateFactoryBlockEntity.class);
+        factory.setItem(ChocolateFactoryBlockEntity.SLOT_INPUT_A, new ItemStack(ModItems.MELTED_CHOCOLATE_BUCKET.get()));
+        factory.setItem(ChocolateFactoryBlockEntity.SLOT_FUEL, new ItemStack(Items.COAL));
+        helper.succeedWhen(() -> {
+            ItemStack out = factory.getItem(ChocolateFactoryBlockEntity.SLOT_OUTPUT);
+            helper.assertTrue(out.is(ModItems.CHOCOLATE_BAR.get()) && out.getCount() == 10, "expected 10 chocolate bars, got " + out);
+            helper.assertTrue(factory.getItem(ChocolateFactoryBlockEntity.SLOT_INPUT_A).is(Items.BUCKET), "the empty bucket was not left behind");
+        });
+    }
+
+    private static void licoricePlacement(GameTestHelper helper) {
+        BlockState licorice = ModBlocks.RED_LICORICE_PLANT.get().defaultBlockState();
+        helper.setBlock(new BlockPos(2, 0, 2), ModBlocks.CHOCOLATE_GRASS_BLOCK.get());
+        helper.assertTrue(licorice.canSurvive(helper.getLevel(), helper.absolutePos(new BlockPos(2, 1, 2))), "licorice cannot grow on Gummy Grass");
+        helper.assertFalse(licorice.canSurvive(helper.getLevel(), helper.absolutePos(new BlockPos(6, 1, 6))), "licorice should not grow on stone");
+        helper.succeed();
+    }
+
+    private static void bazookaFires(GameTestHelper helper) {
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        player.setPos(helper.absoluteVec(new Vec3(4.5, 1, 4.5)));
+        ItemStack bazooka = new ItemStack(ModItems.JELLY_BAZOOKA.get());
+        player.setItemInHand(InteractionHand.MAIN_HAND, bazooka);
+        player.getInventory().add(new ItemStack(ModItems.DEAD_JELLY_SNAKE.get(), 2));
+        bazooka.use(helper.getLevel(), player, InteractionHand.MAIN_HAND);
+        helper.assertTrue(player.getInventory().countItem(ModItems.DEAD_JELLY_SNAKE.get()) == 1, "firing did not use one Dead Jelly Snake");
+        helper.assertTrue(bazooka.getDamageValue() == 1, "firing did not cost durability");
+        helper.assertEntityPresent(ModEntities.JELLY_SNAKE_SHOT.get());
+        helper.succeed();
+    }
+
+    private static void warriorBareHanded(GameTestHelper helper) {
+        Mob warrior = ModEntities.GINGERBREAD_WARRIOR.get().spawn(helper.getLevel(), helper.absolutePos(new BlockPos(4, 1, 4)), EntitySpawnReason.SPAWNER);
+        helper.assertTrue(warrior != null && warrior.getItemBySlot(EquipmentSlot.MAINHAND).isEmpty(),
+                "gingerbread warrior should spawn without a weapon (stage 3: it fights with its fists)");
+        helper.assertTrue(warrior.getAttributeValue(Attributes.ATTACK_DAMAGE) >= 6.0, "warrior fists should deal 6");
+        helper.succeed();
+    }
+
+    private static void stage3MobsTick(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        List<? extends Mob> mobs = List.of(
+                ModEntities.GINGERBREAD_KING.get().spawn(helper.getLevel(), helper.absolutePos(new BlockPos(4, 1, 4)), EntitySpawnReason.SPAWN_ITEM_USE),
+                helper.spawn(ModEntities.GINGERBREAD_WARRIOR.get(), 1, 1, 1), helper.spawn(ModEntities.GINGERBREAD_SOLDIER.get(), 7, 1, 1),
+                helper.spawn(ModEntities.COTTON_CANDY_TORNADO.get(), 1, 1, 7), helper.spawn(ModEntities.ROLL_CAKE_MONSTER.get(), 7, 1, 7),
+                helper.spawn(ModEntities.JELLY_SHARK.get(), 4, 1, 1));
+        helper.runAfterDelay(100, () -> {
+            for (Mob mob : mobs) {
+                helper.assertTrue(mob.isAlive(), mob.getType().toShortString() + " died or was removed while ticking");
+            }
+            helper.assertTrue(mobs.get(0).isPersistenceRequired(), "the king must not despawn");
+            helper.succeed();
+        });
+    }
+
+    private static void soldierFires(GameTestHelper helper) {
+        GingerbreadSoldier soldier = helper.spawn(ModEntities.GINGERBREAD_SOLDIER.get(), 2, 1, 4);
+        Pig pig = helper.spawn(EntityType.PIG, 7, 1, 4);
+        soldier.performRangedAttack(pig, 1.0F);
+        helper.assertEntityPresent(ModEntities.GUMDROP_SHOT.get());
+        helper.succeed();
+    }
+
+    /** The slam hurts a pig standing behind the king, which his punches (aimed at his target) never reach. */
+    private static void kingSlam(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        GingerbreadKing king = (GingerbreadKing) ModEntities.GINGERBREAD_KING.get().spawn(helper.getLevel(),
+                helper.absolutePos(new BlockPos(4, 1, 4)), EntitySpawnReason.SPAWN_ITEM_USE);
+        Mob target = helper.spawn(EntityType.IRON_GOLEM, 4, 1, 1); // sturdy, so the fight lasts
+        Pig bystander = helper.spawn(EntityType.PIG, 4, 1, 6);
+        target.setNoAi(true);
+        bystander.setNoAi(true);
+        king.setTarget(target);
+        helper.succeedWhen(() -> helper.assertTrue(bystander.getHealth() < bystander.getMaxHealth() || !bystander.isAlive(),
+                "the ground slam did not hurt the pig behind the king"));
+    }
+
+    private static void kingSummons(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        GingerbreadKing king = (GingerbreadKing) ModEntities.GINGERBREAD_KING.get().spawn(helper.getLevel(),
+                helper.absolutePos(new BlockPos(4, 1, 4)), EntitySpawnReason.SPAWN_ITEM_USE);
+        Mob target = helper.spawn(EntityType.IRON_GOLEM, 1, 1, 1);
+        target.setNoAi(true);
+        king.setHealth(king.getMaxHealth() * 0.6F);
+        king.setTarget(target);
+        helper.succeedWhen(() -> helper.assertTrue(
+                !helper.getLevel().getEntitiesOfClass(Mob.class, king.getBoundingBox().inflate(16.0),
+                        m -> m instanceof GingerbreadSoldier || m instanceof GingerbreadWarrior).isEmpty(),
+                "the wounded king did not call any guards"));
+    }
+}

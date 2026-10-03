@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#crazyalloy_revival:sweetwood_logs"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:sweetwood_planks",
+    "count": 4
+  }
+}

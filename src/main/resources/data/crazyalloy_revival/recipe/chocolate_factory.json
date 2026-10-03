@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "T": "crazyalloy_revival:tourmaline",
+    "I": "minecraft:iron_ingot",
+    "F": "minecraft:furnace",
+    "B": "minecraft:bricks"
+  },
+  "pattern": [
+    "TIT",
+    "IFI",
+    "BBB"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:chocolate_factory",
+    "count": 1
+  }
+}

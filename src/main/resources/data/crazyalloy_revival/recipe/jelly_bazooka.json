@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": "crazyalloy_revival:green_jelly_bean_block",
+    "R": "crazyalloy_revival:red_jelly_bean_block",
+    "O": "crazyalloy_revival:orange_jelly_bean_block",
+    "P": "crazyalloy_revival:purple_jelly_bean_block",
+    "Y": "crazyalloy_revival:yellow_jelly_bean_block",
+    "S": "crazyalloy_revival:dead_jelly_snake"
+  },
+  "pattern": [
+    "GRO",
+    "PYS"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:jelly_bazooka",
+    "count": 1
+  }
+}

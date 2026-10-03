@@ -1,0 +1,20 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "crazyalloy_revival:structure_frequency",
+      "frequency": "common"
+    }
+  ],
+  "structures": [
+    {
+      "structure": "crazyalloy_revival:cookie_hut",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 18,
+    "separation": 6,
+    "salt": 1873205411
+  }
+}

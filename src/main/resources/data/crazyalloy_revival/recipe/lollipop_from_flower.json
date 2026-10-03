@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "crazyalloy_revival:lollipop_flower",
+    "minecraft:stick"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:lollipop",
+    "count": 1
+  }
+}

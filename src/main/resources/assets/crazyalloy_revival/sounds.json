@@ -1,0 +1,577 @@
+{
+  "entity.candy_tube_dog.ambient": {
+    "subtitle": "subtitles.crazyalloy_revival.candy_tube_dog.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:mob/wolf/cute/bark1",
+        "pitch": 1.45,
+        "volume": 0.7
+      },
+      {
+        "name": "minecraft:mob/wolf/cute/bark2",
+        "pitch": 1.45,
+        "volume": 0.7
+      },
+      {
+        "name": "minecraft:mob/wolf/cute/bark3",
+        "pitch": 1.45,
+        "volume": 0.7
+      }
+    ]
+  },
+  "entity.candy_tube_dog.hurt": {
+    "subtitle": "subtitles.crazyalloy_revival.candy_tube_dog.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:mob/wolf/cute/hurt1",
+        "pitch": 1.45,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/wolf/cute/hurt2",
+        "pitch": 1.45,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.candy_tube_dog.death": {
+    "subtitle": "subtitles.crazyalloy_revival.candy_tube_dog.death",
+    "sounds": [
+      {
+        "name": "minecraft:mob/wolf/cute/death",
+        "pitch": 1.45,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.candy_tube_dog.shed": {
+    "subtitle": "subtitles.crazyalloy_revival.candy_tube_dog.shed",
+    "sounds": [
+      {
+        "name": "minecraft:mob/chicken/plop",
+        "pitch": 0.8,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.lollipop_guy.ambient": {
+    "subtitle": "subtitles.crazyalloy_revival.lollipop_guy.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:block/amethyst/shimmer",
+        "pitch": 1.3,
+        "volume": 0.8
+      }
+    ]
+  },
+  "entity.lollipop_guy.hurt": {
+    "subtitle": "subtitles.crazyalloy_revival.lollipop_guy.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:block/amethyst/break1",
+        "pitch": 1.4,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:block/amethyst/break2",
+        "pitch": 1.4,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.lollipop_guy.death": {
+    "subtitle": "subtitles.crazyalloy_revival.lollipop_guy.death",
+    "sounds": [
+      {
+        "name": "minecraft:block/amethyst_cluster/break1",
+        "pitch": 1.2,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.lollipop_guy.gift": {
+    "subtitle": "subtitles.crazyalloy_revival.lollipop_guy.gift",
+    "sounds": [
+      {
+        "name": "minecraft:random/pop",
+        "pitch": 1.2,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.grape_spider.ambient": {
+    "subtitle": "subtitles.crazyalloy_revival.grape_spider.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:mob/spider/say1",
+        "pitch": 1.35,
+        "volume": 0.8
+      },
+      {
+        "name": "minecraft:mob/spider/say2",
+        "pitch": 1.35,
+        "volume": 0.8
+      }
+    ]
+  },
+  "entity.grape_spider.hurt": {
+    "subtitle": "subtitles.crazyalloy_revival.grape_spider.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:mob/slime/small1",
+        "pitch": 1.2,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/slime/small2",
+        "pitch": 1.2,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.grape_spider.death": {
+    "subtitle": "subtitles.crazyalloy_revival.grape_spider.death",
+    "sounds": [
+      {
+        "name": "minecraft:mob/spider/death",
+        "pitch": 1.35,
+        "volume": 1.0
+      }
+    ]
+  },
+  "block.chocolate_factory.working": {
+    "subtitle": "subtitles.crazyalloy_revival.chocolate_factory.working",
+    "sounds": [
+      {
+        "name": "minecraft:liquid/lavapop",
+        "pitch": 0.8,
+        "volume": 0.6
+      }
+    ]
+  },
+  "entity.brown_sugar_rhino.ambient": {
+    "subtitle": "subtitles.crazyalloy_revival.brown_sugar_rhino.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:mob/hoglin/idle1",
+        "pitch": 0.8,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/hoglin/idle2",
+        "pitch": 0.8,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.brown_sugar_rhino.hurt": {
+    "subtitle": "subtitles.crazyalloy_revival.brown_sugar_rhino.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:mob/hoglin/hurt1",
+        "pitch": 0.8,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/hoglin/hurt2",
+        "pitch": 0.8,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.brown_sugar_rhino.death": {
+    "subtitle": "subtitles.crazyalloy_revival.brown_sugar_rhino.death",
+    "sounds": [
+      {
+        "name": "minecraft:mob/hoglin/death1",
+        "pitch": 0.8,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.cotton_candy_tornado.ambient": {
+    "subtitle": "subtitles.crazyalloy_revival.cotton_candy_tornado.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:mob/breeze/idle1",
+        "pitch": 1.3,
+        "volume": 0.8
+      },
+      {
+        "name": "minecraft:mob/breeze/idle2",
+        "pitch": 1.3,
+        "volume": 0.8
+      }
+    ]
+  },
+  "entity.cotton_candy_tornado.hurt": {
+    "subtitle": "subtitles.crazyalloy_revival.cotton_candy_tornado.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:mob/breeze/hurt1",
+        "pitch": 1.3,
+        "volume": 0.8
+      },
+      {
+        "name": "minecraft:mob/breeze/hurt2",
+        "pitch": 1.3,
+        "volume": 0.8
+      }
+    ]
+  },
+  "entity.cotton_candy_tornado.death": {
+    "subtitle": "subtitles.crazyalloy_revival.cotton_candy_tornado.death",
+    "sounds": [
+      {
+        "name": "minecraft:mob/breeze/death1",
+        "pitch": 1.3,
+        "volume": 0.8
+      }
+    ]
+  },
+  "entity.bubblegum.ambient": {
+    "subtitle": "subtitles.crazyalloy_revival.bubblegum.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:mob/slime/small1",
+        "pitch": 1.4,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/slime/small2",
+        "pitch": 1.4,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.bubblegum.hurt": {
+    "subtitle": "subtitles.crazyalloy_revival.bubblegum.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:mob/slime/small3",
+        "pitch": 1.4,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/slime/small4",
+        "pitch": 1.4,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.bubblegum.death": {
+    "subtitle": "subtitles.crazyalloy_revival.bubblegum.death",
+    "sounds": [
+      {
+        "name": "minecraft:mob/slime/small5",
+        "pitch": 1.4,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.gingerbread.ambient": {
+    "subtitle": "subtitles.crazyalloy_revival.gingerbread.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:dig/wood1",
+        "pitch": 1.5,
+        "volume": 0.7
+      },
+      {
+        "name": "minecraft:dig/wood2",
+        "pitch": 1.5,
+        "volume": 0.7
+      }
+    ]
+  },
+  "entity.gingerbread.hurt": {
+    "subtitle": "subtitles.crazyalloy_revival.gingerbread.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:dig/wood3",
+        "pitch": 1.5,
+        "volume": 0.7
+      },
+      {
+        "name": "minecraft:dig/wood4",
+        "pitch": 1.5,
+        "volume": 0.7
+      }
+    ]
+  },
+  "entity.gingerbread.death": {
+    "subtitle": "subtitles.crazyalloy_revival.gingerbread.death",
+    "sounds": [
+      {
+        "name": "minecraft:random/break",
+        "pitch": 1.5,
+        "volume": 0.7
+      }
+    ]
+  },
+  "entity.jelly_bunny.ambient": {
+    "subtitle": "subtitles.crazyalloy_revival.jelly_bunny.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:mob/rabbit/idle1",
+        "pitch": 1.2,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/rabbit/idle2",
+        "pitch": 1.2,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.jelly_bunny.hurt": {
+    "subtitle": "subtitles.crazyalloy_revival.jelly_bunny.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:mob/rabbit/hurt1",
+        "pitch": 1.2,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/rabbit/hurt2",
+        "pitch": 1.2,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.jelly_bunny.death": {
+    "subtitle": "subtitles.crazyalloy_revival.jelly_bunny.death",
+    "sounds": [
+      {
+        "name": "minecraft:mob/rabbit/bunnymurder",
+        "pitch": 1.2,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.jelly_snake.ambient": {
+    "subtitle": "subtitles.crazyalloy_revival.jelly_snake.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:mob/silverfish/say1",
+        "pitch": 0.8,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/silverfish/say2",
+        "pitch": 0.8,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.jelly_snake.hurt": {
+    "subtitle": "subtitles.crazyalloy_revival.jelly_snake.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:mob/silverfish/hit1",
+        "pitch": 0.8,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/silverfish/hit2",
+        "pitch": 0.8,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.jelly_snake.death": {
+    "subtitle": "subtitles.crazyalloy_revival.jelly_snake.death",
+    "sounds": [
+      {
+        "name": "minecraft:mob/silverfish/kill",
+        "pitch": 0.8,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.jelly_shark.ambient": {
+    "subtitle": "subtitles.crazyalloy_revival.jelly_shark.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:mob/guardian/land_idle1",
+        "pitch": 0.7,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/guardian/land_idle2",
+        "pitch": 0.7,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.jelly_shark.hurt": {
+    "subtitle": "subtitles.crazyalloy_revival.jelly_shark.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:mob/guardian/guardian_hit1",
+        "pitch": 0.7,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/guardian/guardian_hit2",
+        "pitch": 0.7,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.jelly_shark.death": {
+    "subtitle": "subtitles.crazyalloy_revival.jelly_shark.death",
+    "sounds": [
+      {
+        "name": "minecraft:mob/guardian/guardian_death",
+        "pitch": 0.7,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.roll_cake_monster.ambient": {
+    "subtitle": "subtitles.crazyalloy_revival.roll_cake_monster.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:mob/slime/big1",
+        "pitch": 0.6,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/slime/big2",
+        "pitch": 0.6,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.roll_cake_monster.hurt": {
+    "subtitle": "subtitles.crazyalloy_revival.roll_cake_monster.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:mob/slime/big3",
+        "pitch": 0.6,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/slime/big4",
+        "pitch": 0.6,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.roll_cake_monster.death": {
+    "subtitle": "subtitles.crazyalloy_revival.roll_cake_monster.death",
+    "sounds": [
+      {
+        "name": "minecraft:mob/slime/attack1",
+        "pitch": 0.6,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.bubblegum.pop": {
+    "subtitle": "subtitles.crazyalloy_revival.bubblegum.pop",
+    "sounds": [
+      {
+        "name": "minecraft:random/pop",
+        "pitch": 0.5,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.gingerbread_soldier.shoot": {
+    "subtitle": "subtitles.crazyalloy_revival.gingerbread_soldier.shoot",
+    "sounds": [
+      {
+        "name": "minecraft:random/bow",
+        "pitch": 1.6,
+        "volume": 0.8
+      }
+    ]
+  },
+  "entity.gingerbread_king.ambient": {
+    "subtitle": "subtitles.crazyalloy_revival.gingerbread_king.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:mob/villager/idle1",
+        "pitch": 0.55,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/villager/idle2",
+        "pitch": 0.55,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/villager/idle3",
+        "pitch": 0.55,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.gingerbread_king.hurt": {
+    "subtitle": "subtitles.crazyalloy_revival.gingerbread_king.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:mob/villager/hit1",
+        "pitch": 0.55,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/villager/hit2",
+        "pitch": 0.55,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.gingerbread_king.death": {
+    "subtitle": "subtitles.crazyalloy_revival.gingerbread_king.death",
+    "sounds": [
+      {
+        "name": "minecraft:mob/villager/death",
+        "pitch": 0.45,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.gingerbread_king.roar": {
+    "subtitle": "subtitles.crazyalloy_revival.gingerbread_king.roar",
+    "sounds": [
+      {
+        "name": "minecraft:mob/ravager/roar1",
+        "pitch": 1.3,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/ravager/roar2",
+        "pitch": 1.3,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.gingerbread_king.slam": {
+    "subtitle": "subtitles.crazyalloy_revival.gingerbread_king.slam",
+    "sounds": [
+      {
+        "name": "minecraft:random/explode1",
+        "pitch": 0.8,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:random/explode2",
+        "pitch": 0.8,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.gingerbread_king.summon": {
+    "subtitle": "subtitles.crazyalloy_revival.gingerbread_king.summon",
+    "sounds": [
+      {
+        "name": "minecraft:mob/evocation_illager/prepare_summon",
+        "pitch": 1.2,
+        "volume": 1.0
+      }
+    ]
+  }
+}

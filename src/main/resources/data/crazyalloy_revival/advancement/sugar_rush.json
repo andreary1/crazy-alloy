@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "id": "crazyalloy_revival:lollipop",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.crazyalloy_revival.sugar_rush.title"
+    },
+    "description": {
+      "translate": "advancements.crazyalloy_revival.sugar_rush.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "eat": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": "crazyalloy_revival:lollipop"
+        }
+      }
+    }
+  },
+  "parent": "crazyalloy_revival:enter_sweet_forest"
+}

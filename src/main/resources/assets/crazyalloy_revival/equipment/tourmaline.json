@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "crazyalloy_revival:tourmaline"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "crazyalloy_revival:tourmaline"
+      }
+    ]
+  }
+}

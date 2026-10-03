@@ -1,0 +1,13 @@
+{
+  "type": "crazyalloy_revival:chocolate_factory",
+  "ingredients": [
+    "minecraft:sugar",
+    "minecraft:pink_dye"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:cotton_candy",
+    "count": 2
+  },
+  "processing_time": 120,
+  "experience": 0.1
+}

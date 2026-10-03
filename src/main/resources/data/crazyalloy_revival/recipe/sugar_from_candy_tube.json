@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "crazyalloy_revival:candy_tube"
+  ],
+  "result": {
+    "id": "minecraft:sugar",
+    "count": 3
+  }
+}

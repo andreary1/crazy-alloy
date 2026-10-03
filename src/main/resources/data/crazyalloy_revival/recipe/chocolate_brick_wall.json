@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": "crazyalloy_revival:chocolate_bricks"
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:chocolate_brick_wall",
+    "count": 6
+  }
+}

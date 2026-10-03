@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "id": "crazyalloy_revival:brown_sugar_brick",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.crazyalloy_revival.ouch.title"
+    },
+    "description": {
+      "translate": "advancements.crazyalloy_revival.ouch.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "hit": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "damage": {
+          "type": {
+            "direct_entity": {
+              "type": "crazyalloy_revival:brown_sugar_brick"
+            }
+          }
+        }
+      }
+    }
+  },
+  "parent": "crazyalloy_revival:enter_sweet_forest"
+}

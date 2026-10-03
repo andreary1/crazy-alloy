@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "id": "crazyalloy_revival:jelly_bazooka",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.crazyalloy_revival.boing.title"
+    },
+    "description": {
+      "translate": "advancements.crazyalloy_revival.boing.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "hit": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "damage": {
+          "type": {
+            "direct_entity": {
+              "type": "crazyalloy_revival:jelly_snake_shot"
+            }
+          }
+        }
+      }
+    }
+  },
+  "parent": "crazyalloy_revival:enter_jelly_bean_fields"
+}
