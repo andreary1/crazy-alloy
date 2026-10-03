@@ -1,4 +1,6 @@
-# Crazy Alloy: Revival
+# Crazy Alloy Revival Mod
+
+![mod logo](https://cdn.modrinth.com/data/cached_images/8e25f0b9ea80418fd447df0ea832edbd2ef1f7fe.png)
 
 Reconstrução e expansão do [Crazy Alloy](https://modrinth.com/mod/crazy-alloy) para **Minecraft Java 26.1.2** (NeoForge).
 Namespace: `crazyalloy_revival`. Versão atual: **0.2.0-alpha (etapa 2 de 7: Floresta Doce refeita e Campos de Jujuba)**.
