@@ -1,0 +1,25 @@
+# Textures painted by hand by the project owner. tools/gen_textures*.py never overwrite these paths
+# (relative to assets/crazyalloy_revival/textures). Add a line here when you replace a generated texture.
+item/brown_sugar_rhino_spawn_egg.png
+item/bubbaloo_creeper_spawn_egg.png
+item/bubblegum_spawn_egg.png
+item/candy_tube_dog_spawn_egg.png
+item/cotton_candy_tornado_spawn_egg.png
+item/gingerbread_king_spawn_egg.png
+item/gingerbread_soldier_spawn_egg.png
+item/gingerbread_warrior_spawn_egg.png
+item/grape_spider_spawn_egg.png
+item/jelly_bunny_spawn_egg.png
+item/jelly_shark_spawn_egg.png
+item/jelly_snake_spawn_egg.png
+item/lollipop_guy_spawn_egg.png
+item/roll_cake_monster_spawn_egg.png
+item/tourmaline_axe.png
+item/tourmaline_boots.png
+item/tourmaline_chestplate.png
+item/tourmaline_helmet.png
+item/tourmaline_hoe.png
+item/tourmaline_leggings.png
+item/tourmaline_pickaxe.png
+item/tourmaline_shovel.png
+item/tourmaline_sword.png

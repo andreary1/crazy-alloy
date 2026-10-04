@@ -31,7 +31,7 @@
       }
     }
   },
-  "parent": "crazyalloy_revival:visit_gingerbread_tower",
+  "parent": "crazyalloy_revival:visit_gingerbread_fortress",
   "rewards": {
     "experience": 100
   }

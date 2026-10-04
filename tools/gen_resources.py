@@ -565,6 +565,9 @@ def gen_lang():
     import lang_stage3  # tools/lang_stage3.py: stage 3 keys (Gingerbread King, remodelled creatures)
     EN = EN | lang_stage3.EN
     PT = PT | lang_stage3.PT
+    import lang_stage4  # tools/lang_stage4.py: stage 4 keys (fortress, ice cream truck, remodelled creatures)
+    EN = EN | lang_stage4.EN
+    PT = PT | lang_stage4.PT
     for code, data in [("en_us", EN), ("pt_br", PT)]:
         missing = set(EN) - set(data)
         if missing:
@@ -581,5 +584,7 @@ if __name__ == "__main__":
     gen_stage2.generate()
     import gen_stage3  # tools/gen_stage3.py: remodelled creatures and the Gingerbread King
     gen_stage3.generate()
+    import gen_stage4  # tools/gen_stage4.py: Gingerbread Fortress, Ice Cream Truck and ice creams
+    gen_stage4.generate()
     gen_lang()
     print("resources generated")

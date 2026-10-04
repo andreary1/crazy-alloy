@@ -17,6 +17,7 @@ public final class ModModelLayers {
     public static final ModelLayerLocation JELLY_SNAKE = layer("jelly_snake");
     public static final ModelLayerLocation JELLY_SHARK = layer("jelly_shark");
     public static final ModelLayerLocation ROLL_CAKE_MONSTER = layer("roll_cake_monster");
+    public static final ModelLayerLocation ICE_CREAM_VENDOR = layer("ice_cream_vendor");
 
     private static ModelLayerLocation layer(String name) {
         return new ModelLayerLocation(CrazyAlloyRevival.id(name), "main");

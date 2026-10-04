@@ -9,6 +9,7 @@ import com.crazyalloy.revival.entity.BubbalooCreeper;
 import com.crazyalloy.revival.entity.CandyTubeDog;
 import com.crazyalloy.revival.entity.CottonCandyTornado;
 import com.crazyalloy.revival.entity.GingerbreadKing;
+import com.crazyalloy.revival.entity.IceCreamVendor;
 import com.crazyalloy.revival.entity.GingerbreadSoldier;
 import com.crazyalloy.revival.entity.GingerbreadWarrior;
 import com.crazyalloy.revival.entity.GrapeSpider;
@@ -64,6 +65,7 @@ public final class CommonEvents {
         event.put(ModEntities.GINGERBREAD_WARRIOR.get(), GingerbreadWarrior.createAttributes().build());
         event.put(ModEntities.GINGERBREAD_SOLDIER.get(), GingerbreadSoldier.createAttributes().build());
         event.put(ModEntities.GINGERBREAD_KING.get(), GingerbreadKing.createAttributes().build());
+        event.put(ModEntities.ICE_CREAM_VENDOR.get(), IceCreamVendor.createAttributes().build());
         event.put(ModEntities.JELLY_BUNNY.get(), JellyBunny.createAttributes().build());
         event.put(ModEntities.JELLY_SNAKE.get(), JellySnake.createAttributes().build());
         event.put(ModEntities.JELLY_SHARK.get(), JellyShark.createAttributes().build());

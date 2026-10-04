@@ -54,8 +54,9 @@ import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.Nullable;
 
 /**
- * Gingerbread King (revival proposal, stage 3): the boss of the Gingerbread Towers. He waits on the tower roof
- * (one per tower, see {@link RevivalConfig#GINGERBREAD_KING_IN_TOWERS}) and can also be summoned with his spawn egg.
+ * Gingerbread King (revival proposal, stage 3): the boss of the gingerbread men. Since stage 4 he waits on the throne
+ * of the Gingerbread Fortress ({@link RevivalConfig#GINGERBREAD_KING_IN_FORTRESSES}); towers can still have one on
+ * the roof ({@link RevivalConfig#GINGERBREAD_KING_IN_TOWERS}, off by default). He can also be summoned with his spawn egg.
  * <ul>
  * <li>Wide hooks with alternating fists.</li>
  * <li>Ground slam: a 1 second wind-up with both fists raised (the warning), then a shockwave that hurts and throws
@@ -84,6 +85,8 @@ public class GingerbreadKing extends Monster implements AnimatedMob {
     private boolean leftHook;
     /** Placed by a Gingerbread Tower (removed on its first tick if towers should have no king). */
     private boolean fromTower;
+    /** Placed on the throne of a Gingerbread Fortress (the structure sets FromFortress in its entity data). */
+    private boolean fromFortress;
 
     public GingerbreadKing(EntityType<? extends Monster> type, Level level) {
         super(type, level);
@@ -125,8 +128,12 @@ public class GingerbreadKing extends Monster implements AnimatedMob {
         this.setHealth(this.getMaxHealth());
         this.setPersistenceRequired();
         if (reason == EntitySpawnReason.STRUCTURE) {
-            this.fromTower = true;
-            this.setHomeTo(this.blockPosition(), 12);
+            if (this.fromFortress) {
+                this.setHomeTo(this.blockPosition(), 8); // stays near his throne until someone comes for him
+            } else {
+                this.fromTower = true;
+                this.setHomeTo(this.blockPosition(), 12);
+            }
         }
         return groupData;
     }
@@ -158,6 +165,7 @@ public class GingerbreadKing extends Monster implements AnimatedMob {
         super.addAdditionalSaveData(output);
         output.putBoolean("Enraged", this.enraged);
         output.putBoolean("FromTower", this.fromTower);
+        output.putBoolean("FromFortress", this.fromFortress);
     }
 
     @Override
@@ -165,6 +173,7 @@ public class GingerbreadKing extends Monster implements AnimatedMob {
         super.readAdditionalSaveData(input);
         this.enraged = input.getBooleanOr("Enraged", false);
         this.fromTower = input.getBooleanOr("FromTower", false);
+        this.fromFortress = input.getBooleanOr("FromFortress", false);
         if (this.hasCustomName()) {
             this.bossEvent.setName(this.getDisplayName());
         }
@@ -208,7 +217,8 @@ public class GingerbreadKing extends Monster implements AnimatedMob {
     @Override
     protected void customServerAiStep(ServerLevel level) {
         super.customServerAiStep(level);
-        if (this.fromTower && this.tickCount < 5 && !RevivalConfig.GINGERBREAD_KING_IN_TOWERS.get()) {
+        if (this.tickCount < 5 && (this.fromTower && !RevivalConfig.GINGERBREAD_KING_IN_TOWERS.get()
+                || this.fromFortress && !RevivalConfig.GINGERBREAD_KING_IN_FORTRESSES.get())) {
             this.discard();
             return;
         }

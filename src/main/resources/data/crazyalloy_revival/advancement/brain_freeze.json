@@ -1,0 +1,45 @@
+{
+  "display": {
+    "icon": {
+      "id": "crazyalloy_revival:strawberry_ice_cream",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.crazyalloy_revival.brain_freeze.title"
+    },
+    "description": {
+      "translate": "advancements.crazyalloy_revival.brain_freeze.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "vanilla": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": "crazyalloy_revival:vanilla_ice_cream"
+        }
+      }
+    },
+    "strawberry": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": "crazyalloy_revival:strawberry_ice_cream"
+        }
+      }
+    },
+    "chocolate": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": "crazyalloy_revival:chocolate_ice_cream"
+        }
+      }
+    }
+  },
+  "parent": "crazyalloy_revival:visit_ice_cream_truck"
+}

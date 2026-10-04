@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "crazyalloy_revival:frosted_gingerbread_block",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.crazyalloy_revival.visit_gingerbread_fortress.title"
+    },
+    "description": {
+      "translate": "advancements.crazyalloy_revival.visit_gingerbread_fortress.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "visit": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "crazyalloy_revival:gingerbread_fortress"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "crazyalloy_revival:visit_gingerbread_tower"
+}

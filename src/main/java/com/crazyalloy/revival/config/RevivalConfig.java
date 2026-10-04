@@ -18,6 +18,9 @@ public final class RevivalConfig {
     public static final ModConfigSpec.IntValue DEEP_TOURMALINE_VEINS_PER_CHUNK;
     public static final ModConfigSpec.EnumValue<StructureFrequency> COOKIE_HUT_FREQUENCY;
     public static final ModConfigSpec.BooleanValue GINGERBREAD_KING_IN_TOWERS;
+    public static final ModConfigSpec.EnumValue<StructureFrequency> GINGERBREAD_FORTRESS_FREQUENCY;
+    public static final ModConfigSpec.BooleanValue GINGERBREAD_KING_IN_FORTRESSES;
+    public static final ModConfigSpec.EnumValue<StructureFrequency> ICE_CREAM_TRUCK_FREQUENCY;
 
     // Creature spawning
     public static final ModConfigSpec.DoubleValue CANDY_TUBE_DOG_SPAWN_CHANCE;
@@ -40,6 +43,9 @@ public final class RevivalConfig {
     public static final ModConfigSpec.DoubleValue ORANGE_JELLY_EXPLOSION_POWER;
     public static final ModConfigSpec.IntValue GINGERBREAD_KING_HEALTH;
     public static final ModConfigSpec.IntValue GINGERBREAD_KING_MAX_GUARDS;
+    public static final ModConfigSpec.BooleanValue GRAPE_SPIDER_POUNCE;
+    public static final ModConfigSpec.BooleanValue BROWN_SUGAR_RHINO_CHARGE;
+    public static final ModConfigSpec.DoubleValue BROWN_SUGAR_RHINO_CHARGE_DAMAGE;
 
     // Machines
     public static final ModConfigSpec.DoubleValue CHOCOLATE_FACTORY_SPEED;
@@ -82,9 +88,23 @@ public final class RevivalConfig {
                 .worldRestart()
                 .defineEnum("gingerbreadTowerFrequency", StructureFrequency.NORMAL);
         GINGERBREAD_KING_IN_TOWERS = b
-                .comment("Each newly generated Gingerbread Tower has a Gingerbread King on its roof. If false, kings placed by towers vanish when first loaded; the spawn egg and /summon still work.")
+                .comment("Each newly generated Gingerbread Tower also has a Gingerbread King on its roof. Off by default since 0.4.0, when the King moved to his throne in the Gingerbread Fortress. If false, kings placed by towers vanish when first loaded; the spawn egg and /summon still work.")
                 .translation("crazyalloy_revival.configuration.gingerbreadKingInTowers")
-                .define("gingerbreadKingInTowers", true);
+                .define("gingerbreadKingInTowers", false);
+        GINGERBREAD_FORTRESS_FREQUENCY = b
+                .comment("How often Gingerbread Fortresses appear in Sweet Forests. DISABLED removes them from new chunks.")
+                .translation("crazyalloy_revival.configuration.gingerbreadFortressFrequency")
+                .worldRestart()
+                .defineEnum("gingerbreadFortressFrequency", StructureFrequency.NORMAL);
+        GINGERBREAD_KING_IN_FORTRESSES = b
+                .comment("Each newly generated Gingerbread Fortress has the Gingerbread King on his throne. If false, kings placed by fortresses vanish when first loaded.")
+                .translation("crazyalloy_revival.configuration.gingerbreadKingInFortresses")
+                .define("gingerbreadKingInFortresses", true);
+        ICE_CREAM_TRUCK_FREQUENCY = b
+                .comment("How often Ice Cream Trucks (with an Ice Cream Vendor inside) appear in Sweet Forests and Jelly Bean Fields. DISABLED removes them from new chunks.")
+                .translation("crazyalloy_revival.configuration.iceCreamTruckFrequency")
+                .worldRestart()
+                .defineEnum("iceCreamTruckFrequency", StructureFrequency.NORMAL);
         b.pop();
 
         b.comment("Creature spawning. Each value is the chance (0 to 1) that a natural spawn attempt is allowed.").translation("crazyalloy_revival.configuration.spawns").push("spawns");
@@ -151,6 +171,18 @@ public final class RevivalConfig {
                 .comment("The Gingerbread King stops calling soldiers while this many Gingerbread Warriors and Soldiers are within 16 blocks. 0 disables the summon.")
                 .translation("crazyalloy_revival.configuration.gingerbreadKingMaxGuards")
                 .defineInRange("gingerbreadKingMaxGuards", 4, 0, 12);
+        GRAPE_SPIDER_POUNCE = b
+                .comment("Revival proposal: Grape Spiders crouch for half a second and then pounce at their target. If false they use the plain spider leap.")
+                .translation("crazyalloy_revival.configuration.grapeSpiderPounce")
+                .define("grapeSpiderPounce", true);
+        BROWN_SUGAR_RHINO_CHARGE = b
+                .comment("Revival proposal: an angry Brown Sugar Rhino lowers its head, scrapes the ground and then charges in a straight line.")
+                .translation("crazyalloy_revival.configuration.brownSugarRhinoCharge")
+                .define("brownSugarRhinoCharge", true);
+        BROWN_SUGAR_RHINO_CHARGE_DAMAGE = b
+                .comment("Damage of a Brown Sugar Rhino charge that connects (before mobDamageMultiplier). Its normal horn attack does 8.")
+                .translation("crazyalloy_revival.configuration.brownSugarRhinoChargeDamage")
+                .defineInRange("brownSugarRhinoChargeDamage", 12.0, 0.0, 40.0);
         b.pop();
 
         b.translation("crazyalloy_revival.configuration.machines").push("machines");

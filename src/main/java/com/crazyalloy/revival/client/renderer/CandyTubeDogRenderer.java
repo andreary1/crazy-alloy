@@ -27,6 +27,7 @@ public class CandyTubeDogRenderer extends MobRenderer<CandyTubeDog, CandyTubeDog
         super.extractRenderState(entity, state, partialTick);
         state.sitting = entity.isInSittingPose();
         state.tame = entity.isTame();
+        state.headTilt = entity.getHeadTilt(partialTick);
     }
 
     @Override

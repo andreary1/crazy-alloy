@@ -25,7 +25,12 @@ def shade(c, f):
 def mix(a, b, t):
     return tuple(int(round(a[i] * (1 - t) + b[i] * t)) for i in range(3)) + (255,)
 
+HAND_PAINTED = {l.strip() for l in open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "hand_painted.txt"), encoding="utf-8")
+                if l.strip() and not l.startswith("#")}
+
 def save(img, rel):
+    if rel in HAND_PAINTED:
+        return  # the owner's hand-painted texture wins over the generated placeholder
     p = os.path.join(T, rel)
     os.makedirs(os.path.dirname(p), exist_ok=True)
     img.save(p)
