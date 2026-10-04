@@ -11,6 +11,7 @@ import com.crazyalloy.revival.client.model.JellyBunnyModel;
 import com.crazyalloy.revival.client.model.JellySharkModel;
 import com.crazyalloy.revival.client.model.JellySnakeModel;
 import com.crazyalloy.revival.client.model.RollCakeMonsterModel;
+import com.crazyalloy.revival.client.model.IceCreamVendorModel;
 import com.crazyalloy.revival.client.renderer.BubbalooCreeperRenderer;
 import com.crazyalloy.revival.client.renderer.RevivalMobRenderer;
 import com.crazyalloy.revival.client.renderer.SimpleMobRenderer;
@@ -74,6 +75,7 @@ public final class CrazyAlloyRevivalClient {
         event.registerLayerDefinition(ModModelLayers.JELLY_SNAKE, JellySnakeModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.JELLY_SHARK, JellySharkModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.ROLL_CAKE_MONSTER, RollCakeMonsterModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.ICE_CREAM_VENDOR, IceCreamVendorModel::createBodyLayer);
     }
 
     @SubscribeEvent
@@ -82,7 +84,7 @@ public final class CrazyAlloyRevivalClient {
         event.registerEntityRenderer(ModEntities.LOLLIPOP_GUY.get(), LollipopGuyRenderer::new);
         event.registerEntityRenderer(ModEntities.GRAPE_SPIDER.get(), GrapeSpiderRenderer::new);
         event.registerEntityRenderer(ModEntities.BROWN_SUGAR_RHINO.get(),
-                c -> new SimpleMobRenderer<>(c, new BrownSugarRhinoModel(c.bakeLayer(ModModelLayers.BROWN_SUGAR_RHINO)), 1.0F, "brown_sugar_rhino"));
+                c -> new RevivalMobRenderer<>(c, new BrownSugarRhinoModel(c.bakeLayer(ModModelLayers.BROWN_SUGAR_RHINO)), 1.0F, "brown_sugar_rhino", 1.0F));
         event.registerEntityRenderer(ModEntities.COTTON_CANDY_TORNADO.get(),
                 c -> new RevivalMobRenderer<>(c, new CottonCandyTornadoModel(c.bakeLayer(ModModelLayers.COTTON_CANDY_TORNADO)), 0.5F, "cotton_candy_tornado", 1.0F));
         event.registerEntityRenderer(ModEntities.BUBBLEGUM.get(),
@@ -101,6 +103,8 @@ public final class CrazyAlloyRevivalClient {
                 c -> new RevivalMobRenderer<>(c, new JellySharkModel(c.bakeLayer(ModModelLayers.JELLY_SHARK)), 0.8F, "jelly_shark", 1.0F));
         event.registerEntityRenderer(ModEntities.ROLL_CAKE_MONSTER.get(),
                 c -> new RevivalMobRenderer<>(c, new RollCakeMonsterModel(c.bakeLayer(ModModelLayers.ROLL_CAKE_MONSTER)), 0.5F, "roll_cake_monster", 1.0F));
+        event.registerEntityRenderer(ModEntities.ICE_CREAM_VENDOR.get(),
+                c -> new RevivalMobRenderer<>(c, new IceCreamVendorModel(c.bakeLayer(ModModelLayers.ICE_CREAM_VENDOR)), 0.5F, "ice_cream_vendor", 0.9375F));
         event.registerEntityRenderer(ModEntities.BUBBALOO_CREEPER.get(), BubbalooCreeperRenderer::new);
         event.registerEntityRenderer(ModEntities.BROWN_SUGAR_BRICK.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.GUMDROP_SHOT.get(), ThrownItemRenderer::new);

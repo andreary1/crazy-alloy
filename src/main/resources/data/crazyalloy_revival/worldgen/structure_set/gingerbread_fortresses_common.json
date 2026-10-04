@@ -1,0 +1,21 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "crazyalloy_revival:structure_frequency",
+      "frequency": "common",
+      "structure": "gingerbread_fortress"
+    }
+  ],
+  "structures": [
+    {
+      "structure": "crazyalloy_revival:gingerbread_fortress",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 30,
+    "separation": 12,
+    "salt": 774231509
+  }
+}

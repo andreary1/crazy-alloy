@@ -81,6 +81,12 @@ public final class RevivalGameTests {
         TESTS.put("gingerbread_soldier_fires_gumdrop", RevivalGameTests::soldierFires);
         TESTS.put("gingerbread_king_slam_hits_bystanders", RevivalGameTests::kingSlam);
         TESTS.put("gingerbread_king_calls_guards", RevivalGameTests::kingSummons);
+        TESTS.put("stage4_mobs_tick_without_crashing", RevivalGameTests::stage4MobsTick);
+        TESTS.put("grape_spider_crouches_and_pounces", RevivalGameTests::spiderPounces);
+        TESTS.put("brown_sugar_rhino_scrapes_and_charges", RevivalGameTests::rhinoCharges);
+        TESTS.put("ice_cream_vendor_sells_ice_cream", RevivalGameTests::vendorTrades);
+        TESTS.put("fortress_template_has_king_on_throne", RevivalGameTests::fortressTemplate);
+        TESTS.put("ice_cream_truck_template_has_vendor", RevivalGameTests::truckTemplate);
     }
 
     private RevivalGameTests() {}
@@ -349,5 +355,107 @@ public final class RevivalGameTests {
                 !helper.getLevel().getEntitiesOfClass(Mob.class, king.getBoundingBox().inflate(16.0),
                         m -> m instanceof GingerbreadSoldier || m instanceof GingerbreadWarrior).isEmpty(),
                 "the wounded king did not call any guards"));
+    }
+
+    // ------------------------------------------------------------------ stage 4
+
+    private static void stage4MobsTick(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        List<? extends Mob> mobs = List.of(helper.spawn(ModEntities.BROWN_SUGAR_RHINO.get(), 2, 1, 2),
+                helper.spawn(ModEntities.GRAPE_SPIDER.get(), 6, 1, 6), helper.spawn(ModEntities.CANDY_TUBE_DOG.get(), 2, 1, 6),
+                helper.spawn(ModEntities.ICE_CREAM_VENDOR.get(), 6, 1, 2));
+        helper.runAfterDelay(100, () -> {
+            for (Mob mob : mobs) {
+                helper.assertTrue(mob.isAlive(), mob.getType().toShortString() + " died or was removed while ticking");
+            }
+            helper.succeed();
+        });
+    }
+
+    /** With the pounce on (default), the spider stops, then leaps through the air and bites the target. */
+    private static void spiderPounces(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        GrapeSpider spider = helper.spawn(ModEntities.GRAPE_SPIDER.get(), 1, 1, 4);
+        Mob target = helper.spawn(EntityType.IRON_GOLEM, 6, 1, 4);
+        target.setNoAi(true);
+        spider.setTarget(target);
+        java.util.concurrent.atomic.AtomicBoolean leapt = new java.util.concurrent.atomic.AtomicBoolean();
+        helper.onEachTick(() -> {
+            if (!spider.onGround() && spider.getDeltaMovement().y > 0.25) {
+                leapt.set(true);
+            }
+        });
+        helper.succeedWhen(() -> {
+            helper.assertTrue(leapt.get(), "the spider never leapt");
+            helper.assertTrue(target.getHealth() < target.getMaxHealth(), "the pounce did not bite the target");
+        });
+    }
+
+    /** The rhino scrapes, charges (synced charging flag) and hits a target 7 blocks away. */
+    private static void rhinoCharges(GameTestHelper helper) {
+        com.crazyalloy.revival.entity.BrownSugarRhino rhino = helper.spawn(ModEntities.BROWN_SUGAR_RHINO.get(), 1, 1, 4);
+        Mob target = helper.spawn(EntityType.IRON_GOLEM, 8, 1, 4);
+        target.setNoAi(true);
+        rhino.setTarget(target);
+        java.util.concurrent.atomic.AtomicBoolean charged = new java.util.concurrent.atomic.AtomicBoolean();
+        helper.onEachTick(() -> {
+            if (rhino.isCharging()) {
+                charged.set(true);
+            }
+        });
+        helper.succeedWhen(() -> {
+            helper.assertTrue(charged.get(), "the rhino never charged");
+            helper.assertTrue(target.getHealth() <= target.getMaxHealth() - 11.0F, "the charge did not hit hard, target health " + target.getHealth());
+        });
+    }
+
+    private static void vendorTrades(GameTestHelper helper) {
+        com.crazyalloy.revival.entity.IceCreamVendor vendor = helper.spawn(ModEntities.ICE_CREAM_VENDOR.get(), 4, 1, 4);
+        var offers = vendor.getOffers();
+        helper.assertTrue(offers.size() == 8, "expected 8 offers, got " + offers.size());
+        helper.assertTrue(offers.stream().anyMatch(o -> o.getResult().is(ModItems.VANILLA_ICE_CREAM.get()) && o.getCostA().is(Items.EMERALD)),
+                "no vanilla ice cream for emeralds");
+        helper.assertTrue(offers.stream().anyMatch(o -> o.getCostA().is(Items.SUGAR) && o.getResult().is(Items.EMERALD)), "does not buy sugar");
+        helper.succeed();
+    }
+
+    private static List<net.minecraft.world.entity.Entity> placeTemplate(GameTestHelper helper, String name, BlockPos where) {
+        var level = helper.getLevel();
+        var template = level.getStructureManager().get(CrazyAlloyRevival.id(name)).orElseThrow();
+        var settings = new net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings().setFinalizeEntities(true);
+        template.placeInWorld(level, where, where, settings, level.getRandom(), 2);
+        var size = template.getSize();
+        var box = new net.minecraft.world.phys.AABB(where.getX(), where.getY(), where.getZ(),
+                where.getX() + size.getX(), where.getY() + size.getY(), where.getZ() + size.getZ());
+        return level.getEntitiesOfClass(net.minecraft.world.entity.Entity.class, box, e -> !(e instanceof Player));
+    }
+
+    /** Places the fortress high above the test area: one King (from the fortress, persistent) and four guards. */
+    private static void fortressTemplate(GameTestHelper helper) {
+        BlockPos where = helper.absolutePos(new BlockPos(0, 60, 0));
+        List<net.minecraft.world.entity.Entity> found = placeTemplate(helper, "gingerbread_fortress", where);
+        long kings = found.stream().filter(e -> e instanceof GingerbreadKing).count();
+        long guards = found.stream().filter(e -> e instanceof GingerbreadWarrior || e instanceof GingerbreadSoldier).count();
+        helper.assertTrue(kings == 1, "expected 1 king in the fortress, found " + kings);
+        helper.assertTrue(guards == 4, "expected 4 placed guards, found " + guards);
+        GingerbreadKing king = (GingerbreadKing) found.stream().filter(e -> e instanceof GingerbreadKing).findFirst().orElseThrow();
+        helper.assertTrue(king.isPersistenceRequired() && king.hasHome(), "the fortress king must be persistent and tied to his throne");
+        helper.assertTrue(helper.getLevel().getBlockState(where.offset(16, 12, 27)).is(net.minecraft.world.level.block.Blocks.GOLD_BLOCK),
+                "throne crown missing");
+        helper.runAfterDelay(10, () -> {
+            helper.assertTrue(king.isAlive(), "the fortress king was removed although gingerbreadKingInFortresses is on");
+            helper.succeed();
+        });
+    }
+
+    private static void truckTemplate(GameTestHelper helper) {
+        BlockPos where = helper.absolutePos(new BlockPos(0, 40, 0));
+        List<net.minecraft.world.entity.Entity> found = placeTemplate(helper, "ice_cream_truck", where);
+        long vendors = found.stream().filter(e -> e instanceof com.crazyalloy.revival.entity.IceCreamVendor).count();
+        helper.assertTrue(vendors == 1, "expected 1 vendor in the truck, found " + vendors);
+        var banner = helper.getLevel().getBlockEntity(where.offset(1, 4, 0));
+        helper.assertTrue(banner instanceof net.minecraft.world.level.block.entity.BannerBlockEntity b && b.getPatterns().layers().size() == 2,
+                "truck banner should carry the two ice cream patterns");
+        helper.succeed();
     }
 }

@@ -90,6 +90,10 @@ public final class ModItems {
     public static final DeferredItem<Item> GUMDROP = food("gumdrop", ModFoods.GUMDROP, ModFoods.GUMDROP_CONSUMABLE);
     public static final DeferredItem<Item> ROLL_CAKE = food("roll_cake", ModFoods.ROLL_CAKE, ModFoods.ROLL_CAKE_CONSUMABLE);
     public static final DeferredItem<Item> JELLY_BEANS = food("jelly_beans", ModFoods.JELLY_BEANS, ModFoods.JELLY_BEANS_CONSUMABLE);
+    public static final DeferredItem<Item> WAFER_CONE = food("wafer_cone", ModFoods.WAFER_CONE, ModFoods.WAFER_CONE_CONSUMABLE);
+    public static final DeferredItem<Item> VANILLA_ICE_CREAM = food("vanilla_ice_cream", ModFoods.VANILLA_ICE_CREAM, ModFoods.VANILLA_ICE_CREAM_CONSUMABLE);
+    public static final DeferredItem<Item> STRAWBERRY_ICE_CREAM = food("strawberry_ice_cream", ModFoods.STRAWBERRY_ICE_CREAM, ModFoods.STRAWBERRY_ICE_CREAM_CONSUMABLE);
+    public static final DeferredItem<Item> CHOCOLATE_ICE_CREAM = food("chocolate_ice_cream", ModFoods.CHOCOLATE_ICE_CREAM, ModFoods.CHOCOLATE_ICE_CREAM_CONSUMABLE);
 
     // --- Candy weapons and gear ------------------------------------------------------------
     public static final DeferredItem<BrownSugarSwordItem> BROWN_SUGAR_SWORD = tab(ITEMS.registerItem("brown_sugar_sword",
@@ -134,6 +138,7 @@ public final class ModItems {
     public static final DeferredItem<SpawnEggItem> ROLL_CAKE_MONSTER_SPAWN_EGG = egg("roll_cake_monster", ModEntities.ROLL_CAKE_MONSTER);
     public static final DeferredItem<SpawnEggItem> BUBBALOO_CREEPER_SPAWN_EGG = egg("bubbaloo_creeper", ModEntities.BUBBALOO_CREEPER);
     public static final DeferredItem<SpawnEggItem> GINGERBREAD_KING_SPAWN_EGG = egg("gingerbread_king", ModEntities.GINGERBREAD_KING);
+    public static final DeferredItem<SpawnEggItem> ICE_CREAM_VENDOR_SPAWN_EGG = egg("ice_cream_vendor", ModEntities.ICE_CREAM_VENDOR);
 
     private static DeferredItem<SpawnEggItem> egg(String name, java.util.function.Supplier<? extends net.minecraft.world.entity.EntityType<?>> type) {
         return tab(ITEMS.registerItem(name + "_spawn_egg", p -> new SpawnEggItem(p.spawnEgg(type.get()))));

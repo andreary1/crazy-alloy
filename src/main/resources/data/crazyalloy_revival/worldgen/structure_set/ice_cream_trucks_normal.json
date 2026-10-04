@@ -1,0 +1,21 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "crazyalloy_revival:structure_frequency",
+      "frequency": "normal",
+      "structure": "ice_cream_truck"
+    }
+  ],
+  "structures": [
+    {
+      "structure": "crazyalloy_revival:ice_cream_truck",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 26,
+    "separation": 10,
+    "salt": 1926114083
+  }
+}

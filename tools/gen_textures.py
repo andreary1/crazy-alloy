@@ -20,7 +20,12 @@ def hexc(h, a=255):
 def shade(c, f):
     return tuple(max(0, min(255, int(v * f))) for v in c[:3]) + (c[3],)
 
+HAND_PAINTED = {l.strip() for l in open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "hand_painted.txt"), encoding="utf-8")
+                if l.strip() and not l.startswith("#")}
+
 def save(img, rel):
+    if rel in HAND_PAINTED:
+        return  # the owner's hand-painted texture wins over the generated placeholder
     p = os.path.join(T, rel)
     os.makedirs(os.path.dirname(p), exist_ok=True)
     img.save(p)
@@ -462,4 +467,6 @@ if __name__ == "__main__":
     gen_textures_v2.main()
     import gen_mobs_v3  # tools/gen_mobs_v3.py: stage 3 creature textures (UV layout read from the Java models)
     gen_mobs_v3.main()
+    import gen_mobs_v4  # tools/gen_mobs_v4.py: stage 4 creature textures (Grape Spider, Candy Tube Dog, Rhino, Ice Cream Vendor)
+    gen_mobs_v4.main()
     print("textures generated")

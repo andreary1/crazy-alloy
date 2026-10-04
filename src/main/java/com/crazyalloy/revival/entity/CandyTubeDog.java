@@ -51,12 +51,17 @@ import org.jspecify.annotations.Nullable;
  *   <li>Tame with a Lollipop (1 in 3 chance). Tamed dogs follow, sit on command and defend their owner.</li>
  *   <li>Heal and breed with sweets (tag {@code candy_tube_dog_food}); also walks to sweets dropped on the ground.</li>
  *   <li>Revival proposal: tamed adults periodically shed a Candy Tube, a renewable sugar source.</li>
+ *   <li>Stage 4: tilts its head when a player within 6 blocks holds a Lollipop or one of its sweets (cosmetic, client side).</li>
  * </ul>
  */
 public class CandyTubeDog extends TamableAnimal {
     private static final double WILD_HEALTH = 20.0; // original: 20
     private static final double TAME_HEALTH = 30.0;
     private int shedTimer;
+    // Client-side only: head tilt (curious about a sweet held nearby, or an idle tilt now and then).
+    private float headTilt, headTiltO;
+    private int idleTiltTicks;
+    private float idleTiltSide = 1.0F;
 
     public CandyTubeDog(EntityType<? extends TamableAnimal> type, Level level) {
         super(type, level);
@@ -159,6 +164,33 @@ public class CandyTubeDog extends TamableAnimal {
         } else {
             this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(WILD_HEALTH);
         }
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (this.level().isClientSide()) {
+            this.headTiltO = this.headTilt;
+            Player near = this.level().getNearestPlayer(this, 6.0);
+            boolean curious = near != null && !near.isSpectator() && (this.likes(near.getMainHandItem()) || this.likes(near.getOffhandItem()));
+            if (this.idleTiltTicks > 0) {
+                this.idleTiltTicks--;
+            } else if (this.random.nextInt(500) == 0) {
+                this.idleTiltTicks = 25 + this.random.nextInt(20);
+                this.idleTiltSide = this.random.nextBoolean() ? 1.0F : -1.0F;
+            }
+            float target = curious ? 1.0F : this.idleTiltTicks > 0 ? this.idleTiltSide * 0.7F : 0.0F;
+            this.headTilt += (target - this.headTilt) * 0.2F;
+        }
+    }
+
+    private boolean likes(ItemStack stack) {
+        return stack.is(ModItems.LOLLIPOP.get()) || this.isFood(stack);
+    }
+
+    /** Client side: -1 to 1, the head tilt to render. */
+    public float getHeadTilt(float partialTick) {
+        return net.minecraft.util.Mth.lerp(partialTick, this.headTiltO, this.headTilt);
     }
 
     @Override

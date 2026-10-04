@@ -54,5 +54,25 @@ public final class ModFoods {
     public static final FoodProperties JELLY_BEANS = new FoodProperties.Builder().nutrition(2).saturationModifier(0.1F).alwaysEdible().build();
     public static final Consumable JELLY_BEANS_CONSUMABLE = Consumables.defaultFood().consumeSeconds(0.6F).build();
 
+    // --- Stage 4: Ice Cream Truck. Cold, sweet and a little more filling than candy (revival proposal). ------------
+    /** Vanilla: cools you down, a few seconds of Fire Resistance. */
+    public static final FoodProperties VANILLA_ICE_CREAM = new FoodProperties.Builder().nutrition(5).saturationModifier(0.5F).build();
+    public static final Consumable VANILLA_ICE_CREAM_CONSUMABLE = Consumables.defaultFood().consumeSeconds(1.2F)
+            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 0)))
+            .build();
+    /** Strawberry: a short Regeneration. */
+    public static final FoodProperties STRAWBERRY_ICE_CREAM = new FoodProperties.Builder().nutrition(5).saturationModifier(0.5F).build();
+    public static final Consumable STRAWBERRY_ICE_CREAM_CONSUMABLE = Consumables.defaultFood().consumeSeconds(1.2F)
+            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.REGENERATION, 80, 0)))
+            .build();
+    /** Chocolate: Haste for a while. */
+    public static final FoodProperties CHOCOLATE_ICE_CREAM = new FoodProperties.Builder().nutrition(5).saturationModifier(0.5F).build();
+    public static final Consumable CHOCOLATE_ICE_CREAM_CONSUMABLE = Consumables.defaultFood().consumeSeconds(1.2F)
+            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HASTE, 400, 0)))
+            .build();
+    /** The empty wafer cone is a crunchy snack on its own. */
+    public static final FoodProperties WAFER_CONE = new FoodProperties.Builder().nutrition(1).saturationModifier(0.2F).build();
+    public static final Consumable WAFER_CONE_CONSUMABLE = Consumables.defaultFood().consumeSeconds(0.8F).build();
+
     private ModFoods() {}
 }

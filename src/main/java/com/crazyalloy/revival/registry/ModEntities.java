@@ -7,6 +7,7 @@ import com.crazyalloy.revival.entity.BubbalooCreeper;
 import com.crazyalloy.revival.entity.CandyTubeDog;
 import com.crazyalloy.revival.entity.CottonCandyTornado;
 import com.crazyalloy.revival.entity.GingerbreadKing;
+import com.crazyalloy.revival.entity.IceCreamVendor;
 import com.crazyalloy.revival.entity.GingerbreadSoldier;
 import com.crazyalloy.revival.entity.GingerbreadWarrior;
 import com.crazyalloy.revival.entity.GrapeSpider;
@@ -43,6 +44,9 @@ public final class ModEntities {
             "gingerbread_soldier", GingerbreadSoldier::new, MobCategory.MONSTER, b -> b.sized(0.6F, 1.45F).eyeHeight(1.2F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<GingerbreadKing>> GINGERBREAD_KING = ENTITIES.registerEntityType(
             "gingerbread_king", GingerbreadKing::new, MobCategory.MONSTER, b -> b.sized(1.8F, 3.4F).eyeHeight(2.6F).clientTrackingRange(10).fireImmune());
+
+    public static final DeferredHolder<EntityType<?>, EntityType<IceCreamVendor>> ICE_CREAM_VENDOR = ENTITIES.registerEntityType(
+            "ice_cream_vendor", IceCreamVendor::new, MobCategory.CREATURE, b -> b.sized(0.6F, 1.95F).eyeHeight(1.62F).clientTrackingRange(10));
 
     // --- Jelly Bean Fields ------------------------------------------------------------------
     public static final DeferredHolder<EntityType<?>, EntityType<GrapeSpider>> GRAPE_SPIDER = ENTITIES.registerEntityType(

@@ -23,6 +23,8 @@ public record StructureFrequencyCondition(RevivalConfig.StructureFrequency frequ
     public boolean test(IContext context) {
         var setting = switch (structure) {
             case "gingerbread_tower" -> RevivalConfig.GINGERBREAD_TOWER_FREQUENCY;
+            case "gingerbread_fortress" -> RevivalConfig.GINGERBREAD_FORTRESS_FREQUENCY;
+            case "ice_cream_truck" -> RevivalConfig.ICE_CREAM_TRUCK_FREQUENCY;
             default -> RevivalConfig.COOKIE_HUT_FREQUENCY;
         };
         return setting.get() == frequency;
