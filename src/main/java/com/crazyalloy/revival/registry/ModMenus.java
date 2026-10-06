@@ -2,6 +2,7 @@ package com.crazyalloy.revival.registry;
 
 import com.crazyalloy.revival.CrazyAlloyRevival;
 import com.crazyalloy.revival.menu.ChocolateFactoryMenu;
+import com.crazyalloy.revival.menu.IceCreamMachineMenu;
 import java.util.function.Supplier;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
@@ -13,6 +14,9 @@ public final class ModMenus {
 
     public static final Supplier<MenuType<ChocolateFactoryMenu>> CHOCOLATE_FACTORY = MENUS.register("chocolate_factory",
             () -> IMenuTypeExtension.create(ChocolateFactoryMenu::clientSide));
+
+    public static final Supplier<MenuType<IceCreamMachineMenu>> ICE_CREAM_MACHINE = MENUS.register("ice_cream_machine",
+            () -> IMenuTypeExtension.create(IceCreamMachineMenu::clientSide));
 
     private ModMenus() {}
 }

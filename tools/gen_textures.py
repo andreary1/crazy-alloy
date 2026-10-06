@@ -469,4 +469,6 @@ if __name__ == "__main__":
     gen_mobs_v3.main()
     import gen_mobs_v4  # tools/gen_mobs_v4.py: stage 4 creature textures (Grape Spider, Candy Tube Dog, Rhino, Ice Cream Vendor)
     gen_mobs_v4.main()
+    import gen_textures_v5  # tools/gen_textures_v5.py: stage 5 textures (Candy Cave, Ice Cream Machine, Impostor Cake)
+    gen_textures_v5.main()
     print("textures generated")

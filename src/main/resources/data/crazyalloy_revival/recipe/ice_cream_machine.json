@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "Q": "minecraft:quartz",
+    "I": "minecraft:iron_ingot",
+    "P": "minecraft:packed_ice",
+    "S": "minecraft:smooth_quartz_slab"
+  },
+  "pattern": [
+    "QQQ",
+    "IPI",
+    "ISI"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:ice_cream_machine",
+    "count": 1
+  }
+}

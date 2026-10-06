@@ -2,7 +2,6 @@ package com.crazyalloy.revival.event;
 
 import com.crazyalloy.revival.CrazyAlloyRevival;
 import com.crazyalloy.revival.config.RevivalConfig;
-import com.crazyalloy.revival.block.JellyBeanBlock;
 import com.crazyalloy.revival.entity.BrownSugarRhino;
 import com.crazyalloy.revival.entity.Bubblegum;
 import com.crazyalloy.revival.entity.BubbalooCreeper;
@@ -10,6 +9,7 @@ import com.crazyalloy.revival.entity.CandyTubeDog;
 import com.crazyalloy.revival.entity.CottonCandyTornado;
 import com.crazyalloy.revival.entity.GingerbreadKing;
 import com.crazyalloy.revival.entity.IceCreamVendor;
+import com.crazyalloy.revival.entity.ImpostorCake;
 import com.crazyalloy.revival.entity.GingerbreadSoldier;
 import com.crazyalloy.revival.entity.GingerbreadWarrior;
 import com.crazyalloy.revival.entity.GrapeSpider;
@@ -18,17 +18,10 @@ import com.crazyalloy.revival.entity.JellyShark;
 import com.crazyalloy.revival.entity.JellySnake;
 import com.crazyalloy.revival.entity.LollipopGuy;
 import com.crazyalloy.revival.entity.RollCakeMonster;
-import com.crazyalloy.revival.registry.ModItems;
-import com.crazyalloy.revival.registry.ModTags;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.SpawnPlacements;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.event.entity.living.LivingEvent;
 import com.crazyalloy.revival.registry.ModBlockEntities;
 import com.crazyalloy.revival.registry.ModEntities;
 import net.minecraft.resources.Identifier;
@@ -71,6 +64,7 @@ public final class CommonEvents {
         event.put(ModEntities.JELLY_SHARK.get(), JellyShark.createAttributes().build());
         event.put(ModEntities.ROLL_CAKE_MONSTER.get(), RollCakeMonster.createAttributes().build());
         event.put(ModEntities.BUBBALOO_CREEPER.get(), BubbalooCreeper.createAttributes().build());
+        event.put(ModEntities.IMPOSTOR_CAKE.get(), ImpostorCake.createAttributes().build());
     }
 
     @SubscribeEvent
@@ -90,26 +84,13 @@ public final class CommonEvents {
         ground(event, ModEntities.JELLY_SNAKE.get(), JellySnake::checkSpawnRules);
         ground(event, ModEntities.ROLL_CAKE_MONSTER.get(), RollCakeMonster::checkSpawnRules);
         ground(event, ModEntities.BUBBALOO_CREEPER.get(), BubbalooCreeper::checkSpawnRules);
+        ground(event, ModEntities.IMPOSTOR_CAKE.get(), ImpostorCake::checkSpawnRules);
         event.register(ModEntities.JELLY_SHARK.get(), SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 JellyShark::checkSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
 
     private static <T extends Entity> void ground(RegisterSpawnPlacementsEvent event, EntityType<T> type, SpawnPlacements.SpawnPredicate<T> rule) {
         event.register(type, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, rule, RegisterSpawnPlacementsEvent.Operation.REPLACE);
-    }
-
-    /** Heavy Boots: jumping off a jelly bean block gives a normal jump instead of a bounce. */
-    @SubscribeEvent
-    static void onJump(LivingEvent.LivingJumpEvent event) {
-        LivingEntity entity = event.getEntity();
-        if (!entity.getItemBySlot(EquipmentSlot.FEET).is(ModItems.HEAVY_BOOTS.get())) {
-            return;
-        }
-        BlockState below = entity.level().getBlockState(entity.getBlockPosBelowThatAffectsMyMovement());
-        if (below.is(ModTags.Blocks.JELLY_BEAN_BLOCKS)) {
-            Vec3 v = entity.getDeltaMovement();
-            entity.setDeltaMovement(v.x, v.y / JellyBeanBlock.JUMP_FACTOR, v.z);
-        }
     }
 
     @SubscribeEvent

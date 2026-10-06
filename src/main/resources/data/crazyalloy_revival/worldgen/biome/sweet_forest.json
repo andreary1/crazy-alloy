@@ -131,6 +131,12 @@
         "maxCount": 1
       },
       {
+        "type": "crazyalloy_revival:impostor_cake",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      {
         "type": "minecraft:zombie",
         "weight": 95,
         "minCount": 4,

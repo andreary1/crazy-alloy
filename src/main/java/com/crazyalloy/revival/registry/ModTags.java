@@ -16,12 +16,14 @@ public final class ModTags {
         public static final TagKey<Item> CANDY_TUBE_DOG_FOOD = TagKey.create(Registries.ITEM, CrazyAlloyRevival.id("candy_tube_dog_food"));
         /** Sweets that Candy Tube Dogs sniff out when dropped on the ground. */
         public static final TagKey<Item> SWEETS = TagKey.create(Registries.ITEM, CrazyAlloyRevival.id("sweets"));
+        /** What the Ice Cream Machine makes. */
+        public static final TagKey<Item> ICE_CREAMS = TagKey.create(Registries.ITEM, CrazyAlloyRevival.id("ice_creams"));
 
         private Items() {}
     }
 
     public static final class Blocks {
-        /** Jelly Bean Fields ground; Heavy Boots cancel the bounce on these. */
+        /** Jelly Bean Fields ground; jumping off these bounces you higher. */
         public static final TagKey<Block> JELLY_BEAN_BLOCKS = TagKey.create(Registries.BLOCK, CrazyAlloyRevival.id("jelly_bean_blocks"));
         public static final TagKey<Block> SWEET_GROUND = TagKey.create(Registries.BLOCK, CrazyAlloyRevival.id("sweet_ground"));
 

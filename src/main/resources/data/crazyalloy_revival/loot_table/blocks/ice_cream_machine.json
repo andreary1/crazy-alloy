@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "crazyalloy_revival:blocks/ice_cream_machine",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "crazyalloy_revival:ice_cream_machine"
+        }
+      ]
+    }
+  ]
+}

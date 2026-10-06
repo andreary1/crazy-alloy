@@ -694,27 +694,6 @@ def items():
     outline(jb, hexc("1f1f1f"))
     save(jb, "item/jelly_bazooka.png")
 
-    # Heavy boots.
-    hb = art([
-        "................",
-        "................",
-        "..kkkk...kkkk...",
-        "..kWMk...kWMk...",
-        "..kWMk...kWMk...",
-        "..kWMk...kWMk...",
-        "..kWMk...kWMk...",
-        "..kLMk...kLMk...",
-        "..kLMk...kLMk...",
-        "..kLMMkk.kLMMkk.",
-        "..kLMMMDkkLMMMDk",
-        "..kDDDDDkkDDDDDk",
-        "..kkkkkkk.kkkkkk",
-        "................",
-        "................",
-        "................",
-    ], {"k": hexc("1b1b1e"), "W": hexc("d2d2d6"), "L": hexc("a9a9ae"), "M": hexc("6e6e74"), "D": hexc("45454b")})
-    save(hb, "item/heavy_boots.png")
-
     # Jelly beans (small food).
     jbn = blank()
     for (x, y, col) in [(3, 6, "red"), (7, 4, "green"), (10, 7, "yellow"), (5, 10, "purple"), (9, 11, "orange"), (12, 4, "red")]:
@@ -1140,17 +1119,6 @@ def entities():
     box(bc, 16, 16, 8, 12, 4, pg)
     box(bc, 0, 16, 4, 6, 4, lambda x, y, w, h: shade(pg(x, y, w, h), 0.85))
     save(bc, "entity/bubbaloo_creeper.png")
-
-    # ---------------- Heavy Boots armour layer (humanoid, boots only on the lower leg).
-    hbl = blank(64, 32)
-    def boot(x, y, w, h):
-        if y < 6:
-            return None
-        if y == 6:
-            return hexc("d2d2d6")
-        return [hexc("8c8c94"), hexc("7a7a82"), hexc("6e6e74")][(x + y) % 3] if y < h - 1 else hexc("45454b")
-    box(hbl, 0, 16, 4, 12, 4, boot, top=None, bottom=hexc("45454b"))
-    save(hbl, "entity/equipment/humanoid/heavy.png")
 
 def main():
     sweet_blocks(); jelly_blocks(); items(); entities()

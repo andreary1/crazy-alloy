@@ -3,7 +3,8 @@
 ![mod logo](https://cdn.modrinth.com/data/cached_images/8e25f0b9ea80418fd447df0ea832edbd2ef1f7fe.png)
 
 Reconstrução e expansão do [Crazy Alloy](https://modrinth.com/mod/crazy-alloy) para **Minecraft Java 26.1.2** (NeoForge).
-Namespace: `crazyalloy_revival`. Versão atual: **0.2.0-alpha (etapa 2 de 7: Floresta Doce refeita e Campos de Jujuba)**.
+Namespace: `crazyalloy_revival`. Versão atual: **0.5.0-alpha (Caverna de Doces, Bolo Impostor e Máquina de Sorvete)**.
+As seções abaixo descrevem cada etapa na ordem em que entrou; as notas completas de cada versão ficam junto dos JARs.
 
 > Esta é uma versão alfa. Só o conteúdo listado em "Conteúdo implementado" existe; o restante do roteiro
 > (outros biomas, chefes, dimensão de sorvete, magia, cogumelos, economia) ainda **não** foi feito.
@@ -19,7 +20,7 @@ Namespace: `crazyalloy_revival`. Versão atual: **0.2.0-alpha (etapa 2 de 7: Flo
 | Java | 25 (o launcher oficial já inclui) |
 
 1. Instale o NeoForge 26.1.2 no launcher.
-2. Coloque `crazyalloy_revival-26.1.2-0.2.0-alpha.jar` e o JAR do TerraBlender na pasta `mods`.
+2. Coloque `crazyalloy_revival-26.1.2-0.5.0-alpha.jar` e o JAR do TerraBlender na pasta `mods`.
 3. Em servidores dedicados, instale os mesmos dois JARs no servidor e em todos os clientes.
 
 O bioma só aparece em chunks gerados depois da instalação; terreno já explorado não é alterado.
@@ -136,7 +137,7 @@ só os nomes mudaram para os do original: Grama de Goma, Terra de Chocolate, Tro
 
 **Itens e equipamentos**: Alcaçuz (cru e assado), Pão de Mel, Bala de Goma, Rocambole, Jujubas, Tijolo de Açúcar Mascavo
 (arremessável), Espada de Açúcar Mascavo (empurra longe), **Bazuca de Gelatina** (atira Cobras de Gelatina Mortas),
-**Botas Pesadas** (cancelam o quique da jujuba), baldes de Chocolate Derretido e Bubbaloo, 10 ovos geradores.
+baldes de Chocolate Derretido e Bubbaloo, 10 ovos geradores.
 A Fábrica de Chocolate transforma um balde de Chocolate Derretido em 10 barras e faz balas de goma.
 
 **Escolhas do revival** (onde o original era estranho ou desequilibrado; o espírito foi mantido):
@@ -148,6 +149,32 @@ A Fábrica de Chocolate transforma um balde de Chocolate Derretido em 10 barras 
 - Algodão-Doce continua sendo comida (no original era um item de teletransporte).
 - Receitas novas para Pão de Mel (trigo + trigo + açúcar) porque no original ele só vinha de criaturas.
 - Fortaleza de Pão de Mel e o Gingerbread King ficam para a etapa de chefes.
+
+As Botas Pesadas da etapa 2 foram removidas na 0.5.0-alpha.
+
+## Conteúdo da etapa 5 (0.5.0-alpha)
+
+**Bioma subterrâneo: Candy Cave (Caverna de Doces)**, embaixo das Florestas Doces e dos Campos de Jujuba.
+- Rocha Doce Rosa e Rocha Doce Roxa misturadas com pedra comum, Cristais de Açúcar no chão e no teto (brilho fraco;
+  com Toque Suave cai o cristal, sem ele 2 a 4 de açúcar), fendas altas e estreitas e partículas rosadas fracas
+  (as três últimas são propostas do revival).
+- Criaturas: Creeper de Bubbaloo e Bolo Impostor, além de zumbis e outros monstros vanilla de caverna.
+
+**Bolo Impostor** (hostil): bolo de três andares com cobertura escorrendo e vela. Proposta do revival: fica parado,
+de boca fechada, alinhado ao mundo como um bloco; quando um jogador chega perto (4 blocos, configurável) ou o ataca,
+abre a boca, a língua desenrola e os andares balançam por 1 s, e só então ataca. Volta a se disfarçar depois de 10 s
+sem alvo. Também aparece raramente na Floresta Doce.
+
+**Máquina de Sorvete**: Casquinha + sabor + leite = sorvete (Açúcar = baunilha, Frutas Doces = morango,
+Cacau em Pó = chocolate). Um Balde de Leite enche 4 porções no tanque (configurável) e o balde vazio fica no espaço do leite.
+A janela mostra os ingredientes, o tanque de leite, o progresso e o sabor escolhido; o `?` explica o uso.
+A alavanca desce, o sorvete cresce na bandeja e a alavanca volta ao fim de cada porção. Funciona com funis
+(casquinha e sabor por cima, leite pelos lados, sorvete por baixo). Está dentro dos Caminhões de Sorvete, e o
+sorveteiro aciona a animação da máquina ao vender um sorvete (proposta do revival). Receita: quartzo, ferro,
+gelo compactado e laje de quartzo liso.
+
+**Outras mudanças**: Tubarão de Gelatina e Rinoceronte de Açúcar Mascavo 25% maiores; Caminhões de Sorvete só na
+Floresta Doce; Botas Pesadas removidas.
 
 ## Configuração (`config/crazyalloy_revival-common.toml`, também editável em Mods > Config)
 
@@ -164,6 +191,11 @@ A Fábrica de Chocolate transforma um balde de Chocolate Derretido em 10 barras 
 | `difficulty.jellySnakePoisonSeconds` | 5 | Veneno da Cobra de Gelatina |
 | `difficulty.bubblegumExplosionPower` / `orangeJellyExplosionPower` | 2.0 | Força das explosões (0 desliga) |
 | `machines.chocolateFactorySpeed` | 1.0 | Velocidade da Fábrica |
+| `worldgen.candyCaveEnabled` | true | Caverna de Doces embaixo dos biomas doces (exige reiniciar) |
+| `difficulty.impostorCakeDisguise` | true | O Bolo Impostor nasce disfarçado e volta ao disfarce |
+| `difficulty.impostorCakeRevealDistance` | 4.0 | Distância em que o bolo se revela |
+| `machines.iceCreamMachineSpeed` | 1.0 | Velocidade da Máquina de Sorvete |
+| `machines.iceCreamMachineServingsPerBucket` | 4 | Porções por Balde de Leite |
 
 ## Testes
 
@@ -183,7 +215,12 @@ equilíbrio de combate e geração do bioma em vários seeds.
 Testado manualmente na versão 0.2.0-alpha: `/locate` dos dois biomas e da Torre num servidor de desenvolvimento e num
 servidor NeoForge 26.1.2.112 limpo só com o JAR final e o TerraBlender; cliente conectado ao servidor mostrando a Floresta
 Doce, os Campos de Jujuba, a Torre gerada naturalmente, todas as criaturas, blocos novos e os dois fluidos.
-Ainda não testado: surgimento natural ao longo de uma partida, sons, equilíbrio de combate, Botas Pesadas na prática.
+Ainda não testado: surgimento natural ao longo de uma partida, sons, equilíbrio de combate.
+
+Etapa 5 (6 testes novos, 34 no total): Bolo Impostor ignora jogador a 6 blocos, se revela a 2 blocos e morde;
+se revela ao apanhar; Máquina de Sorvete faz 2 sorvetes de morango com um balde (sobra leite e o balde vazio);
+o Caminhão tem a máquina; Botas Pesadas fora do registro, Caminhão só na Floresta Doce, Creeper de Bubbaloo na
+caverna, tubarão e rinoceronte maiores. As notas da 0.5.0-alpha listam o que foi testado à mão.
 
 ## Recursos provisórios
 
@@ -212,12 +249,11 @@ A pasta `network/` ainda não existe porque a etapa 1 não precisa de pacotes pr
 
 ## Próximas etapas
 
-1. Demais biomas de doce (Candy Cave e outros).
-2. Fortaleza de biscoito e Gingerbread King.
-3. Dimensão de sorvete e Ice Cream Dragon.
-4. Conteúdo místico e magia.
-5. Conteúdo de cogumelos.
-6. Economia, recursos opcionais (incluindo AK47 configurável) e polimento.
+1. Demais biomas de doce.
+2. Dimensão de sorvete e Ice Cream Dragon.
+3. Conteúdo místico e magia.
+4. Conteúdo de cogumelos.
+5. Economia, recursos opcionais (incluindo AK47 configurável) e polimento.
 
 ## Créditos e licença
 

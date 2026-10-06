@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "crazyalloy_revival:block/sugar_crystal"
+    },
+    "facing=down": {
+      "model": "crazyalloy_revival:block/sugar_crystal",
+      "x": 180
+    },
+    "facing=north": {
+      "model": "crazyalloy_revival:block/sugar_crystal",
+      "x": 90
+    },
+    "facing=east": {
+      "model": "crazyalloy_revival:block/sugar_crystal",
+      "x": 90,
+      "y": 90
+    },
+    "facing=south": {
+      "model": "crazyalloy_revival:block/sugar_crystal",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "crazyalloy_revival:block/sugar_crystal",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

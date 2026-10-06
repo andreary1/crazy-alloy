@@ -1,6 +1,9 @@
 package com.crazyalloy.revival.entity;
 
+import com.crazyalloy.revival.block.entity.IceCreamMachineBlockEntity;
 import com.crazyalloy.revival.registry.ModItems;
+import com.crazyalloy.revival.registry.ModTags;
+import net.minecraft.core.BlockPos;
 import java.util.Optional;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -133,6 +136,15 @@ public class IceCreamVendor extends AbstractVillager implements AnimatedMob {
     protected void rewardTradeXp(MerchantOffer offer) {
         if (offer.shouldRewardExp()) {
             this.level().addFreshEntity(new ExperienceOrb(this.level(), this.getX(), this.getY() + 0.5, this.getZ(), 2 + this.random.nextInt(3)));
+        }
+        // Stage 5 (revival proposal): selling an ice cream pulls the lever of the Ice Cream Machine behind the counter.
+        ItemStack sold = offer.getResult();
+        if (sold.is(ModTags.Items.ICE_CREAMS)) {
+            BlockPos.betweenClosedStream(this.blockPosition().offset(-3, -1, -3), this.blockPosition().offset(3, 2, 3))
+                    .map(pos -> this.level().getBlockEntity(pos))
+                    .filter(be -> be instanceof IceCreamMachineBlockEntity)
+                    .findFirst()
+                    .ifPresent(be -> ((IceCreamMachineBlockEntity) be).playServeAnimation(sold.getItem(), 30));
         }
     }
 

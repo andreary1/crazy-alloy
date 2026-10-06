@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "crazyalloy_revival:pink_candy_rock",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.crazyalloy_revival.enter_candy_cave.title"
+    },
+    "description": {
+      "translate": "advancements.crazyalloy_revival.enter_candy_cave.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "cave": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "crazyalloy_revival:candy_cave"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "crazyalloy_revival:enter_sweet_forest"
+}

@@ -87,6 +87,12 @@ public final class RevivalGameTests {
         TESTS.put("ice_cream_vendor_sells_ice_cream", RevivalGameTests::vendorTrades);
         TESTS.put("fortress_template_has_king_on_throne", RevivalGameTests::fortressTemplate);
         TESTS.put("ice_cream_truck_template_has_vendor", RevivalGameTests::truckTemplate);
+        TESTS.put("stage5_mobs_tick_without_crashing", RevivalGameTests::stage5MobsTick);
+        TESTS.put("impostor_cake_waits_disguised_then_reveals", RevivalGameTests::impostorCakeReveals);
+        TESTS.put("impostor_cake_reveals_when_hit", RevivalGameTests::impostorCakeRevealsWhenHit);
+        TESTS.put("ice_cream_machine_serves_from_milk_tank", RevivalGameTests::iceCreamMachineServes);
+        TESTS.put("ice_cream_truck_template_has_machine", RevivalGameTests::truckHasMachine);
+        TESTS.put("stage5_registry_and_tags", RevivalGameTests::stage5Registry);
     }
 
     private RevivalGameTests() {}
@@ -456,6 +462,118 @@ public final class RevivalGameTests {
         var banner = helper.getLevel().getBlockEntity(where.offset(1, 4, 0));
         helper.assertTrue(banner instanceof net.minecraft.world.level.block.entity.BannerBlockEntity b && b.getPatterns().layers().size() == 2,
                 "truck banner should carry the two ice cream patterns");
+        helper.succeed();
+    }
+
+    // ------------------------------------------------------------------ stage 5
+
+    private static void stage5MobsTick(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        List<? extends Mob> mobs = List.of(helper.spawn(ModEntities.IMPOSTOR_CAKE.get(), 2, 1, 2),
+                helper.spawn(ModEntities.JELLY_SHARK.get(), 6, 1, 6), helper.spawn(ModEntities.BROWN_SUGAR_RHINO.get(), 2, 1, 6));
+        helper.runAfterDelay(100, () -> {
+            for (Mob mob : mobs) {
+                helper.assertTrue(mob.isAlive(), mob.getType().toShortString() + " died or was removed while ticking");
+            }
+            helper.succeed();
+        });
+    }
+
+    /**
+     * A disguised cake ignores a target it has not noticed yet and stays put; a survival player stepping within the
+     * reveal distance makes it open up, hold still for the reveal and then bite.
+     */
+    private static void impostorCakeReveals(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        com.crazyalloy.revival.entity.ImpostorCake cake = helper.spawn(ModEntities.IMPOSTOR_CAKE.get(), 2, 1, 4);
+        cake.setDisguised(true);
+        Vec3 start = cake.position();
+        ServerPlayer player = survivalMockPlayer(helper);
+        player.snapTo(helper.absoluteVec(new Vec3(8.5, 1, 4.5)));
+        helper.runAfterDelay(40, () -> {
+            helper.assertTrue(cake.isDisguised(), "the cake revealed itself to a player 6 blocks away");
+            helper.assertTrue(cake.position().distanceTo(start) < 0.05, "a disguised cake moved");
+            player.snapTo(helper.absoluteVec(new Vec3(4.5, 1, 4.5)));
+        });
+        helper.runAfterDelay(45, () -> helper.assertFalse(cake.isDisguised(), "the cake did not reveal itself to a player 2 blocks away"));
+        helper.succeedWhen(() -> helper.assertTrue(player.getHealth() < player.getMaxHealth(), "the revealed cake never bit the player"));
+    }
+
+    /** {@link GameTestHelper#makeMockServerPlayerInLevel()} always reports creative mode, which the cake ignores. */
+    private static ServerPlayer survivalMockPlayer(GameTestHelper helper) {
+        var cookie = net.minecraft.server.network.CommonListenerCookie.createInitial(
+                new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(), "test-survival-player"), false);
+        ServerPlayer player = new ServerPlayer(helper.getLevel().getServer(), helper.getLevel(), cookie.gameProfile(), cookie.clientInformation()) {
+            @Override
+            public GameType gameMode() {
+                return GameType.SURVIVAL;
+            }
+        };
+        var connection = new net.minecraft.network.Connection(net.minecraft.network.protocol.PacketFlow.SERVERBOUND);
+        new io.netty.channel.embedded.EmbeddedChannel(connection);
+        helper.getLevel().getServer().getPlayerList().placeNewPlayer(connection, player, cookie);
+        // Players are invulnerable until their client reports the world loaded.
+        player.connection.markClientLoaded();
+        // The game test server's default mode is creative, which also makes the abilities invulnerable.
+        player.setGameMode(GameType.SURVIVAL);
+        player.getAbilities().invulnerable = false;
+        return player;
+    }
+
+    private static void impostorCakeRevealsWhenHit(GameTestHelper helper) {
+        com.crazyalloy.revival.entity.ImpostorCake cake = helper.spawn(ModEntities.IMPOSTOR_CAKE.get(), 4, 1, 4);
+        cake.setDisguised(true);
+        Mob attacker = helper.spawn(EntityType.IRON_GOLEM, 7, 1, 4);
+        attacker.setNoAi(true);
+        cake.hurtServer(helper.getLevel(), helper.getLevel().damageSources().mobAttack(attacker), 1.0F);
+        helper.assertFalse(cake.isDisguised(), "a hit cake stayed disguised");
+        helper.assertTrue(cake.isRevealing(), "the reveal pause did not start");
+        helper.assertTrue(cake.getTarget() == attacker, "the cake did not turn on whoever hit it");
+        helper.succeed();
+    }
+
+    /** One milk bucket fills the tank; two servings use two cones and two flavour items and leave the empty bucket. */
+    private static void iceCreamMachineServes(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(4, 1, 4);
+        helper.setBlock(pos, ModBlocks.ICE_CREAM_MACHINE.get());
+        var machine = helper.getBlockEntity(pos, com.crazyalloy.revival.block.entity.IceCreamMachineBlockEntity.class);
+        machine.setItem(com.crazyalloy.revival.block.entity.IceCreamMachineBlockEntity.SLOT_CONE, new ItemStack(ModItems.WAFER_CONE.get(), 2));
+        machine.setItem(com.crazyalloy.revival.block.entity.IceCreamMachineBlockEntity.SLOT_FLAVOR, new ItemStack(Items.SWEET_BERRIES, 2));
+        machine.setItem(com.crazyalloy.revival.block.entity.IceCreamMachineBlockEntity.SLOT_MILK, new ItemStack(Items.MILK_BUCKET));
+        // 80 ticks per serving; the test allows 400.
+        helper.succeedWhen(() -> {
+            ItemStack out = machine.getItem(com.crazyalloy.revival.block.entity.IceCreamMachineBlockEntity.SLOT_OUTPUT);
+            helper.assertTrue(out.is(ModItems.STRAWBERRY_ICE_CREAM.get()) && out.getCount() == 2, "expected 2 strawberry ice creams, got " + out);
+            helper.assertTrue(machine.getItem(com.crazyalloy.revival.block.entity.IceCreamMachineBlockEntity.SLOT_CONE).isEmpty(), "cones were not used");
+            helper.assertTrue(machine.getItem(com.crazyalloy.revival.block.entity.IceCreamMachineBlockEntity.SLOT_MILK).is(Items.BUCKET), "the empty bucket should stay in the milk slot");
+            helper.assertTrue(machine.milk() == 2, "4 servings per bucket minus 2 used should leave 2, was " + machine.milk());
+        });
+    }
+
+    private static void truckHasMachine(GameTestHelper helper) {
+        BlockPos where = helper.absolutePos(new BlockPos(0, 40, 0));
+        placeTemplate(helper, "ice_cream_truck", where);
+        BlockState machine = helper.getLevel().getBlockState(where.offset(2, 2, 4));
+        helper.assertTrue(machine.is(ModBlocks.ICE_CREAM_MACHINE.get()), "no Ice Cream Machine inside the truck, found " + machine);
+        helper.assertTrue(helper.getLevel().getBlockEntity(where.offset(2, 2, 4)) instanceof com.crazyalloy.revival.block.entity.IceCreamMachineBlockEntity,
+                "the truck's machine has no block entity");
+        helper.succeed();
+    }
+
+    /** Heavy Boots are gone, the cave biome exists, trucks only in Sweet Forests, bigger shark and rhino. */
+    private static void stage5Registry(GameTestHelper helper) {
+        var items = net.minecraft.core.registries.BuiltInRegistries.ITEM;
+        helper.assertFalse(items.containsKey(CrazyAlloyRevival.id("heavy_boots")), "heavy_boots is still registered");
+        var biomes = helper.getLevel().registryAccess().lookupOrThrow(Registries.BIOME);
+        var cave = biomes.getOrThrow(com.crazyalloy.revival.worldgen.ModWorldgen.CANDY_CAVE);
+        var truckTag = net.minecraft.tags.TagKey.create(Registries.BIOME, CrazyAlloyRevival.id("has_structure/ice_cream_truck"));
+        helper.assertTrue(biomes.getOrThrow(com.crazyalloy.revival.worldgen.ModWorldgen.SWEET_FOREST).is(truckTag), "trucks must spawn in Sweet Forests");
+        helper.assertFalse(biomes.getOrThrow(com.crazyalloy.revival.worldgen.ModWorldgen.JELLY_BEAN_FIELDS).is(truckTag), "trucks must no longer spawn in Jelly Bean Fields");
+        boolean creepers = cave.value().getMobSettings().getMobs(net.minecraft.world.entity.MobCategory.MONSTER).unwrap().stream()
+                .anyMatch(w -> w.value().type() == ModEntities.BUBBALOO_CREEPER.get());
+        helper.assertTrue(creepers, "Bubbaloo Creepers must spawn in Candy Caves");
+        helper.assertTrue(ModEntities.JELLY_SHARK.get().getWidth() > 1.5F && ModEntities.BROWN_SUGAR_RHINO.get().getWidth() > 1.4F,
+                "the shark and the rhino should be bigger than in 0.4.0");
         helper.succeed();
     }
 }

@@ -3,6 +3,7 @@ package com.crazyalloy.revival.registry;
 import com.crazyalloy.revival.CrazyAlloyRevival;
 import com.crazyalloy.revival.block.BubbalooBlock;
 import com.crazyalloy.revival.block.ChocolateFactoryBlock;
+import com.crazyalloy.revival.block.IceCreamMachineBlock;
 import com.crazyalloy.revival.block.InfestedJellyBeanBlock;
 import com.crazyalloy.revival.block.JellyBeanBlock;
 import com.crazyalloy.revival.block.LicoricePlantBlock;
@@ -14,6 +15,7 @@ import com.crazyalloy.revival.worldgen.ModTreeGrowers;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.DoorBlock;
@@ -162,6 +164,23 @@ public final class ModBlocks {
             ChocolateFactoryBlock::new,
             p -> p.mapColor(MapColor.COLOR_BROWN).requiresCorrectToolForDrops().strength(3.5F).sound(SoundType.METAL)
                     .lightLevel(state -> state.getValue(ChocolateFactoryBlock.LIT) ? 9 : 0));
+
+    public static final DeferredBlock<IceCreamMachineBlock> ICE_CREAM_MACHINE = BLOCKS.registerBlock("ice_cream_machine",
+            IceCreamMachineBlock::new,
+            p -> p.mapColor(MapColor.QUARTZ).requiresCorrectToolForDrops().strength(3.0F).sound(SoundType.METAL).noOcclusion());
+
+    // --- Candy Cave (stage 5) ------------------------------------------------------------
+    private static BlockBehaviour.Properties candyRock(BlockBehaviour.Properties p, MapColor color) {
+        return p.mapColor(color).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F).sound(SoundType.CALCITE);
+    }
+
+    public static final DeferredBlock<Block> PINK_CANDY_ROCK = BLOCKS.registerSimpleBlock("pink_candy_rock", p -> candyRock(p, MapColor.COLOR_PINK));
+    public static final DeferredBlock<Block> PURPLE_CANDY_ROCK = BLOCKS.registerSimpleBlock("purple_candy_rock", p -> candyRock(p, MapColor.COLOR_PURPLE));
+    /** Small sugar crystals on cave floors, walls and ceilings (revival proposal): a faint light in the dark. */
+    public static final DeferredBlock<AmethystClusterBlock> SUGAR_CRYSTAL = BLOCKS.registerBlock("sugar_crystal",
+            p -> new AmethystClusterBlock(5.0F, 6.0F, p),
+            p -> p.mapColor(MapColor.COLOR_PINK).forceSolidOn().noOcclusion().sound(SoundType.AMETHYST_CLUSTER).strength(1.0F)
+                    .lightLevel(state -> 4).pushReaction(PushReaction.DESTROY));
 
     private ModBlocks() {}
 }

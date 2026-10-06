@@ -12,6 +12,10 @@ import com.crazyalloy.revival.client.model.JellySharkModel;
 import com.crazyalloy.revival.client.model.JellySnakeModel;
 import com.crazyalloy.revival.client.model.RollCakeMonsterModel;
 import com.crazyalloy.revival.client.model.IceCreamVendorModel;
+import com.crazyalloy.revival.client.model.ImpostorCakeModel;
+import com.crazyalloy.revival.client.renderer.IceCreamMachineRenderer;
+import com.crazyalloy.revival.client.screen.IceCreamMachineScreen;
+import com.crazyalloy.revival.registry.ModBlockEntities;
 import com.crazyalloy.revival.client.renderer.BubbalooCreeperRenderer;
 import com.crazyalloy.revival.client.renderer.RevivalMobRenderer;
 import com.crazyalloy.revival.client.renderer.SimpleMobRenderer;
@@ -76,6 +80,8 @@ public final class CrazyAlloyRevivalClient {
         event.registerLayerDefinition(ModModelLayers.JELLY_SHARK, JellySharkModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.ROLL_CAKE_MONSTER, RollCakeMonsterModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.ICE_CREAM_VENDOR, IceCreamVendorModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.IMPOSTOR_CAKE, ImpostorCakeModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.ICE_CREAM_MACHINE_LEVER, IceCreamMachineRenderer::createLeverLayer);
     }
 
     @SubscribeEvent
@@ -84,7 +90,7 @@ public final class CrazyAlloyRevivalClient {
         event.registerEntityRenderer(ModEntities.LOLLIPOP_GUY.get(), LollipopGuyRenderer::new);
         event.registerEntityRenderer(ModEntities.GRAPE_SPIDER.get(), GrapeSpiderRenderer::new);
         event.registerEntityRenderer(ModEntities.BROWN_SUGAR_RHINO.get(),
-                c -> new RevivalMobRenderer<>(c, new BrownSugarRhinoModel(c.bakeLayer(ModModelLayers.BROWN_SUGAR_RHINO)), 1.0F, "brown_sugar_rhino", 1.0F));
+                c -> new RevivalMobRenderer<>(c, new BrownSugarRhinoModel(c.bakeLayer(ModModelLayers.BROWN_SUGAR_RHINO)), 1.0F, "brown_sugar_rhino", 1.25F));
         event.registerEntityRenderer(ModEntities.COTTON_CANDY_TORNADO.get(),
                 c -> new RevivalMobRenderer<>(c, new CottonCandyTornadoModel(c.bakeLayer(ModModelLayers.COTTON_CANDY_TORNADO)), 0.5F, "cotton_candy_tornado", 1.0F));
         event.registerEntityRenderer(ModEntities.BUBBLEGUM.get(),
@@ -100,12 +106,15 @@ public final class CrazyAlloyRevivalClient {
         event.registerEntityRenderer(ModEntities.JELLY_SNAKE.get(),
                 c -> new SimpleMobRenderer<>(c, new JellySnakeModel(c.bakeLayer(ModModelLayers.JELLY_SNAKE)), 0.3F, "jelly_snake"));
         event.registerEntityRenderer(ModEntities.JELLY_SHARK.get(),
-                c -> new RevivalMobRenderer<>(c, new JellySharkModel(c.bakeLayer(ModModelLayers.JELLY_SHARK)), 0.8F, "jelly_shark", 1.0F));
+                c -> new RevivalMobRenderer<>(c, new JellySharkModel(c.bakeLayer(ModModelLayers.JELLY_SHARK)), 0.8F, "jelly_shark", 1.25F));
         event.registerEntityRenderer(ModEntities.ROLL_CAKE_MONSTER.get(),
                 c -> new RevivalMobRenderer<>(c, new RollCakeMonsterModel(c.bakeLayer(ModModelLayers.ROLL_CAKE_MONSTER)), 0.5F, "roll_cake_monster", 1.0F));
         event.registerEntityRenderer(ModEntities.ICE_CREAM_VENDOR.get(),
                 c -> new RevivalMobRenderer<>(c, new IceCreamVendorModel(c.bakeLayer(ModModelLayers.ICE_CREAM_VENDOR)), 0.5F, "ice_cream_vendor", 0.9375F));
         event.registerEntityRenderer(ModEntities.BUBBALOO_CREEPER.get(), BubbalooCreeperRenderer::new);
+        event.registerEntityRenderer(ModEntities.IMPOSTOR_CAKE.get(),
+                c -> new RevivalMobRenderer<>(c, new ImpostorCakeModel(c.bakeLayer(ModModelLayers.IMPOSTOR_CAKE)), 0.55F, "impostor_cake", 1.0F));
+        event.registerBlockEntityRenderer(ModBlockEntities.ICE_CREAM_MACHINE.get(), IceCreamMachineRenderer::new);
         event.registerEntityRenderer(ModEntities.BROWN_SUGAR_BRICK.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.GUMDROP_SHOT.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.JELLY_SNAKE_SHOT.get(), c -> new ThrownItemRenderer<>(c, 1.5F, false));
@@ -146,6 +155,7 @@ public final class CrazyAlloyRevivalClient {
     @SubscribeEvent
     static void onMenuScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenus.CHOCOLATE_FACTORY.get(), ChocolateFactoryScreen::new);
+        event.register(ModMenus.ICE_CREAM_MACHINE.get(), IceCreamMachineScreen::new);
     }
 
     /**

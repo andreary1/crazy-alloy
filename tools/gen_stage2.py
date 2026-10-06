@@ -132,13 +132,12 @@ def gen_assets():
     item_def("infested_purple_jelly_bean_block", f"{NS}:block/purple_jelly_bean_block")
     # items
     for i in ["red_licorice", "cooked_licorice", "gingerbread", "gumdrop", "roll_cake", "jelly_beans", "brown_sugar_brick",
-              "dead_jelly_snake", "heavy_boots"]:
+              "dead_jelly_snake"]:
         flat_item(i)
     for i in ["brown_sugar_sword", "jelly_bazooka"]:
         handheld_item(i)
     for e in STAGE2_EGGS:
         flat_item(f"{e}_spawn_egg")
-    write(f"{A}/equipment/heavy.json", {"layers": {"humanoid": [{"texture": f"{NS}:heavy"}]}})
 
 STAGE2_EGGS = ["brown_sugar_rhino", "cotton_candy_tornado", "bubblegum", "gingerbread_warrior", "gingerbread_soldier",
                "jelly_bunny", "jelly_snake", "jelly_shark", "roll_cake_monster", "bubbaloo_creeper"]
@@ -261,7 +260,6 @@ def gen_recipes():
     shaped("brown_sugar_sword", ["#", "#", "/"], {"#": "brown_sugar_brick", "/": "minecraft:stick"}, "brown_sugar_sword", 1, "equipment")
     shaped("jelly_bazooka", ["GRO", "PYS"], {"G": "green_jelly_bean_block", "R": "red_jelly_bean_block", "O": "orange_jelly_bean_block",
         "P": "purple_jelly_bean_block", "Y": "yellow_jelly_bean_block", "S": "dead_jelly_snake"}, "jelly_bazooka", 1, "equipment")
-    shaped("heavy_boots", ["I I", "B B"], {"I": "minecraft:iron_ingot", "B": "minecraft:iron_block"}, "heavy_boots", 1, "equipment")
     shapeless("jelly_beans", [f"#{NS}:jelly_bean_blocks"], "jelly_beans", 4)
 
     factory("chocolate_bars_from_melted_chocolate", ["melted_chocolate_bucket"], "chocolate_bar", 10, 300, 0.5)
@@ -298,7 +296,6 @@ def gen_tags():
     tag("block", "minecraft", "enderman_holdable", n("red_licorice_plant"))
     tag("block", "minecraft", "sword_efficient", n("red_licorice_plant"))
     tag("item", "minecraft", "swords", n("brown_sugar_sword"))
-    tag("item", "minecraft", "foot_armor", n("heavy_boots"))
     tag("item", "c", "foods", n("red_licorice", "cooked_licorice", "gingerbread", "gumdrop", "roll_cake", "jelly_beans"))
     tag("item", "c", "foods/candy", n("red_licorice", "cooked_licorice", "gumdrop", "jelly_beans"))
     tag("item", "c", "buckets/melted_chocolate", n("melted_chocolate_bucket"))
@@ -436,7 +433,6 @@ def gen_advancements():
         {"condition": "minecraft:entity_properties", "entity": "this", "predicate": {"location": {"structures": f"{NS}:gingerbread_tower"}}}]}}})
     adv("enter_jelly_bean_fields", "root", "green_jelly_bean_block", "task", {"jelly": biome("jelly_bean_fields")})
     adv("boing", "enter_jelly_bean_fields", "jelly_bazooka", "goal", {"hit": hit_with("jelly_snake_shot")})
-    adv("heavy_boots", "enter_jelly_bean_fields", "heavy_boots", "task", {"boots": has("heavy_boots")})
     write(f"{D}/damage_type/bubbaloo.json", {"exhaustion": 0.1, "message_id": f"{NS}.bubbaloo", "scaling": "when_caused_by_living_non_player"})
 
 def generate():

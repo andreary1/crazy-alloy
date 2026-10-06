@@ -66,6 +66,10 @@ public final class ModItems {
     public static final DeferredItem<?> DEEPSLATE_TOURMALINE_ORE = block(ModBlocks.DEEPSLATE_TOURMALINE_ORE);
     public static final DeferredItem<?> TOURMALINE_BLOCK = block(ModBlocks.TOURMALINE_BLOCK);
     public static final DeferredItem<?> CHOCOLATE_FACTORY = block(ModBlocks.CHOCOLATE_FACTORY);
+    public static final DeferredItem<?> ICE_CREAM_MACHINE = block(ModBlocks.ICE_CREAM_MACHINE);
+    public static final DeferredItem<?> PINK_CANDY_ROCK = block(ModBlocks.PINK_CANDY_ROCK);
+    public static final DeferredItem<?> PURPLE_CANDY_ROCK = block(ModBlocks.PURPLE_CANDY_ROCK);
+    public static final DeferredItem<?> SUGAR_CRYSTAL = block(ModBlocks.SUGAR_CRYSTAL);
 
     // --- Ingredients ----------------------------------------------------------------------
     public static final DeferredItem<Item> TOURMALINE = simple("tourmaline");
@@ -100,8 +104,6 @@ public final class ModItems {
             BrownSugarSwordItem::new, p -> p.sword(ModMaterials.BROWN_SUGAR_TOOL, 3.0F, -2.4F)));
     public static final DeferredItem<JellyBazookaItem> JELLY_BAZOOKA = tab(ITEMS.registerItem("jelly_bazooka",
             JellyBazookaItem::new, p -> p.durability(250)));
-    public static final DeferredItem<Item> HEAVY_BOOTS = tab(ITEMS.registerItem("heavy_boots",
-            Item::new, p -> p.humanoidArmor(ModMaterials.HEAVY_ARMOR, ArmorType.BOOTS)));
 
     // --- Tourmaline equipment -------------------------------------------------------------
     public static final DeferredItem<Item> TOURMALINE_SWORD = tab(ITEMS.registerItem("tourmaline_sword",
@@ -139,6 +141,7 @@ public final class ModItems {
     public static final DeferredItem<SpawnEggItem> BUBBALOO_CREEPER_SPAWN_EGG = egg("bubbaloo_creeper", ModEntities.BUBBALOO_CREEPER);
     public static final DeferredItem<SpawnEggItem> GINGERBREAD_KING_SPAWN_EGG = egg("gingerbread_king", ModEntities.GINGERBREAD_KING);
     public static final DeferredItem<SpawnEggItem> ICE_CREAM_VENDOR_SPAWN_EGG = egg("ice_cream_vendor", ModEntities.ICE_CREAM_VENDOR);
+    public static final DeferredItem<SpawnEggItem> IMPOSTOR_CAKE_SPAWN_EGG = egg("impostor_cake", ModEntities.IMPOSTOR_CAKE);
 
     private static DeferredItem<SpawnEggItem> egg(String name, java.util.function.Supplier<? extends net.minecraft.world.entity.EntityType<?>> type) {
         return tab(ITEMS.registerItem(name + "_spawn_egg", p -> new SpawnEggItem(p.spawnEgg(type.get()))));

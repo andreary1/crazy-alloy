@@ -1,14 +1,14 @@
 {
   "display": {
     "icon": {
-      "id": "crazyalloy_revival:heavy_boots",
+      "id": "crazyalloy_revival:sugar_crystal",
       "count": 1
     },
     "title": {
-      "translate": "advancements.crazyalloy_revival.heavy_boots.title"
+      "translate": "advancements.crazyalloy_revival.sugar_rocks.title"
     },
     "description": {
-      "translate": "advancements.crazyalloy_revival.heavy_boots.description"
+      "translate": "advancements.crazyalloy_revival.sugar_rocks.description"
     },
     "frame": "task",
     "show_toast": true,
@@ -16,16 +16,16 @@
     "hidden": false
   },
   "criteria": {
-    "boots": {
+    "crystal": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": "crazyalloy_revival:heavy_boots"
+            "items": "crazyalloy_revival:sugar_crystal"
           }
         ]
       }
     }
   },
-  "parent": "crazyalloy_revival:enter_jelly_bean_fields"
+  "parent": "crazyalloy_revival:enter_candy_cave"
 }
