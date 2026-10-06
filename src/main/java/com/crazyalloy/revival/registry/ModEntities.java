@@ -8,6 +8,7 @@ import com.crazyalloy.revival.entity.CandyTubeDog;
 import com.crazyalloy.revival.entity.CottonCandyTornado;
 import com.crazyalloy.revival.entity.GingerbreadKing;
 import com.crazyalloy.revival.entity.IceCreamVendor;
+import com.crazyalloy.revival.entity.ImpostorCake;
 import com.crazyalloy.revival.entity.GingerbreadSoldier;
 import com.crazyalloy.revival.entity.GingerbreadWarrior;
 import com.crazyalloy.revival.entity.GrapeSpider;
@@ -33,7 +34,7 @@ public final class ModEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<LollipopGuy>> LOLLIPOP_GUY = ENTITIES.registerEntityType(
             "lollipop_guy", LollipopGuy::new, MobCategory.CREATURE, b -> b.sized(0.6F, 1.9F).eyeHeight(1.2F).clientTrackingRange(10));
     public static final DeferredHolder<EntityType<?>, EntityType<BrownSugarRhino>> BROWN_SUGAR_RHINO = ENTITIES.registerEntityType(
-            "brown_sugar_rhino", BrownSugarRhino::new, MobCategory.CREATURE, b -> b.sized(1.4F, 1.4F).eyeHeight(1.0F).clientTrackingRange(10));
+            "brown_sugar_rhino", BrownSugarRhino::new, MobCategory.CREATURE, b -> b.sized(1.75F, 1.75F).eyeHeight(1.25F).clientTrackingRange(10));
     public static final DeferredHolder<EntityType<?>, EntityType<CottonCandyTornado>> COTTON_CANDY_TORNADO = ENTITIES.registerEntityType(
             "cotton_candy_tornado", CottonCandyTornado::new, MobCategory.MONSTER, b -> b.sized(0.9F, 1.8F).eyeHeight(1.5F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<Bubblegum>> BUBBLEGUM = ENTITIES.registerEntityType(
@@ -56,11 +57,15 @@ public final class ModEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<JellySnake>> JELLY_SNAKE = ENTITIES.registerEntityType(
             "jelly_snake", JellySnake::new, MobCategory.MONSTER, b -> b.sized(0.6F, 0.35F).eyeHeight(0.2F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<JellyShark>> JELLY_SHARK = ENTITIES.registerEntityType(
-            "jelly_shark", JellyShark::new, MobCategory.MONSTER, b -> b.sized(1.5F, 0.95F).eyeHeight(0.5F).clientTrackingRange(8));
+            "jelly_shark", JellyShark::new, MobCategory.MONSTER, b -> b.sized(1.9F, 1.2F).eyeHeight(0.62F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<RollCakeMonster>> ROLL_CAKE_MONSTER = ENTITIES.registerEntityType(
             "roll_cake_monster", RollCakeMonster::new, MobCategory.MONSTER, b -> b.sized(0.8F, 2.3F).eyeHeight(2.0F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<BubbalooCreeper>> BUBBALOO_CREEPER = ENTITIES.registerEntityType(
             "bubbaloo_creeper", BubbalooCreeper::new, MobCategory.MONSTER, b -> b.sized(0.6F, 1.7F).clientTrackingRange(8));
+
+    // --- Candy Cave (stage 5) -----------------------------------------------------------------
+    public static final DeferredHolder<EntityType<?>, EntityType<ImpostorCake>> IMPOSTOR_CAKE = ENTITIES.registerEntityType(
+            "impostor_cake", ImpostorCake::new, MobCategory.MONSTER, b -> b.sized(0.9F, 1.05F).eyeHeight(0.7F).clientTrackingRange(8));
 
     // --- Projectiles ------------------------------------------------------------------------
     public static final DeferredHolder<EntityType<?>, EntityType<BrownSugarBrickEntity>> BROWN_SUGAR_BRICK = ENTITIES.registerEntityType(

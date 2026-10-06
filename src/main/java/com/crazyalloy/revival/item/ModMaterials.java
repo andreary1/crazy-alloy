@@ -6,7 +6,6 @@ import java.util.EnumMap;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Util;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.equipment.ArmorMaterial;
@@ -44,18 +43,6 @@ public final class ModMaterials {
     /** Brown Sugar Sword: brittle (110 uses, like the original) but hits hard enough to knock enemies back. */
     public static final ToolMaterial BROWN_SUGAR_TOOL = new ToolMaterial(
             BlockTags.INCORRECT_FOR_WOODEN_TOOL, 110, 4.0F, 1.0F, 10, ModTags.Items.BROWN_SUGAR_REPAIR);
-
-    public static final ResourceKey<EquipmentAsset> HEAVY_ASSET =
-            ResourceKey.create(EquipmentAssets.ROOT_ID, CrazyAlloyRevival.id("heavy"));
-
-    /** Heavy Boots: iron-like boots (2 armour) with a little knockback resistance. */
-    public static final ArmorMaterial HEAVY_ARMOR = new ArmorMaterial(15, Util.make(new EnumMap<>(ArmorType.class), map -> {
-        map.put(ArmorType.BOOTS, 2);
-        map.put(ArmorType.LEGGINGS, 5);
-        map.put(ArmorType.CHESTPLATE, 6);
-        map.put(ArmorType.HELMET, 2);
-        map.put(ArmorType.BODY, 5);
-    }), 9, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.1F, ItemTags.REPAIRS_IRON_ARMOR, HEAVY_ASSET);
 
     private ModMaterials() {}
 }

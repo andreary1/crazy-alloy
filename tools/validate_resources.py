@@ -79,7 +79,7 @@ for p in glob.glob(f"{D}/recipe/**/*.json", recursive=True) + glob.glob(f"{D}/lo
     text = re.sub(r'"parent": "[^"]+"', "", open(p).read())
     for ref in re.findall(rf'"({NS}:[a-z_/]+)"', text):
         path = ref.split(":")[1]
-        if "/" in path or path in entities or path in ("sweet_forest", "jelly_bean_fields", "cookie_hut", "gingerbread_tower", "gingerbread_fortress", "ice_cream_truck", "chocolate_factory"):
+        if "/" in path or path in entities or path in ("sweet_forest", "jelly_bean_fields", "candy_cave", "cookie_hut", "gingerbread_tower", "gingerbread_fortress", "ice_cream_truck", "chocolate_factory", "ice_cream_machine"):
             continue
         check_ref(os.path.relpath(p, D), ref)
 

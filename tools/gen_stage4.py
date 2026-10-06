@@ -37,7 +37,7 @@ def jigsaw(name, adaptation, spacing_table, salt):
 def gen_worldgen():
     n = lambda *xs: [ns(x) for x in xs]
     tag("worldgen/biome", NS, "has_structure/gingerbread_fortress", n("sweet_forest"))
-    tag("worldgen/biome", NS, "has_structure/ice_cream_truck", n("sweet_forest", "jelly_bean_fields"))
+    tag("worldgen/biome", NS, "has_structure/ice_cream_truck", n("sweet_forest"))
     # The fortress is big and rare; beard_box gives it a solid foundation on uneven ground.
     jigsaw("gingerbread_fortress", "beard_box", {"rare": (64, 28), "normal": (44, 20), "common": (30, 12)}, 774231509)
     jigsaw("ice_cream_truck", "beard_thin", {"rare": (40, 16), "normal": (26, 10), "common": (16, 6)}, 1926114083)
@@ -58,7 +58,6 @@ def gen_loot():
             {"type": "minecraft:empty", "weight": 6},
             {"type": "minecraft:item", "name": f"{NS}:jelly_bazooka", "weight": 1, "functions": [
                 {"function": "minecraft:set_damage", "damage": {"type": "minecraft:uniform", "min": 0.4, "max": 0.9}}]},
-            {"type": "minecraft:item", "name": f"{NS}:heavy_boots", "weight": 1},
             {"type": "minecraft:item", "name": "minecraft:golden_apple", "weight": 2}]}])
     # Quarters: what a gingerbread man keeps by his bed.
     table("gingerbread_fortress_quarters", [

@@ -283,7 +283,7 @@ def truck():
     east end. The north side opens into a big serving window with a white counter that sticks out and pink glass at
     its edges, between two pink banners with ice cream cones (both long sides have the banners). Stepped pink and
     white roof with a giant leaning ice cream on top. Inside (revival proposal): the Ice Cream Vendor, an ice cream
-    machine and ingredient storage."""
+    machine (the Ice Cream Machine since stage 5) and ingredient storage."""
     W, H, D = 11, 14, 7
     t = Template(W, H, D)
     WH, PK = "minecraft:white_concrete", "minecraft:pink_concrete"
@@ -349,11 +349,9 @@ def truck():
                 t.put(x, 12, z, "minecraft:white_wool")
     t.put(5, 13, 3, "minecraft:white_wool")
 
-    # inside: ice cream machine, storage, a lamp and the door at the back
-    t.put(1, 2, 4, "minecraft:iron_block")
-    t.put(1, 3, 4, "minecraft:powder_snow_cauldron", level="3")
-    t.put(2, 2, 4, "minecraft:quartz_block")
-    t.put(2, 3, 4, "minecraft:lever", face="floor", facing="south", powered="false")
+    # inside: the Ice Cream Machine (stage 5) on its counter facing the vendor, storage, a lamp and the door at the back
+    t.put(1, 2, 4, "minecraft:quartz_block")
+    t.put(2, 2, 4, "ice_cream_machine", nbt=Compound({"id": String(f"{NS}:ice_cream_machine")}), facing="north")
     t.put(5, 2, 4, "minecraft:chest", nbt=container("chest", "ice_cream_truck"), facing="north", type="single", **NOT_WET)
     t.put(6, 2, 4, "minecraft:barrel", nbt=container("barrel", "ice_cream_truck"), facing="north", open="false")
     t.put(4, 5, 3, "minecraft:lantern", hanging="true", **NOT_WET)

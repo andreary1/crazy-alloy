@@ -41,6 +41,12 @@ public final class ModSounds {
     public static final DeferredHolder<SoundEvent, SoundEvent> GINGERBREAD_KING_SLAM = register("entity.gingerbread_king.slam");
     public static final DeferredHolder<SoundEvent, SoundEvent> GINGERBREAD_KING_SUMMON = register("entity.gingerbread_king.summon");
 
+    // Stage 5: Impostor Cake and Ice Cream Machine.
+    public static final MobSounds IMPOSTOR_CAKE = mob("impostor_cake");
+    public static final DeferredHolder<SoundEvent, SoundEvent> IMPOSTOR_CAKE_REVEAL = register("entity.impostor_cake.reveal");
+    public static final DeferredHolder<SoundEvent, SoundEvent> IMPOSTOR_CAKE_CHOMP = register("entity.impostor_cake.chomp");
+    public static final DeferredHolder<SoundEvent, SoundEvent> ICE_CREAM_MACHINE_SERVE = register("block.ice_cream_machine.serve");
+
     public record MobSounds(DeferredHolder<SoundEvent, SoundEvent> ambient, DeferredHolder<SoundEvent, SoundEvent> hurt,
                             DeferredHolder<SoundEvent, SoundEvent> death) {}
 

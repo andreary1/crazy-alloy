@@ -573,5 +573,100 @@
         "volume": 1.0
       }
     ]
+  },
+  "entity.impostor_cake.ambient": {
+    "subtitle": "subtitles.crazyalloy_revival.impostor_cake.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:mob/slime/small1",
+        "pitch": 0.7,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/slime/small2",
+        "pitch": 0.7,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.impostor_cake.hurt": {
+    "subtitle": "subtitles.crazyalloy_revival.impostor_cake.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:mob/slime/small3",
+        "pitch": 0.8,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/slime/small4",
+        "pitch": 0.8,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.impostor_cake.death": {
+    "subtitle": "subtitles.crazyalloy_revival.impostor_cake.death",
+    "sounds": [
+      {
+        "name": "minecraft:mob/slime/big1",
+        "pitch": 0.9,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.impostor_cake.reveal": {
+    "subtitle": "subtitles.crazyalloy_revival.impostor_cake.reveal",
+    "sounds": [
+      {
+        "name": "minecraft:mob/ravager/stun1",
+        "pitch": 1.4,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:mob/ravager/stun2",
+        "pitch": 1.4,
+        "volume": 1.0
+      }
+    ]
+  },
+  "entity.impostor_cake.chomp": {
+    "subtitle": "subtitles.crazyalloy_revival.impostor_cake.chomp",
+    "sounds": [
+      {
+        "name": "minecraft:random/eat1",
+        "pitch": 0.6,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:random/eat2",
+        "pitch": 0.6,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:random/eat3",
+        "pitch": 0.6,
+        "volume": 1.0
+      }
+    ]
+  },
+  "block.ice_cream_machine.serve": {
+    "subtitle": "subtitles.crazyalloy_revival.ice_cream_machine.serve",
+    "sounds": [
+      {
+        "name": "minecraft:block/honeyblock/slide1",
+        "pitch": 1.2,
+        "volume": 0.8
+      },
+      {
+        "name": "minecraft:block/honeyblock/slide2",
+        "pitch": 1.2,
+        "volume": 0.8
+      },
+      {
+        "name": "minecraft:block/honeyblock/slide3",
+        "pitch": 1.2,
+        "volume": 0.8
+      }
+    ]
   }
 }

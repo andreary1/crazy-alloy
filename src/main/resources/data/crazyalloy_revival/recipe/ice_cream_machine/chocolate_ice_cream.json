@@ -1,0 +1,9 @@
+{
+  "type": "crazyalloy_revival:ice_cream_machine",
+  "flavor": "crazyalloy_revival:cocoa_powder",
+  "result": {
+    "id": "crazyalloy_revival:chocolate_ice_cream"
+  },
+  "processing_time": 80,
+  "experience": 0.2
+}

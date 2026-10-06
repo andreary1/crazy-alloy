@@ -2,6 +2,7 @@ package com.crazyalloy.revival.registry;
 
 import com.crazyalloy.revival.CrazyAlloyRevival;
 import com.crazyalloy.revival.recipe.ChocolateFactoryRecipe;
+import com.crazyalloy.revival.recipe.IceCreamMachineRecipe;
 import java.util.function.Supplier;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeBookCategory;
@@ -19,6 +20,13 @@ public final class ModRecipes {
     public static final Supplier<RecipeSerializer<ChocolateFactoryRecipe>> CHOCOLATE_FACTORY_SERIALIZER = RECIPE_SERIALIZERS.register("chocolate_factory",
             () -> new RecipeSerializer<>(ChocolateFactoryRecipe.CODEC, ChocolateFactoryRecipe.STREAM_CODEC));
     public static final Supplier<RecipeBookCategory> CHOCOLATE_FACTORY_CATEGORY = RECIPE_BOOK_CATEGORIES.register("chocolate_factory",
+            RecipeBookCategory::new);
+
+    public static final Supplier<RecipeType<IceCreamMachineRecipe>> ICE_CREAM_MACHINE_TYPE = RECIPE_TYPES.register("ice_cream_machine",
+            () -> RecipeType.simple(CrazyAlloyRevival.id("ice_cream_machine")));
+    public static final Supplier<RecipeSerializer<IceCreamMachineRecipe>> ICE_CREAM_MACHINE_SERIALIZER = RECIPE_SERIALIZERS.register("ice_cream_machine",
+            () -> new RecipeSerializer<>(IceCreamMachineRecipe.CODEC, IceCreamMachineRecipe.STREAM_CODEC));
+    public static final Supplier<RecipeBookCategory> ICE_CREAM_MACHINE_CATEGORY = RECIPE_BOOK_CATEGORIES.register("ice_cream_machine",
             RecipeBookCategory::new);
 
     private ModRecipes() {}
