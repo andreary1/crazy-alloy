@@ -173,10 +173,9 @@ def spawn_egg(name, base, spots):
     save(art(EGG, pal), f"item/{name}_spawn_egg.png")
 
 def spawn_eggs():
-    for fl in ("chocolate", "vanilla", "strawberry", "mint"):
-        f = FLAVOURS[fl]
-        spawn_egg(f"{fl}_ice_cream_zombie", f["base"], EYE)
-        spawn_egg(f"living_{fl}_ice_cream", WAFER, f["base"])
+    # One egg per creature; the flavour is picked when it spawns.
+    spawn_egg("ice_cream_zombie", FLAVOURS["chocolate"]["base"], FLAVOURS["strawberry"]["base"])
+    spawn_egg("living_ice_cream", WAFER, FLAVOURS["mint"]["base"])
     spawn_egg("ice_cream_beast", FLAVOURS["vanilla"]["base"], FLAVOURS["strawberry"]["dark"])
     spawn_egg("ice_cream_gargoyle", FLAVOURS["chocolate"]["base"], hexc("d4358f"))
     spawn_egg("angry_ice_cream_cone", WAFER, hexc("b3261e"))
@@ -229,7 +228,7 @@ def zombies():
             "head": {"side": cream(f, chips=chips), "front": face(f, [(1, 3), (5, 3)], mouth=(2, 5, 3))},
             "body": body, "arm": cream(f, chips=chips), "leg": cream(f, chips=chips),
         }
-        paint(f"{fl}_ice_cream_zombie", "IceCreamZombieModel.java", 64, 32, painters)
+        paint(f"ice_cream_zombie_{fl}", "IceCreamZombieModel.java", 64, 32, painters)
 
 # ================================================================== Ice Cream Beast (128x64)
 def beast():
@@ -292,7 +291,7 @@ def living():
                          "top": fill(shade(f["dark"], 0.9))},
             "cone_mid": wafer, "cone_tip": wafer, "leg": leg, "foot": fill(hexc("e6d6bc")),
         }
-        paint(f"living_{fl}_ice_cream", "LivingIceCreamModel.java", 64, 32, painters)
+        paint(f"living_ice_cream_{fl}", "LivingIceCreamModel.java", 64, 32, painters)
 
 def angry_cone():
     leg = lambda x, y, w, h: hexc("fff4de") if y < h - 1 else hexc("e6d6bc")

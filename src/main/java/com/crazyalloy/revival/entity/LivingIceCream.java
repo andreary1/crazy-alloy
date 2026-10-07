@@ -7,10 +7,15 @@ import com.crazyalloy.revival.registry.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -18,6 +23,7 @@ import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
@@ -30,15 +36,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Living Ice Cream (stage 6): a wafer cone on two thin legs with a cube of ice cream on top, in chocolate, vanilla,
- * strawberry or mint (one entity type per flavour). Harmless; it wanders the Ice Cream Plains.
+ * strawberry or mint (a variant of one entity type). Harmless; it wanders the Ice Cream Plains.
  * <p>
  * Using an empty Wafer Cone on it scoops its ice cream: the player gets an ice cream of that flavour, the cone in hand
  * is used up, and the creature is replaced by an Angry Ice Cream Cone that turns on the player.
  */
-public class LivingIceCream extends PathfinderMob {
+public class LivingIceCream extends PathfinderMob implements FlavoredMob {
+    private static final EntityDataAccessor<Integer> DATA_FLAVOR =
+            SynchedEntityData.defineId(LivingIceCream.class, EntityDataSerializers.INT);
     public LivingIceCream(EntityType<? extends PathfinderMob> type, Level level) {
         super(type, level);
     }
@@ -51,8 +62,55 @@ public class LivingIceCream extends PathfinderMob {
         return SpawnRules.brightGround(level, pos) && SpawnRules.chance(reason, random, RevivalConfig.LIVING_ICE_CREAM_SPAWN_CHANCE::get);
     }
 
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_FLAVOR, 0);
+    }
+
+    @Override
     public IceCreamFlavor flavor() {
-        return IceCreamFlavor.of(this.getType());
+        return IceCreamFlavor.byIndex(this.entityData.get(DATA_FLAVOR));
+    }
+
+    public void setFlavor(IceCreamFlavor flavor) {
+        this.entityData.set(DATA_FLAVOR, flavor.ordinal());
+    }
+
+    /** Natural spawns, spawn eggs and /summon without a "Flavor" get a random flavour. */
+    @Override
+    public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor level,
+            DifficultyInstance difficulty, EntitySpawnReason reason, @Nullable SpawnGroupData groupData) {
+        this.setFlavor(IceCreamFlavor.random(level.getRandom()));
+        return super.finalizeSpawn(level, difficulty, reason, groupData);
+    }
+
+    @Override
+    protected void addAdditionalSaveData(ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putString("Flavor", this.flavor().id());
+    }
+
+    @Override
+    protected void readAdditionalSaveData(ValueInput input) {
+        super.readAdditionalSaveData(input);
+        input.getString("Flavor").ifPresent(id -> this.setFlavor(IceCreamFlavor.byId(id)));
+    }
+
+    /** "Chocolate Ice Cream Zombie" and so on: the flavour is part of the name. */
+    @Override
+    protected Component getTypeName() {
+        return Component.translatable(this.getType().getDescriptionId() + "." + this.flavor().id());
+    }
+
+    /** The flavour's own ice cream (the shared loot table has the rest). */
+    @Override
+    protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean killedByPlayer) {
+        super.dropCustomDeathLoot(level, source, killedByPlayer);
+        int count = this.random.nextInt(2);
+        if (count > 0) {
+            this.spawnAtLocation(level, new ItemStack(this.flavor().iceCream(), count));
+        }
     }
 
     @Override

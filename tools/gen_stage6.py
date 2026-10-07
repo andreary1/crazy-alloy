@@ -14,9 +14,8 @@ from gen_resources import NS, A, D, write, ns, flat_item, item_def, simple_state
 W = f"{D}/worldgen"
 HERE = os.path.dirname(os.path.abspath(__file__))
 FLAVOURS = ("chocolate", "vanilla", "strawberry", "mint")
-ZOMBIES = [f"{f}_ice_cream_zombie" for f in FLAVOURS]
-LIVING = [f"living_{f}_ice_cream" for f in FLAVOURS]
-EGGS = ZOMBIES + ["ice_cream_beast", "ice_cream_gargoyle"] + LIVING + ["angry_ice_cream_cone", "ice_cream_dragon"]
+# The zombie and the living ice cream are one entity type each; the flavour is a variant (IceCreamFlavor).
+EGGS = ["ice_cream_zombie", "ice_cream_beast", "ice_cream_gargoyle", "living_ice_cream", "angry_ice_cream_cone", "ice_cream_dragon"]
 BLOCKS = [f"{f}_ice_cream_block" for f in ("vanilla", "chocolate", "strawberry", "mint")]
 
 # =================================================================== assets
@@ -79,9 +78,9 @@ def gen_loot():
         return p
     def entity(name, pools):
         write(f"{D}/loot_table/entities/{name}.json", {"type": "minecraft:entity", "random_sequence": f"{NS}:entities/{name}", "pools": pools})
-    for f in FLAVOURS:
-        entity(f"{f}_ice_cream_zombie", [pool(f"{f}_ice_cream", 0.0, 1.0), pool("minecraft:sugar", 0.0, 2.0)])
-        entity(f"living_{f}_ice_cream", [pool(f"{f}_ice_cream", 0.0, 1.0), pool("wafer_cone", 0.0, 1.0)])
+    # The flavour's own ice cream is dropped in code (dropCustomDeathLoot); the tables hold what all flavours share.
+    entity("ice_cream_zombie", [pool("minecraft:sugar", 0.0, 2.0)])
+    entity("living_ice_cream", [pool("wafer_cone", 0.0, 1.0)])
     entity("ice_cream_beast", [pool("vanilla_ice_cream", 0.0, 2.0), pool("chocolate_ice_cream", 0.0, 2.0), pool("strawberry_ice_cream", 0.0, 2.0),
                                pool("mint_ice_cream", 0.0, 2.0), pool("wafer_cone", 1.0, 2.0)])
     entity("ice_cream_gargoyle", [pool("wafer_cone", 0.0, 2.0), pool("minecraft:sugar", 1.0, 3.0)])
@@ -114,7 +113,7 @@ def gen_tags():
     tag("item", NS, "sweets", n("mint_ice_cream", "ultimate_ice_cream"))
     tag("worldgen/biome", NS, "has_structure/ice_cream_nest", n("ice_cream_plains"))
     tag("worldgen/biome", NS, "is_ice_cream", n("ice_cream_plains"))
-    tag("entity_type", NS, "ice_cream_creatures", n(*ZOMBIES, *LIVING, "ice_cream_beast", "ice_cream_gargoyle", "angry_ice_cream_cone", "ice_cream_dragon"))
+    tag("entity_type", NS, "ice_cream_creatures", n("ice_cream_zombie", "living_ice_cream", "ice_cream_beast", "ice_cream_gargoyle", "angry_ice_cream_cone", "ice_cream_dragon"))
 
 # =================================================================== worldgen
 def spawn(t, w, lo, hi):
@@ -216,8 +215,8 @@ def gen_worldgen():
         "spawn_costs": {},
         "spawners": {
             "ambient": [], "axolotls": [], "misc": [], "underground_water_creature": [], "water_ambient": [], "water_creature": [],
-            "creature": [spawn(l, 10, 1, 3) for l in LIVING],
-            "monster": [spawn(z, 40, 2, 4) for z in ZOMBIES] + [spawn("ice_cream_gargoyle", 25, 1, 2), spawn("ice_cream_beast", 8, 1, 1),
+            "creature": [spawn("living_ice_cream", 40, 1, 3)],
+            "monster": [spawn("ice_cream_zombie", 160, 2, 4)] + [spawn("ice_cream_gargoyle", 25, 1, 2), spawn("ice_cream_beast", 8, 1, 1),
                                                                spawn("angry_ice_cream_cone", 12, 1, 3)]},
         "temperature": 0.3})
 

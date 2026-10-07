@@ -192,9 +192,11 @@ baunilha, camadas de chocolate aparecendo nos cortes, manchas de morango e menta
 (nível do mar 40), pináculos de três sabores (base branca, meio rosa, topo marrom, afinando em degraus), céu e névoa creme
 com um brilho lilás no ar.
 
-**Criaturas**: Zumbis de Sorvete (4 sabores, 20 de vida), Fera de Sorvete (100 de vida; renova Velocidade, Força,
-Resistência e Regeneração em combate), Gárgula de Sorvete (voa, 30 de vida, dano por contato), Sorvete Vivo (4 sabores;
-uma Casquinha nele dá o sorvete do sabor, gasta a casquinha e deixa uma Casquinha Raivosa no lugar).
+**Criaturas**: Zumbi de Sorvete (20 de vida), Fera de Sorvete (100 de vida, grande; renova Velocidade, Força,
+Resistência e Regeneração em combate), Gárgula de Sorvete (voa, 30 de vida, dano por contato), Sorvete Vivo (uma Casquinha
+nele dá o sorvete do sabor, gasta a casquinha e deixa uma Casquinha Raivosa no lugar). O Zumbi e o Sorvete Vivo têm um
+ovo gerador cada; o sabor (chocolate, baunilha, morango ou menta) é uma variante sorteada ao nascer, com textura, nome e
+sorvete próprios.
 
 **Ninho de Sorvete e Dragão de Sorvete**: plataforma de obsidiana com borda baixa sobre um monte de blocos de sorvete
 misturados, com escada e o Ovo do Dragão no centro, nas Planícies de Sorvete. Clique com o botão direito no ovo: 3 s depois
@@ -256,7 +258,7 @@ se revela ao apanhar; Máquina de Sorvete faz 2 sorvetes de morango com um balde
 o Caminhão tem a máquina; Botas Pesadas fora do registro, Caminhão só na Floresta Doce, Creeper de Bubbaloo na
 caverna, tubarão e rinoceronte maiores. As notas da 0.5.0-alpha listam o que foi testado à mão.
 
-Etapa 6 (15 testes novos, 49 no total): as 11 criaturas novas rodando IA (vida de zumbi, Fera e Gárgula); receitas do
+Etapa 6 (16 testes novos, 50 no total; inclui sabores como variantes e o tamanho da Fera e do Dragão): as 11 criaturas novas rodando IA (vida de zumbi, Fera e Gárgula); receitas do
 Sorvete Supremo e do bloco; Amuleto acende a moldura (e o portal some ao quebrar a moldura), não acende moldura incompleta
 nem de obsidiana; moldura de saída construída e acesa; Sorveteiro do nível 1 ao 5 vendendo o Amuleto; Casquinha no Sorvete
 Vivo; buffs da Fera; Gárgula acertando o alvo; ovo chocando o Dragão em 60 ticks; rajada de bolas de fogo; Regeneração e

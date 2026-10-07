@@ -233,7 +233,7 @@ public class IceCreamDragon extends Monster implements AnimatedMob {
                 this.startRoar();
             } else if (this.volleyCooldown <= 0 && dist < 32.0 * 32.0 && this.hasLineOfSight(target)) {
                 // At range it always spits fire; in a close fight only one time in three, otherwise it keeps biting.
-                if (dist > 5.0 * 5.0 || this.random.nextInt(3) == 0) {
+                if (dist > 7.0 * 7.0 || this.random.nextInt(3) == 0) {
                     this.startVolley();
                 } else {
                     this.volleyCooldown = 40;
@@ -264,7 +264,7 @@ public class IceCreamDragon extends Monster implements AnimatedMob {
     /** Where the fireballs come out: in front of the head, at the end of the neck. */
     public Vec3 mouthPosition() {
         Vec3 look = Vec3.directionFromRotation(0.0F, this.yBodyRot);
-        return this.position().add(look.x * 2.6, 2.7, look.z * 2.6);
+        return this.position().add(look.x * 3.9, 4.0, look.z * 3.9);
     }
 
     private void shootFireball(ServerLevel level, LivingEntity target) {
@@ -312,7 +312,7 @@ public class IceCreamDragon extends Monster implements AnimatedMob {
         EntityType<?> type = ModEntities.ANGRY_ICE_CREAM_CONE.get();
         for (int tries = 0; tries < 16; tries++) {
             double a = this.random.nextDouble() * Math.PI * 2.0;
-            double r = 2.5 + this.random.nextDouble() * 2.5;
+            double r = 3.5 + this.random.nextDouble() * 3.0;
             int x = Mth.floor(this.getX() + Math.cos(a) * r);
             int z = Mth.floor(this.getZ() + Math.sin(a) * r);
             for (int dy : new int[] {0, 1, -1, 2, -2}) {

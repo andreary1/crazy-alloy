@@ -108,6 +108,7 @@ public final class RevivalGameTests {
         TESTS.put("ice_cream_dragon_drops_ice_creams", RevivalGameTests::dragonLoot);
         TESTS.put("ice_cream_nest_template_has_egg", RevivalGameTests::nestTemplate);
         TESTS.put("stage6_registry_and_worldgen", RevivalGameTests::stage6Registry);
+        TESTS.put("ice_cream_flavors_are_variants", RevivalGameTests::flavorVariants);
     }
 
     private RevivalGameTests() {}
@@ -596,15 +597,21 @@ public final class RevivalGameTests {
 
     private static void stage6MobsTick(GameTestHelper helper) {
         helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
-        List<? extends Mob> mobs = List.of(helper.spawn(ModEntities.CHOCOLATE_ICE_CREAM_ZOMBIE.get(), 1, 1, 1),
-                helper.spawn(ModEntities.VANILLA_ICE_CREAM_ZOMBIE.get(), 3, 1, 1), helper.spawn(ModEntities.STRAWBERRY_ICE_CREAM_ZOMBIE.get(), 5, 1, 1),
-                helper.spawn(ModEntities.MINT_ICE_CREAM_ZOMBIE.get(), 7, 1, 1), helper.spawn(ModEntities.ICE_CREAM_BEAST.get(), 2, 1, 4),
-                helper.spawn(ModEntities.ICE_CREAM_GARGOYLE.get(), 6, 2, 4), helper.spawn(ModEntities.LIVING_CHOCOLATE_ICE_CREAM.get(), 1, 1, 7),
-                helper.spawn(ModEntities.LIVING_VANILLA_ICE_CREAM.get(), 3, 1, 7), helper.spawn(ModEntities.LIVING_STRAWBERRY_ICE_CREAM.get(), 5, 1, 7),
-                helper.spawn(ModEntities.LIVING_MINT_ICE_CREAM.get(), 7, 1, 7), helper.spawn(ModEntities.ANGRY_ICE_CREAM_CONE.get(), 4, 1, 6));
+        List<Mob> mobs = new java.util.ArrayList<>();
+        for (var flavor : com.crazyalloy.revival.entity.IceCreamFlavor.values()) {
+            var zombie = helper.spawn(ModEntities.ICE_CREAM_ZOMBIE.get(), 1 + flavor.ordinal() * 2, 1, 1);
+            zombie.setFlavor(flavor);
+            var living = helper.spawn(ModEntities.LIVING_ICE_CREAM.get(), 1 + flavor.ordinal() * 2, 1, 7);
+            living.setFlavor(flavor);
+            mobs.add(zombie);
+            mobs.add(living);
+        }
+        mobs.add(helper.spawn(ModEntities.ICE_CREAM_BEAST.get(), 2, 1, 4));
+        mobs.add(helper.spawn(ModEntities.ICE_CREAM_GARGOYLE.get(), 7, 2, 4));
+        mobs.add(helper.spawn(ModEntities.ANGRY_ICE_CREAM_CONE.get(), 5, 1, 5));
         helper.assertTrue(mobs.get(0).getMaxHealth() == 20.0F, "ice cream zombies should have 20 health, got " + mobs.get(0).getMaxHealth());
-        helper.assertTrue(mobs.get(4).getMaxHealth() == 100.0F, "the beast should have 100 health, got " + mobs.get(4).getMaxHealth());
-        helper.assertTrue(mobs.get(5).getMaxHealth() == 30.0F, "the gargoyle should have 30 health, got " + mobs.get(5).getMaxHealth());
+        helper.assertTrue(mobs.get(8).getMaxHealth() == 100.0F, "the beast should have 100 health, got " + mobs.get(8).getMaxHealth());
+        helper.assertTrue(mobs.get(9).getMaxHealth() == 30.0F, "the gargoyle should have 30 health, got " + mobs.get(9).getMaxHealth());
         helper.runAfterDelay(100, () -> {
             for (Mob mob : mobs) {
                 helper.assertTrue(mob.isAlive(), mob.getType().toShortString() + " died or was removed while ticking");
@@ -724,7 +731,8 @@ public final class RevivalGameTests {
 
     /** A wafer cone on a living ice cream gives its flavour, uses the cone and leaves an angry cone after the player. */
     private static void livingIceCreamScoop(GameTestHelper helper) {
-        com.crazyalloy.revival.entity.LivingIceCream living = helper.spawn(ModEntities.LIVING_STRAWBERRY_ICE_CREAM.get(), 4, 1, 4);
+        com.crazyalloy.revival.entity.LivingIceCream living = helper.spawn(ModEntities.LIVING_ICE_CREAM.get(), 4, 1, 4);
+        living.setFlavor(com.crazyalloy.revival.entity.IceCreamFlavor.STRAWBERRY);
         ServerPlayer player = survivalMockPlayer(helper);
         player.snapTo(helper.absoluteVec(new Vec3(6.5, 1, 4.5)));
         player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ModItems.WAFER_CONE.get(), 2));
@@ -869,9 +877,56 @@ public final class RevivalGameTests {
         helper.assertTrue(monsters.stream().anyMatch(w -> w.value().type() == ModEntities.ICE_CREAM_BEAST.get()), "no beasts in the Ice Cream Plains");
         helper.assertTrue(monsters.stream().anyMatch(w -> w.value().type() == ModEntities.ICE_CREAM_GARGOYLE.get()), "no gargoyles in the Ice Cream Plains");
         var creatures = plains.value().getMobSettings().getMobs(net.minecraft.world.entity.MobCategory.CREATURE).unwrap();
-        helper.assertTrue(creatures.stream().anyMatch(w -> w.value().type() == ModEntities.LIVING_MINT_ICE_CREAM.get()), "no living ice creams in the Ice Cream Plains");
+        helper.assertTrue(creatures.stream().anyMatch(w -> w.value().type() == ModEntities.LIVING_ICE_CREAM.get()), "no living ice creams in the Ice Cream Plains");
         helper.assertTrue(ModBlocks.CHOCOLATE_ICE_CREAM_BLOCK.get().defaultBlockState().is(net.minecraft.tags.BlockTags.MINEABLE_WITH_SHOVEL),
                 "ice cream blocks should be dug with a shovel");
+        helper.succeed();
+    }
+
+    /**
+     * One zombie type and one living ice cream type with the flavour as a saved variant (one spawn egg each), the
+     * flavour in the name and in the drop; the Beast and the Dragon got bigger.
+     */
+    private static void flavorVariants(GameTestHelper helper) {
+        var items = net.minecraft.core.registries.BuiltInRegistries.ITEM;
+        var types = net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE;
+        for (String old : List.of("chocolate_ice_cream_zombie", "mint_ice_cream_zombie", "living_vanilla_ice_cream", "living_strawberry_ice_cream")) {
+            helper.assertFalse(types.containsKey(CrazyAlloyRevival.id(old)), old + " is still a separate entity type");
+            helper.assertFalse(items.containsKey(CrazyAlloyRevival.id(old + "_spawn_egg")), old + " still has its own spawn egg");
+        }
+        helper.assertTrue(items.containsKey(CrazyAlloyRevival.id("ice_cream_zombie_spawn_egg")) && items.containsKey(CrazyAlloyRevival.id("living_ice_cream_spawn_egg")),
+                "missing the shared spawn eggs");
+        var level = helper.getLevel();
+        // A spawn egg / natural spawn rolls a flavour; over 40 rolls all four should come up.
+        java.util.Set<com.crazyalloy.revival.entity.IceCreamFlavor> rolled = java.util.EnumSet.noneOf(com.crazyalloy.revival.entity.IceCreamFlavor.class);
+        for (int i = 0; i < 40; i++) {
+            var z = ModEntities.ICE_CREAM_ZOMBIE.get().create(level, EntitySpawnReason.SPAWN_ITEM_USE);
+            z.finalizeSpawn(level, level.getCurrentDifficultyAt(helper.absolutePos(BlockPos.ZERO)), EntitySpawnReason.SPAWN_ITEM_USE, null);
+            rolled.add(z.flavor());
+        }
+        helper.assertTrue(rolled.size() == 4, "spawned flavours: " + rolled);
+        // The flavour survives a save and load, and shows in the name.
+        var zombie = helper.spawn(ModEntities.ICE_CREAM_ZOMBIE.get(), 2, 1, 2);
+        zombie.setFlavor(com.crazyalloy.revival.entity.IceCreamFlavor.MINT);
+        var out = net.minecraft.world.level.storage.TagValueOutput.createWithoutContext(net.minecraft.util.ProblemReporter.DISCARDING);
+        zombie.saveWithoutId(out);
+        var copy = ModEntities.ICE_CREAM_ZOMBIE.get().create(level, EntitySpawnReason.LOAD);
+        copy.load(net.minecraft.world.level.storage.TagValueInput.create(net.minecraft.util.ProblemReporter.DISCARDING, level.registryAccess(), out.buildResult()));
+        helper.assertTrue(copy.flavor() == com.crazyalloy.revival.entity.IceCreamFlavor.MINT, "the flavour was not saved, got " + copy.flavor());
+        helper.assertTrue(zombie.getName().getContents() instanceof net.minecraft.network.chat.contents.TranslatableContents t
+                && t.getKey().equals("entity.crazyalloy_revival.ice_cream_zombie.mint"), "the name should carry the flavour: " + zombie.getName());
+        // Killing a mint zombie drops mint ice cream (0-1, so try a few).
+        boolean mint = false;
+        for (int i = 0; i < 12 && !mint; i++) {
+            var z = helper.spawn(ModEntities.ICE_CREAM_ZOMBIE.get(), 6, 1, 6);
+            z.setFlavor(com.crazyalloy.revival.entity.IceCreamFlavor.MINT);
+            z.kill(level);
+            mint = !level.getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(helper.absolutePos(BlockPos.ZERO)).inflate(12),
+                    e -> e.getItem().is(ModItems.MINT_ICE_CREAM.get())).isEmpty();
+        }
+        helper.assertTrue(mint, "12 mint zombies dropped no mint ice cream");
+        helper.assertTrue(ModEntities.ICE_CREAM_BEAST.get().getHeight() > 3.5F, "the beast should be bigger");
+        helper.assertTrue(ModEntities.ICE_CREAM_DRAGON.get().getWidth() > 3.5F && ModEntities.ICE_CREAM_DRAGON.get().getHeight() > 4.5F, "the dragon should be bigger");
         helper.succeed();
     }
 }

@@ -154,16 +154,10 @@ public final class ModItems {
     public static final DeferredItem<SpawnEggItem> GINGERBREAD_KING_SPAWN_EGG = egg("gingerbread_king", ModEntities.GINGERBREAD_KING);
     public static final DeferredItem<SpawnEggItem> ICE_CREAM_VENDOR_SPAWN_EGG = egg("ice_cream_vendor", ModEntities.ICE_CREAM_VENDOR);
     public static final DeferredItem<SpawnEggItem> IMPOSTOR_CAKE_SPAWN_EGG = egg("impostor_cake", ModEntities.IMPOSTOR_CAKE);
-    public static final DeferredItem<SpawnEggItem> CHOCOLATE_ICE_CREAM_ZOMBIE_SPAWN_EGG = egg("chocolate_ice_cream_zombie", ModEntities.CHOCOLATE_ICE_CREAM_ZOMBIE);
-    public static final DeferredItem<SpawnEggItem> VANILLA_ICE_CREAM_ZOMBIE_SPAWN_EGG = egg("vanilla_ice_cream_zombie", ModEntities.VANILLA_ICE_CREAM_ZOMBIE);
-    public static final DeferredItem<SpawnEggItem> STRAWBERRY_ICE_CREAM_ZOMBIE_SPAWN_EGG = egg("strawberry_ice_cream_zombie", ModEntities.STRAWBERRY_ICE_CREAM_ZOMBIE);
-    public static final DeferredItem<SpawnEggItem> MINT_ICE_CREAM_ZOMBIE_SPAWN_EGG = egg("mint_ice_cream_zombie", ModEntities.MINT_ICE_CREAM_ZOMBIE);
+    public static final DeferredItem<SpawnEggItem> ICE_CREAM_ZOMBIE_SPAWN_EGG = egg("ice_cream_zombie", ModEntities.ICE_CREAM_ZOMBIE);
     public static final DeferredItem<SpawnEggItem> ICE_CREAM_BEAST_SPAWN_EGG = egg("ice_cream_beast", ModEntities.ICE_CREAM_BEAST);
     public static final DeferredItem<SpawnEggItem> ICE_CREAM_GARGOYLE_SPAWN_EGG = egg("ice_cream_gargoyle", ModEntities.ICE_CREAM_GARGOYLE);
-    public static final DeferredItem<SpawnEggItem> LIVING_CHOCOLATE_ICE_CREAM_SPAWN_EGG = egg("living_chocolate_ice_cream", ModEntities.LIVING_CHOCOLATE_ICE_CREAM);
-    public static final DeferredItem<SpawnEggItem> LIVING_VANILLA_ICE_CREAM_SPAWN_EGG = egg("living_vanilla_ice_cream", ModEntities.LIVING_VANILLA_ICE_CREAM);
-    public static final DeferredItem<SpawnEggItem> LIVING_STRAWBERRY_ICE_CREAM_SPAWN_EGG = egg("living_strawberry_ice_cream", ModEntities.LIVING_STRAWBERRY_ICE_CREAM);
-    public static final DeferredItem<SpawnEggItem> LIVING_MINT_ICE_CREAM_SPAWN_EGG = egg("living_mint_ice_cream", ModEntities.LIVING_MINT_ICE_CREAM);
+    public static final DeferredItem<SpawnEggItem> LIVING_ICE_CREAM_SPAWN_EGG = egg("living_ice_cream", ModEntities.LIVING_ICE_CREAM);
     public static final DeferredItem<SpawnEggItem> ANGRY_ICE_CREAM_CONE_SPAWN_EGG = egg("angry_ice_cream_cone", ModEntities.ANGRY_ICE_CREAM_CONE);
     public static final DeferredItem<SpawnEggItem> ICE_CREAM_DRAGON_SPAWN_EGG = egg("ice_cream_dragon", ModEntities.ICE_CREAM_DRAGON);
 

@@ -47,7 +47,8 @@ for i in items:
     if not exists(f"assets/{NS}/items/{i}.json"):
         errors.append(f"missing item definition {i}")
 for e in entities - PROJECTILES:
-    if not exists(f"assets/{NS}/textures/entity/{e}.png"):
+    # Variant creatures (Ice Cream Zombie, Living Ice Cream) have one texture per flavour: <id>_<flavour>.png.
+    if not exists(f"assets/{NS}/textures/entity/{e}.png") and not glob.glob(os.path.join(RES, f"assets/{NS}/textures/entity/{e}_*.png")):
         errors.append(f"missing entity texture {e}")
     if not exists(f"data/{NS}/loot_table/entities/{e}.json"):
         errors.append(f"missing entity loot table {e}")
