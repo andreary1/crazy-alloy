@@ -471,4 +471,6 @@ if __name__ == "__main__":
     gen_mobs_v4.main()
     import gen_textures_v5  # tools/gen_textures_v5.py: stage 5 textures (Candy Cave, Ice Cream Machine, Impostor Cake)
     gen_textures_v5.main()
+    import gen_textures_v6  # tools/gen_textures_v6.py: stage 6 textures (Ice Cream Dimension blocks, items and creatures)
+    gen_textures_v6.main()
     print("textures generated")

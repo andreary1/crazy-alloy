@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "crazyalloy_revival:item/chocolate_ice_cream_zombie_spawn_egg"
+  }
+}

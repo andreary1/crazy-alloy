@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "crazyalloy_revival:item/angry_ice_cream_cone_spawn_egg"
+  }
+}

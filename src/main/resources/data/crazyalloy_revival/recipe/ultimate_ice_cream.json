@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": "crazyalloy_revival:mint_ice_cream",
+    "C": "crazyalloy_revival:chocolate_ice_cream",
+    "V": "crazyalloy_revival:vanilla_ice_cream",
+    "S": "crazyalloy_revival:strawberry_ice_cream"
+  },
+  "pattern": [
+    "MC",
+    "VS"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:ultimate_ice_cream",
+    "count": 1
+  }
+}

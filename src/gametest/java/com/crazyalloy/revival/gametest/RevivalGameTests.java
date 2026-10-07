@@ -93,6 +93,21 @@ public final class RevivalGameTests {
         TESTS.put("ice_cream_machine_serves_from_milk_tank", RevivalGameTests::iceCreamMachineServes);
         TESTS.put("ice_cream_truck_template_has_machine", RevivalGameTests::truckHasMachine);
         TESTS.put("stage5_registry_and_tags", RevivalGameTests::stage5Registry);
+        TESTS.put("stage6_mobs_tick_without_crashing", RevivalGameTests::stage6MobsTick);
+        TESTS.put("ultimate_ice_cream_recipe", RevivalGameTests::ultimateRecipe);
+        TESTS.put("ice_cream_amulet_lights_frame", RevivalGameTests::amuletLightsFrame);
+        TESTS.put("ice_cream_amulet_needs_complete_frame", RevivalGameTests::amuletNeedsFrame);
+        TESTS.put("ice_cream_portal_leads_to_dimension", RevivalGameTests::portalDestination);
+        TESTS.put("ice_cream_vendor_levels_up_to_amulet", RevivalGameTests::vendorLevelsUp);
+        TESTS.put("living_ice_cream_scooped_with_cone", RevivalGameTests::livingIceCreamScoop);
+        TESTS.put("ice_cream_beast_buffs_itself", RevivalGameTests::beastBuffs);
+        TESTS.put("ice_cream_gargoyle_flies_and_dives", RevivalGameTests::gargoyleDives);
+        TESTS.put("ice_cream_dragon_egg_summons_dragon", RevivalGameTests::eggSummonsDragon);
+        TESTS.put("ice_cream_dragon_fires_volley", RevivalGameTests::dragonVolley);
+        TESTS.put("ice_cream_dragon_regenerates_and_summons_cones", RevivalGameTests::dragonRegenAndCones);
+        TESTS.put("ice_cream_dragon_drops_ice_creams", RevivalGameTests::dragonLoot);
+        TESTS.put("ice_cream_nest_template_has_egg", RevivalGameTests::nestTemplate);
+        TESTS.put("stage6_registry_and_worldgen", RevivalGameTests::stage6Registry);
     }
 
     private RevivalGameTests() {}
@@ -574,6 +589,289 @@ public final class RevivalGameTests {
         helper.assertTrue(creepers, "Bubbaloo Creepers must spawn in Candy Caves");
         helper.assertTrue(ModEntities.JELLY_SHARK.get().getWidth() > 1.5F && ModEntities.BROWN_SUGAR_RHINO.get().getWidth() > 1.4F,
                 "the shark and the rhino should be bigger than in 0.4.0");
+        helper.succeed();
+    }
+
+    // ------------------------------------------------------------------ stage 6
+
+    private static void stage6MobsTick(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        List<? extends Mob> mobs = List.of(helper.spawn(ModEntities.CHOCOLATE_ICE_CREAM_ZOMBIE.get(), 1, 1, 1),
+                helper.spawn(ModEntities.VANILLA_ICE_CREAM_ZOMBIE.get(), 3, 1, 1), helper.spawn(ModEntities.STRAWBERRY_ICE_CREAM_ZOMBIE.get(), 5, 1, 1),
+                helper.spawn(ModEntities.MINT_ICE_CREAM_ZOMBIE.get(), 7, 1, 1), helper.spawn(ModEntities.ICE_CREAM_BEAST.get(), 2, 1, 4),
+                helper.spawn(ModEntities.ICE_CREAM_GARGOYLE.get(), 6, 2, 4), helper.spawn(ModEntities.LIVING_CHOCOLATE_ICE_CREAM.get(), 1, 1, 7),
+                helper.spawn(ModEntities.LIVING_VANILLA_ICE_CREAM.get(), 3, 1, 7), helper.spawn(ModEntities.LIVING_STRAWBERRY_ICE_CREAM.get(), 5, 1, 7),
+                helper.spawn(ModEntities.LIVING_MINT_ICE_CREAM.get(), 7, 1, 7), helper.spawn(ModEntities.ANGRY_ICE_CREAM_CONE.get(), 4, 1, 6));
+        helper.assertTrue(mobs.get(0).getMaxHealth() == 20.0F, "ice cream zombies should have 20 health, got " + mobs.get(0).getMaxHealth());
+        helper.assertTrue(mobs.get(4).getMaxHealth() == 100.0F, "the beast should have 100 health, got " + mobs.get(4).getMaxHealth());
+        helper.assertTrue(mobs.get(5).getMaxHealth() == 30.0F, "the gargoyle should have 30 health, got " + mobs.get(5).getMaxHealth());
+        helper.runAfterDelay(100, () -> {
+            for (Mob mob : mobs) {
+                helper.assertTrue(mob.isAlive(), mob.getType().toShortString() + " died or was removed while ticking");
+            }
+            helper.succeed();
+        });
+    }
+
+    /** Mint and chocolate on top, vanilla and strawberry below make one Ultimate Ice Cream; four of a flavour make its block. */
+    private static void ultimateRecipe(GameTestHelper helper) {
+        var level = helper.getLevel();
+        var recipes = level.getServer().getRecipeManager();
+        var input = net.minecraft.world.item.crafting.CraftingInput.of(2, 2, List.of(new ItemStack(ModItems.MINT_ICE_CREAM.get()),
+                new ItemStack(ModItems.CHOCOLATE_ICE_CREAM.get()), new ItemStack(ModItems.VANILLA_ICE_CREAM.get()), new ItemStack(ModItems.STRAWBERRY_ICE_CREAM.get())));
+        ItemStack out = recipes.getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, input, level)
+                .map(h -> h.value().assemble(input)).orElse(ItemStack.EMPTY);
+        helper.assertTrue(out.is(ModItems.ULTIMATE_ICE_CREAM.get()), "the 2x2 of four flavours did not make an Ultimate Ice Cream: " + out);
+        ItemStack choc = new ItemStack(ModItems.CHOCOLATE_ICE_CREAM.get());
+        var blockInput = net.minecraft.world.item.crafting.CraftingInput.of(2, 2, List.of(choc.copy(), choc.copy(), choc.copy(), choc.copy()));
+        ItemStack block = recipes.getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, blockInput, level)
+                .map(h -> h.value().assemble(blockInput)).orElse(ItemStack.EMPTY);
+        helper.assertTrue(block.is(ModItems.CHOCOLATE_ICE_CREAM_BLOCK.get()), "4 chocolate ice creams did not make the block: " + block);
+        helper.succeed();
+    }
+
+    /** A 4 x 5 frame of Chocolate Ice Cream Blocks on the X axis, opening 2 x 3 starting at (3, 2, 4). */
+    private static void buildFrame(GameTestHelper helper) {
+        BlockState frame = ModBlocks.CHOCOLATE_ICE_CREAM_BLOCK.get().defaultBlockState();
+        for (int x = 2; x <= 5; x++) {
+            for (int y = 1; y <= 5; y++) {
+                boolean edge = x == 2 || x == 5 || y == 1 || y == 5;
+                helper.setBlock(new BlockPos(x, y, 4), edge ? frame : net.minecraft.world.level.block.Blocks.AIR.defaultBlockState());
+            }
+        }
+    }
+
+    private static void useAmulet(GameTestHelper helper, BlockPos clicked) {
+        ServerPlayer player = survivalMockPlayer(helper);
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ModItems.ICE_CREAM_AMULET.get()));
+        BlockPos abs = helper.absolutePos(clicked);
+        var hit = new net.minecraft.world.phys.BlockHitResult(Vec3.atCenterOf(abs), net.minecraft.core.Direction.UP, abs, false);
+        player.getMainHandItem().useOn(new net.minecraft.world.item.context.UseOnContext(player, InteractionHand.MAIN_HAND, hit));
+        helper.assertTrue(player.getMainHandItem().is(ModItems.ICE_CREAM_AMULET.get()), "the amulet should not be used up");
+    }
+
+    private static void amuletLightsFrame(GameTestHelper helper) {
+        buildFrame(helper);
+        // Corners are optional, as for a Nether portal.
+        for (BlockPos corner : List.of(new BlockPos(2, 1, 4), new BlockPos(5, 1, 4), new BlockPos(2, 5, 4), new BlockPos(5, 5, 4))) {
+            helper.setBlock(corner, net.minecraft.world.level.block.Blocks.AIR);
+        }
+        useAmulet(helper, new BlockPos(3, 1, 4)); // the top face of the frame's bottom edge, like clicking the inside floor
+        for (int x = 3; x <= 4; x++) {
+            for (int y = 2; y <= 4; y++) {
+                helper.assertBlockPresent(ModBlocks.ICE_CREAM_PORTAL.get(), new BlockPos(x, y, 4));
+            }
+        }
+        // Breaking the frame breaks the portal.
+        helper.setBlock(new BlockPos(5, 3, 4), net.minecraft.world.level.block.Blocks.AIR);
+        helper.runAfterDelay(2, () -> {
+            helper.assertBlockNotPresent(ModBlocks.ICE_CREAM_PORTAL.get(), new BlockPos(4, 3, 4));
+            helper.succeed();
+        });
+    }
+
+    private static void amuletNeedsFrame(GameTestHelper helper) {
+        buildFrame(helper);
+        helper.setBlock(new BlockPos(2, 3, 4), net.minecraft.world.level.block.Blocks.AIR);
+        useAmulet(helper, new BlockPos(3, 1, 4));
+        helper.assertBlockNotPresent(ModBlocks.ICE_CREAM_PORTAL.get(), new BlockPos(3, 2, 4));
+        // Obsidian is the Nether's frame, not ours.
+        buildFrame(helper);
+        for (int y = 1; y <= 5; y++) {
+            helper.setBlock(new BlockPos(2, y, 4), net.minecraft.world.level.block.Blocks.OBSIDIAN);
+        }
+        useAmulet(helper, new BlockPos(3, 1, 4));
+        helper.assertBlockNotPresent(ModBlocks.ICE_CREAM_PORTAL.get(), new BlockPos(3, 2, 4));
+        helper.succeed();
+    }
+
+    /**
+     * The game test server only creates the Overworld (it ignores datapack dimensions), so real travel is checked on
+     * the dev server. Here: the exit builder makes a lit 4 x 5 frame and a found portal is reused.
+     */
+    private static void portalDestination(GameTestHelper helper) {
+        BlockPos near = helper.absolutePos(new BlockPos(3, 1, 4));
+        var opening = com.crazyalloy.revival.worldgen.IceCreamPortals.build(helper.getLevel(), near, net.minecraft.core.Direction.Axis.X);
+        BlockPos bottom = opening.minCorner;
+        helper.assertTrue(opening.axis1Size == 2 && opening.axis2Size == 3, "the exit opening should be 2 x 3");
+        for (int x = 0; x < 2; x++) {
+            for (int y = 0; y < 3; y++) {
+                helper.assertTrue(helper.getLevel().getBlockState(bottom.offset(x, y, 0)).is(ModBlocks.ICE_CREAM_PORTAL.get()), "the exit portal is not lit at " + x + "," + y);
+            }
+        }
+        helper.assertTrue(com.crazyalloy.revival.worldgen.IceCreamPortals.isFrame(helper.getLevel().getBlockState(bottom.offset(-1, 0, 0))), "no frame beside the exit");
+        helper.assertTrue(com.crazyalloy.revival.worldgen.IceCreamPortals.isFrame(helper.getLevel().getBlockState(bottom.below())), "no frame under the exit");
+        // From the Overworld the portal targets the Ice Cream Dimension; the test server has none, so no transition (and no crash).
+        Pig pig = helper.spawn(EntityType.PIG, 1, 1, 1);
+        helper.assertTrue(com.crazyalloy.revival.worldgen.IceCreamPortals.destination(helper.getLevel(), pig, bottom) == null,
+                "without the dimension loaded there should be no destination");
+        helper.succeed();
+    }
+
+    /** Trading experience takes the vendor from level 1 to 5; level 5 sells the amulet for 5 Ultimate Ice Creams. */
+    private static void vendorLevelsUp(GameTestHelper helper) {
+        com.crazyalloy.revival.entity.IceCreamVendor vendor = helper.spawn(ModEntities.ICE_CREAM_VENDOR.get(), 4, 1, 4);
+        helper.assertTrue(vendor.getVendorLevel() == 1, "a new vendor should start at level 1");
+        helper.assertFalse(vendor.getOffers().stream().anyMatch(o -> o.getResult().is(ModItems.ICE_CREAM_AMULET.get())), "a new vendor already sells the amulet");
+        vendor.addTradeXp(10);
+        helper.assertTrue(vendor.getVendorLevel() == 2, "10 xp should reach level 2, got " + vendor.getVendorLevel());
+        vendor.addTradeXp(240);
+        helper.assertTrue(vendor.getVendorLevel() == 5, "250 xp should reach level 5, got " + vendor.getVendorLevel());
+        helper.assertTrue(vendor.getOffers().stream().anyMatch(o -> o.getResult().is(ModItems.ICE_CREAM_AMULET.get())
+                && o.getCostA().is(ModItems.ULTIMATE_ICE_CREAM.get()) && o.getCostA().getCount() == 5), "level 5 does not sell the amulet for 5 Ultimate Ice Creams");
+        helper.succeed();
+    }
+
+    /** A wafer cone on a living ice cream gives its flavour, uses the cone and leaves an angry cone after the player. */
+    private static void livingIceCreamScoop(GameTestHelper helper) {
+        com.crazyalloy.revival.entity.LivingIceCream living = helper.spawn(ModEntities.LIVING_STRAWBERRY_ICE_CREAM.get(), 4, 1, 4);
+        ServerPlayer player = survivalMockPlayer(helper);
+        player.snapTo(helper.absoluteVec(new Vec3(6.5, 1, 4.5)));
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ModItems.WAFER_CONE.get(), 2));
+        living.interact(player, InteractionHand.MAIN_HAND, living.position());
+        helper.assertTrue(player.getMainHandItem().getCount() == 1, "the cone was not used, hand holds " + player.getMainHandItem());
+        helper.assertTrue(player.getInventory().contains(new ItemStack(ModItems.STRAWBERRY_ICE_CREAM.get())), "no strawberry ice cream for the player");
+        helper.assertFalse(living.isAlive(), "the living ice cream is still there");
+        var cones = helper.getLevel().getEntitiesOfClass(com.crazyalloy.revival.entity.AngryIceCreamCone.class, living.getBoundingBox().inflate(2.0));
+        helper.assertTrue(cones.size() == 1, "expected 1 angry cone, found " + cones.size());
+        helper.assertTrue(cones.get(0).getTarget() == player, "the angry cone is not after the player");
+        helper.succeed();
+    }
+
+    private static void beastBuffs(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        com.crazyalloy.revival.entity.IceCreamBeast beast = helper.spawn(ModEntities.ICE_CREAM_BEAST.get(), 2, 1, 4);
+        Mob target = helper.spawn(EntityType.IRON_GOLEM, 7, 1, 4);
+        target.setNoAi(true);
+        beast.setTarget(target);
+        helper.succeedWhen(() -> {
+            helper.assertTrue(beast.hasEffect(MobEffects.SPEED) && beast.hasEffect(MobEffects.STRENGTH)
+                    && beast.hasEffect(MobEffects.RESISTANCE) && beast.hasEffect(MobEffects.REGENERATION), "the beast has not buffed itself");
+        });
+    }
+
+    private static void gargoyleDives(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        com.crazyalloy.revival.entity.IceCreamGargoyle gargoyle = helper.spawn(ModEntities.ICE_CREAM_GARGOYLE.get(), 2, 3, 2);
+        helper.assertTrue(gargoyle.isNoGravity(), "the gargoyle should fly");
+        Mob target = helper.spawn(EntityType.IRON_GOLEM, 6, 1, 6);
+        target.setNoAi(true);
+        gargoyle.setTarget(target);
+        helper.succeedWhen(() -> helper.assertTrue(target.getHealth() < target.getMaxHealth(), "the gargoyle never hit its target"));
+    }
+
+    /** Right-clicking the egg: 60 ticks later the egg is gone and a 300-health dragon stands there. */
+    private static void eggSummonsDragon(GameTestHelper helper) {
+        BlockPos egg = new BlockPos(4, 1, 4);
+        helper.setBlock(egg, ModBlocks.ICE_CREAM_DRAGON_EGG.get());
+        ServerPlayer player = survivalMockPlayer(helper);
+        BlockPos abs = helper.absolutePos(egg);
+        player.snapTo(helper.absoluteVec(new Vec3(1.5, 1, 1.5)));
+        helper.getLevel().getBlockState(abs).useWithoutItem(helper.getLevel(), player,
+                new net.minecraft.world.phys.BlockHitResult(Vec3.atCenterOf(abs), net.minecraft.core.Direction.UP, abs, false));
+        helper.runAfterDelay(com.crazyalloy.revival.block.IceCreamDragonEggBlock.SUMMON_TICKS - 5, () -> {
+            helper.assertBlockPresent(ModBlocks.ICE_CREAM_DRAGON_EGG.get(), egg);
+            helper.assertEntityNotPresent(ModEntities.ICE_CREAM_DRAGON.get());
+        });
+        helper.runAfterDelay(com.crazyalloy.revival.block.IceCreamDragonEggBlock.SUMMON_TICKS + 3, () -> {
+            helper.assertBlockNotPresent(ModBlocks.ICE_CREAM_DRAGON_EGG.get(), egg);
+            helper.assertEntityPresent(ModEntities.ICE_CREAM_DRAGON.get());
+            var dragon = helper.getLevel().getEntitiesOfClass(com.crazyalloy.revival.entity.IceCreamDragon.class, new net.minecraft.world.phys.AABB(abs).inflate(4)).get(0);
+            double expected = com.crazyalloy.revival.config.RevivalConfig.ICE_CREAM_DRAGON_HEALTH.get()
+                    * com.crazyalloy.revival.config.RevivalConfig.MOB_HEALTH_MULTIPLIER.get();
+            helper.assertTrue(Math.abs(dragon.getMaxHealth() - expected) < 0.5,
+                    "the dragon should have about " + expected + " health, got " + dragon.getMaxHealth());
+            helper.assertTrue(dragon.isPersistenceRequired(), "the summoned dragon should not despawn");
+            dragon.discard();
+            helper.succeed();
+        });
+    }
+
+    private static void dragonVolley(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        var dragon = helper.spawn(ModEntities.ICE_CREAM_DRAGON.get(), 1, 1, 4);
+        Mob target = helper.spawn(EntityType.IRON_GOLEM, 8, 1, 4);
+        target.setNoAi(true);
+        // Resistance V blocks all damage but, unlike invulnerability, leaves it a valid target.
+        target.addEffect(new net.minecraft.world.effect.MobEffectInstance(MobEffects.RESISTANCE, 1000, 4));
+        dragon.setTarget(target);
+        helper.succeedWhen(() -> {
+            var balls = helper.getLevel().getEntitiesOfClass(net.minecraft.world.entity.projectile.hurtingprojectile.LargeFireball.class,
+                    new net.minecraft.world.phys.AABB(helper.absolutePos(BlockPos.ZERO)).inflate(16));
+            helper.assertTrue(dragon.isAlive(), "the dragon died or was removed: " + dragon.getRemovalReason());
+            helper.assertFalse(balls.isEmpty(), "the dragon has not fired, busy " + dragon.isBusy() + " target " + dragon.getTarget() + " ticks " + dragon.tickCount);
+            balls.forEach(net.minecraft.world.entity.Entity::discard);
+            dragon.discard();
+        });
+    }
+
+    /** Falling below 2/3 health gives Regeneration; below 80% with a target it roars and calls angry cones. */
+    private static void dragonRegenAndCones(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        var dragon = helper.spawn(ModEntities.ICE_CREAM_DRAGON.get(), 4, 1, 4);
+        Mob target = helper.spawn(EntityType.IRON_GOLEM, 7, 1, 7);
+        target.setNoAi(true);
+        // Resistance V blocks all damage but, unlike invulnerability, leaves it a valid target.
+        target.addEffect(new net.minecraft.world.effect.MobEffectInstance(MobEffects.RESISTANCE, 1000, 4));
+        dragon.setTarget(target);
+        dragon.setHealth(dragon.getMaxHealth() * 0.6F);
+        helper.runAfterDelay(5, () -> helper.assertTrue(dragon.hasEffect(MobEffects.REGENERATION), "no regeneration below 2/3 health"));
+        helper.succeedWhen(() -> {
+            helper.assertTrue(dragon.isAlive(), "the dragon died or was removed: " + dragon.getRemovalReason());
+            var cones = helper.getLevel().getEntitiesOfClass(com.crazyalloy.revival.entity.AngryIceCreamCone.class, dragon.getBoundingBox().inflate(8));
+            helper.assertTrue(cones.size() >= 2, "the dragon did not call its cones, found " + cones.size());
+            cones.forEach(net.minecraft.world.entity.Entity::discard);
+            dragon.discard();
+        });
+    }
+
+    /** 10-15 ice creams of each flavour and 5-10 Ultimate Ice Creams. */
+    private static void dragonLoot(GameTestHelper helper) {
+        var dragon = helper.spawn(ModEntities.ICE_CREAM_DRAGON.get(), 4, 1, 4);
+        dragon.kill(helper.getLevel());
+        helper.runAfterDelay(5, () -> {
+            var items = helper.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class,
+                    new net.minecraft.world.phys.AABB(helper.absolutePos(BlockPos.ZERO)).inflate(12));
+            java.util.function.ToIntFunction<net.minecraft.world.item.Item> count = item -> items.stream()
+                    .filter(e -> e.getItem().is(item)).mapToInt(e -> e.getItem().getCount()).sum();
+            for (var item : List.of(ModItems.CHOCOLATE_ICE_CREAM.get(), ModItems.VANILLA_ICE_CREAM.get(), ModItems.STRAWBERRY_ICE_CREAM.get(), ModItems.MINT_ICE_CREAM.get())) {
+                int n = count.applyAsInt(item);
+                helper.assertTrue(n >= 10 && n <= 15, "expected 10-15 " + item + ", got " + n);
+            }
+            int ultimate = count.applyAsInt(ModItems.ULTIMATE_ICE_CREAM.get());
+            helper.assertTrue(ultimate >= 5 && ultimate <= 10, "expected 5-10 Ultimate Ice Creams, got " + ultimate);
+            helper.succeed();
+        });
+    }
+
+    private static void nestTemplate(GameTestHelper helper) {
+        BlockPos where = helper.absolutePos(new BlockPos(0, 40, 0));
+        placeTemplate(helper, "ice_cream_nest", where);
+        var level = helper.getLevel();
+        helper.assertTrue(level.getBlockState(where.offset(18, 11, 18)).is(ModBlocks.ICE_CREAM_DRAGON_EGG.get()), "no egg in the middle of the nest");
+        helper.assertTrue(level.getBlockState(where.offset(18, 10, 18)).is(net.minecraft.world.level.block.Blocks.OBSIDIAN), "the egg is not on obsidian");
+        helper.assertTrue(level.getBlockState(where.offset(18, 11, 11)).is(net.minecraft.world.level.block.Blocks.OBSIDIAN), "no obsidian rim");
+        helper.assertTrue(level.getBlockState(where.offset(18, 5, 18)).getBlock() instanceof net.minecraft.world.level.block.Block b
+                && net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(b).getPath().endsWith("_ice_cream_block"), "the platform does not stand on ice cream");
+        helper.succeed();
+    }
+
+    /** The dimension and its biome load, the biome hosts the nest and its creatures, and the ice cream machine knows mint. */
+    private static void stage6Registry(GameTestHelper helper) {
+        var access = helper.getLevel().registryAccess();
+        helper.assertTrue(access.lookupOrThrow(Registries.DIMENSION_TYPE).containsKey(CrazyAlloyRevival.id("ice_cream")), "no ice_cream dimension type");
+        helper.assertTrue(access.lookupOrThrow(Registries.NOISE_SETTINGS).containsKey(CrazyAlloyRevival.id("ice_cream")), "no ice_cream noise settings");
+        var biomes = helper.getLevel().registryAccess().lookupOrThrow(Registries.BIOME);
+        var plains = biomes.getOrThrow(com.crazyalloy.revival.worldgen.ModWorldgen.ICE_CREAM_PLAINS);
+        var nestTag = net.minecraft.tags.TagKey.create(Registries.BIOME, CrazyAlloyRevival.id("has_structure/ice_cream_nest"));
+        helper.assertTrue(plains.is(nestTag), "nests must spawn in the Ice Cream Plains");
+        var monsters = plains.value().getMobSettings().getMobs(net.minecraft.world.entity.MobCategory.MONSTER).unwrap();
+        helper.assertTrue(monsters.stream().anyMatch(w -> w.value().type() == ModEntities.ICE_CREAM_BEAST.get()), "no beasts in the Ice Cream Plains");
+        helper.assertTrue(monsters.stream().anyMatch(w -> w.value().type() == ModEntities.ICE_CREAM_GARGOYLE.get()), "no gargoyles in the Ice Cream Plains");
+        var creatures = plains.value().getMobSettings().getMobs(net.minecraft.world.entity.MobCategory.CREATURE).unwrap();
+        helper.assertTrue(creatures.stream().anyMatch(w -> w.value().type() == ModEntities.LIVING_MINT_ICE_CREAM.get()), "no living ice creams in the Ice Cream Plains");
+        helper.assertTrue(ModBlocks.CHOCOLATE_ICE_CREAM_BLOCK.get().defaultBlockState().is(net.minecraft.tags.BlockTags.MINEABLE_WITH_SHOVEL),
+                "ice cream blocks should be dug with a shovel");
         helper.succeed();
     }
 }

@@ -1,0 +1,23 @@
+{
+  "feature": "crazyalloy_revival:ice_cream_pinnacle",
+  "placement": [
+    {
+      "type": "crazyalloy_revival:config_count",
+      "setting": "ice_cream_pinnacles"
+    },
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 3
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "WORLD_SURFACE_WG"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

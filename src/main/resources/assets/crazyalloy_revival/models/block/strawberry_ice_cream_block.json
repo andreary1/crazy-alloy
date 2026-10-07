@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "crazyalloy_revival:block/strawberry_ice_cream_block"
+  }
+}

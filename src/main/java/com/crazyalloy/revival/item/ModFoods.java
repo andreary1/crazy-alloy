@@ -70,6 +70,18 @@ public final class ModFoods {
     public static final Consumable CHOCOLATE_ICE_CREAM_CONSUMABLE = Consumables.defaultFood().consumeSeconds(1.2F)
             .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HASTE, 400, 0)))
             .build();
+    /** Mint (stage 6): fresh and light on the feet, a short Speed boost. */
+    public static final FoodProperties MINT_ICE_CREAM = new FoodProperties.Builder().nutrition(5).saturationModifier(0.5F).build();
+    public static final Consumable MINT_ICE_CREAM_CONSUMABLE = Consumables.defaultFood().consumeSeconds(1.2F)
+            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SPEED, 300, 0)))
+            .build();
+    /** Ultimate Ice Cream (stage 6): four flavours in one cone. Very filling, with a little of every flavour's effect. */
+    public static final FoodProperties ULTIMATE_ICE_CREAM = new FoodProperties.Builder().nutrition(12).saturationModifier(0.9F).alwaysEdible().build();
+    public static final Consumable ULTIMATE_ICE_CREAM_CONSUMABLE = Consumables.defaultFood().consumeSeconds(1.6F)
+            .onConsume(new ApplyStatusEffectsConsumeEffect(java.util.List.of(
+                    new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 400, 0), new MobEffectInstance(MobEffects.REGENERATION, 120, 0),
+                    new MobEffectInstance(MobEffects.HASTE, 600, 0), new MobEffectInstance(MobEffects.SPEED, 600, 0))))
+            .build();
     /** The empty wafer cone is a crunchy snack on its own. */
     public static final FoodProperties WAFER_CONE = new FoodProperties.Builder().nutrition(1).saturationModifier(0.2F).build();
     public static final Consumable WAFER_CONE_CONSUMABLE = Consumables.defaultFood().consumeSeconds(0.8F).build();

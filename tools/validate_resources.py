@@ -20,7 +20,9 @@ blocks = ids("ModBlocks.java", r'register(?:Simple)?Block\("([a-z_]+)"')
 items_simple = ids("ModItems.java", r'(?:simple|food|armor|registerItem|registerSimpleItem)\("([a-z_]+)"')
 items_simple |= {f"{e}_spawn_egg" for e in ids("ModItems.java", r'egg\("([a-z_]+)"')}
 # Blocks without an item form (liquids are placed with buckets).
-NO_ITEM = {"melted_chocolate", "bubbaloo"}
+NO_ITEM = {"melted_chocolate", "bubbaloo", "ice_cream_portal"}
+# Blocks that drop nothing and have no loot table (noLootTable in ModBlocks).
+NO_LOOT = {"ice_cream_portal"}
 # Items whose name comes from the block key (DoubleHighBlockItem with useBlockDescriptionPrefix).
 BLOCK_NAMED = {"sweetwood_door"}
 items = (blocks - NO_ITEM) | items_simple
@@ -39,7 +41,7 @@ def tex_path(ref):
 for b in blocks:
     if not exists(f"assets/{NS}/blockstates/{b}.json"):
         errors.append(f"missing blockstate {b}")
-    if not exists(f"data/{NS}/loot_table/blocks/{b}.json"):
+    if b not in NO_LOOT and not exists(f"data/{NS}/loot_table/blocks/{b}.json"):
         errors.append(f"missing block loot table {b}")
 for i in items:
     if not exists(f"assets/{NS}/items/{i}.json"):
@@ -79,7 +81,7 @@ for p in glob.glob(f"{D}/recipe/**/*.json", recursive=True) + glob.glob(f"{D}/lo
     text = re.sub(r'"parent": "[^"]+"', "", open(p).read())
     for ref in re.findall(rf'"({NS}:[a-z_/]+)"', text):
         path = ref.split(":")[1]
-        if "/" in path or path in entities or path in ("sweet_forest", "jelly_bean_fields", "candy_cave", "cookie_hut", "gingerbread_tower", "gingerbread_fortress", "ice_cream_truck", "chocolate_factory", "ice_cream_machine"):
+        if "/" in path or path in entities or path in ("sweet_forest", "jelly_bean_fields", "candy_cave", "cookie_hut", "gingerbread_tower", "gingerbread_fortress", "ice_cream_truck", "chocolate_factory", "ice_cream_machine", "ice_cream", "ice_cream_nest", "ice_cream_plains"):
             continue
         check_ref(os.path.relpath(p, D), ref)
 

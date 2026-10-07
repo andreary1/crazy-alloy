@@ -7,7 +7,13 @@ import com.crazyalloy.revival.entity.BubbalooCreeper;
 import com.crazyalloy.revival.entity.CandyTubeDog;
 import com.crazyalloy.revival.entity.CottonCandyTornado;
 import com.crazyalloy.revival.entity.GingerbreadKing;
+import com.crazyalloy.revival.entity.AngryIceCreamCone;
+import com.crazyalloy.revival.entity.IceCreamBeast;
+import com.crazyalloy.revival.entity.IceCreamDragon;
+import com.crazyalloy.revival.entity.IceCreamGargoyle;
 import com.crazyalloy.revival.entity.IceCreamVendor;
+import com.crazyalloy.revival.entity.IceCreamZombie;
+import com.crazyalloy.revival.entity.LivingIceCream;
 import com.crazyalloy.revival.entity.ImpostorCake;
 import com.crazyalloy.revival.entity.GingerbreadSoldier;
 import com.crazyalloy.revival.entity.GingerbreadWarrior;
@@ -66,6 +72,32 @@ public final class ModEntities {
     // --- Candy Cave (stage 5) -----------------------------------------------------------------
     public static final DeferredHolder<EntityType<?>, EntityType<ImpostorCake>> IMPOSTOR_CAKE = ENTITIES.registerEntityType(
             "impostor_cake", ImpostorCake::new, MobCategory.MONSTER, b -> b.sized(0.9F, 1.05F).eyeHeight(0.7F).clientTrackingRange(8));
+
+    // --- Ice Cream Dimension (stage 6) --------------------------------------------------------
+    public static final DeferredHolder<EntityType<?>, EntityType<IceCreamZombie>> CHOCOLATE_ICE_CREAM_ZOMBIE = zombie("chocolate_ice_cream_zombie");
+    public static final DeferredHolder<EntityType<?>, EntityType<IceCreamZombie>> VANILLA_ICE_CREAM_ZOMBIE = zombie("vanilla_ice_cream_zombie");
+    public static final DeferredHolder<EntityType<?>, EntityType<IceCreamZombie>> STRAWBERRY_ICE_CREAM_ZOMBIE = zombie("strawberry_ice_cream_zombie");
+    public static final DeferredHolder<EntityType<?>, EntityType<IceCreamZombie>> MINT_ICE_CREAM_ZOMBIE = zombie("mint_ice_cream_zombie");
+    public static final DeferredHolder<EntityType<?>, EntityType<IceCreamBeast>> ICE_CREAM_BEAST = ENTITIES.registerEntityType(
+            "ice_cream_beast", IceCreamBeast::new, MobCategory.MONSTER, b -> b.sized(1.3F, 2.7F).eyeHeight(2.2F).clientTrackingRange(10));
+    public static final DeferredHolder<EntityType<?>, EntityType<IceCreamGargoyle>> ICE_CREAM_GARGOYLE = ENTITIES.registerEntityType(
+            "ice_cream_gargoyle", IceCreamGargoyle::new, MobCategory.MONSTER, b -> b.sized(0.9F, 1.0F).eyeHeight(0.7F).clientTrackingRange(10));
+    public static final DeferredHolder<EntityType<?>, EntityType<LivingIceCream>> LIVING_CHOCOLATE_ICE_CREAM = living("living_chocolate_ice_cream");
+    public static final DeferredHolder<EntityType<?>, EntityType<LivingIceCream>> LIVING_VANILLA_ICE_CREAM = living("living_vanilla_ice_cream");
+    public static final DeferredHolder<EntityType<?>, EntityType<LivingIceCream>> LIVING_STRAWBERRY_ICE_CREAM = living("living_strawberry_ice_cream");
+    public static final DeferredHolder<EntityType<?>, EntityType<LivingIceCream>> LIVING_MINT_ICE_CREAM = living("living_mint_ice_cream");
+    public static final DeferredHolder<EntityType<?>, EntityType<AngryIceCreamCone>> ANGRY_ICE_CREAM_CONE = ENTITIES.registerEntityType(
+            "angry_ice_cream_cone", AngryIceCreamCone::new, MobCategory.MONSTER, b -> b.sized(0.6F, 1.0F).eyeHeight(0.8F).clientTrackingRange(8));
+    public static final DeferredHolder<EntityType<?>, EntityType<IceCreamDragon>> ICE_CREAM_DRAGON = ENTITIES.registerEntityType(
+            "ice_cream_dragon", IceCreamDragon::new, MobCategory.MONSTER, b -> b.sized(2.6F, 3.2F).eyeHeight(3.0F).clientTrackingRange(10).fireImmune());
+
+    private static DeferredHolder<EntityType<?>, EntityType<IceCreamZombie>> zombie(String name) {
+        return ENTITIES.registerEntityType(name, IceCreamZombie::new, MobCategory.MONSTER, b -> b.sized(0.6F, 1.95F).eyeHeight(1.74F).clientTrackingRange(8));
+    }
+
+    private static DeferredHolder<EntityType<?>, EntityType<LivingIceCream>> living(String name) {
+        return ENTITIES.registerEntityType(name, LivingIceCream::new, MobCategory.CREATURE, b -> b.sized(0.6F, 1.1F).eyeHeight(0.85F).clientTrackingRange(8));
+    }
 
     // --- Projectiles ------------------------------------------------------------------------
     public static final DeferredHolder<EntityType<?>, EntityType<BrownSugarBrickEntity>> BROWN_SUGAR_BRICK = ENTITIES.registerEntityType(

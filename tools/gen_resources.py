@@ -571,6 +571,9 @@ def gen_lang():
     import lang_stage5  # tools/lang_stage5.py: stage 5 keys (Candy Cave, Impostor Cake, Ice Cream Machine)
     EN = EN | lang_stage5.EN
     PT = PT | lang_stage5.PT
+    import lang_stage6  # tools/lang_stage6.py: stage 6 keys (Ice Cream Dimension, its creatures and the Ice Cream Dragon)
+    EN = EN | lang_stage6.EN
+    PT = PT | lang_stage6.PT
     for code, data in [("en_us", EN), ("pt_br", PT)]:
         missing = set(EN) - set(data)
         if missing:
@@ -591,5 +594,7 @@ if __name__ == "__main__":
     gen_stage4.generate()
     import gen_stage5  # tools/gen_stage5.py: Candy Cave, Impostor Cake and Ice Cream Machine
     gen_stage5.generate()
+    import gen_stage6  # tools/gen_stage6.py: Ice Cream Dimension, portal, Ice Cream Nest and Ice Cream Dragon
+    gen_stage6.generate()
     gen_lang()
     print("resources generated")

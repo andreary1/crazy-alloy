@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "summoning=false": {
+      "model": "crazyalloy_revival:block/ice_cream_dragon_egg"
+    },
+    "summoning=true": {
+      "model": "crazyalloy_revival:block/ice_cream_dragon_egg"
+    }
+  }
+}

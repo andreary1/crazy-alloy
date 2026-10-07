@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "id": "crazyalloy_revival:vanilla_ice_cream_block",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.crazyalloy_revival.enter_ice_cream_dimension.title"
+    },
+    "description": {
+      "translate": "advancements.crazyalloy_revival.enter_ice_cream_dimension.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "enter": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "crazyalloy_revival:ice_cream"
+      }
+    }
+  },
+  "parent": "crazyalloy_revival:ice_cream_amulet"
+}

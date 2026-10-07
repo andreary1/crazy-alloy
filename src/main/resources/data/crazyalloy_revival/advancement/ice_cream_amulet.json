@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "id": "crazyalloy_revival:ice_cream_amulet",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.crazyalloy_revival.ice_cream_amulet.title"
+    },
+    "description": {
+      "translate": "advancements.crazyalloy_revival.ice_cream_amulet.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "amulet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "crazyalloy_revival:ice_cream_amulet"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "crazyalloy_revival:ultimate_ice_cream"
+}

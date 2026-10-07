@@ -47,6 +47,15 @@ public final class ModSounds {
     public static final DeferredHolder<SoundEvent, SoundEvent> IMPOSTOR_CAKE_CHOMP = register("entity.impostor_cake.chomp");
     public static final DeferredHolder<SoundEvent, SoundEvent> ICE_CREAM_MACHINE_SERVE = register("block.ice_cream_machine.serve");
 
+    // Stage 6: Ice Cream Dimension creatures (provisional re-pitched vanilla sounds).
+    public static final MobSounds ICE_CREAM_ZOMBIE = mob("ice_cream_zombie");
+    public static final MobSounds ICE_CREAM_BEAST = mob("ice_cream_beast");
+    public static final MobSounds ICE_CREAM_GARGOYLE = mob("ice_cream_gargoyle");
+    public static final MobSounds LIVING_ICE_CREAM = mob("living_ice_cream");
+    public static final MobSounds ANGRY_ICE_CREAM_CONE = mob("angry_ice_cream_cone");
+    public static final MobSounds ICE_CREAM_DRAGON = mob("ice_cream_dragon");
+    public static final DeferredHolder<SoundEvent, SoundEvent> ICE_CREAM_DRAGON_ROAR = register("entity.ice_cream_dragon.roar");
+
     public record MobSounds(DeferredHolder<SoundEvent, SoundEvent> ambient, DeferredHolder<SoundEvent, SoundEvent> hurt,
                             DeferredHolder<SoundEvent, SoundEvent> death) {}
 

@@ -53,10 +53,20 @@ import org.jspecify.annotations.Nullable;
  * trading screen with a fixed menu: ice creams and wafer cones for emeralds, and it buys sugar, sweet berries, milk
  * and jelly beans. Every trade restocks once per in-game day. It stays in its truck (home radius 2), never despawns
  * and does not breed. Holds up a cone while someone is trading (synced, so every player sees it).
+ * <p>
+ * Stage 6: the vendor levels up like a villager (same experience thresholds, shown on the trading screen). Each level
+ * adds trades; at level 5 he offers the Ice Cream Amulet for five Ultimate Ice Creams. Vendors from older worlds keep
+ * their first eight trades and start at level 1.
  */
 public class IceCreamVendor extends AbstractVillager implements AnimatedMob {
     private static final EntityDataAccessor<Boolean> DATA_SERVING = SynchedEntityData.defineId(IceCreamVendor.class, EntityDataSerializers.BOOLEAN);
     private static final int RESTOCK_INTERVAL = 24000;
+    public static final int MAX_LEVEL = 5;
+    /** Experience needed to reach levels 2 to 5 (the vanilla villager thresholds). */
+    private static final int[] LEVEL_XP = {0, 10, 70, 150, 250};
+    private int tradeXp;
+    private int vendorLevel = 1;
+    private boolean levelUpPending;
 
     private final AnimationState unused = new AnimationState();
     private float serve, serveO;
@@ -104,7 +114,7 @@ public class IceCreamVendor extends AbstractVillager implements AnimatedMob {
             }
             if (!this.level().isClientSide() && !this.getOffers().isEmpty()) {
                 this.setTradingPlayer(player);
-                this.openTradingScreen(player, this.getDisplayName(), 1);
+                this.openTradingScreen(player, this.getDisplayName(), this.vendorLevel);
             }
             return InteractionResult.SUCCESS;
         }
@@ -124,12 +134,75 @@ public class IceCreamVendor extends AbstractVillager implements AnimatedMob {
         offers.add(new MerchantOffer(new ItemCost(Items.MILK_BUCKET), Optional.empty(), new ItemStack(Items.EMERALD, 2), 6, 2, 0.05F));
     }
 
+    /** Trades unlocked when the vendor reaches {@code level} (2 to 5). */
+    private static void addTradesForLevel(MerchantOffers offers, int level) {
+        switch (level) {
+            case 2 -> {
+                offers.add(sell(ModItems.MINT_ICE_CREAM.get(), 2, 1, 5));
+                offers.add(buy(ModItems.COCOA_POWDER.get(), 8, 5));
+            }
+            case 3 -> {
+                offers.add(sell(ModItems.CHOCOLATE_ICE_CREAM_BLOCK.get(), 1, 3, 10));
+                offers.add(buy(Items.FERN, 10, 10));
+            }
+            case 4 -> {
+                offers.add(sell(ModItems.VANILLA_ICE_CREAM_BLOCK.get(), 1, 3, 15));
+                offers.add(sell(ModItems.ICE_CREAM_MACHINE.get(), 1, 12, 15));
+            }
+            case 5 -> offers.add(new MerchantOffer(new ItemCost(ModItems.ULTIMATE_ICE_CREAM.get(), 5), new ItemStack(ModItems.ICE_CREAM_AMULET.get()),
+                    3, 30, 0.0F));
+            default -> {}
+        }
+    }
+
     private static MerchantOffer sell(ItemLike item, int count, int emeralds) {
-        return new MerchantOffer(new ItemCost(Items.EMERALD, emeralds), new ItemStack(item, count), 12, 1, 0.05F);
+        return sell(item, count, emeralds, 1);
+    }
+
+    private static MerchantOffer sell(ItemLike item, int count, int emeralds, int xp) {
+        return new MerchantOffer(new ItemCost(Items.EMERALD, emeralds), new ItemStack(item, count), 12, xp, 0.05F);
     }
 
     private static MerchantOffer buy(ItemLike item, int count) {
-        return new MerchantOffer(new ItemCost(item, count), new ItemStack(Items.EMERALD), 16, 2, 0.05F);
+        return buy(item, count, 2);
+    }
+
+    private static MerchantOffer buy(ItemLike item, int count, int xp) {
+        return new MerchantOffer(new ItemCost(item, count), new ItemStack(Items.EMERALD), 16, xp, 0.05F);
+    }
+
+    public int getVendorLevel() {
+        return this.vendorLevel;
+    }
+
+    @Override
+    public int getVillagerXp() {
+        return this.tradeXp;
+    }
+
+    /** Adds trading experience; the level-up itself waits until nobody is trading (like a villager). */
+    public void addTradeXp(int xp) {
+        this.tradeXp += xp;
+        if (this.vendorLevel < MAX_LEVEL && this.tradeXp >= LEVEL_XP[this.vendorLevel]) {
+            this.levelUpPending = true;
+        }
+        if (!this.isTrading()) {
+            this.applyLevelUps();
+        }
+    }
+
+    private void applyLevelUps() {
+        boolean levelled = false;
+        while (this.vendorLevel < MAX_LEVEL && this.tradeXp >= LEVEL_XP[this.vendorLevel]) {
+            this.vendorLevel++;
+            addTradesForLevel(this.getOffers(), this.vendorLevel);
+            levelled = true;
+        }
+        this.levelUpPending = false;
+        if (levelled && this.level() instanceof ServerLevel level) {
+            level.sendParticles(net.minecraft.core.particles.ParticleTypes.HAPPY_VILLAGER, this.getX(), this.getY(0.8), this.getZ(), 10, 0.4, 0.4, 0.4, 0.0);
+            this.playSound(SoundEvents.PLAYER_LEVELUP, 0.6F, 1.4F);
+        }
     }
 
     @Override
@@ -137,6 +210,7 @@ public class IceCreamVendor extends AbstractVillager implements AnimatedMob {
         if (offer.shouldRewardExp()) {
             this.level().addFreshEntity(new ExperienceOrb(this.level(), this.getX(), this.getY() + 0.5, this.getZ(), 2 + this.random.nextInt(3)));
         }
+        this.addTradeXp(offer.getXp());
         // Stage 5 (revival proposal): selling an ice cream pulls the lever of the Ice Cream Machine behind the counter.
         ItemStack sold = offer.getResult();
         if (sold.is(ModTags.Items.ICE_CREAMS)) {
@@ -153,6 +227,9 @@ public class IceCreamVendor extends AbstractVillager implements AnimatedMob {
         super.aiStep();
         if (!this.level().isClientSide()) {
             this.entityData.set(DATA_SERVING, this.isTrading());
+            if (this.levelUpPending && !this.isTrading()) {
+                this.applyLevelUps();
+            }
             long time = this.level().getGameTime();
             if (time - this.lastRestock >= RESTOCK_INTERVAL && !this.isTrading()) {
                 this.lastRestock = time;
@@ -188,7 +265,7 @@ public class IceCreamVendor extends AbstractVillager implements AnimatedMob {
 
     @Override
     public boolean showProgressBar() {
-        return false;
+        return true;
     }
 
     @Override
@@ -200,12 +277,16 @@ public class IceCreamVendor extends AbstractVillager implements AnimatedMob {
     protected void addAdditionalSaveData(ValueOutput output) {
         super.addAdditionalSaveData(output);
         output.putLong("LastRestock", this.lastRestock);
+        output.putInt("VendorXp", this.tradeXp);
+        output.putInt("VendorLevel", this.vendorLevel);
     }
 
     @Override
     protected void readAdditionalSaveData(ValueInput input) {
         super.readAdditionalSaveData(input);
         this.lastRestock = input.getLongOr("LastRestock", 0L);
+        this.tradeXp = input.getIntOr("VendorXp", 0);
+        this.vendorLevel = Mth.clamp(input.getIntOr("VendorLevel", 1), 1, MAX_LEVEL);
     }
 
     @Override

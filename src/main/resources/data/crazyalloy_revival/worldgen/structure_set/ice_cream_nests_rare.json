@@ -1,0 +1,21 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "crazyalloy_revival:structure_frequency",
+      "frequency": "rare",
+      "structure": "ice_cream_nest"
+    }
+  ],
+  "structures": [
+    {
+      "structure": "crazyalloy_revival:ice_cream_nest",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 36,
+    "separation": 14,
+    "salt": 1650724817
+  }
+}

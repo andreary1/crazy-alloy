@@ -25,6 +25,7 @@ public record StructureFrequencyCondition(RevivalConfig.StructureFrequency frequ
             case "gingerbread_tower" -> RevivalConfig.GINGERBREAD_TOWER_FREQUENCY;
             case "gingerbread_fortress" -> RevivalConfig.GINGERBREAD_FORTRESS_FREQUENCY;
             case "ice_cream_truck" -> RevivalConfig.ICE_CREAM_TRUCK_FREQUENCY;
+            case "ice_cream_nest" -> RevivalConfig.ICE_CREAM_NEST_FREQUENCY;
             default -> RevivalConfig.COOKIE_HUT_FREQUENCY;
         };
         return setting.get() == frequency;
