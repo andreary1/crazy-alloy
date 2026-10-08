@@ -3,7 +3,9 @@ package com.crazyalloy.revival.registry;
 import com.crazyalloy.revival.CrazyAlloyRevival;
 import com.crazyalloy.revival.block.BubbalooBlock;
 import com.crazyalloy.revival.block.ChocolateFactoryBlock;
+import com.crazyalloy.revival.block.IceCreamDragonEggBlock;
 import com.crazyalloy.revival.block.IceCreamMachineBlock;
+import com.crazyalloy.revival.block.IceCreamPortalBlock;
 import com.crazyalloy.revival.block.InfestedJellyBeanBlock;
 import com.crazyalloy.revival.block.JellyBeanBlock;
 import com.crazyalloy.revival.block.LicoricePlantBlock;
@@ -181,6 +183,21 @@ public final class ModBlocks {
             p -> new AmethystClusterBlock(5.0F, 6.0F, p),
             p -> p.mapColor(MapColor.COLOR_PINK).forceSolidOn().noOcclusion().sound(SoundType.AMETHYST_CLUSTER).strength(1.0F)
                     .lightLevel(state -> 4).pushReaction(PushReaction.DESTROY));
+
+    // --- Ice Cream Dimension (stage 6) ---------------------------------------------------
+    /** Solid scoops of ice cream: the ground of the Ice Cream Dimension and, in chocolate, the frame of its portal. */
+    private static BlockBehaviour.Properties iceCream(BlockBehaviour.Properties p, MapColor color) {
+        return p.mapColor(color).strength(0.8F).sound(SoundType.SNOW).instrument(NoteBlockInstrument.FLUTE);
+    }
+
+    public static final DeferredBlock<Block> VANILLA_ICE_CREAM_BLOCK = BLOCKS.registerSimpleBlock("vanilla_ice_cream_block", p -> iceCream(p, MapColor.TERRACOTTA_WHITE));
+    public static final DeferredBlock<Block> CHOCOLATE_ICE_CREAM_BLOCK = BLOCKS.registerSimpleBlock("chocolate_ice_cream_block", p -> iceCream(p, MapColor.COLOR_BROWN));
+    public static final DeferredBlock<Block> STRAWBERRY_ICE_CREAM_BLOCK = BLOCKS.registerSimpleBlock("strawberry_ice_cream_block", p -> iceCream(p, MapColor.COLOR_PINK));
+    public static final DeferredBlock<Block> MINT_ICE_CREAM_BLOCK = BLOCKS.registerSimpleBlock("mint_ice_cream_block", p -> iceCream(p, MapColor.COLOR_LIGHT_GREEN));
+    public static final DeferredBlock<IceCreamPortalBlock> ICE_CREAM_PORTAL = BLOCKS.registerBlock("ice_cream_portal", IceCreamPortalBlock::new,
+            p -> p.noCollision().randomTicks().strength(-1.0F).sound(SoundType.GLASS).lightLevel(s -> 11).pushReaction(PushReaction.BLOCK).noLootTable());
+    public static final DeferredBlock<IceCreamDragonEggBlock> ICE_CREAM_DRAGON_EGG = BLOCKS.registerBlock("ice_cream_dragon_egg", IceCreamDragonEggBlock::new,
+            p -> p.mapColor(MapColor.COLOR_PINK).strength(3.0F, 9.0F).sound(SoundType.CALCITE).lightLevel(s -> 3).noOcclusion().pushReaction(PushReaction.BLOCK));
 
     private ModBlocks() {}
 }

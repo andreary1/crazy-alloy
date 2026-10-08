@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "id": "crazyalloy_revival:ice_cream_dragon_spawn_egg",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.crazyalloy_revival.dragon_killer.title"
+    },
+    "description": {
+      "translate": "advancements.crazyalloy_revival.dragon_killer.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "kill": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "crazyalloy_revival:ice_cream_dragon"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "crazyalloy_revival:visit_ice_cream_nest",
+  "rewards": {
+    "experience": 200
+  }
+}

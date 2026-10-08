@@ -13,6 +13,8 @@ public class RevivalRenderState extends LivingEntityRenderState {
     public boolean onGround;
     /** Aiming or combat stance, 0 to 1. */
     public float stance;
+    /** Texture variant (the ice cream flavour of a FlavoredMob). */
+    public int variant;
     public final AnimationState actionA = new AnimationState();
     public final AnimationState actionB = new AnimationState();
 

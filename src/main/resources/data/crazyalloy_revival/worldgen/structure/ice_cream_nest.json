@@ -1,0 +1,7 @@
+{
+  "type": "crazyalloy_revival:ice_cream_nest",
+  "biomes": "#crazyalloy_revival:has_structure/ice_cream_nest",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_box"
+}

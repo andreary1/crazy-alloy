@@ -82,6 +82,12 @@ public final class CrazyAlloyRevivalClient {
         event.registerLayerDefinition(ModModelLayers.ICE_CREAM_VENDOR, IceCreamVendorModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.IMPOSTOR_CAKE, ImpostorCakeModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.ICE_CREAM_MACHINE_LEVER, IceCreamMachineRenderer::createLeverLayer);
+        event.registerLayerDefinition(ModModelLayers.ICE_CREAM_ZOMBIE, com.crazyalloy.revival.client.model.IceCreamZombieModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.ICE_CREAM_BEAST, com.crazyalloy.revival.client.model.IceCreamBeastModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.ICE_CREAM_GARGOYLE, com.crazyalloy.revival.client.model.IceCreamGargoyleModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.LIVING_ICE_CREAM, com.crazyalloy.revival.client.model.LivingIceCreamModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.ANGRY_ICE_CREAM_CONE, com.crazyalloy.revival.client.model.AngryIceCreamConeModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.ICE_CREAM_DRAGON, com.crazyalloy.revival.client.model.IceCreamDragonModel::createBodyLayer);
     }
 
     @SubscribeEvent
@@ -115,9 +121,28 @@ public final class CrazyAlloyRevivalClient {
         event.registerEntityRenderer(ModEntities.IMPOSTOR_CAKE.get(),
                 c -> new RevivalMobRenderer<>(c, new ImpostorCakeModel(c.bakeLayer(ModModelLayers.IMPOSTOR_CAKE)), 0.55F, "impostor_cake", 1.0F));
         event.registerBlockEntityRenderer(ModBlockEntities.ICE_CREAM_MACHINE.get(), IceCreamMachineRenderer::new);
+        registerIceCreamDimension(event);
         event.registerEntityRenderer(ModEntities.BROWN_SUGAR_BRICK.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.GUMDROP_SHOT.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.JELLY_SNAKE_SHOT.get(), c -> new ThrownItemRenderer<>(c, 1.5F, false));
+    }
+
+    /** Stage 6 creatures. The zombie and the living ice cream pick one of four textures from their flavour variant. */
+    private static void registerIceCreamDimension(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(ModEntities.ICE_CREAM_ZOMBIE.get(), c -> new RevivalMobRenderer<>(c,
+                new com.crazyalloy.revival.client.model.IceCreamZombieModel(c.bakeLayer(ModModelLayers.ICE_CREAM_ZOMBIE)), 0.5F,
+                RevivalMobRenderer.flavorTextures("ice_cream_zombie"), 1.0F));
+        event.registerEntityRenderer(ModEntities.LIVING_ICE_CREAM.get(), c -> new RevivalMobRenderer<>(c,
+                new com.crazyalloy.revival.client.model.LivingIceCreamModel(c.bakeLayer(ModModelLayers.LIVING_ICE_CREAM)), 0.35F,
+                RevivalMobRenderer.flavorTextures("living_ice_cream"), 1.0F));
+        event.registerEntityRenderer(ModEntities.ICE_CREAM_BEAST.get(), c -> new RevivalMobRenderer<>(c,
+                new com.crazyalloy.revival.client.model.IceCreamBeastModel(c.bakeLayer(ModModelLayers.ICE_CREAM_BEAST)), 0.9F, "ice_cream_beast", 1.4F));
+        event.registerEntityRenderer(ModEntities.ICE_CREAM_GARGOYLE.get(), c -> new RevivalMobRenderer<>(c,
+                new com.crazyalloy.revival.client.model.IceCreamGargoyleModel(c.bakeLayer(ModModelLayers.ICE_CREAM_GARGOYLE)), 0.4F, "ice_cream_gargoyle", 1.2F));
+        event.registerEntityRenderer(ModEntities.ANGRY_ICE_CREAM_CONE.get(), c -> new RevivalMobRenderer<>(c,
+                new com.crazyalloy.revival.client.model.AngryIceCreamConeModel(c.bakeLayer(ModModelLayers.ANGRY_ICE_CREAM_CONE)), 0.35F, "angry_ice_cream_cone", 1.0F));
+        event.registerEntityRenderer(ModEntities.ICE_CREAM_DRAGON.get(), c -> new RevivalMobRenderer<>(c,
+                new com.crazyalloy.revival.client.model.IceCreamDragonModel(c.bakeLayer(ModModelLayers.ICE_CREAM_DRAGON)), 1.4F, "ice_cream_dragon", 2.4F));
     }
 
     @SubscribeEvent

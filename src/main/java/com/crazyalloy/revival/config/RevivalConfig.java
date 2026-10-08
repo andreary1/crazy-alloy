@@ -22,6 +22,9 @@ public final class RevivalConfig {
     public static final ModConfigSpec.EnumValue<StructureFrequency> GINGERBREAD_FORTRESS_FREQUENCY;
     public static final ModConfigSpec.BooleanValue GINGERBREAD_KING_IN_FORTRESSES;
     public static final ModConfigSpec.EnumValue<StructureFrequency> ICE_CREAM_TRUCK_FREQUENCY;
+    public static final ModConfigSpec.BooleanValue ICE_CREAM_PORTAL_ENABLED;
+    public static final ModConfigSpec.EnumValue<StructureFrequency> ICE_CREAM_NEST_FREQUENCY;
+    public static final ModConfigSpec.IntValue ICE_CREAM_PINNACLES;
 
     // Creature spawning
     public static final ModConfigSpec.DoubleValue CANDY_TUBE_DOG_SPAWN_CHANCE;
@@ -35,6 +38,11 @@ public final class RevivalConfig {
     public static final ModConfigSpec.DoubleValue ROLL_CAKE_MONSTER_SPAWN_CHANCE;
     public static final ModConfigSpec.DoubleValue BUBBALOO_CREEPER_SPAWN_CHANCE;
     public static final ModConfigSpec.DoubleValue IMPOSTOR_CAKE_SPAWN_CHANCE;
+    public static final ModConfigSpec.DoubleValue ICE_CREAM_ZOMBIE_SPAWN_CHANCE;
+    public static final ModConfigSpec.DoubleValue ICE_CREAM_BEAST_SPAWN_CHANCE;
+    public static final ModConfigSpec.DoubleValue ICE_CREAM_GARGOYLE_SPAWN_CHANCE;
+    public static final ModConfigSpec.DoubleValue LIVING_ICE_CREAM_SPAWN_CHANCE;
+    public static final ModConfigSpec.DoubleValue ANGRY_ICE_CREAM_CONE_SPAWN_CHANCE;
 
     // Difficulty
     public static final ModConfigSpec.DoubleValue MOB_HEALTH_MULTIPLIER;
@@ -50,6 +58,10 @@ public final class RevivalConfig {
     public static final ModConfigSpec.DoubleValue BROWN_SUGAR_RHINO_CHARGE_DAMAGE;
     public static final ModConfigSpec.BooleanValue IMPOSTOR_CAKE_DISGUISE;
     public static final ModConfigSpec.DoubleValue IMPOSTOR_CAKE_REVEAL_DISTANCE;
+    public static final ModConfigSpec.BooleanValue ICE_CREAM_BEAST_BUFFS;
+    public static final ModConfigSpec.IntValue ICE_CREAM_DRAGON_HEALTH;
+    public static final ModConfigSpec.IntValue ICE_CREAM_DRAGON_FIREBALL_POWER;
+    public static final ModConfigSpec.IntValue ICE_CREAM_DRAGON_MAX_CONES;
 
     // Machines
     public static final ModConfigSpec.DoubleValue CHOCOLATE_FACTORY_SPEED;
@@ -116,6 +128,19 @@ public final class RevivalConfig {
                 .translation("crazyalloy_revival.configuration.iceCreamTruckFrequency")
                 .worldRestart()
                 .defineEnum("iceCreamTruckFrequency", StructureFrequency.NORMAL);
+        ICE_CREAM_PORTAL_ENABLED = b
+                .comment("The Ice Cream Amulet can light Ice Cream Dimension portals (frames of Chocolate Ice Cream Blocks). If false the amulet does nothing and existing portals stop teleporting.")
+                .translation("crazyalloy_revival.configuration.iceCreamPortalEnabled")
+                .define("iceCreamPortalEnabled", true);
+        ICE_CREAM_NEST_FREQUENCY = b
+                .comment("How often Ice Cream Nests (the Ice Cream Dragon's arena, with its egg) appear in the Ice Cream Plains. DISABLED removes them from new chunks.")
+                .translation("crazyalloy_revival.configuration.iceCreamNestFrequency")
+                .worldRestart()
+                .defineEnum("iceCreamNestFrequency", StructureFrequency.NORMAL);
+        ICE_CREAM_PINNACLES = b
+                .comment("Attempts per chunk to grow a three-flavour ice cream pinnacle in the Ice Cream Plains (each attempt succeeds about one time in three). 0 disables them.")
+                .translation("crazyalloy_revival.configuration.iceCreamPinnacles")
+                .defineInRange("iceCreamPinnacles", 1, 0, 8);
         b.pop();
 
         b.comment("Creature spawning. Each value is the chance (0 to 1) that a natural spawn attempt is allowed.").translation("crazyalloy_revival.configuration.spawns").push("spawns");
@@ -152,6 +177,21 @@ public final class RevivalConfig {
         IMPOSTOR_CAKE_SPAWN_CHANCE = b
                 .translation("crazyalloy_revival.configuration.impostorCakeSpawnChance")
                 .defineInRange("impostorCakeSpawnChance", 1.0, 0.0, 1.0);
+        ICE_CREAM_ZOMBIE_SPAWN_CHANCE = b
+                .translation("crazyalloy_revival.configuration.iceCreamZombieSpawnChance")
+                .defineInRange("iceCreamZombieSpawnChance", 1.0, 0.0, 1.0);
+        ICE_CREAM_BEAST_SPAWN_CHANCE = b
+                .translation("crazyalloy_revival.configuration.iceCreamBeastSpawnChance")
+                .defineInRange("iceCreamBeastSpawnChance", 1.0, 0.0, 1.0);
+        ICE_CREAM_GARGOYLE_SPAWN_CHANCE = b
+                .translation("crazyalloy_revival.configuration.iceCreamGargoyleSpawnChance")
+                .defineInRange("iceCreamGargoyleSpawnChance", 1.0, 0.0, 1.0);
+        LIVING_ICE_CREAM_SPAWN_CHANCE = b
+                .translation("crazyalloy_revival.configuration.livingIceCreamSpawnChance")
+                .defineInRange("livingIceCreamSpawnChance", 1.0, 0.0, 1.0);
+        ANGRY_ICE_CREAM_CONE_SPAWN_CHANCE = b
+                .translation("crazyalloy_revival.configuration.angryIceCreamConeSpawnChance")
+                .defineInRange("angryIceCreamConeSpawnChance", 1.0, 0.0, 1.0);
         b.pop();
 
         b.comment("Difficulty of Crazy Alloy creatures, applied when they spawn.").translation("crazyalloy_revival.configuration.difficulty").push("difficulty");
@@ -205,6 +245,22 @@ public final class RevivalConfig {
                 .comment("How close (in blocks) a player must come before a disguised Impostor Cake opens its mouth.")
                 .translation("crazyalloy_revival.configuration.impostorCakeRevealDistance")
                 .defineInRange("impostorCakeRevealDistance", 4.0, 1.0, 16.0);
+        ICE_CREAM_BEAST_BUFFS = b
+                .comment("The Ice Cream Beast keeps renewing Speed, Strength, Resistance and Regeneration on itself while it has a target.")
+                .translation("crazyalloy_revival.configuration.iceCreamBeastBuffs")
+                .define("iceCreamBeastBuffs", true);
+        ICE_CREAM_DRAGON_HEALTH = b
+                .comment("Base health of the Ice Cream Dragon (before mobHealthMultiplier). Applies to dragons summoned after the change.")
+                .translation("crazyalloy_revival.configuration.iceCreamDragonHealth")
+                .defineInRange("iceCreamDragonHealth", 300, 20, 4000);
+        ICE_CREAM_DRAGON_FIREBALL_POWER = b
+                .comment("Explosion power of the Ice Cream Dragon's fireballs (a Ghast uses 1). 0 keeps the impact damage and fire but no explosion. Block damage follows the mobGriefing game rule.")
+                .translation("crazyalloy_revival.configuration.iceCreamDragonFireballPower")
+                .defineInRange("iceCreamDragonFireballPower", 1, 0, 4);
+        ICE_CREAM_DRAGON_MAX_CONES = b
+                .comment("The Ice Cream Dragon stops calling Angry Ice Cream Cones while this many are within 16 blocks. 0 disables the summon.")
+                .translation("crazyalloy_revival.configuration.iceCreamDragonMaxCones")
+                .defineInRange("iceCreamDragonMaxCones", 4, 0, 12);
         b.pop();
 
         b.translation("crazyalloy_revival.configuration.machines").push("machines");

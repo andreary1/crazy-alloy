@@ -6,10 +6,12 @@ import com.crazyalloy.revival.registry.ModBlocks;
 import com.crazyalloy.revival.registry.ModConditions;
 import com.crazyalloy.revival.registry.ModCreativeTabs;
 import com.crazyalloy.revival.registry.ModEntities;
+import com.crazyalloy.revival.registry.ModFeatures;
 import com.crazyalloy.revival.registry.ModFluids;
 import com.crazyalloy.revival.registry.ModItems;
 import com.crazyalloy.revival.registry.ModMenus;
 import com.crazyalloy.revival.registry.ModPlacementModifiers;
+import com.crazyalloy.revival.registry.ModPoiTypes;
 import com.crazyalloy.revival.registry.ModRecipes;
 import com.crazyalloy.revival.registry.ModSounds;
 import com.crazyalloy.revival.worldgen.ModWorldgen;
@@ -44,6 +46,9 @@ public final class CrazyAlloyRevival {
         ModCreativeTabs.TABS.register(modBus);
         ModPlacementModifiers.PLACEMENT_MODIFIERS.register(modBus);
         ModConditions.CONDITION_CODECS.register(modBus);
+        ModPoiTypes.POI_TYPES.register(modBus);
+        ModFeatures.FEATURES.register(modBus);
+        ModFeatures.STRUCTURE_TYPES.register(modBus);
 
         modBus.addListener(this::commonSetup);
     }

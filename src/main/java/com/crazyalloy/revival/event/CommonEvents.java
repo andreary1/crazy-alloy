@@ -65,6 +65,12 @@ public final class CommonEvents {
         event.put(ModEntities.ROLL_CAKE_MONSTER.get(), RollCakeMonster.createAttributes().build());
         event.put(ModEntities.BUBBALOO_CREEPER.get(), BubbalooCreeper.createAttributes().build());
         event.put(ModEntities.IMPOSTOR_CAKE.get(), ImpostorCake.createAttributes().build());
+        event.put(ModEntities.ICE_CREAM_ZOMBIE.get(), com.crazyalloy.revival.entity.IceCreamZombie.createAttributes().build());
+        event.put(ModEntities.LIVING_ICE_CREAM.get(), com.crazyalloy.revival.entity.LivingIceCream.createAttributes().build());
+        event.put(ModEntities.ICE_CREAM_BEAST.get(), com.crazyalloy.revival.entity.IceCreamBeast.createAttributes().build());
+        event.put(ModEntities.ICE_CREAM_GARGOYLE.get(), com.crazyalloy.revival.entity.IceCreamGargoyle.createAttributes().build());
+        event.put(ModEntities.ANGRY_ICE_CREAM_CONE.get(), com.crazyalloy.revival.entity.AngryIceCreamCone.createAttributes().build());
+        event.put(ModEntities.ICE_CREAM_DRAGON.get(), com.crazyalloy.revival.entity.IceCreamDragon.createAttributes().build());
     }
 
     @SubscribeEvent
@@ -85,6 +91,11 @@ public final class CommonEvents {
         ground(event, ModEntities.ROLL_CAKE_MONSTER.get(), RollCakeMonster::checkSpawnRules);
         ground(event, ModEntities.BUBBALOO_CREEPER.get(), BubbalooCreeper::checkSpawnRules);
         ground(event, ModEntities.IMPOSTOR_CAKE.get(), ImpostorCake::checkSpawnRules);
+        ground(event, ModEntities.ICE_CREAM_ZOMBIE.get(), com.crazyalloy.revival.entity.IceCreamZombie::checkSpawnRules);
+        ground(event, ModEntities.LIVING_ICE_CREAM.get(), com.crazyalloy.revival.entity.LivingIceCream::checkSpawnRules);
+        ground(event, ModEntities.ICE_CREAM_BEAST.get(), com.crazyalloy.revival.entity.IceCreamBeast::checkSpawnRules);
+        ground(event, ModEntities.ICE_CREAM_GARGOYLE.get(), com.crazyalloy.revival.entity.IceCreamGargoyle::checkSpawnRules);
+        ground(event, ModEntities.ANGRY_ICE_CREAM_CONE.get(), com.crazyalloy.revival.entity.AngryIceCreamCone::checkSpawnRules);
         event.register(ModEntities.JELLY_SHARK.get(), SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 JellyShark::checkSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }

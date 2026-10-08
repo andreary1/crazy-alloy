@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "crazyalloy_revival:block/ice_cream_portal_ns"
+    },
+    "axis=z": {
+      "model": "crazyalloy_revival:block/ice_cream_portal_ew"
+    }
+  }
+}

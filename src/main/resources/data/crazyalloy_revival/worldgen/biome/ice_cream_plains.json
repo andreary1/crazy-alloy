@@ -1,0 +1,99 @@
+{
+  "attributes": {
+    "minecraft:visual/sky_color": "#f8e6c8",
+    "minecraft:visual/fog_color": "#fdf1df",
+    "minecraft:visual/water_fog_color": "#5a321e",
+    "minecraft:visual/cloud_color": "#ccfff4fa",
+    "minecraft:audio/background_music": {
+      "default": {
+        "max_delay": 24000,
+        "min_delay": 12000,
+        "sound": "minecraft:music.overworld.cherry_grove"
+      }
+    },
+    "minecraft:visual/ambient_particles": [
+      {
+        "particle": {
+          "type": "minecraft:dust",
+          "color": 13219570,
+          "scale": 0.7
+        },
+        "probability": 0.0015
+      }
+    ]
+  },
+  "carvers": [
+    "minecraft:cave",
+    "minecraft:cave_extra_underground",
+    "minecraft:canyon"
+  ],
+  "downfall": 0.4,
+  "effects": {
+    "foliage_color": "#9fe7c8",
+    "grass_color": "#9fe7c8",
+    "water_color": "#7b4a2e"
+  },
+  "features": [
+    [],
+    [
+      "crazyalloy_revival:lake_melted_chocolate_underground",
+      "crazyalloy_revival:lake_melted_chocolate_ice_cream"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "crazyalloy_revival:ice_cream_pinnacles"
+    ],
+    []
+  ],
+  "has_precipitation": false,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "misc": [],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": [],
+    "creature": [
+      {
+        "type": "crazyalloy_revival:living_ice_cream",
+        "weight": 40,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "monster": [
+      {
+        "type": "crazyalloy_revival:ice_cream_zombie",
+        "weight": 160,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "crazyalloy_revival:ice_cream_gargoyle",
+        "weight": 25,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "crazyalloy_revival:ice_cream_beast",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      {
+        "type": "crazyalloy_revival:angry_ice_cream_cone",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ]
+  },
+  "temperature": 0.3
+}

@@ -1,0 +1,11 @@
+{
+  "type": "crazyalloy_revival:ice_cream",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "crazyalloy_revival:ice_cream",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "crazyalloy_revival:ice_cream_plains"
+    }
+  }
+}

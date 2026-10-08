@@ -3,7 +3,7 @@
 ![Crazy Alloy Title](https://cdn.modrinth.com/data/cached_images/2e42343b4b482a0ea86c9bf13aff7d562ea49014.png)
 
 Reconstrução e expansão do [Crazy Alloy](https://modrinth.com/mod/crazy-alloy) para **Minecraft Java 26.1.2** (NeoForge).
-Namespace: `crazyalloy_revival`. Versão atual: **0.5.0-alpha (Caverna de Doces, Bolo Impostor e Máquina de Sorvete)**.
+Namespace: `crazyalloy_revival`. Versão atual: **0.6.0-alpha (Dimensão do Sorvete e Dragão de Sorvete)**.
 As seções abaixo descrevem cada etapa na ordem em que entrou; as notas completas de cada versão ficam junto dos JARs.
 
 > Esta é uma versão alfa. Só o conteúdo listado em "Conteúdo implementado" existe; o restante do roteiro
@@ -20,7 +20,7 @@ As seções abaixo descrevem cada etapa na ordem em que entrou; as notas complet
 | Java | 25 (o launcher oficial já inclui) |
 
 1. Instale o NeoForge 26.1.2 no launcher.
-2. Coloque `crazyalloy_revival-26.1.2-0.5.0-alpha.jar` e o JAR do TerraBlender na pasta `mods`.
+2. Coloque `crazyalloy_revival-26.1.2-0.6.0-alpha.jar` e o JAR do TerraBlender na pasta `mods`.
 3. Em servidores dedicados, instale os mesmos dois JARs no servidor e em todos os clientes.
 
 O bioma só aparece em chunks gerados depois da instalação; terreno já explorado não é alterado.
@@ -176,6 +176,34 @@ gelo compactado e laje de quartzo liso.
 **Outras mudanças**: Tubarão de Gelatina e Rinoceronte de Açúcar Mascavo 25% maiores; Caminhões de Sorvete só na
 Floresta Doce; Botas Pesadas removidas.
 
+## Conteúdo da etapa 6 (0.6.0-alpha)
+
+**Acesso**: o Sorveteiro agora sobe de nível como um aldeão (1 a 5, com trocas novas a cada nível) e no nível 5 vende o
+**Amuleto de Sorvete** por 5 **Sorvetes Supremos**. Sorvete Supremo: grade 2x2 com Menta e Chocolate em cima, Baunilha e
+Morango embaixo. Bloco de Sorvete (4 sabores): 4 sorvetes iguais em 2x2. Sorvete de Menta: Máquina de Sorvete com Samambaia
+(proposta do revival) ou no Sorveteiro.
+
+**Portal**: moldura de Blocos de Sorvete de Chocolate como a do Nether (abertura mínima 2x3, moldura 4x5, cantos opcionais).
+Use o Amuleto na parte de dentro para acender. O portal leva à Dimensão do Sorvete e volta para o Mundo Normal (escala 1:1);
+se não houver portal do outro lado, uma moldura com plataforma é criada.
+
+**Dimensão do Sorvete / Planícies de Sorvete**: relevo no formato do Mundo Normal feito de sorvete: cobertura branca de
+baunilha, camadas de chocolate aparecendo nos cortes, manchas de morango e menta, lagos e mares de chocolate derretido
+(nível do mar 40), pináculos de três sabores (base branca, meio rosa, topo marrom, afinando em degraus), céu e névoa creme
+com um brilho lilás no ar.
+
+**Criaturas**: Zumbi de Sorvete (20 de vida), Fera de Sorvete (100 de vida, grande; renova Velocidade, Força,
+Resistência e Regeneração em combate), Gárgula de Sorvete (voa, 30 de vida, dano por contato), Sorvete Vivo (uma Casquinha
+nele dá o sorvete do sabor, gasta a casquinha e deixa uma Casquinha Raivosa no lugar). O Zumbi e o Sorvete Vivo têm um
+ovo gerador cada; o sabor (chocolate, baunilha, morango ou menta) é uma variante sorteada ao nascer, com textura, nome e
+sorvete próprios.
+
+**Ninho de Sorvete e Dragão de Sorvete**: plataforma de obsidiana com borda baixa sobre um monte de blocos de sorvete
+misturados, com escada e o Ovo do Dragão no centro, nas Planícies de Sorvete. Clique com o botão direito no ovo: 3 s depois
+(partículas e som) o ovo some e nasce o Dragão (300 de vida): mordida, rajadas de 3 bolas de fogo grandes, arrancada com
+Velocidade, Regeneração ao cair abaixo de 2/3 e 1/3 da vida e Casquinhas Raivosas chamadas com um rugido. Solta 10 a 15
+sorvetes de cada sabor e 5 a 10 Sorvetes Supremos; quem mata recebe a conquista Matador de Dragão.
+
 ## Configuração (`config/crazyalloy_revival-common.toml`, também editável em Mods > Config)
 
 | Opção | Padrão | Efeito |
@@ -196,6 +224,14 @@ Floresta Doce; Botas Pesadas removidas.
 | `difficulty.impostorCakeRevealDistance` | 4.0 | Distância em que o bolo se revela |
 | `machines.iceCreamMachineSpeed` | 1.0 | Velocidade da Máquina de Sorvete |
 | `machines.iceCreamMachineServingsPerBucket` | 4 | Porções por Balde de Leite |
+| `worldgen.iceCreamPortalEnabled` | true | O Amuleto acende portais e os portais funcionam |
+| `worldgen.iceCreamNestFrequency` | NORMAL | Frequência dos Ninhos de Sorvete (DISABLED, RARE, NORMAL, COMMON) |
+| `worldgen.iceCreamPinnacles` | 1 | Tentativas de pináculo por chunk (0 desliga) |
+| `spawns.iceCream*SpawnChance` / `livingIceCreamSpawnChance` / `angryIceCreamConeSpawnChance` | 1.0 | Surgimento das criaturas da dimensão |
+| `difficulty.iceCreamBeastBuffs` | true | A Fera renova os próprios efeitos |
+| `difficulty.iceCreamDragonHealth` | 300 | Vida base do Dragão |
+| `difficulty.iceCreamDragonFireballPower` | 1 | Força da explosão das bolas de fogo (0 = sem explosão) |
+| `difficulty.iceCreamDragonMaxCones` | 4 | Máximo de Casquinhas Raivosas chamadas perto do Dragão |
 
 ## Testes
 
@@ -221,6 +257,13 @@ Etapa 5 (6 testes novos, 34 no total): Bolo Impostor ignora jogador a 6 blocos, 
 se revela ao apanhar; Máquina de Sorvete faz 2 sorvetes de morango com um balde (sobra leite e o balde vazio);
 o Caminhão tem a máquina; Botas Pesadas fora do registro, Caminhão só na Floresta Doce, Creeper de Bubbaloo na
 caverna, tubarão e rinoceronte maiores. As notas da 0.5.0-alpha listam o que foi testado à mão.
+
+Etapa 6 (16 testes novos, 50 no total; inclui sabores como variantes e o tamanho da Fera e do Dragão): as 11 criaturas novas rodando IA (vida de zumbi, Fera e Gárgula); receitas do
+Sorvete Supremo e do bloco; Amuleto acende a moldura (e o portal some ao quebrar a moldura), não acende moldura incompleta
+nem de obsidiana; moldura de saída construída e acesa; Sorveteiro do nível 1 ao 5 vendendo o Amuleto; Casquinha no Sorvete
+Vivo; buffs da Fera; Gárgula acertando o alvo; ovo chocando o Dragão em 60 ticks; rajada de bolas de fogo; Regeneração e
+Casquinhas do Dragão; loot do Dragão; Ninho com ovo sobre obsidiana; registros, bioma e tags. O servidor de gametest não
+carrega dimensões de datapack, então a viagem pelo portal foi testada num servidor de desenvolvimento (ver as notas da 0.6.0-alpha).
 
 ## Recursos provisórios
 
@@ -250,10 +293,9 @@ A pasta `network/` ainda não existe porque a etapa 1 não precisa de pacotes pr
 ## Próximas etapas
 
 1. Demais biomas de doce.
-2. Dimensão de sorvete e Ice Cream Dragon.
-3. Conteúdo místico e magia.
-4. Conteúdo de cogumelos.
-5. Economia, recursos opcionais (incluindo AK47 configurável) e polimento.
+2. Conteúdo místico e magia.
+3. Conteúdo de cogumelos.
+4. Economia, recursos opcionais (incluindo AK47 configurável) e polimento.
 
 ## Créditos e licença
 

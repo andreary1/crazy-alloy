@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/dragon_egg",
+  "textures": {
+    "particle": "crazyalloy_revival:block/ice_cream_dragon_egg",
+    "all": "crazyalloy_revival:block/ice_cream_dragon_egg"
+  }
+}

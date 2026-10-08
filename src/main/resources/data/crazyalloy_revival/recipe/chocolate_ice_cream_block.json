@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": "crazyalloy_revival:chocolate_ice_cream"
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "id": "crazyalloy_revival:chocolate_ice_cream_block",
+    "count": 1
+  }
+}

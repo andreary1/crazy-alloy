@@ -16,6 +16,10 @@ public final class ModWorldgen {
     public static final ResourceKey<Biome> SWEET_FOREST = ResourceKey.create(Registries.BIOME, CrazyAlloyRevival.id("sweet_forest"));
     public static final ResourceKey<Biome> JELLY_BEAN_FIELDS = ResourceKey.create(Registries.BIOME, CrazyAlloyRevival.id("jelly_bean_fields"));
     public static final ResourceKey<Biome> CANDY_CAVE = ResourceKey.create(Registries.BIOME, CrazyAlloyRevival.id("candy_cave"));
+    public static final ResourceKey<Biome> ICE_CREAM_PLAINS = ResourceKey.create(Registries.BIOME, CrazyAlloyRevival.id("ice_cream_plains"));
+    /** The Ice Cream Dimension (stage 6), defined by data/crazyalloy_revival/dimension/ice_cream.json. */
+    public static final ResourceKey<net.minecraft.world.level.Level> ICE_CREAM_DIMENSION =
+            ResourceKey.create(Registries.DIMENSION, CrazyAlloyRevival.id("ice_cream"));
 
     private ModWorldgen() {}
 
