@@ -1,6 +1,6 @@
 # Crazy Alloy Revival Mod
 
-![mod logo](https://cdn.modrinth.com/data/cached_images/8e25f0b9ea80418fd447df0ea832edbd2ef1f7fe.png)
+![Crazy Alloy Title](https://cdn.modrinth.com/data/cached_images/2e42343b4b482a0ea86c9bf13aff7d562ea49014.png)
 
 Reconstrução e expansão do [Crazy Alloy](https://modrinth.com/mod/crazy-alloy) para **Minecraft Java 26.1.2** (NeoForge).
 Namespace: `crazyalloy_revival`. Versão atual: **0.5.0-alpha (Caverna de Doces, Bolo Impostor e Máquina de Sorvete)**.
